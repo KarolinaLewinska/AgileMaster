@@ -1,0 +1,7 @@
+{
+  "name": "AgileKey",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
