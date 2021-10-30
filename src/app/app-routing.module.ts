@@ -27,6 +27,14 @@ const routes: Routes = [
     path: 'change-passwd-confirm',
     loadChildren: () => import('./change-passwd-confirm/change-passwd-confirm.module').then( m => m.ChangePasswdConfirmPageModule)
   },
+  {
+    path: 'tasks-list',
+    loadChildren: () => import('./tasks-list/tasks-list.module').then( m => m.TasksListPageModule)
+  },
+  {
+    path: 'sign-up-confirm',
+    loadChildren: () => import('./sign-up-confirm/sign-up-confirm.module').then( m => m.SignUpConfirmPageModule)
+  },
 ];
 
 @NgModule({
