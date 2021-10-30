@@ -1,17 +1,14 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Zarejestruj się</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-icon [routerLink]="['/home']" id="backIcon" name="chevron-back-outline"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-header class="ion-no-border">
-    <ion-toolbar>
-      <ion-icon [routerLink]="['/home']" id="backIcon" name="chevron-back-outline"></ion-icon>
-    </ion-toolbar>
-  </ion-header>
-
   <ion-grid fixed>
+    <ion-row>
+      <ion-col><p id="viewTitle">Panel rejestracji</p></ion-col>
+    </ion-row>
     <ion-row>
       <ion-col id="texts" size="11"><p>Adres email:</p></ion-col>
     </ion-row>
@@ -19,7 +16,7 @@
       <ion-col id="inputs" size="11">
         <ion-item>
           <ion-label><ion-icon id="authIcons" name="mail-outline"></ion-icon></ion-label>
-          <ion-input></ion-input>
+          <ion-input required type="email" maxlength=320 minlength=3></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -30,7 +27,7 @@
       <ion-col id="inputs" size="11">
         <ion-item>
           <ion-label><ion-icon id="authIcons" name="key-outline"></ion-icon></ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input required type="password"  maxlength=128 minlength=8></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -41,7 +38,7 @@
       <ion-col id="inputs" size="11">
         <ion-item>
           <ion-label><ion-icon id="authIcons" name="checkmark-outline"></ion-icon></ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input required type="password"  maxlength=128 minlength=8></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>

@@ -1,7 +1,20 @@
 ion-icon {
     color:#707070;
 }
+
 #logOutIcon {
     font-size: 40px; 
-    padding-left: 3%;
+    padding-right: 4%;
+    float: right;
+    
+}
+#menuIcon {
+    font-size: 40px; 
+}
+ion-menu-button {
+    float: left; 
+    width: 60px;
+}
+ion-title {
+    color: dark;
 }

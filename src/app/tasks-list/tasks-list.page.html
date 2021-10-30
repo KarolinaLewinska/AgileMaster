@@ -1,13 +1,31 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Zadania</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-row>
+      <ion-col>
+        <ion-menu-button menu="navMenu"><ion-icon id="menuIcon" name="menu"></ion-icon></ion-menu-button>
+      </ion-col>
+      <ion-col>
+        <ion-icon id="logOutIcon" name="close-sharp"></ion-icon>
+      </ion-col>
+    </ion-row>
+   
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-header class="ion-no-border">
-    <ion-toolbar>
-      <ion-icon [routerLink]="['/sign-in']" id="logOutIcon" name="close-sharp"></ion-icon>
+  <ion-menu side="start" menuId="navMenu" contentId="menuIcon" class="my-custom-menu">
+  <ion-header>
+    <ion-toolbar color="secondary">
+      <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>Terminarz spotkań</ion-item>
+      <ion-item>Zespoły</ion-item>
+      <ion-item>Statystyki</ion-item>
+      <ion-item>Ustawienia</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
 </ion-content>

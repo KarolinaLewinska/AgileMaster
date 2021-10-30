@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tasks-list',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TasksListPage implements OnInit {
 
-  constructor() { }
+  constructor(private menuController: MenuController) { }
+  openMenu() {
+    this.menuController.enable(true, 'navMenu');
+    this.menuController.open('navMenu');
+  }
 
   ngOnInit() {
   }
