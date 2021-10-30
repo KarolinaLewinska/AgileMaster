@@ -1,27 +1,28 @@
-#container {
+#logo {
   text-align: center;
-
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 25%;
 }
 
-#container strong {
+#logo strong {
   font-size: 20px;
   line-height: 26px;
 }
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+ion-grid {
+  text-align: center;
+  top: 50%;
+  position: absolute;
+}
+ion-col {
+  padding: 5%;
 }
 
-#container a {
-  text-decoration: none;
+ion-button {
+  width: 70%;
+  height: 150%;
+}
+.underline {
+  text-decoration: underline;
 }
