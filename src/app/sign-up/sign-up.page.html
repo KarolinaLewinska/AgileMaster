@@ -1,6 +1,13 @@
 <ion-header>
   <ion-toolbar color="secondary">
-    <ion-icon [routerLink]="['/home']" id="backIcon" name="chevron-back-outline"></ion-icon>
+      <ion-row>
+        <ion-col>
+          <ion-icon [routerLink]="['/home']" id="backIcon" name="chevron-back-outline"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-icon [routerLink]="['/sign-in']" id="signInIcon" name="log-in"></ion-icon>
+        </ion-col>
+      </ion-row>
   </ion-toolbar>
 </ion-header>
 

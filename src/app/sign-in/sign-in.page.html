@@ -4,6 +4,9 @@
       <ion-col>
         <ion-icon [routerLink]="['/home']" id="backIcon" name="chevron-back-outline"></ion-icon>
       </ion-col>
+      <ion-col>
+        <ion-icon id="signUpIcon" [routerLink]="['/sign-up']" name="person-add"></ion-icon>
+      </ion-col>
     </ion-row>
   </ion-toolbar>
 </ion-header>
@@ -37,7 +40,7 @@
     </ion-row>
     <ion-row>
         <ion-col offset-xl size="12">
-            <ion-button [routerLink]="['/tasks-list']">Zaloguj się</ion-button>
+            <ion-button [routerLink]="['/tasks']">Zaloguj się</ion-button>
         </ion-col>
     </ion-row>
   </ion-grid>

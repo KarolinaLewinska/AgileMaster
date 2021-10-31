@@ -28,12 +28,28 @@ const routes: Routes = [
     loadChildren: () => import('./change-passwd-confirm/change-passwd-confirm.module').then( m => m.ChangePasswdConfirmPageModule)
   },
   {
-    path: 'tasks-list',
-    loadChildren: () => import('./tasks-list/tasks-list.module').then( m => m.TasksListPageModule)
+    path: 'tasks',
+    loadChildren: () => import('./tasks/tasks.module').then( m => m.TasksListPageModule)
   },
   {
     path: 'sign-up-confirm',
     loadChildren: () => import('./sign-up-confirm/sign-up-confirm.module').then( m => m.SignUpConfirmPageModule)
+  },
+  {
+    path: 'events',
+    loadChildren: () => import('./events/events.module').then( m => m.EventsPageModule)
+  },
+  {
+    path: 'teams',
+    loadChildren: () => import('./teams/teams.module').then( m => m.TeamsPageModule)
+  },
+  {
+    path: 'statistics',
+    loadChildren: () => import('./statistics/statistics.module').then( m => m.StatisticsPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
   },
 ];
 
