@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+      <ion-row>
+        <ion-col>
+          <ion-icon [routerLink]="['/home']" id="backIcon" name="chevron-back-outline"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-icon [routerLink]="['/sign-in']" id="signInIcon" name="log-in"></ion-icon>
+        </ion-col>
+      </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col><p id="viewTitle">Panel rejestracji</p></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col id="texts" size="11"><p>Adres email:</p></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col id="inputs" size="11">
+        <ion-item>
+          <ion-label><ion-icon id="authIcons" name="mail-outline"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="userData.email" required type="email" maxlength=320 minlength=3></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col id="texts" size="11"><p>Hasło:</p></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col id="inputs" size="11">
+        <ion-item>
+          <ion-label><ion-icon id="authIcons" name="key-outline"></ion-icon></ion-label>
+          <ion-input id="passwd" [(ngModel)]="userData.password" required type="password"  maxlength=128 minlength=6></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col id="texts" size="11"><p>Powtórz Hasło:</p></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col id="inputs" size="11">
+        <ion-item>
+          <ion-label><ion-icon id="authIcons" name="checkmark-outline"></ion-icon></ion-label>
+          <ion-input id="passwdConfirm" required type="password"  maxlength=128 minlength=6></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12">
+            <ion-button (click)="signUpUser(userData)">Zarejestruj się</ion-button>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

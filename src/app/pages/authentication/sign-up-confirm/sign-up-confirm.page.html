@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-icon [routerLink]="['/home']" id="backIcon" name="chevron-back-outline"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col><p id="viewTitle">Panel rejestracji</p></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12"><p>Rejestracja przebiegła pomyślnie!</p></ion-col>
+    </ion-row>
+    <i-row>
+      <ion-col size="12">
+        <ion-icon id="successIcon"name="checkmark-sharp"></ion-icon>
+      </ion-col>
+    </i-row>
+    <ion-row>
+      <ion-col size="12"><p>Teraz możesz się zalogować</p></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button [routerLink]="['/sign-in']">Zaloguj się</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

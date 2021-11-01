@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-icon [routerLink]="['/reset-password']" id="backIcon" name="chevron-back-outline"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12"><p id="viewTitle">Wysłano wiadomość</p></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><ion-icon id="sentIcon" name="mail-unread-outline"></ion-icon></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12"><p>Na podany adres email został wysłany link do zmiany hasła</p></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button [routerLink]="['/sign-in']">Zaloguj się</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

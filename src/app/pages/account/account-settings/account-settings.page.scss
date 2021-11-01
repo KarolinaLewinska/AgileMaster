@@ -1,0 +1,47 @@
+ion-grid {
+    text-align: center;
+    top: 10%;
+    position: absolute;
+}
+
+ion-menu-button {
+    float: left; 
+    width: 60px;
+}
+
+ion-col {
+    text-align: center;
+}
+
+#logOutIcon {
+    font-size: 40px; 
+    padding-right: 4%;
+    float: right; 
+    color:#707070;
+}
+
+#menuIcon {
+    font-size: 40px; 
+    color:#707070;
+}
+
+#viewTitle {
+    text-align: center;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#optionTitle {
+    text-align: center;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ion-button {
+    height: 80px;
+}
+
+#optionIcon {
+    font-size: 80px; 
+    color: #cec8ef;
+}

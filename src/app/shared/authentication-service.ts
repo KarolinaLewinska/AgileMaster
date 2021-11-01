@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { NavController } from '@ionic/angular';
+import firebase from 'firebase/compat/app';
 
 @Injectable({
   providedIn: 'root',
@@ -42,6 +43,14 @@ export class UserAuthenticationService {
 
   sendEmailToResetPassword(email) {
     return this.angularFireAuth.sendPasswordResetEmail(email);
+  }
+
+  updateUserEmail(email) {
+    firebase.auth().currentUser.reauthenticateWithPopup;
+    return firebase.auth().currentUser.updateEmail(email)
+    .then((result) => {
+      this.navController.navigateBack('account-settings');
+    });
   }
 
   //może niepotrzebne
