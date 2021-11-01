@@ -24,7 +24,7 @@
       <ion-col id="inputs" size="11">
         <ion-item>
           <ion-label><ion-icon id="authIcons" name="mail-outline"></ion-icon></ion-label>
-          <ion-input required type="email" maxlength=320 minlength=3></ion-input>
+          <ion-input [(ngModel)]="userData.email" required type="email" maxlength=320 minlength=3></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -35,7 +35,7 @@
       <ion-col id="inputs" size="11">
         <ion-item>
           <ion-label><ion-icon id="authIcons" name="key-outline"></ion-icon></ion-label>
-          <ion-input required type="password"  maxlength=128 minlength=8></ion-input>
+          <ion-input id="passwd" [(ngModel)]="userData.password" required type="password"  maxlength=128 minlength=8></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -46,13 +46,13 @@
       <ion-col id="inputs" size="11">
         <ion-item>
           <ion-label><ion-icon id="authIcons" name="checkmark-outline"></ion-icon></ion-label>
-          <ion-input required type="password"  maxlength=128 minlength=8></ion-input>
+          <ion-input id="passwdConfirm" required type="password"  maxlength=128 minlength=8></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
         <ion-col offset-xl size="12">
-            <ion-button [routerLink]="['/sign-up-confirm']">Zarejestruj się</ion-button>
+            <ion-button (click)="signUpUser(userData)">Zarejestruj się</ion-button>
         </ion-col>
     </ion-row>
   </ion-grid>

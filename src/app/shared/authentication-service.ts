@@ -38,7 +38,7 @@ export class UserAuthenticationService {
   signUpWithEmailAndPassword(email, password) {
     return this.angularFireAuth.createUserWithEmailAndPassword(email, password)
     .then((result) => {
-      this.navController.navigateBack('sign-in');
+      this.navController.navigateBack('sign-up-confirm');
     });
   }
 
