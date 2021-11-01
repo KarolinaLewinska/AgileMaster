@@ -25,7 +25,8 @@ export class SignUpPage implements OnInit {
   async signUpUser(userData: UserData) {
     if (this.checkIfInputsAreNotEmpty() && this.checkIfPasswordIsValidated()) {
       const loadingDialog = this.loadingController.create({
-        message: 'Trwa przetwarzanie...'
+        message: 'Trwa przetwarzanie...',
+        duration: 3000
       });
       (await loadingDialog).present();
 
@@ -54,7 +55,8 @@ export class SignUpPage implements OnInit {
             this.showFieldValidationAlert(headerErrorMessage, errorMessage);
             this.navController.navigateBack('sign-up');
             break;
-          } default: {
+          } 
+          default: {
             errorMessage = error.message;
             this.showFieldValidationAlert(headerErrorMessage, errorMessage);
             this.navController.navigateBack('sign-up');
@@ -82,20 +84,12 @@ export class SignUpPage implements OnInit {
     var passwdValue = (<HTMLInputElement>document.getElementById('passwd')).value;
     var passwdConfirmValue = (<HTMLInputElement>document.getElementById('passwdConfirm')).value;
     const headerErrorMessage = 'Nieprawidłowe hasło';
-    if (passwdValue.length < 8 ) {
-      this.showFieldValidationAlert(headerErrorMessage,'Hasło musi zawierać co najmniej 8 znaków');
+    if (passwdValue.length < 6 ) {
+      this.showFieldValidationAlert(headerErrorMessage,'Hasło musi zawierać co najmniej 6 znaków');
       return false;
     }
     if (passwdValue.search(/.*?[A-Z]/)) {
       this.showFieldValidationAlert(headerErrorMessage,'Hasło musi zawierać co najmniej jedną dużą literę');
-      return false;
-    }
-    if (passwdValue.search(/.*?[0-9]/)) {
-      this.showFieldValidationAlert(headerErrorMessage,'Hasło musi zawierać co najmniej jedną cyfrę');
-      return false;
-    }
-    if (passwdValue.search(/.*?[!@#$%^&*]/)) {
-      this.showFieldValidationAlert(headerErrorMessage,'Hasło musi zawierać co najmniej jeden znak specjalny');
       return false;
     }
     if (passwdValue != passwdConfirmValue) {

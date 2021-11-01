@@ -35,7 +35,7 @@
       <ion-col id="inputs" size="11">
         <ion-item>
           <ion-label><ion-icon id="authIcons" name="key-outline"></ion-icon></ion-label>
-          <ion-input id="passwd" [(ngModel)]="userData.password" required type="password"  maxlength=128 minlength=8></ion-input>
+          <ion-input id="passwd" [(ngModel)]="userData.password" required type="password"  maxlength=128 minlength=6></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -46,7 +46,7 @@
       <ion-col id="inputs" size="11">
         <ion-item>
           <ion-label><ion-icon id="authIcons" name="checkmark-outline"></ion-icon></ion-label>
-          <ion-input id="passwdConfirm" required type="password"  maxlength=128 minlength=8></ion-input>
+          <ion-input id="passwdConfirm" required type="password"  maxlength=128 minlength=6></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
