@@ -1,9 +1,48 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>delete-account</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-row>
+      <ion-col>
+        <ion-icon [routerLink]="['/account-settings']" id="backIcon" name="chevron-back-outline"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon [routerLink]="['/sign-in']" id="logOutIcon" name="close-sharp"></ion-icon>
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col><p id="viewTitle">Usunięcie konta</p></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col id="texts" size="11"><p>Podaj hasło:</p></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col id="inputs" size="11">
+        <ion-item>
+          <ion-label><ion-icon id="authIcons" name="lock-closed"></ion-icon></ion-label>
+          <ion-input id="passwd" required type="password" maxlength=320 minlength=6></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col id="texts" size="11"><p>Powtórz hasło:</p></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col id="inputs" size="11">
+        <ion-item>
+          <ion-label><ion-icon id="authIcons" name="checkmark-sharp"></ion-icon></ion-label>
+          <ion-input id="passwdConfirm" required type="password" maxlength=320 minlength=6></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+          <ion-button>Usuń</ion-button>
+      </ion-col>
+  </ion-row>
+  </ion-grid>
 </ion-content>
+
