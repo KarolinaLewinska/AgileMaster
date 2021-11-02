@@ -46,8 +46,15 @@ export class UserAuthenticationService {
   }
 
   updateUserEmail(email) {
-    firebase.auth().currentUser.reauthenticateWithPopup;
+    firebase.auth().currentUser.reauthenticateWithCredential; //to moze trzeba będzie wyłączyć jak pole z hasłem dodamy
     return firebase.auth().currentUser.updateEmail(email)
+    .then((result) => {
+      this.navController.navigateBack('account-settings');
+    });
+  }
+
+  updateUserPassword(password) {
+    return firebase.auth().currentUser.updatePassword(password)
     .then((result) => {
       this.navController.navigateBack('account-settings');
     });
