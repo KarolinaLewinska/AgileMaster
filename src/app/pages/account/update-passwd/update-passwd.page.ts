@@ -1,32 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, LoadingController, NavController } from '@ionic/angular';
 import { UserAuthenticationService } from '../../../shared/authentication-service';
-import { UserData } from '../../../model/user-data';
-import firebase from '@firebase/app-compat';
 @Component({
   selector: 'app-update-passwd',
   templateUrl: './update-passwd.page.html',
   styleUrls: ['./update-passwd.page.scss'],
 })
 export class UpdatePasswdPage implements OnInit {
-  userData = {
-    
-  } as UserData;
 
   constructor(private alertController: AlertController,
     private loadingController: LoadingController,
-    private navController: NavController,
     private userAuthenticationService: UserAuthenticationService) { }
 
   ngOnInit() {
   }
 
   async updateUserPassword() {
+    var oldPasswd = (<HTMLInputElement>document.getElementById('oldPasswd')).value;
     var newPasswd = (<HTMLInputElement>document.getElementById('newPasswd')).value;
-    const headerSuccessMessage = 'Zmiana hasła';
-    const successMessage = 'Pomyślnie zmieniono hasło';
+    var newPasswdConfirm = (<HTMLInputElement>document.getElementById('newPasswdConfirm')).value;
 
-    if (this.checkIfPasswordIsNotEmpty()) {
+    if (this.checkIfFieldsAreNotEmpty()) {
       const loadingDialog = this.loadingController.create({
         message: 'Trwa przetwarzanie...',
         duration: 3000
@@ -34,61 +28,29 @@ export class UpdatePasswdPage implements OnInit {
       (await loadingDialog).present();
 
       try {
-        if (this.reauthenticatePassword()) {
-          await this.userAuthenticationService.updateUserPassword(newPasswd)
-          .then((result) => {
-            this.showFieldValidationAlert(headerSuccessMessage, successMessage);
-          });
-        } else {
-          this.showFieldValidationAlert("Błąd zmiany hasła","Błąd błąd");
-        }
+        this.userAuthenticationService.reauthenticateAndUpdateUserPassword(oldPasswd, newPasswd);
       }
       catch(error) {
         const headerErrorMessage = 'Błąd uwierzytelniania';
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        
-        switch (errorCode) {
-          case 'auth/internal-error': {
-            errorMessage = 'Nieoczekiwany błąd serwera';
-            this.showFieldValidationAlert(headerErrorMessage, errorMessage);
-            this.navController.navigateBack('update-password');
-            break;
-          } 
-          default: {
-            errorMessage = 'Nieprawidłowy format hasła email';
-            this.showFieldValidationAlert(headerErrorMessage, errorMessage);
-            this.navController.navigateBack('update-password');
-            break;
-          }
-        }
+        this.showFieldValidationAlert("Błąd zmiany hasła","Błąd błąd");
       }
       (await loadingDialog).dismiss();  
     }
   }
-  checkIfPasswordIsNotEmpty() {
+  checkIfFieldsAreNotEmpty() {
     var oldPasswd = (<HTMLInputElement>document.getElementById('oldPasswd')).value;
     var newPasswd = (<HTMLInputElement>document.getElementById('newPasswd')).value;
-    if (!oldPasswd || !newPasswd) {
-      this.showFieldValidationAlert('Pole wymagane', 'Wprowadź hasło');
+    var newPasswdConfirm = (<HTMLInputElement>document.getElementById('newPasswdConfirm')).value;
+    
+    if (!oldPasswd || !newPasswd || !newPasswdConfirm) {
+      this.showFieldValidationAlert('Pola wymagane', 'Wypełnij wszystkie pola');
       return false;
     }
     return true;
   }
 
-  //działa zmiana, ale komunikaty się powielają i są źle
-  async reauthenticatePassword() {
-    var oldPasswd = (<HTMLInputElement>document.getElementById('oldPasswd')).value;
-    var user = firebase.auth().currentUser;
-    var credential = firebase.auth.EmailAuthProvider.credential(firebase.auth().currentUser.email, oldPasswd)
-    user.reauthenticateWithCredential(credential).then(function() {
-      return true;
-    });
-    return false;
-
-  }
-
-  async showFieldValidationAlert(headerValue: string, messageValue: string) {
+  //todo: trzeba to wydzielić 
+  public async showFieldValidationAlert(headerValue: string, messageValue: string) {
     const alertDialog = await this.alertController.create({
       cssClass: 'validationAlert',
       header: headerValue,

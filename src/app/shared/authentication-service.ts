@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import firebase from 'firebase/compat/app';
 
 @Injectable({
@@ -13,7 +13,8 @@ export class UserAuthenticationService {
 
   constructor(
     public angularFireAuth: AngularFireAuth,
-    public navController: NavController) {
+    public navController: NavController,
+    public alertController: AlertController) {
       this.angularFireAuth.authState.subscribe((user) => {
       if (user) {
         this.dataOfUser = user;
@@ -53,18 +54,38 @@ export class UserAuthenticationService {
     });
   }
 
-  updateUserPassword(password) {
-    return firebase.auth().currentUser.updatePassword(password)
-    .then((result) => {
-      this.navController.navigateBack('account-settings');
-    });
-  }
 
+  //działa ale brzydki kod trzbea przejrzec
+  async reauthenticateAndUpdateUserPassword(oldPassword, newPassword) {
+    const currentUser = await firebase.auth().currentUser;
+    const userData = firebase.auth.EmailAuthProvider.credential(firebase.auth().currentUser.email, oldPassword)
+    var authUserResult = await currentUser.reauthenticateWithCredential(userData)
+      .then(() => {
+        firebase.auth().currentUser.updatePassword(newPassword);
+        this.showFieldValidationAlert('Zmiana hasła', 'Pomyślnie zmieniono hasło');
+
+      }). catch((error) => {
+        this.showFieldValidationAlert("Błąd zmiany hasła","Błąd błąd");
+      });
+        
+  }
   //może niepotrzebne
   checkIfUserIsLoggedIn() {
     if (this.isLoggedIn == true) {
       return true;
     }
     return false;
+  }
+
+  async showFieldValidationAlert(headerValue: string, messageValue: string) {
+    const alertDialog = await this.alertController.create({
+      cssClass: 'validationAlert',
+      header: headerValue,
+      message: messageValue,
+      buttons: ['OK']
+    });
+    await alertDialog.present();
+
+    await alertDialog.onDidDismiss();
   }
 }
