@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserAuthenticationService } from '../../shared/authentication-service';
+import { UserAuthenticationService } from '../../services/authentication-service';
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.page.html',

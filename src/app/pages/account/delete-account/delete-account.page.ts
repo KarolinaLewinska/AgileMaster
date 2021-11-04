@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserAuthenticationService } from '../../../shared/authentication-service';
+import { UserAuthenticationService } from '../../../services/authentication-service';
 import { AppComponent } from '../../../app.component';
-import { ValidationService } from '../../../shared/validation-service';
+import { ValidationService } from '../../../services/validation-service';
 
 @Component({
   selector: 'app-delete-account',
