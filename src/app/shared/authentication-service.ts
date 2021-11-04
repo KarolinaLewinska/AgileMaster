@@ -29,7 +29,7 @@ export class UserAuthenticationService {
     });
   }
   
-  signInWithEmailAndPassword(email, password) {
+  signInWithEmailAndPassword(email: string, password: string) {
     this.isLoggedIn = true; //może nie trzeba
     return this.angularFireAuth.signInWithEmailAndPassword(email, password)
     .then((auth) => {
@@ -41,7 +41,7 @@ export class UserAuthenticationService {
     });
   }
 
-  signUpWithEmailAndPassword(email, password) {
+  signUpWithEmailAndPassword(email: string, password: string) {
     return this.angularFireAuth.createUserWithEmailAndPassword(email, password);
   }
 
@@ -55,7 +55,7 @@ export class UserAuthenticationService {
     });
   }
 
-  sendEmailToResetPassword(email) {
+  sendEmailToResetPassword(email: string) {
     return this.angularFireAuth.sendPasswordResetEmail(email);
   }
 
@@ -97,14 +97,15 @@ export class UserAuthenticationService {
     });
   }
 
-  deleteAccount() {
-    deleteUser(firebase.auth().currentUser)
+  reauthenticateAndDeleteUserAccount(oldPassword: string) {
+    this.reauthenticateCurrentUser(oldPassword)
       .then(() => {
+        deleteUser(firebase.auth().currentUser);
         this.appComponent.showFieldValidationAlert('Usunięto konto', 'Konto zostało usunięte');
         this.navController.navigateBack('home');
       })
       .catch(() => {
-        this.appComponent.showFieldValidationAlert('Błąd', 'Wystąpił błąd podczas próby usunięcia konta');
+        this.appComponent.showFieldValidationAlert('Błąd','Nieprawidłowa wartość obecnego hasła');
       });
   }
   

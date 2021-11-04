@@ -23,8 +23,8 @@ export class ValidationService {
     return true;
   }
 
-  checkIfPasswdFieldsAreNotEmpty(oldPasswdValue: string, newPasswdValue: string, newPasswdConfirmValue: string) {
-    if (!oldPasswdValue || !newPasswdValue || !newPasswdConfirmValue) {
+  checkIfPasswdFieldsAreNotEmpty(firstValue: string, secondValue: string, thirdValue?: string) {
+    if (!firstValue || !secondValue || (thirdValue != null && !thirdValue)) {
       this.appComponent.showFieldValidationAlert('Pola wymagane', 'Wypełnij wszystkie pola');
       return false;
     }
