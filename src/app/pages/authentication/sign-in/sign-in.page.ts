@@ -26,7 +26,7 @@ export class SignInPage implements OnInit {
     const userEmail = userData.email;
     const userPassword = userData.password;
     
-    if (this.validationService.checkIfFieldsAreNotEmpty(userEmail, userPassword)) {
+    if (this.validationService.checkIfAuthFieldsAreNotEmpty(userEmail, userPassword)) {
       const loadingDialog = this.loadingController.create({
         message: 'Trwa przetwarzanie...',
         duration: 3000

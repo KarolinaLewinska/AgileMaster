@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, LoadingController, NavController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import { UserAuthenticationService } from '../../../shared/authentication-service';
 import { AppComponent } from '../../../app.component';
+import { ValidationService } from '../../../shared/validation-service';
 @Component({
   selector: 'app-update-passwd',
   templateUrl: './update-passwd.page.html',
@@ -11,7 +12,8 @@ export class UpdatePasswdPage implements OnInit {
 
   constructor(private appComponent: AppComponent,
     private loadingController: LoadingController,
-    private userAuthenticationService: UserAuthenticationService) { }
+    private userAuthenticationService: UserAuthenticationService,
+    private validationService: ValidationService) { }
 
   ngOnInit() {
   }
@@ -21,7 +23,9 @@ export class UpdatePasswdPage implements OnInit {
     var newPasswd = (<HTMLInputElement>document.getElementById('newPasswd')).value;
     var newPasswdConfirm = (<HTMLInputElement>document.getElementById('newPasswdConfirm')).value;
 
-    if (this.checkIfFieldsAreNotEmpty()) {
+    if (this.validationService.checkIfPasswdFieldsAreNotEmpty(oldPasswd, newPasswd, newPasswdConfirm) 
+      && this.validationService.checkIfPasswordIsValidated(newPasswd, newPasswdConfirm)) {
+      
       const loadingDialog = this.loadingController.create({
         message: 'Trwa przetwarzanie...',
         duration: 3000
@@ -32,21 +36,9 @@ export class UpdatePasswdPage implements OnInit {
         this.userAuthenticationService.reauthenticateAndUpdateUserPassword(oldPasswd, newPasswd);
       }
       catch(error) {
-        const headerErrorMessage = 'Błąd uwierzytelniania';
-        this.appComponent.showFieldValidationAlert("Błąd zmiany hasła","Błąd błąd");
+        this.appComponent.showFieldValidationAlert('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby zmiany hasła');
       }
       (await loadingDialog).dismiss();  
     }
-  }
-  checkIfFieldsAreNotEmpty() {
-    var oldPasswd = (<HTMLInputElement>document.getElementById('oldPasswd')).value;
-    var newPasswd = (<HTMLInputElement>document.getElementById('newPasswd')).value;
-    var newPasswdConfirm = (<HTMLInputElement>document.getElementById('newPasswdConfirm')).value;
-    
-    if (!oldPasswd || !newPasswd || !newPasswdConfirm) {
-      this.appComponent.showFieldValidationAlert('Pola wymagane', 'Wypełnij wszystkie pola');
-      return false;
-    }
-    return true;
   }
 }
