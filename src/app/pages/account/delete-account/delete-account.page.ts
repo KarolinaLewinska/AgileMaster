@@ -21,18 +21,16 @@ export class DeleteAccountPage implements OnInit {
   async deleteUserAccount() {
     var currentUserPasswd = (<HTMLInputElement>document.getElementById('passwd')).value;
     var confirmCurrentUserPasswd = (<HTMLInputElement>document.getElementById('passwdConfirm')).value;
-    
+    var wantsToDelete = true;
     if (this.validationService.checkIfPasswdFieldsAreNotEmpty(currentUserPasswd, confirmCurrentUserPasswd)
       && this.validationService.checkIfPasswordAndConfirmAreEqual(currentUserPasswd, confirmCurrentUserPasswd)) {
       
-      if (true) {
-        const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButtons('Usuń konto', 'Czy na pewno chcesz usunąć konto?');
+      if (wantsToDelete) {
+        const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButton('Usuń konto', 'Czy na pewno chcesz usunąć konto?');
         if (!dialog) {
           return;
         }
       }
-      
-      //this.appComponent.showAlertDialogWithConfirmAndCancelButtons(dialog);
       
       try {
         this.appComponent.createLoadingDialog();
@@ -42,10 +40,6 @@ export class DeleteAccountPage implements OnInit {
         this.appComponent.showFieldValidationAlert('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia konta');
       }
       this.appComponent.hideLoadingDialog();
-      //this.appComponent.hideAlertWithConfirm(dialog);
     }
-   
   }
-
-  
 }

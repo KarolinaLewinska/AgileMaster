@@ -105,8 +105,8 @@ export class UserAuthenticationService {
         this.navController.navigateBack('home');
       })
       .catch(() => {
-        this.appComponent.showFieldValidationAlert('Błąd','Nieprawidłowa wartość obecnego hasła');
-        
+        this.appComponent.showFieldValidationAlert('Błąd','Nieprawidłowa wartość bieżącego hasła');
+
       });
   }
   

@@ -22,9 +22,9 @@ export class AppComponent {
     await alertDialog.onDidDismiss();
   }
 
-  async createAndShowAlertDialogWithConfirmAndCancelButtons(headerValue: string, messageValue: string) {
-    return new Promise (async (resolve) => {
-      const alertDialog = this.alertController.create({
+  async createAndShowAlertDialogWithConfirmAndCancelButton(headerValue: string, messageValue: string) {
+    return new Promise (async (result) => {
+      const alertDialogWithConfirm = this.alertController.create({
         cssClass: 'alert',
         header: headerValue, 
         message: messageValue,
@@ -32,28 +32,18 @@ export class AppComponent {
         {
           text: 'Nie',
           role: 'cancel', 
-          cssClass: 'secondary',
           handler: () => {
-            return resolve(false);
+            return result(false);
           }
         },
         {
           text: 'Tak',
-          cssClass: 'secondary',
           handler: () => {
-            return resolve(true);
+            return result(true);
         }
         }]});
-      (await alertDialog).present()
+      (await alertDialogWithConfirm).present()
     });
-  }
-
-  // async showAlertDialogWithConfirmAndCancelButtons(alertDialog) {
-  //   await alertDialog.present();
-  // }
-  
-  async hideAlertWithConfirm(alertDialog) {
-    await alertDialog.onDidDismiss();
   }
 
   async createLoadingDialog() {
