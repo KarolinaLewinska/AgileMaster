@@ -7,8 +7,8 @@ import { UserAuthenticationService } from '../../../shared/authentication-servic
   styleUrls: ['./account-settings.page.scss'],
 })
 export class AccountSettingsPage implements OnInit {
-
-  constructor(private userAuthenticationService: UserAuthenticationService) { }
+  constructor(
+    private userAuthenticationService: UserAuthenticationService) { }
 
   ngOnInit() {
   }

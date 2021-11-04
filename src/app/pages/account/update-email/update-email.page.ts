@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
 import { UserAuthenticationService } from '../../../shared/authentication-service';
-import { UserData } from '../../../model/user-data';
 import { AppComponent } from '../../../app.component';
 import { ValidationService } from '../../../shared/validation-service';
 
@@ -11,9 +9,7 @@ import { ValidationService } from '../../../shared/validation-service';
   styleUrls: ['./update-email.page.scss'],
 })
 export class UpdateEmailPage implements OnInit {
-  userData = {} as UserData;
-
-  constructor(private loadingController: LoadingController,
+  constructor(
     private appComponent: AppComponent,
     private userAuthenticationService: UserAuthenticationService,
     private validationService: ValidationService) { }
@@ -26,11 +22,8 @@ export class UpdateEmailPage implements OnInit {
     var currentUserPassword = (<HTMLInputElement>document.getElementById('currentPasswd')).value;
     
     if (this.validationService.checkIfEmailIsValid(newEmail)) {
-      const loadingDialog = this.loadingController.create({
-        message: 'Trwa przetwarzanie...',
-        duration: 3000
-      });
-      (await loadingDialog).present();
+      await this.appComponent.createLoadingDialog();
+      await this.appComponent.showLoadingDialog();
 
       try {
         await this.userAuthenticationService.reauthenticateAndUpdateUserEmail(currentUserPassword, newEmail);
@@ -38,7 +31,7 @@ export class UpdateEmailPage implements OnInit {
       catch(error) {
         this.appComponent.showFieldValidationAlert('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby zmiany adresu email');
       }
-      (await loadingDialog).dismiss();  
+      await this.appComponent.hideLoadingDialog(); 
     }
   }
 }

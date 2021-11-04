@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserAuthenticationService } from '../../../shared/authentication-service';
-import { LoadingController, NavController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { UserData } from '../../../model/user-data';
 import { AppComponent } from '../../../app.component';
 import { ValidationService } from '../../../shared/validation-service';
@@ -11,27 +11,24 @@ import { ValidationService } from '../../../shared/validation-service';
   styleUrls: ['./sign-in.page.scss'],
 })
 export class SignInPage implements OnInit {
-  userData = {} as UserData;
-
-  constructor(private loadingController: LoadingController,
+  constructor(
     private userAuthenticationService: UserAuthenticationService,
     private appComponent: AppComponent,
     private navController: NavController, 
     private validationService: ValidationService) { }
 
+  userData = {} as UserData;
+  
   ngOnInit() {
   }
 
   async SignInUser(userData: UserData) {
-    const userEmail = userData.email;
-    const userPassword = userData.password;
+    var userEmail = userData.email;
+    var userPassword = userData.password;
     
     if (this.validationService.checkIfAuthFieldsAreNotEmpty(userEmail, userPassword)) {
-      const loadingDialog = this.loadingController.create({
-        message: 'Trwa przetwarzanie...',
-        duration: 3000
-      });
-      (await loadingDialog).present();
+      this.appComponent.createLoadingDialog();
+      this.appComponent.showLoadingDialog();
 
       try {
         await this.userAuthenticationService.signInWithEmailAndPassword(userEmail, userPassword);
@@ -57,7 +54,7 @@ export class SignInPage implements OnInit {
           case 'auth/internal-error': {
             errorMessage = 'Nieoczekiwany błąd serwera';
             this.appComponent.showFieldValidationAlert(headerErrorMessage, errorMessage);
-            this.navController.navigateBack('sign-up');
+            this.navController.navigateBack('sign-in');
             break;
           } 
           default: {
@@ -68,7 +65,7 @@ export class SignInPage implements OnInit {
           }
         }
       }
-      (await loadingDialog).dismiss();  
+      this.appComponent.hideLoadingDialog(); 
     }
   }
 }

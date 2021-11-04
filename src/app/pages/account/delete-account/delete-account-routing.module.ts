@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { DeleteAccountPage } from './delete-account.page';
 
 const routes: Routes = [

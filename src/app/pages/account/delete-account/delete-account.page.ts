@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./delete-account.page.scss'],
 })
 export class DeleteAccountPage implements OnInit {
-
   constructor() { }
 
   ngOnInit() {

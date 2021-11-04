@@ -15,12 +15,13 @@ export class UserAuthenticationService {
   constructor(
     private angularFireAuth: AngularFireAuth,
     private navController: NavController,
-    public appComponent: AppComponent) {
+    private appComponent: AppComponent,
+    ) {
       this.angularFireAuth.authState.subscribe((user) => {
       if (user) {
         this.dataOfUser = user;
         localStorage.setItem('user', JSON.stringify(this.dataOfUser));
-        JSON.parse(localStorage.getItem('user'));
+        JSON.parse(localStorage.getItem('user')); //czy ten cały mechanizm jest potrzebny???
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
@@ -29,17 +30,28 @@ export class UserAuthenticationService {
   }
   
   signInWithEmailAndPassword(email, password) {
-    this.isLoggedIn = true;
+    this.isLoggedIn = true; //może nie trzeba
     return this.angularFireAuth.signInWithEmailAndPassword(email, password)
-    .then(() => {
-      this.navController.navigateForward('tasks');
+    .then((auth) => {
+      if(auth.user.emailVerified) {
+        this.navController.navigateForward('tasks');
+      } else {
+        this.appComponent.showFieldValidationAlert('Potwierdzenie rejestracji','Aby móc się zalogować potwierdź swój adres email');
+      }
     });
   }
 
   signUpWithEmailAndPassword(email, password) {
-    return this.angularFireAuth.createUserWithEmailAndPassword(email, password)
+    return this.angularFireAuth.createUserWithEmailAndPassword(email, password);
+  }
+
+  sendEmailToConfirmSignUp() {
+    firebase.auth().currentUser.sendEmailVerification()
     .then(() => {
       this.navController.navigateBack('sign-up-confirm');
+    })
+    .catch(() => {
+      this.appComponent.showFieldValidationAlert('Błąd','Wystąpił błąd podczas wysłania wiadomości');
     });
   }
 
@@ -77,6 +89,7 @@ export class UserAuthenticationService {
   }
 
   logOut() {
+    this.isLoggedIn = false; //może nie trzeba
     this.angularFireAuth.signOut().then(() => {
       localStorage.removeItem('user'); //nie wiem czy potrzebne
       this.navController.navigateBack('/sign-in'); //może navigate inne

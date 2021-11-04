@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserAuthenticationService } from '../../../shared/authentication-service';
 import { UserData } from '../../../model/user-data';
-import { LoadingController, NavController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { AppComponent } from '../../../app.component';
+import { ValidationService } from '../../../shared/validation-service';
 
 @Component({
   selector: 'app-reset-password',
@@ -10,26 +11,26 @@ import { AppComponent } from '../../../app.component';
   styleUrls: ['./reset-password.page.scss'],
 })
 export class ResetPasswordPage implements OnInit {
-  userData = {} as UserData;
-
-  constructor(private userAuthenticationService: UserAuthenticationService,
+  constructor(
+    private userAuthenticationService: UserAuthenticationService,
     private appComponent: AppComponent,
-    private loadingController: LoadingController,
-    private navController: NavController) { }
-
+    private navController: NavController,
+    private validationService: ValidationService) { }
+  
+  userData = {} as UserData;
+  
   ngOnInit() {
   }
 
   async recoverUserPassword(userData: UserData) {
-    if (this.checkIfEmailIsNotEmpty()) {
-      const loadingDialog = this.loadingController.create({
-        message: 'Trwa przetwarzanie...',
-        duration: 3000
-      });
-      (await loadingDialog).present();
+    var userEmail = userData.email;
+    if (this.validationService.checkIfAuthFieldsAreNotEmpty(userEmail)) {
+      
+      this.appComponent.createLoadingDialog();
+      this.appComponent.showLoadingDialog();
 
-      this.userAuthenticationService.sendEmailToResetPassword(userData.email)
-      .then((result) => {
+      this.userAuthenticationService.sendEmailToResetPassword(userEmail)
+      .then(() => {
         this.navController.navigateForward('reset-passwd-confirm');
       })
       .catch((error) => {
@@ -46,16 +47,7 @@ export class ResetPasswordPage implements OnInit {
         }
         this.navController.navigateBack('reset-password');  
       });
-      
-      (await loadingDialog).dismiss();  
+      this.appComponent.hideLoadingDialog();
     }
-  }
-
-  checkIfEmailIsNotEmpty() {
-    if (!this.userData.email) {
-      this.appComponent.showFieldValidationAlert('Pole wymagane', 'Wprowadź adres email');
-      return false;
-    }
-    return true;
   }
 }

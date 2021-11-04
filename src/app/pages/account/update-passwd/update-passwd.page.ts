@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
 import { UserAuthenticationService } from '../../../shared/authentication-service';
 import { AppComponent } from '../../../app.component';
 import { ValidationService } from '../../../shared/validation-service';
@@ -10,8 +9,8 @@ import { ValidationService } from '../../../shared/validation-service';
 })
 export class UpdatePasswdPage implements OnInit {
 
-  constructor(private appComponent: AppComponent,
-    private loadingController: LoadingController,
+  constructor(
+    private appComponent: AppComponent,
     private userAuthenticationService: UserAuthenticationService,
     private validationService: ValidationService) { }
 
@@ -25,12 +24,9 @@ export class UpdatePasswdPage implements OnInit {
 
     if (this.validationService.checkIfPasswdFieldsAreNotEmpty(oldPasswd, newPasswd, newPasswdConfirm) 
       && this.validationService.checkIfPasswordIsValid(newPasswd, newPasswdConfirm)) {
-      
-      const loadingDialog = this.loadingController.create({
-        message: 'Trwa przetwarzanie...',
-        duration: 3000
-      });
-      (await loadingDialog).present();
+
+      this.appComponent.createLoadingDialog();
+      this.appComponent.showLoadingDialog();
 
       try {
         this.userAuthenticationService.reauthenticateAndUpdateUserPassword(oldPasswd, newPasswd);
@@ -38,7 +34,7 @@ export class UpdatePasswdPage implements OnInit {
       catch(error) {
         this.appComponent.showFieldValidationAlert('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby zmiany hasła');
       }
-      (await loadingDialog).dismiss();  
+      this.appComponent.hideLoadingDialog(); 
     }
   }
 }

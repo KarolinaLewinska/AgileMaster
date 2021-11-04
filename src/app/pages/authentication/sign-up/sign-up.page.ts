@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserAuthenticationService } from '../../../shared/authentication-service';
 import { UserData } from '../../../model/user-data';
-import { LoadingController, NavController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { AppComponent } from '../../../app.component';
 import { ValidationService } from '../../../shared/validation-service';
 @Component({
@@ -10,35 +10,33 @@ import { ValidationService } from '../../../shared/validation-service';
   styleUrls: ['./sign-up.page.scss'],
 })
 export class SignUpPage implements OnInit {
-  userData = {} as UserData;
-
   constructor(
     private navController: NavController,
-    private loadingController: LoadingController,
     private userAuthenticationService: UserAuthenticationService,
     private appComponent: AppComponent,
     private validationService: ValidationService) { }
 
+  userData = {} as UserData;
+  
   ngOnInit() {
   }
 
   async signUpUser(userData: UserData) {
-    const userEmail = userData.email;
-    const userPassword = userData.password;
+    var userEmail = userData.email;
+    var userPassword = userData.password;
+    
     var passwdValue = (<HTMLInputElement>document.getElementById('passwd')).value;
     var passwdConfirmValue = (<HTMLInputElement>document.getElementById('passwdConfirm')).value;
 
     if (this.validationService.checkIfAuthFieldsAreNotEmpty(userEmail, userPassword) 
       && this.validationService.checkIfPasswordIsValid(passwdValue, passwdConfirmValue)) {
       
-      const loadingDialog = this.loadingController.create({
-        message: 'Trwa przetwarzanie...',
-        duration: 3000
-      });
-      (await loadingDialog).present();
+      this.appComponent.createLoadingDialog();
+      this.appComponent.showLoadingDialog();
 
       try {
         await this.userAuthenticationService.signUpWithEmailAndPassword(userEmail, userPassword);
+        await this.userAuthenticationService.sendEmailToConfirmSignUp()
       } catch (error) {
         const headerErrorMessage = 'Błąd uwierzytelniania';
         var errorCode = error.code;
@@ -71,7 +69,7 @@ export class SignUpPage implements OnInit {
           }
         }
       }
-      (await loadingDialog).dismiss();        
+      this.appComponent.hideLoadingDialog();        
     }
   }
 }
