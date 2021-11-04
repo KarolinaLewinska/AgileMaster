@@ -28,7 +28,7 @@ export class UserAuthenticationService {
     });
   }
   
-  async signInWithEmailAndPassword(email, password) {
+  signInWithEmailAndPassword(email, password) {
     this.isLoggedIn = true;
     return this.angularFireAuth.signInWithEmailAndPassword(email, password)
     .then(() => {
@@ -36,18 +36,18 @@ export class UserAuthenticationService {
     });
   }
 
-  async signUpWithEmailAndPassword(email, password) {
+  signUpWithEmailAndPassword(email, password) {
     return this.angularFireAuth.createUserWithEmailAndPassword(email, password)
     .then(() => {
       this.navController.navigateBack('sign-up-confirm');
     });
   }
 
-  async sendEmailToResetPassword(email) {
+  sendEmailToResetPassword(email) {
     return this.angularFireAuth.sendPasswordResetEmail(email);
   }
 
-  async reauthenticateAndUpdateUserEmail(password: string, newEmail: string) {
+  reauthenticateAndUpdateUserEmail(password: string, newEmail: string) {
     this.reauthenticateCurrentUser(password)
     .then(() => {
       firebase.auth().currentUser.updateEmail(newEmail);
@@ -58,7 +58,7 @@ export class UserAuthenticationService {
     });
   }
 
-  async reauthenticateAndUpdateUserPassword(oldPassword: string, newPassword: string) {
+  reauthenticateAndUpdateUserPassword(oldPassword: string, newPassword: string) {
     this.reauthenticateCurrentUser(oldPassword)
       .then(() => {
         firebase.auth().currentUser.updatePassword(newPassword);
@@ -75,6 +75,14 @@ export class UserAuthenticationService {
     const currentUserData = firebase.auth.EmailAuthProvider.credential(firebase.auth().currentUser.email, oldPassword)
     var authUserResult = await currentUser.reauthenticateWithCredential(currentUserData);
   }
+
+  logOut() {
+    this.angularFireAuth.signOut().then(() => {
+      localStorage.removeItem('user'); //nie wiem czy potrzebne
+      this.navController.navigateBack('/sign-in'); //może navigate inne
+    });
+  }
+  
   //może niepotrzebne
   checkIfUserIsLoggedIn() {
     if (this.isLoggedIn == true) {

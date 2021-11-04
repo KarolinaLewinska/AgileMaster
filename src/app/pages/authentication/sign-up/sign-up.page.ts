@@ -29,7 +29,7 @@ export class SignUpPage implements OnInit {
     var passwdConfirmValue = (<HTMLInputElement>document.getElementById('passwdConfirm')).value;
 
     if (this.validationService.checkIfAuthFieldsAreNotEmpty(userEmail, userPassword) 
-      && this.validationService.checkIfPasswordIsValidated(passwdValue, passwdConfirmValue)) {
+      && this.validationService.checkIfPasswordIsValid(passwdValue, passwdConfirmValue)) {
       
       const loadingDialog = this.loadingController.create({
         message: 'Trwa przetwarzanie...',

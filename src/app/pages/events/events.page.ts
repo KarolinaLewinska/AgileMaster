@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UserAuthenticationService } from '../../shared/authentication-service';
 @Component({
   selector: 'app-events',
   templateUrl: './events.page.html',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsPage implements OnInit {
 
-  constructor() { }
+  constructor(private userAuthenticationService: UserAuthenticationService) { }
  
   ngOnInit() {
     

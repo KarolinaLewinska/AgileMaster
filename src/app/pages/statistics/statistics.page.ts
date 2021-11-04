@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UserAuthenticationService } from '../../shared/authentication-service';
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.page.html',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatisticsPage implements OnInit {
 
-  constructor() { }
+  constructor(private userAuthenticationService: UserAuthenticationService) { }
 
   ngOnInit() {
   }

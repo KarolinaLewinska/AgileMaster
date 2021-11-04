@@ -25,7 +25,7 @@ export class UpdateEmailPage implements OnInit {
     var newEmail = (<HTMLInputElement>document.getElementById('emailInput')).value;
     var currentUserPassword = (<HTMLInputElement>document.getElementById('currentPasswd')).value;
     
-    if (this.validationService.checkIfEmailIsValidated(newEmail)) {
+    if (this.validationService.checkIfEmailIsValid(newEmail)) {
       const loadingDialog = this.loadingController.create({
         message: 'Trwa przetwarzanie...',
         duration: 3000

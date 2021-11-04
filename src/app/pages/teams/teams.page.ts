@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserAuthenticationService } from '../../shared/authentication-service';
 
 @Component({
   selector: 'app-teams',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamsPage implements OnInit {
 
-  constructor() { }
+  constructor(private userAuthenticationService: UserAuthenticationService) { }
   
   ngOnInit() {
   }

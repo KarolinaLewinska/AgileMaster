@@ -24,7 +24,7 @@ export class UpdatePasswdPage implements OnInit {
     var newPasswdConfirm = (<HTMLInputElement>document.getElementById('newPasswdConfirm')).value;
 
     if (this.validationService.checkIfPasswdFieldsAreNotEmpty(oldPasswd, newPasswd, newPasswdConfirm) 
-      && this.validationService.checkIfPasswordIsValidated(newPasswd, newPasswdConfirm)) {
+      && this.validationService.checkIfPasswordIsValid(newPasswd, newPasswdConfirm)) {
       
       const loadingDialog = this.loadingController.create({
         message: 'Trwa przetwarzanie...',
