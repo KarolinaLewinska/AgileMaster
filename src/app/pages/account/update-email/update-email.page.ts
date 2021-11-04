@@ -3,6 +3,7 @@ import { AlertController, LoadingController, NavController } from '@ionic/angula
 import { UserAuthenticationService } from '../../../shared/authentication-service';
 import { UserData } from '../../../model/user-data';
 import firebase from '@firebase/app-compat';
+import { AppComponent } from '../../../app.component';
 
 @Component({
   selector: 'app-update-email',
@@ -17,6 +18,7 @@ export class UpdateEmailPage implements OnInit {
   constructor(private alertController: AlertController,
     private loadingController: LoadingController,
     private navController: NavController,
+    private appComponent: AppComponent,
     private userAuthenticationService: UserAuthenticationService) { }
 
   ngOnInit() {
@@ -36,7 +38,7 @@ export class UpdateEmailPage implements OnInit {
       try {
         await this.userAuthenticationService.updateUserEmail(email)
         .then((result) => {
-          this.showFieldValidationAlert(headerSuccessMessage, successMessage);
+          this.appComponent.showFieldValidationAlert(headerSuccessMessage, successMessage);
         });
       }
       catch(error) {
@@ -47,13 +49,13 @@ export class UpdateEmailPage implements OnInit {
         switch (errorCode) {
           case 'auth/internal-error': {
             errorMessage = 'Nieoczekiwany błąd serwera';
-            this.showFieldValidationAlert(headerErrorMessage, errorMessage);
+            this.appComponent.showFieldValidationAlert(headerErrorMessage, errorMessage);
             this.navController.navigateBack('update-email');
             break;
           } 
           default: {
             errorMessage = 'Nieprawidłowy format adresu email';
-            this.showFieldValidationAlert(headerErrorMessage, errorMessage);
+            this.appComponent.showFieldValidationAlert(headerErrorMessage, errorMessage);
             this.navController.navigateBack('update-email');
             break;
           }
@@ -66,25 +68,13 @@ export class UpdateEmailPage implements OnInit {
   checkIfEmailIsNotEmptyOrCurrentlyUsed() {
     var email = (<HTMLInputElement>document.getElementById('emailInput')).value;
     if (!email) {
-      this.showFieldValidationAlert('Pole wymagane', 'Wprowadź adres email');
+      this.appComponent.showFieldValidationAlert('Pole wymagane', 'Wprowadź adres email');
       return false;
     }
     if (email == this.userData.email) {
-      this.showFieldValidationAlert('Błąd uwierzytelniania', 'Podany adres email jest obecnie przypisany do konta');
+      this.appComponent.showFieldValidationAlert('Błąd uwierzytelniania', 'Podany adres email jest obecnie przypisany do konta');
       return false;
     }
     return true;
-  }
-
-  async showFieldValidationAlert(headerValue: string, messageValue: string) {
-    const alertDialog = await this.alertController.create({
-      cssClass: 'validationAlert',
-      header: headerValue,
-      message: messageValue,
-      buttons: ['OK']
-    });
-    await alertDialog.present();
-
-    await alertDialog.onDidDismiss();
   }
 }

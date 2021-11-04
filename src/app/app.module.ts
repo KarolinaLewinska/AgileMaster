@@ -26,7 +26,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     AngularFireDatabaseModule,
     AngularFireStorageModule],
   
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+    AppComponent ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

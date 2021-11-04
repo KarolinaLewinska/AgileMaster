@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserAuthenticationService } from '../../../shared/authentication-service';
 import { UserData } from '../../../model/user-data';
-import { AlertController, LoadingController, NavController } from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
+import { AppComponent } from '../../../app.component';
 
 @Component({
   selector: 'app-reset-password',
@@ -12,7 +13,7 @@ export class ResetPasswordPage implements OnInit {
   userData = {} as UserData;
 
   constructor(private userAuthenticationService: UserAuthenticationService,
-    private alertController: AlertController,
+    private appComponent: AppComponent,
     private loadingController: LoadingController,
     private navController: NavController) { }
 
@@ -38,10 +39,10 @@ export class ResetPasswordPage implements OnInit {
         
         if (errorCode == 'auth/internal-error') {
           errorMessage = 'Nieoczekiwany błąd serwera';
-          this.showFieldValidationAlert(headerErrorMessage, errorMessage);
+          this.appComponent.showFieldValidationAlert(headerErrorMessage, errorMessage);
         } else {
           errorMessage ='Nieprawidłowy adres email';
-          this.showFieldValidationAlert(headerErrorMessage, errorMessage);
+          this.appComponent.showFieldValidationAlert(headerErrorMessage, errorMessage);
         }
         this.navController.navigateBack('reset-password');  
       });
@@ -52,21 +53,9 @@ export class ResetPasswordPage implements OnInit {
 
   checkIfEmailIsNotEmpty() {
     if (!this.userData.email) {
-      this.showFieldValidationAlert('Pole wymagane', 'Wprowadź adres email');
+      this.appComponent.showFieldValidationAlert('Pole wymagane', 'Wprowadź adres email');
       return false;
     }
     return true;
-  }
-
-  async showFieldValidationAlert(headerValue: string, messageValue: string) {
-    const alertDialog = await this.alertController.create({
-      cssClass: 'validationAlert',
-      header: headerValue,
-      message: messageValue,
-      buttons: ['OK']
-    });
-    await alertDialog.present();
-
-    await alertDialog.onDidDismiss();
   }
 }

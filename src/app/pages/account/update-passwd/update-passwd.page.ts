@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, LoadingController, NavController } from '@ionic/angular';
 import { UserAuthenticationService } from '../../../shared/authentication-service';
+import { AppComponent } from '../../../app.component';
 @Component({
   selector: 'app-update-passwd',
   templateUrl: './update-passwd.page.html',
@@ -8,7 +9,7 @@ import { UserAuthenticationService } from '../../../shared/authentication-servic
 })
 export class UpdatePasswdPage implements OnInit {
 
-  constructor(private alertController: AlertController,
+  constructor(private appComponent: AppComponent,
     private loadingController: LoadingController,
     private userAuthenticationService: UserAuthenticationService) { }
 
@@ -32,7 +33,7 @@ export class UpdatePasswdPage implements OnInit {
       }
       catch(error) {
         const headerErrorMessage = 'Błąd uwierzytelniania';
-        this.showFieldValidationAlert("Błąd zmiany hasła","Błąd błąd");
+        this.appComponent.showFieldValidationAlert("Błąd zmiany hasła","Błąd błąd");
       }
       (await loadingDialog).dismiss();  
     }
@@ -43,23 +44,9 @@ export class UpdatePasswdPage implements OnInit {
     var newPasswdConfirm = (<HTMLInputElement>document.getElementById('newPasswdConfirm')).value;
     
     if (!oldPasswd || !newPasswd || !newPasswdConfirm) {
-      this.showFieldValidationAlert('Pola wymagane', 'Wypełnij wszystkie pola');
+      this.appComponent.showFieldValidationAlert('Pola wymagane', 'Wypełnij wszystkie pola');
       return false;
     }
     return true;
   }
-
-  //todo: trzeba to wydzielić 
-  public async showFieldValidationAlert(headerValue: string, messageValue: string) {
-    const alertDialog = await this.alertController.create({
-      cssClass: 'validationAlert',
-      header: headerValue,
-      message: messageValue,
-      buttons: ['OK']
-    });
-    await alertDialog.present();
-
-    await alertDialog.onDidDismiss();
-  }
-
 }
