@@ -12,7 +12,7 @@ export class AppComponent {
 
   async showFieldValidationAlert(headerValue: string, messageValue: string) {
     const alertDialog = await this.alertController.create({
-      cssClass: 'validationAlert',
+      cssClass: 'alert',
       header: headerValue,
       message: messageValue,
       buttons: ['OK']
@@ -22,33 +22,40 @@ export class AppComponent {
     await alertDialog.onDidDismiss();
   }
 
-  async showFieldValidationAlertWithConfirm(headerValue: string, messageValue: string) {
-    const alertDialog = await this.alertController.create({
-      cssClass: 'confirmAlert',
-      header: headerValue, //Usuń konto w deleteAccount
-      message: messageValue, //Czy na pewno chcesz usunąć konto?
-      buttons: [
-      {
-        text: 'Nie',
-        role: 'cancel', //const { role } = await alert.onDidDismiss();
-        cssClass: 'secondary',
-        handler: (blah) => {
-            console.log('Confirm Cancel: blah');
+  async createAndShowAlertDialogWithConfirmAndCancelButtons(headerValue: string, messageValue: string) {
+    return new Promise (async (resolve) => {
+      const alertDialog = this.alertController.create({
+        cssClass: 'alert',
+        header: headerValue, 
+        message: messageValue,
+        buttons: [
+        {
+          text: 'Nie',
+          role: 'cancel', 
+          cssClass: 'secondary',
+          handler: () => {
+            return resolve(false);
+          }
         },
-      },
-      {
-        text: 'Tak',
-        handler: () => {
-            console.log('Confirm Okay');
+        {
+          text: 'Tak',
+          cssClass: 'secondary',
+          handler: () => {
+            return resolve(true);
         }
-      }]});
+        }]});
+      (await alertDialog).present()
+    });
+  }
 
-    await alertDialog.present();
-
+  // async showAlertDialogWithConfirmAndCancelButtons(alertDialog) {
+  //   await alertDialog.present();
+  // }
+  
+  async hideAlertWithConfirm(alertDialog) {
     await alertDialog.onDidDismiss();
   }
 
- 
   async createLoadingDialog() {
     var loadingDialog = this.loadingController.create({
       message: 'Trwa przetwarzanie...',

@@ -33,7 +33,6 @@ export class ValidationService {
 
   checkIfPasswordIsValid(passwdValue: string, confirmPasswdValue: string) {
     const headerErrorMessage = 'Nieprawidłowe hasło';
-      
     if (passwdValue.length < 6 ) {
       this.appComponent.showFieldValidationAlert(headerErrorMessage, 'Hasło musi zawierać co najmniej 6 znaków');
       return false;
@@ -42,6 +41,10 @@ export class ValidationService {
       this.appComponent.showFieldValidationAlert(headerErrorMessage, 'Hasło musi zawierać co najmniej jedną cyfrę');
       return false;
     }
+    return true;
+  }
+
+  checkIfPasswordAndConfirmAreEqual(passwdValue: string, confirmPasswdValue) {
     if (passwdValue != confirmPasswdValue) {
       this.appComponent.showFieldValidationAlert('Różne hasła', 'Podane wartości haseł nie są takie same');
       return false;

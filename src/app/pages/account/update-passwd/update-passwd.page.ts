@@ -23,7 +23,8 @@ export class UpdatePasswdPage implements OnInit {
     var newPasswdConfirm = (<HTMLInputElement>document.getElementById('newPasswdConfirm')).value;
 
     if (this.validationService.checkIfPasswdFieldsAreNotEmpty(oldPasswd, newPasswd, newPasswdConfirm) 
-      && this.validationService.checkIfPasswordIsValid(newPasswd, newPasswdConfirm)) {
+      && this.validationService.checkIfPasswordIsValid(newPasswd, newPasswdConfirm) 
+      && this.validationService.checkIfPasswordAndConfirmAreEqual(newPasswd, newPasswdConfirm)) {
 
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();

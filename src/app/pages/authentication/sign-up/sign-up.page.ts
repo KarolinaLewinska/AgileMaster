@@ -29,7 +29,8 @@ export class SignUpPage implements OnInit {
     var passwdConfirmValue = (<HTMLInputElement>document.getElementById('passwdConfirm')).value;
 
     if (this.validationService.checkIfAuthFieldsAreNotEmpty(userEmail, userPassword) 
-      && this.validationService.checkIfPasswordIsValid(passwdValue, passwdConfirmValue)) {
+      && this.validationService.checkIfPasswordIsValid(passwdValue, passwdConfirmValue)
+      && this.validationService.checkIfPasswordAndConfirmAreEqual(passwdValue, passwdConfirmValue)) {
       
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();
