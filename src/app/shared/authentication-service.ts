@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { NavController } from '@ionic/angular';
 import firebase from 'firebase/compat/app';
 import { AppComponent } from '../app.component';
+import { deleteUser } from "firebase/auth";
 
 @Injectable({
   providedIn: 'root',
@@ -15,8 +16,7 @@ export class UserAuthenticationService {
   constructor(
     private angularFireAuth: AngularFireAuth,
     private navController: NavController,
-    private appComponent: AppComponent,
-    ) {
+    private appComponent: AppComponent) {
       this.angularFireAuth.authState.subscribe((user) => {
       if (user) {
         this.dataOfUser = user;
@@ -65,7 +65,8 @@ export class UserAuthenticationService {
       firebase.auth().currentUser.updateEmail(newEmail);
       this.navController.navigateBack('account-settings');
       this.appComponent.showFieldValidationAlert('Zmiana adresu email', 'Pomyślnie zmieniono adres email');
-    }).catch(() => {
+    })
+    .catch(() => {
       this.appComponent.showFieldValidationAlert('Błąd','Nieprawidłowa wartość obecnego hasła');
     });
   }
@@ -76,8 +77,8 @@ export class UserAuthenticationService {
         firebase.auth().currentUser.updatePassword(newPassword);
         this.appComponent.showFieldValidationAlert('Zmiana hasła', 'Pomyślnie zmieniono hasło');
         this.navController.navigateBack('account-settings');
-
-      }).catch(() => {
+      })
+      .catch(() => {
         this.appComponent.showFieldValidationAlert('Błąd','Nieprawidłowa wartość obecnego hasła');
       });   
   }
@@ -92,8 +93,19 @@ export class UserAuthenticationService {
     this.isLoggedIn = false; //może nie trzeba
     this.angularFireAuth.signOut().then(() => {
       localStorage.removeItem('user'); //nie wiem czy potrzebne
-      this.navController.navigateBack('/sign-in'); //może navigate inne
+      this.navController.navigateBack('sign-in'); //może navigate inne
     });
+  }
+
+  deleteAccount() {
+    deleteUser(firebase.auth().currentUser)
+      .then(() => {
+        this.appComponent.showFieldValidationAlert('Usunięto konto', 'Konto zostało usunięte');
+        this.navController.navigateBack('home');
+      })
+      .catch(() => {
+        this.appComponent.showFieldValidationAlert('Błąd', 'Wystąpił błąd podczas próby usunięcia konta');
+      });
   }
   
   //może niepotrzebne
