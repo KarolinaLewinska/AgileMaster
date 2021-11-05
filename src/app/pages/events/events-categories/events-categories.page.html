@@ -18,17 +18,25 @@
     </ion-row>
     <ion-list id="categoriesList" lines="none">
       <ion-item>
-        <ion-button color="tertiary" shape="round">Spotkania Scrumowe</ion-button>
+        <ion-button [routerLink]="['/scrum-meetings']" color="tertiary" shape="round">Spotkania Scrumowe</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button color="tertiary" shape="round">Warsztaty</ion-button>
+        <ion-button [routerLink]="['/workshops']" color="tertiary" shape="round">Warsztaty</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button color="tertiary" shape="round">Szkolenia</ion-button>
+        <ion-button [routerLink]="['/courses']" color="tertiary" shape="round">Szkolenia</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button color="tertiary" shape="round">Inne</ion-button>
+        <ion-button [routerLink]="['/other-events']" color="tertiary" shape="round">Inne</ion-button>
       </ion-item>
     </ion-list>
   </ion-grid>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="secondary">
+      <ion-row>
+          <ion-router-link [routerLink]="['/add-event']">Dodaj spotkanie</ion-router-link>
+      </ion-row>
+  </ion-toolbar>
+</ion-footer>

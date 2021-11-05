@@ -16,7 +16,7 @@
     <ion-row>
       <ion-col><p id="viewTitle">Zadania</p></ion-col>
     </ion-row>
-    <ion-list id="categoriesList" lines="none">
+    <ion-list lines="none">
       <ion-item>
         <ion-button [routerLink]="['/analysts']" color="tertiary" shape="round">Analitycy</ion-button>
       </ion-item>
@@ -38,3 +38,11 @@
     </ion-list>
   </ion-grid>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="secondary">
+      <ion-row>
+          <ion-router-link [routerLink]="['/add-task']">Dodaj zadanie</ion-router-link>
+      </ion-row>
+  </ion-toolbar>
+</ion-footer>

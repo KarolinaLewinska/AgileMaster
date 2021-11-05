@@ -1,9 +1,24 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>other-tasks</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-row>
+      <ion-col>
+        <ion-icon [routerLink]="['/tasks-categories']" id="backIcon" name="chevron-back-outline"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon id="addTaskIcon" [routerLink]="['/add-task']" name="add-circle"></ion-icon>
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="secondary">
+      <ion-row>
+          <ion-router-link [routerLink]="['/add-task']">Dodaj zadanie</ion-router-link>
+      </ion-row>
+  </ion-toolbar>
+</ion-footer>

@@ -87,6 +87,30 @@ const routes: Routes = [
     path: 'other-tasks',
     loadChildren: () => import('./pages/tasks/other-tasks/other-tasks.module').then( m => m.OtherTasksPageModule)
   },
+  {
+    path: 'add-task',
+    loadChildren: () => import('./pages/tasks/add-task/add-task.module').then( m => m.AddTaskPageModule)
+  },
+  {
+    path: 'scrum-meetings',
+    loadChildren: () => import('./pages/events/scrum-meetings/scrum-meetings.module').then( m => m.ScrumMeetingsPageModule)
+  },
+  {
+    path: 'workshops',
+    loadChildren: () => import('./pages/events/workshops/workshops.module').then( m => m.WorkshopsPageModule)
+  },
+  {
+    path: 'courses',
+    loadChildren: () => import('./pages/events/courses/courses.module').then( m => m.CoursesPageModule)
+  },
+  {
+    path: 'other-events',
+    loadChildren: () => import('./pages/events/other-events/other-events.module').then( m => m.OtherEventsPageModule)
+  },
+  {
+    path: 'add-event',
+    loadChildren: () => import('./pages/events/add-event/add-event.module').then( m => m.AddEventPageModule)
+  },
 ];
 
 @NgModule({
