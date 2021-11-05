@@ -41,7 +41,7 @@ const routes: Routes = [
   },
   {
     path: 'teams-projects-list',
-    loadChildren: () => import('./pages/teams-projects-list/teams-projects-list.module').then( m => m.TeamsProjectsListPageModule)
+    loadChildren: () => import('./pages/teams-projects/teams-projects-list/teams-projects-list.module').then( m => m.TeamsProjectsListPageModule)
   },
   {
     path: 'statistics-categories',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserAuthenticationService } from '../../services/authentication-service';
+import { UserAuthenticationService } from '../../../services/authentication-service';
 
 @Component({
   selector: 'app-teams',
