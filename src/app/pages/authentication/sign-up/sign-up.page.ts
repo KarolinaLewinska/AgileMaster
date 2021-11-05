@@ -45,7 +45,7 @@ export class SignUpPage implements OnInit {
         
         switch (errorCode) {
           case 'auth/email-already-in-use': {
-            errorMessage = 'Podany adres email został już użyty';
+            errorMessage = 'Konto z podanym adresem email już istnieje';
             this.appComponent.showFieldValidationAlert(headerErrorMessage, errorMessage);
             this.navController.navigateBack('sign-up');
             break;

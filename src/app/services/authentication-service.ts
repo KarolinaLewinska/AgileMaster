@@ -34,7 +34,7 @@ export class UserAuthenticationService {
     return this.angularFireAuth.signInWithEmailAndPassword(email, password)
     .then((auth) => {
       if(auth.user.emailVerified) {
-        this.navController.navigateForward('tasks');
+        this.navController.navigateForward('tasks-categories');
       } else {
         this.appComponent.showFieldValidationAlert('Potwierdzenie rejestracji','Aby móc się zalogować potwierdź swój adres email');
       }

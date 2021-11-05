@@ -28,24 +28,24 @@ const routes: Routes = [
     loadChildren: () => import('./pages/authentication/reset-passwd-confirm/reset-passwd-confirm.module').then( m => m.ResetPasswdConfirmPageModule)
   },
   {
-    path: 'tasks',
-    loadChildren: () => import('./pages/tasks/tasks.module').then( m => m.TasksListPageModule)
+    path: 'tasks-categories',
+    loadChildren: () => import('./pages/tasks/tasks-categories/tasks-categories.module').then( m => m.TasksCategoriesPageModule)
   },
   {
     path: 'sign-up-confirm',
     loadChildren: () => import('./pages/authentication/sign-up-confirm/sign-up-confirm.module').then( m => m.SignUpConfirmPageModule)
   },
   {
-    path: 'events',
-    loadChildren: () => import('./pages/events/events.module').then( m => m.EventsPageModule)
+    path: 'events-categories',
+    loadChildren: () => import('./pages/events/events-categories/events-categories.module').then( m => m.EventsCategoriesPageModule)
   },
   {
-    path: 'teams',
-    loadChildren: () => import('./pages/teams/teams.module').then( m => m.TeamsPageModule)
+    path: 'teams-projects-list',
+    loadChildren: () => import('./pages/teams-projects-list/teams-projects-list.module').then( m => m.TeamsProjectsListPageModule)
   },
   {
-    path: 'statistics',
-    loadChildren: () => import('./pages/statistics/statistics.module').then( m => m.StatisticsPageModule)
+    path: 'statistics-categories',
+    loadChildren: () => import('./pages/statistics/statistics-categories/statistics-categories.module').then( m => m.StatisticsCategoriesPageModule)
   },
   {
     path: 'account-settings',
