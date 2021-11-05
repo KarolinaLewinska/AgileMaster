@@ -63,6 +63,30 @@ const routes: Routes = [
     path: 'delete-account',
     loadChildren: () => import('./pages/account/delete-account/delete-account.module').then( m => m.DeleteAccountPageModule)
   },
+  {
+    path: 'analysts',
+    loadChildren: () => import('./pages/tasks/analysts/analysts.module').then( m => m.AnalystsPageModule)
+  },
+  {
+    path: 'development-team',
+    loadChildren: () => import('./pages/tasks/development-team/development-team.module').then( m => m.DevelopmentTeamPageModule)
+  },
+  {
+    path: 'product-owner',
+    loadChildren: () => import('./pages/tasks/product-owner/product-owner.module').then( m => m.ProductOwnerPageModule)
+  },
+  {
+    path: 'company',
+    loadChildren: () => import('./pages/tasks/company/company.module').then( m => m.CompanyPageModule)
+  },
+  {
+    path: 'education',
+    loadChildren: () => import('./pages/tasks/education/education.module').then( m => m.EducationPageModule)
+  },
+  {
+    path: 'other-tasks',
+    loadChildren: () => import('./pages/tasks/other-tasks/other-tasks.module').then( m => m.OtherTasksPageModule)
+  },
 ];
 
 @NgModule({

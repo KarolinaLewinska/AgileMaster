@@ -1,3 +1,9 @@
+ion-grid {
+    text-align: center;
+    top: 10%;
+    position: absolute;
+}
+
 ion-menu-button {
     float: left; 
     width: 60px;
@@ -20,6 +26,21 @@ ion-icon {
 #viewTitle {
     text-align: center;
     font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10%;
+}
+
+ion-item {
+    margin-left: 6%;
+    margin-right: 5%;
+    margin-bottom: 8%;
+}
+
+ion-button {
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    font-size: small;
     font-family: Arial, Helvetica, sans-serif;
 }
 

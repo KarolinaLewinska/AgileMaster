@@ -16,24 +16,24 @@
     <ion-row>
       <ion-col><p id="viewTitle">Zadania</p></ion-col>
     </ion-row>
-    <ion-list id="categoriesList">
+    <ion-list id="categoriesList" lines="none">
       <ion-item>
-        <ion-button>Analitycy</ion-button>
+        <ion-button [routerLink]="['/analysts']" color="tertiary" shape="round">Analitycy</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button>Zespół deweloperski</ion-button>
+        <ion-button [routerLink]="['/development-team']" color="tertiary" shape="round">Zespół deweloperski</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button>Product Owner</ion-button>
+        <ion-button [routerLink]="['/product-owner']" color="tertiary" shape="round">Product Owner</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button>Organizacja</ion-button>
+        <ion-button [routerLink]="['/company']" color="tertiary" shape="round">Organizacja</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button>Edukacja</ion-button>
+        <ion-button [routerLink]="['/education']" color="tertiary" shape="round">Edukacja</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button>Inne</ion-button>
+        <ion-button [routerLink]="['/other-tasks']" color="tertiary" shape="round">Inne</ion-button>
       </ion-item>
     </ion-list>
   </ion-grid>
