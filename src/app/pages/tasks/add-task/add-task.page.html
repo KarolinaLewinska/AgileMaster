@@ -16,23 +16,23 @@
     <ion-list lines="none">
       <ion-item>
         <ion-label>Tytuł</ion-label>
-        <ion-input required></ion-input>
+        <ion-input id="title" [(ngModel)]="taskData.title" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Opis</ion-label>
-        <ion-textarea required></ion-textarea>
+        <ion-textarea id="description" [(ngModel)]="taskData.description" required></ion-textarea>
       </ion-item>
       <ion-item>
         <ion-label>Data wykonania</ion-label>
-        <ion-datetime max="2099-12-31" pickerFormat="YYYY-MM-DD" displayFormat="YYYY-MM-DD"></ion-datetime>
+        <ion-datetime id="date" [(ngModel)]="taskData.dateOfFinish" max="2099-12-31" pickerFormat="YYYY-MM-DD" displayFormat="YYYY-MM-DD"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label>Godzina wykonania</ion-label>
-        <ion-datetime pickerFormat="HH:mm" displayFormat="HH:mm"></ion-datetime>
+        <ion-datetime id="time" [(ngModel)]="taskData.timeOfFinish" pickerFormat="HH:mm" displayFormat="HH:mm"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label>Priorytet</ion-label>
-        <ion-select>
+        <ion-select id="priority" [(ngModel)]="taskData.priority">
           <ion-select-option value="Wysoki">Wysoki</ion-select-option>
           <ion-select-option value="Średni">Średni</ion-select-option>
           <ion-select-option value="Niski">Niski</ion-select-option>
@@ -40,7 +40,7 @@
       </ion-item>
       <ion-item>
         <ion-label>Kategoria</ion-label>
-        <ion-select>
+        <ion-select id="category" [(ngModel)]="taskData.category">
           <ion-select-option value="Analitycy">Analitycy</ion-select-option>
           <ion-select-option value="Zespół deweloperski">Zespół deweloperski</ion-select-option>
           <ion-select-option value="Product Owner">Product Owner</ion-select-option>
@@ -56,7 +56,7 @@
 <ion-footer>
   <ion-toolbar color="secondary">
       <ion-row>
-          <ion-router-link [routerLink]="['/add-task']">Dodaj zadanie</ion-router-link>
+          <ion-button (click)="addTask(taskData)" fill="clear">Dodaj zadanie</ion-button>
       </ion-row>
   </ion-toolbar>
 </ion-footer>

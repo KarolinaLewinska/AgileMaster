@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserAuthenticationService } from '../../../services/authentication-service';
 import { AppComponent } from '../../../app.component';
-import { AuthValidationService } from '../../../services/auth-validation-service';
+import { AuthValidationService } from '../../../validation/auth-validation-service';
 
 @Component({
   selector: 'app-delete-account',
@@ -37,7 +37,7 @@ export class DeleteAccountPage implements OnInit {
         this.appComponent.showLoadingDialog();
         this.userAuthenticationService.reauthenticateAndDeleteUserAccount(currentUserPasswd);
       } catch (error) {
-        this.appComponent.showFieldValidationAlert('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia konta');
+        this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia konta');
       }
       this.appComponent.hideLoadingDialog();
     }

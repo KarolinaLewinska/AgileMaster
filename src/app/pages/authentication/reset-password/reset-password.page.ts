@@ -3,7 +3,7 @@ import { UserAuthenticationService } from '../../../services/authentication-serv
 import { UserData } from '../../../model/user-data';
 import { NavController } from '@ionic/angular';
 import { AppComponent } from '../../../app.component';
-import { AuthValidationService } from '../../../services/auth-validation-service';
+import { AuthValidationService } from '../../../validation/auth-validation-service';
 
 @Component({
   selector: 'app-reset-password',
@@ -40,10 +40,10 @@ export class ResetPasswordPage implements OnInit {
         
         if (errorCode == 'auth/internal-error') {
           errorMessage = 'Nieoczekiwany błąd serwera';
-          this.appComponent.showFieldValidationAlert(headerErrorMessage, errorMessage);
+          this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
         } else {
           errorMessage ='Nieprawidłowy adres email';
-          this.appComponent.showFieldValidationAlert(headerErrorMessage, errorMessage);
+          this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
         }
         this.navController.navigateBack('reset-password');  
       });

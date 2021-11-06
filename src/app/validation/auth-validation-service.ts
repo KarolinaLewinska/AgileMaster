@@ -4,7 +4,7 @@ import firebase from 'firebase/compat/app';
 
 @Injectable({
     providedIn: 'root',
-  })
+})
 
 export class AuthValidationService {
   constructor(private appComponent: AppComponent) {}
@@ -13,11 +13,11 @@ export class AuthValidationService {
     const headerTitle = 'Pole wymagane';
         
     if (!emailValue) {
-      this.appComponent.showFieldValidationAlert(headerTitle, 'Adres email jest wymagany');
+      this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Adres email jest wymagany');
       return false;
     }
     if (passwdValue != null && !passwdValue) {
-      this.appComponent.showFieldValidationAlert(headerTitle, 'Hasło jest wymagane');
+      this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Hasło jest wymagane');
       return false;
     }
     return true;
@@ -25,7 +25,7 @@ export class AuthValidationService {
 
   checkIfPasswdFieldsAreNotEmpty(firstValue: string, secondValue: string, thirdValue?: string) {
     if (!firstValue || !secondValue || (thirdValue != null && !thirdValue)) {
-      this.appComponent.showFieldValidationAlert('Pola wymagane', 'Wypełnij wszystkie pola');
+      this.appComponent.showAlertDialogWithOkButton('Pola wymagane', 'Wypełnij wszystkie pola');
       return false;
     }
     return true;
@@ -34,11 +34,11 @@ export class AuthValidationService {
   checkIfPasswordIsValid(passwdValue: string, confirmPasswdValue: string) {
     const headerErrorMessage = 'Nieprawidłowe hasło';
     if (passwdValue.length < 6 ) {
-      this.appComponent.showFieldValidationAlert(headerErrorMessage, 'Hasło musi zawierać co najmniej 6 znaków');
+      this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, 'Hasło musi zawierać co najmniej 6 znaków');
       return false;
     }
     if (passwdValue.search(/.*?[0-9]/)) {
-      this.appComponent.showFieldValidationAlert(headerErrorMessage, 'Hasło musi zawierać co najmniej jedną cyfrę');
+      this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, 'Hasło musi zawierać co najmniej jedną cyfrę');
       return false;
     }
     return true;
@@ -46,7 +46,7 @@ export class AuthValidationService {
 
   checkIfPasswordAndConfirmAreEqual(passwdValue: string, confirmPasswdValue) {
     if (passwdValue != confirmPasswdValue) {
-      this.appComponent.showFieldValidationAlert('Różne hasła', 'Podane wartości haseł nie są takie same');
+      this.appComponent.showAlertDialogWithOkButton('Różne hasła', 'Podane wartości haseł nie są takie same');
       return false;
     }
     return true;
@@ -55,15 +55,15 @@ export class AuthValidationService {
   checkIfEmailIsValid(emailValue: string) {
     var currentUserEmail = firebase.auth().currentUser.email;
     if (!emailValue) {
-      this.appComponent.showFieldValidationAlert('Pole wymagane', 'Wprowadź adres email');
+      this.appComponent.showAlertDialogWithOkButton('Pole wymagane', 'Wprowadź adres email');
       return false;
     }
     if (emailValue == currentUserEmail) {
-      this.appComponent.showFieldValidationAlert('Błąd uwierzytelniania', 'Podany adres email jest obecnie przypisany do konta');
+      this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Podany adres email jest obecnie przypisany do konta');
       return false;
     }
     if (!emailValue.match('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')) {
-      this.appComponent.showFieldValidationAlert('Błąd uwierzytelniania', 'Nieprawidłowy format adresu email');
+      this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Nieprawidłowy format adresu email');
       return false;
     }
     return true;

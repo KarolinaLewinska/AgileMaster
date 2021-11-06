@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserAuthenticationService } from '../../../services/authentication-service';
 import { AppComponent } from '../../../app.component';
-import { AuthValidationService } from '../../../services/auth-validation-service';
+import { AuthValidationService } from '../../../validation/auth-validation-service';
 
 @Component({
   selector: 'app-update-email',
@@ -29,7 +29,7 @@ export class UpdateEmailPage implements OnInit {
         await this.userAuthenticationService.reauthenticateAndUpdateUserEmail(currentUserPassword, newEmail);
       }
       catch(error) {
-        this.appComponent.showFieldValidationAlert('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby zmiany adresu email');
+        this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby zmiany adresu email');
       }
       await this.appComponent.hideLoadingDialog(); 
     }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserAuthenticationService } from '../../../services/authentication-service';
 import { AppComponent } from '../../../app.component';
-import { AuthValidationService } from '../../../services/auth-validation-service';
+import { AuthValidationService } from '../../../validation/auth-validation-service';
 @Component({
   selector: 'app-update-passwd',
   templateUrl: './update-passwd.page.html',
@@ -33,7 +33,7 @@ export class UpdatePasswdPage implements OnInit {
         this.userAuthenticationService.reauthenticateAndUpdateUserPassword(oldPasswd, newPasswd);
       }
       catch(error) {
-        this.appComponent.showFieldValidationAlert('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby zmiany hasła');
+        this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby zmiany hasła');
       }
       this.appComponent.hideLoadingDialog(); 
     }

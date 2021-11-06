@@ -10,7 +10,7 @@ export class AppComponent {
   constructor(private alertController: AlertController,
     private loadingController: LoadingController) {}
 
-  async showFieldValidationAlert(headerValue: string, messageValue: string) {
+  async showAlertDialogWithOkButton(headerValue: string, messageValue: string) {
     const alertDialog = await this.alertController.create({
       cssClass: 'alert',
       header: headerValue,

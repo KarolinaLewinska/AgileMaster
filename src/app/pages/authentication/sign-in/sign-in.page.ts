@@ -3,7 +3,7 @@ import { UserAuthenticationService } from '../../../services/authentication-serv
 import { NavController } from '@ionic/angular';
 import { UserData } from '../../../model/user-data';
 import { AppComponent } from '../../../app.component';
-import { AuthValidationService } from '../../../services/auth-validation-service';
+import { AuthValidationService } from '../../../validation/auth-validation-service';
 
 @Component({
   selector: 'app-sign-in',
@@ -41,25 +41,25 @@ export class SignInPage implements OnInit {
         switch (errorCode) {
           case 'auth/user-not-found': {
             errorMessage = 'Użytkownik o podanym adresie email nie istnieje';
-            this.appComponent.showFieldValidationAlert(headerErrorMessage, errorMessage);
+            this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
             this.navController.navigateBack('sign-in');
             break;
           }
           case 'auth/invalid-email': {
             errorMessage = 'Nieprawidłowy format adresu email';
-            this.appComponent.showFieldValidationAlert(headerErrorMessage, errorMessage);
+            this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
             this.navController.navigateBack('sign-in');
             break;
           }
           case 'auth/internal-error': {
             errorMessage = 'Nieoczekiwany błąd serwera';
-            this.appComponent.showFieldValidationAlert(headerErrorMessage, errorMessage);
+            this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
             this.navController.navigateBack('sign-in');
             break;
           } 
           default: {
             errorMessage ='Nieprawidłowy adres email lub hasło';
-            this.appComponent.showFieldValidationAlert(headerErrorMessage, errorMessage);
+            this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
             this.navController.navigateBack('sign-in');
             break;
           }

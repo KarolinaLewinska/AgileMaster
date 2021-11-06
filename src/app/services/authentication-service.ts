@@ -36,7 +36,7 @@ export class UserAuthenticationService {
       if(auth.user.emailVerified) {
         this.navController.navigateForward('tasks-categories');
       } else {
-        this.appComponent.showFieldValidationAlert('Potwierdzenie rejestracji','Aby móc się zalogować potwierdź swój adres email');
+        this.appComponent.showAlertDialogWithOkButton('Potwierdzenie rejestracji','Aby móc się zalogować potwierdź swój adres email');
       }
     });
   }
@@ -51,7 +51,7 @@ export class UserAuthenticationService {
       this.navController.navigateBack('sign-up-confirm');
     })
     .catch(() => {
-      this.appComponent.showFieldValidationAlert('Błąd','Wystąpił błąd podczas wysłania wiadomości');
+      this.appComponent.showAlertDialogWithOkButton('Błąd','Wystąpił błąd podczas wysłania wiadomości');
     });
   }
 
@@ -64,10 +64,10 @@ export class UserAuthenticationService {
     .then(() => {
       firebase.auth().currentUser.updateEmail(newEmail);
       this.navController.navigateBack('account-settings');
-      this.appComponent.showFieldValidationAlert('Zmiana adresu email', 'Pomyślnie zmieniono adres email');
+      this.appComponent.showAlertDialogWithOkButton('Zmiana adresu email', 'Pomyślnie zmieniono adres email');
     })
     .catch(() => {
-      this.appComponent.showFieldValidationAlert('Błąd','Nieprawidłowa wartość obecnego hasła');
+      this.appComponent.showAlertDialogWithOkButton('Błąd','Nieprawidłowa wartość obecnego hasła');
     });
   }
 
@@ -75,11 +75,11 @@ export class UserAuthenticationService {
     this.reauthenticateCurrentUser(oldPassword)
       .then(() => {
         firebase.auth().currentUser.updatePassword(newPassword);
-        this.appComponent.showFieldValidationAlert('Zmiana hasła', 'Pomyślnie zmieniono hasło');
+        this.appComponent.showAlertDialogWithOkButton('Zmiana hasła', 'Pomyślnie zmieniono hasło');
         this.navController.navigateBack('account-settings');
       })
       .catch(() => {
-        this.appComponent.showFieldValidationAlert('Błąd','Nieprawidłowa wartość obecnego hasła');
+        this.appComponent.showAlertDialogWithOkButton('Błąd','Nieprawidłowa wartość obecnego hasła');
       });   
   }
 
@@ -101,11 +101,11 @@ export class UserAuthenticationService {
     this.reauthenticateCurrentUser(oldPassword)
       .then(() => {
         deleteUser(firebase.auth().currentUser);
-        this.appComponent.showFieldValidationAlert('Usunięto konto', 'Konto zostało usunięte');
+        this.appComponent.showAlertDialogWithOkButton('Usunięto konto', 'Konto zostało usunięte');
         this.navController.navigateBack('home');
       })
       .catch(() => {
-        this.appComponent.showFieldValidationAlert('Błąd','Nieprawidłowa wartość bieżącego hasła');
+        this.appComponent.showAlertDialogWithOkButton('Błąd','Nieprawidłowa wartość bieżącego hasła');
 
       });
   }

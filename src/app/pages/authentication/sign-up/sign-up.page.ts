@@ -3,7 +3,7 @@ import { UserAuthenticationService } from '../../../services/authentication-serv
 import { UserData } from '../../../model/user-data';
 import { NavController } from '@ionic/angular';
 import { AppComponent } from '../../../app.component';
-import { AuthValidationService } from '../../../services/auth-validation-service';
+import { AuthValidationService } from '../../../validation/auth-validation-service';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.page.html',
@@ -46,25 +46,25 @@ export class SignUpPage implements OnInit {
         switch (errorCode) {
           case 'auth/email-already-in-use': {
             errorMessage = 'Konto z podanym adresem email już istnieje';
-            this.appComponent.showFieldValidationAlert(headerErrorMessage, errorMessage);
+            this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
             this.navController.navigateBack('sign-up');
             break;
           }
           case 'auth/invalid-email': {
             errorMessage = 'Nieprawidłowy format adresu email';
-            this.appComponent.showFieldValidationAlert(headerErrorMessage, errorMessage);
+            this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
             this.navController.navigateBack('sign-up');
             break;
           }
           case 'auth/internal-error': {
             errorMessage = 'Nieoczekiwany błąd serwera';
-            this.appComponent.showFieldValidationAlert(headerErrorMessage, errorMessage);
+            this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
             this.navController.navigateBack('sign-up');
             break;
           } 
           default: {
             errorMessage = error.message;
-            this.appComponent.showFieldValidationAlert(headerErrorMessage, errorMessage);
+            this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
             this.navController.navigateBack('sign-up');
             break;
           }
