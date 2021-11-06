@@ -37,9 +37,9 @@ export class AddTaskPage implements OnInit {
       try {
         var currentUser = firebase.auth().currentUser;
         this.angularFirestore.collection('users').doc(currentUser.uid).collection('tasks').doc('category').collection(this.taskData.category).add(taskData);
-        this.appComponent.showAlertDialogWithOkButton("Dodano zadanie", "Pomyślnie dodano zadanie")
+        this.appComponent.showAlertDialogWithOkButton('Dodano zadanie', 'Pomyślnie dodano zadanie');
       } catch(error) {
-        this.appComponent.showAlertDialogWithOkButton("Błąd uwierzytelniania", "Wystąpił błąd podczas próby dodania")
+        this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby dodania');
       }
       this.appComponent.hideLoadingDialog();
     }
