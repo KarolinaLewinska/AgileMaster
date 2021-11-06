@@ -3,7 +3,7 @@ import { UserAuthenticationService } from '../../../services/authentication-serv
 import { UserData } from '../../../model/user-data';
 import { NavController } from '@ionic/angular';
 import { AppComponent } from '../../../app.component';
-import { ValidationService } from '../../../services/validation-service';
+import { AuthValidationService } from '../../../services/auth-validation-service';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.page.html',
@@ -14,7 +14,7 @@ export class SignUpPage implements OnInit {
     private navController: NavController,
     private userAuthenticationService: UserAuthenticationService,
     private appComponent: AppComponent,
-    private validationService: ValidationService) { }
+    private authValidationService: AuthValidationService) { }
 
   userData = {} as UserData;
   
@@ -28,9 +28,9 @@ export class SignUpPage implements OnInit {
     var passwdValue = (<HTMLInputElement>document.getElementById('passwd')).value;
     var passwdConfirmValue = (<HTMLInputElement>document.getElementById('passwdConfirm')).value;
 
-    if (this.validationService.checkIfAuthFieldsAreNotEmpty(userEmail, userPassword) 
-      && this.validationService.checkIfPasswordIsValid(passwdValue, passwdConfirmValue)
-      && this.validationService.checkIfPasswordAndConfirmAreEqual(passwdValue, passwdConfirmValue)) {
+    if (this.authValidationService.checkIfAuthFieldsAreNotEmpty(userEmail, userPassword) 
+      && this.authValidationService.checkIfPasswordIsValid(passwdValue, passwdConfirmValue)
+      && this.authValidationService.checkIfPasswordAndConfirmAreEqual(passwdValue, passwdConfirmValue)) {
       
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();

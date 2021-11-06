@@ -3,7 +3,7 @@ import { UserAuthenticationService } from '../../../services/authentication-serv
 import { UserData } from '../../../model/user-data';
 import { NavController } from '@ionic/angular';
 import { AppComponent } from '../../../app.component';
-import { ValidationService } from '../../../services/validation-service';
+import { AuthValidationService } from '../../../services/auth-validation-service';
 
 @Component({
   selector: 'app-reset-password',
@@ -15,7 +15,7 @@ export class ResetPasswordPage implements OnInit {
     private userAuthenticationService: UserAuthenticationService,
     private appComponent: AppComponent,
     private navController: NavController,
-    private validationService: ValidationService) { }
+    private authValidationService: AuthValidationService) { }
   
   userData = {} as UserData;
   
@@ -24,7 +24,7 @@ export class ResetPasswordPage implements OnInit {
 
   async recoverUserPassword(userData: UserData) {
     var userEmail = userData.email;
-    if (this.validationService.checkIfAuthFieldsAreNotEmpty(userEmail)) {
+    if (this.authValidationService.checkIfAuthFieldsAreNotEmpty(userEmail)) {
       
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();

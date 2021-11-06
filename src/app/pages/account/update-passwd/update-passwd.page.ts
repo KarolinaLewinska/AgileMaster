@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserAuthenticationService } from '../../../services/authentication-service';
 import { AppComponent } from '../../../app.component';
-import { ValidationService } from '../../../services/validation-service';
+import { AuthValidationService } from '../../../services/auth-validation-service';
 @Component({
   selector: 'app-update-passwd',
   templateUrl: './update-passwd.page.html',
@@ -12,7 +12,7 @@ export class UpdatePasswdPage implements OnInit {
   constructor(
     private appComponent: AppComponent,
     private userAuthenticationService: UserAuthenticationService,
-    private validationService: ValidationService) { }
+    private authValidationService: AuthValidationService) { }
 
   ngOnInit() {
   }
@@ -22,9 +22,9 @@ export class UpdatePasswdPage implements OnInit {
     var newPasswd = (<HTMLInputElement>document.getElementById('newPasswd')).value;
     var newPasswdConfirm = (<HTMLInputElement>document.getElementById('newPasswdConfirm')).value;
 
-    if (this.validationService.checkIfPasswdFieldsAreNotEmpty(oldPasswd, newPasswd, newPasswdConfirm) 
-      && this.validationService.checkIfPasswordIsValid(newPasswd, newPasswdConfirm) 
-      && this.validationService.checkIfPasswordAndConfirmAreEqual(newPasswd, newPasswdConfirm)) {
+    if (this.authValidationService.checkIfPasswdFieldsAreNotEmpty(oldPasswd, newPasswd, newPasswdConfirm) 
+      && this.authValidationService.checkIfPasswordIsValid(newPasswd, newPasswdConfirm) 
+      && this.authValidationService.checkIfPasswordAndConfirmAreEqual(newPasswd, newPasswdConfirm)) {
 
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();

@@ -3,7 +3,7 @@ import { UserAuthenticationService } from '../../../services/authentication-serv
 import { NavController } from '@ionic/angular';
 import { UserData } from '../../../model/user-data';
 import { AppComponent } from '../../../app.component';
-import { ValidationService } from '../../../services/validation-service';
+import { AuthValidationService } from '../../../services/auth-validation-service';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,7 +15,7 @@ export class SignInPage implements OnInit {
     private userAuthenticationService: UserAuthenticationService,
     private appComponent: AppComponent,
     private navController: NavController, 
-    private validationService: ValidationService) { }
+    private authValidationService: AuthValidationService) { }
 
   userData = {} as UserData;
   
@@ -26,7 +26,7 @@ export class SignInPage implements OnInit {
     var userEmail = userData.email;
     var userPassword = userData.password;
     
-    if (this.validationService.checkIfAuthFieldsAreNotEmpty(userEmail, userPassword)) {
+    if (this.authValidationService.checkIfAuthFieldsAreNotEmpty(userEmail, userPassword)) {
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();
 

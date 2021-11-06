@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserAuthenticationService } from '../../../services/authentication-service';
 import { AppComponent } from '../../../app.component';
-import { ValidationService } from '../../../services/validation-service';
+import { AuthValidationService } from '../../../services/auth-validation-service';
 
 @Component({
   selector: 'app-delete-account',
@@ -12,7 +12,7 @@ export class DeleteAccountPage implements OnInit {
   constructor(
     private userAuthenticationService: UserAuthenticationService,
     private appComponent: AppComponent,
-    private validationService: ValidationService
+    private authValidationService: AuthValidationService
   ) { }
 
   ngOnInit() {
@@ -22,8 +22,8 @@ export class DeleteAccountPage implements OnInit {
     var currentUserPasswd = (<HTMLInputElement>document.getElementById('passwd')).value;
     var confirmCurrentUserPasswd = (<HTMLInputElement>document.getElementById('passwdConfirm')).value;
     var wantsToDelete = true;
-    if (this.validationService.checkIfPasswdFieldsAreNotEmpty(currentUserPasswd, confirmCurrentUserPasswd)
-      && this.validationService.checkIfPasswordAndConfirmAreEqual(currentUserPasswd, confirmCurrentUserPasswd)) {
+    if (this.authValidationService.checkIfPasswdFieldsAreNotEmpty(currentUserPasswd, confirmCurrentUserPasswd)
+      && this.authValidationService.checkIfPasswordAndConfirmAreEqual(currentUserPasswd, confirmCurrentUserPasswd)) {
       
       if (wantsToDelete) {
         const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButton('Usuń konto', 'Czy na pewno chcesz usunąć konto?');

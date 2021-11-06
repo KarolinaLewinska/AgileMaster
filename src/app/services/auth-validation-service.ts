@@ -6,7 +6,7 @@ import firebase from 'firebase/compat/app';
     providedIn: 'root',
   })
 
-export class ValidationService {
+export class AuthValidationService {
   constructor(private appComponent: AppComponent) {}
 
   checkIfAuthFieldsAreNotEmpty(emailValue: string, passwdValue?: string) {

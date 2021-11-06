@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserAuthenticationService } from '../../../services/authentication-service';
 import { AppComponent } from '../../../app.component';
-import { ValidationService } from '../../../services/validation-service';
+import { AuthValidationService } from '../../../services/auth-validation-service';
 
 @Component({
   selector: 'app-update-email',
@@ -12,7 +12,7 @@ export class UpdateEmailPage implements OnInit {
   constructor(
     private appComponent: AppComponent,
     private userAuthenticationService: UserAuthenticationService,
-    private validationService: ValidationService) { }
+    private authValidationService: AuthValidationService) { }
 
   ngOnInit() {
   }
@@ -21,7 +21,7 @@ export class UpdateEmailPage implements OnInit {
     var newEmail = (<HTMLInputElement>document.getElementById('emailInput')).value;
     var currentUserPassword = (<HTMLInputElement>document.getElementById('currentPasswd')).value;
     
-    if (this.validationService.checkIfEmailIsValid(newEmail)) {
+    if (this.authValidationService.checkIfEmailIsValid(newEmail)) {
       await this.appComponent.createLoadingDialog();
       await this.appComponent.showLoadingDialog();
 
