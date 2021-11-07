@@ -10,7 +10,5 @@ export class AccountSettingsPage implements OnInit {
   constructor(
     private userAuthenticationService: UserAuthenticationService) { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

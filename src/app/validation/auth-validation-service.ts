@@ -33,6 +33,7 @@ export class AuthValidationService {
 
   checkIfPasswordIsValid(passwdValue: string, confirmPasswdValue: string) {
     const headerErrorMessage = 'Nieprawidłowe hasło';
+    
     if (passwdValue.length < 6 ) {
       this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, 'Hasło musi zawierać co najmniej 6 znaków');
       return false;
@@ -54,8 +55,9 @@ export class AuthValidationService {
 
   checkIfEmailIsValid(emailValue: string) {
     var currentUserEmail = firebase.auth().currentUser.email;
+    
     if (!emailValue) {
-      this.appComponent.showAlertDialogWithOkButton('Pole wymagane', 'Wprowadź adres email');
+      this.appComponent.showAlertDialogWithOkButton('Pole wymagane', 'Podaj adres email');
       return false;
     }
     if (emailValue == currentUserEmail) {

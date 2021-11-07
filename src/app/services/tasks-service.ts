@@ -25,10 +25,11 @@ export class TasksService {
         this.appComponent.showLoadingDialog();
         
         try {
-            await this.angularFirestore.collection('users').doc(this.currentUser.uid)
-                .collection('tasks').doc('category').collection(category).doc(id).delete();
+            await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
+                .doc('category').collection(category).doc(id).delete();
             this.appComponent.showAlertDialogWithOkButton('Usunięto zadanie', 'Pomyślnie usunięto zadanie');
-        } catch(error) {
+        } 
+        catch (error) {
             this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia zadania');
         }
        this.appComponent.hideLoadingDialog();

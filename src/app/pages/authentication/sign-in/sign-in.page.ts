@@ -19,8 +19,7 @@ export class SignInPage implements OnInit {
 
   userData = {} as UserData;
   
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   async SignInUser(userData: UserData) {
     var userEmail = userData.email;
@@ -33,7 +32,7 @@ export class SignInPage implements OnInit {
       try {
         await this.userAuthenticationService.signInWithEmailAndPassword(userEmail, userPassword);
       }
-      catch(error) {
+      catch (error) {
         const headerErrorMessage = 'Błąd uwierzytelniania';
         var errorCode = error.code;
         var errorMessage = error.message;

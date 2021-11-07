@@ -19,11 +19,11 @@ export class ResetPasswordPage implements OnInit {
   
   userData = {} as UserData;
   
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   async recoverUserPassword(userData: UserData) {
     var userEmail = userData.email;
+    
     if (this.authValidationService.checkIfAuthFieldsAreNotEmpty(userEmail)) {
       
       this.appComponent.createLoadingDialog();

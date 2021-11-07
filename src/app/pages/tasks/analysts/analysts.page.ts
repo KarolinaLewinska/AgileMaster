@@ -44,7 +44,8 @@ export class AnalystsPage implements OnInit {
               }
             })
           });
-    } catch (error) {
+    } 
+    catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia zadań');
     }
     this.appComponent.hideLoadingDialog();

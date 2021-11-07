@@ -2,16 +2,31 @@
   <ion-menu side="start" menuId="navMenu" contentId="main" class="my-custom-menu">
     <ion-header>
       <ion-toolbar color="secondary">
-        <ion-title>Menu</ion-title>
+        <ion-title>AgileMaster</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item><ion-icon [routerLink]="['/tasks-categories']" name="pencil-outline"></ion-icon><ion-router-link [routerLink]="['/tasks-categories']" color="dark" >Zadania</ion-router-link></ion-item>
-        <ion-item><ion-icon [routerLink]="['/events-categories']" name="calendar-outline"></ion-icon><ion-router-link [routerLink]="['/events-categories']" color="dark" >Terminarz spotkań</ion-router-link></ion-item>
-        <ion-item><ion-icon [routerLink]="['/teams-projects-list']" name="people-circle-outline"></ion-icon><ion-router-link [routerLink]="['/teams-projects-list']" color="dark" >Projekty i zespoły</ion-router-link></ion-item>
-        <ion-item><ion-icon [routerLink]="['/statistics-categories']" name="stats-chart-sharp"></ion-icon><ion-router-link [routerLink]="['/statistics-categories']" color="dark" >Statystyki</ion-router-link></ion-item>
-        <ion-item><ion-icon [routerLink]="['/account-settings']" name="settings-sharp"></ion-icon><ion-router-link [routerLink]="['/account-settings']" color="dark" >Ustawienia</ion-router-link></ion-item>
+        <ion-item>
+          <ion-icon [routerLink]="['/tasks-categories']" name="pencil-outline"></ion-icon>
+          <ion-router-link [routerLink]="['/tasks-categories']" color="dark" >Zadania</ion-router-link>
+        </ion-item>
+        <ion-item>
+          <ion-icon [routerLink]="['/events-categories']" name="calendar-outline"></ion-icon>
+          <ion-router-link [routerLink]="['/events-categories']" color="dark" >Terminarz spotkań</ion-router-link>
+        </ion-item>
+        <ion-item>
+          <ion-icon [routerLink]="['/teams-projects-list']" name="people-circle-outline"></ion-icon>
+          <ion-router-link [routerLink]="['/teams-projects-list']" color="dark" >Projekty i zespoły</ion-router-link>
+        </ion-item>
+        <ion-item>
+          <ion-icon [routerLink]="['/statistics-categories']" name="stats-chart-sharp"></ion-icon>
+          <ion-router-link [routerLink]="['/statistics-categories']" color="dark" >Statystyki</ion-router-link>
+        </ion-item>
+        <ion-item>
+          <ion-icon [routerLink]="['/account-settings']" name="settings-sharp"></ion-icon>
+          <ion-router-link [routerLink]="['/account-settings']" color="dark" >Ustawienia</ion-router-link>
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>

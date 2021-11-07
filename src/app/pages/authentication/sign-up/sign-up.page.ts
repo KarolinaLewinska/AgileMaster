@@ -14,12 +14,12 @@ export class SignUpPage implements OnInit {
     private navController: NavController,
     private userAuthenticationService: UserAuthenticationService,
     private appComponent: AppComponent,
-    private authValidationService: AuthValidationService) { }
+    private authValidationService: AuthValidationService
+  ) { }
 
   userData = {} as UserData;
   
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   async signUpUser(userData: UserData) {
     var userEmail = userData.email;
@@ -38,14 +38,15 @@ export class SignUpPage implements OnInit {
       try {
         await this.userAuthenticationService.signUpWithEmailAndPassword(userEmail, userPassword);
         await this.userAuthenticationService.sendEmailToConfirmSignUp()
-      } catch (error) {
+      } 
+      catch (error) {
         const headerErrorMessage = 'Błąd uwierzytelniania';
         var errorCode = error.code;
         var errorMessage = error.message;
         
         switch (errorCode) {
           case 'auth/email-already-in-use': {
-            errorMessage = 'Konto z podanym adresem email już istnieje';
+            errorMessage = 'Użytkownik o podanym adresie email już istnieje';
             this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
             this.navController.navigateBack('sign-up');
             break;

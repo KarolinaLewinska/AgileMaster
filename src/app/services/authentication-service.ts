@@ -11,7 +11,6 @@ import { deleteUser } from "firebase/auth";
 
 export class UserAuthenticationService {
   private dataOfUser: any;
-  public isLoggedIn: boolean;
 
   constructor(
     private angularFireAuth: AngularFireAuth,
@@ -21,7 +20,7 @@ export class UserAuthenticationService {
       if (user) {
         this.dataOfUser = user;
         localStorage.setItem('user', JSON.stringify(this.dataOfUser));
-        JSON.parse(localStorage.getItem('user')); //czy ten cały mechanizm jest potrzebny???
+        JSON.parse(localStorage.getItem('user'));
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
@@ -30,10 +29,9 @@ export class UserAuthenticationService {
   }
   
   signInWithEmailAndPassword(email: string, password: string) {
-    this.isLoggedIn = true; //może nie trzeba
     return this.angularFireAuth.signInWithEmailAndPassword(email, password)
     .then((auth) => {
-      if(auth.user.emailVerified) {
+      if (auth.user.emailVerified) {
         this.navController.navigateForward('tasks-categories');
       } else {
         this.appComponent.showAlertDialogWithOkButton('Potwierdzenie rejestracji','Aby móc się zalogować potwierdź swój adres email');
@@ -51,7 +49,7 @@ export class UserAuthenticationService {
       this.navController.navigateBack('sign-up-confirm');
     })
     .catch(() => {
-      this.appComponent.showAlertDialogWithOkButton('Błąd','Wystąpił błąd podczas wysłania wiadomości');
+      this.appComponent.showAlertDialogWithOkButton('Błąd','Wystąpił błąd podczas próby wysłania wiadomości');
     });
   }
 
@@ -85,15 +83,14 @@ export class UserAuthenticationService {
 
   async reauthenticateCurrentUser(oldPassword: string) {
     const currentUser = await firebase.auth().currentUser;
-    const currentUserData = firebase.auth.EmailAuthProvider.credential(firebase.auth().currentUser.email, oldPassword)
+    const currentUserData = firebase.auth.EmailAuthProvider.credential(firebase.auth().currentUser.email, oldPassword);
     var authUserResult = await currentUser.reauthenticateWithCredential(currentUserData);
   }
 
   logOut() {
-    this.isLoggedIn = false; //może nie trzeba
     this.angularFireAuth.signOut().then(() => {
-      localStorage.removeItem('user'); //nie wiem czy potrzebne
-      this.navController.navigateBack('sign-in'); //może navigate inne
+      localStorage.removeItem('user'); 
+      this.navController.navigateBack('sign-in'); 
     });
   }
 
@@ -108,13 +105,5 @@ export class UserAuthenticationService {
         this.appComponent.showAlertDialogWithOkButton('Błąd','Nieprawidłowa wartość bieżącego hasła');
 
       });
-  }
-  
-  //może niepotrzebne
-  checkIfUserIsLoggedIn() {
-    if (this.isLoggedIn == true) {
-      return true;
-    }
-    return false;
   }
 }

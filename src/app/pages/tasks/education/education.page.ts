@@ -43,7 +43,8 @@ export class EducationPage implements OnInit {
               }
             })
           });
-    } catch (error) {
+    } 
+    catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia zadań');
     }
     this.appComponent.hideLoadingDialog();
@@ -55,5 +56,5 @@ export class EducationPage implements OnInit {
 
   navigateToTaskDetails(taskDetails) {
     this.tasksService.navigateToDetails(taskDetails);
-}
+  }
 }

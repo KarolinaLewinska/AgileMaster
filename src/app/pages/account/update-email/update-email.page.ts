@@ -14,8 +14,7 @@ export class UpdateEmailPage implements OnInit {
     private userAuthenticationService: UserAuthenticationService,
     private authValidationService: AuthValidationService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   async updateEmail() {
     var newEmail = (<HTMLInputElement>document.getElementById('emailInput')).value;
@@ -28,7 +27,7 @@ export class UpdateEmailPage implements OnInit {
       try {
         await this.userAuthenticationService.reauthenticateAndUpdateUserEmail(currentUserPassword, newEmail);
       }
-      catch(error) {
+      catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby zmiany adresu email');
       }
       await this.appComponent.hideLoadingDialog(); 

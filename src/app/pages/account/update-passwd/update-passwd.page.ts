@@ -8,14 +8,12 @@ import { AuthValidationService } from '../../../validation/auth-validation-servi
   styleUrls: ['./update-passwd.page.scss'],
 })
 export class UpdatePasswdPage implements OnInit {
-
   constructor(
     private appComponent: AppComponent,
     private userAuthenticationService: UserAuthenticationService,
     private authValidationService: AuthValidationService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   async updateUserPassword() {
     var oldPasswd = (<HTMLInputElement>document.getElementById('oldPasswd')).value;
@@ -32,7 +30,7 @@ export class UpdatePasswdPage implements OnInit {
       try {
         this.userAuthenticationService.reauthenticateAndUpdateUserPassword(oldPasswd, newPasswd);
       }
-      catch(error) {
+      catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby zmiany hasła');
       }
       this.appComponent.hideLoadingDialog(); 

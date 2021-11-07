@@ -31,15 +31,19 @@ export class AddTaskPage implements OnInit {
 
       try {
         var currentUser = firebase.auth().currentUser;
-        await this.angularFirestore.collection('users').doc(currentUser.uid).collection('tasks').doc('category').collection(this.taskData.category).add(taskData);
+        await this.angularFirestore.collection('users').doc(currentUser.uid).collection('tasks')
+          .doc('category').collection(this.taskData.category).add(taskData);
+        
         this.appComponent.showAlertDialogWithOkButton('Dodano zadanie', 'Pomyślnie dodano zadanie');
         this.clearInputFields();
-      } catch(error) {
+      } 
+      catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby dodania zadania');
       }
       this.appComponent.hideLoadingDialog();
     }
   }
+  
   clearInputFields() {
     const emptyValue = null;
     this.taskData.title = emptyValue;

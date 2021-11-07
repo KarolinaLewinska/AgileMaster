@@ -58,15 +58,19 @@ export class EditTaskPage implements OnInit {
       
       try {
         if (this.taskData.category == this.category) {
-          await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks').doc('category')
-          .collection(this.category).doc(this.id).update(taskData);
+          await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
+            .doc('category').collection(this.category).doc(this.id).update(taskData);
         } else {
-          await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection(this.category).doc(this.id).delete();
-          await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection(this.taskData.category).add(taskData);
+          await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
+            .doc('category').collection(this.category).doc(this.id).delete();
+
+          await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
+            .doc('category').collection(this.taskData.category).add(taskData);
         }
         this.appComponent.showAlertDialogWithOkButton('Edycja zadania', 'Pomyślnie zaktualizowano zadanie');
         this.navController.navigateBack('tasks-categories');
-      } catch(error) {
+      } 
+      catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji zadania');
       }
       this.appComponent.hideLoadingDialog();

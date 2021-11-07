@@ -15,13 +15,13 @@ export class DeleteAccountPage implements OnInit {
     private authValidationService: AuthValidationService
   ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   async deleteUserAccount() {
     var currentUserPasswd = (<HTMLInputElement>document.getElementById('passwd')).value;
     var confirmCurrentUserPasswd = (<HTMLInputElement>document.getElementById('passwdConfirm')).value;
     var wantsToDelete = true;
+    
     if (this.authValidationService.checkIfPasswdFieldsAreNotEmpty(currentUserPasswd, confirmCurrentUserPasswd)
       && this.authValidationService.checkIfPasswordAndConfirmAreEqual(currentUserPasswd, confirmCurrentUserPasswd)) {
       
@@ -36,7 +36,8 @@ export class DeleteAccountPage implements OnInit {
         this.appComponent.createLoadingDialog();
         this.appComponent.showLoadingDialog();
         this.userAuthenticationService.reauthenticateAndDeleteUserAccount(currentUserPasswd);
-      } catch (error) {
+      } 
+      catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia konta');
       }
       this.appComponent.hideLoadingDialog();
