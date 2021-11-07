@@ -14,10 +14,10 @@
       <ion-col><p id="viewTitle">Zmiana adresu email</p></ion-col>
     </ion-row>
     <ion-row>
-      <ion-col id="texts" size="11"><p>Nowy adres email:</p></ion-col>
+      <ion-col id="inputLabel"><p>Nowy adres email:</p></ion-col>
     </ion-row>
     <ion-row>
-      <ion-col id="inputs" size="11">
+      <ion-col>
         <ion-item>
           <ion-label><ion-icon id="authIcons" name="mail-outline"></ion-icon></ion-label>
           <ion-input id="emailInput" required type="email" maxlength=320 minlength=3></ion-input>
@@ -25,10 +25,10 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col id="texts" size="11"><p>Bieżące hasło:</p></ion-col>
+      <ion-col id="inputLabel"><p>Bieżące hasło:</p></ion-col>
     </ion-row>
     <ion-row>
-      <ion-col id="inputs" size="11">
+      <ion-col>
         <ion-item>
           <ion-label><ion-icon id="authIcons" name="lock-closed"></ion-icon></ion-label>
           <ion-input id="currentPasswd" required type="password" maxlength=320 minlength=6></ion-input>
@@ -36,7 +36,7 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col size="12">
+      <ion-col>
           <ion-button (click)="updateEmail()">Zmień</ion-button>
       </ion-col>
   </ion-row>

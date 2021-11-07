@@ -14,10 +14,10 @@
       <ion-col><p id="viewTitle">Usunięcie konta</p></ion-col>
     </ion-row>
     <ion-row>
-      <ion-col id="texts" size="11"><p>Bieżące hasło:</p></ion-col>
+      <ion-col id="inputLabel" size="11"><p>Bieżące hasło:</p></ion-col>
     </ion-row>
     <ion-row>
-      <ion-col id="inputs" size="11">
+      <ion-col>
         <ion-item>
           <ion-label><ion-icon id="authIcons" name="lock-closed"></ion-icon></ion-label>
           <ion-input id="passwd" required type="password" maxlength=320 minlength=6></ion-input>
@@ -25,10 +25,10 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col id="texts" size="11"><p>Powtórz hasło:</p></ion-col>
+      <ion-col id="inputLabel"><p>Powtórz hasło:</p></ion-col>
     </ion-row>
     <ion-row>
-      <ion-col id="inputs" size="11">
+      <ion-col>
         <ion-item>
           <ion-label><ion-icon id="authIcons" name="checkmark-sharp"></ion-icon></ion-label>
           <ion-input id="passwdConfirm" required type="password" maxlength=320 minlength=6></ion-input>
@@ -36,7 +36,7 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col size="12">
+      <ion-col>
           <ion-button (click)="deleteUserAccount()">Usuń</ion-button>
       </ion-col>
   </ion-row>

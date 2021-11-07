@@ -16,11 +16,11 @@
     <ion-list lines="none">
       <ion-item>
         <ion-label>Tytuł</ion-label>
-        <ion-input id="title" [(ngModel)]="taskData.title" required></ion-input>
+        <ion-input id="title" [(ngModel)]="taskData.title"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Opis</ion-label>
-        <ion-textarea id="description" [(ngModel)]="taskData.description" required></ion-textarea>
+        <ion-textarea id="description" [(ngModel)]="taskData.description"></ion-textarea>
       </ion-item>
       <ion-item>
         <ion-label>Data wykonania</ion-label>
@@ -56,7 +56,7 @@
 <ion-footer>
   <ion-toolbar color="secondary">
       <ion-row>
-          <ion-button (click)="addTask(taskData)" fill="clear">Dodaj zadanie</ion-button>
+          <ion-button (click)="addTask(taskData)" fill="clear">DODAJ ZADANIE</ion-button>
       </ion-row>
   </ion-toolbar>
 </ion-footer>

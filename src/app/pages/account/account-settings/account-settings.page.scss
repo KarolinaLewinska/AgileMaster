@@ -1,16 +1,14 @@
-ion-grid {
+ion-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    top: 3%;
-    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 ion-menu-button {
     float: left; 
     width: 60px;
-}
-
-ion-col {
-    text-align: center;
 }
 
 #logOutIcon {
@@ -26,15 +24,11 @@ ion-col {
 }
 
 #viewTitle {
-    text-align: center;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
 }
 
 #optionTitle {
-    text-align: center;
-    font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
 }
 
 ion-button {

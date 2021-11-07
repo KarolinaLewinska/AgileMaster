@@ -1,17 +1,15 @@
-ion-grid {
+ion-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    top: 10%;
-    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 ion-button {
     width: 70%;
     height: 150%;
     padding-top: 5%;
-}
-
-ion-col {
-    text-align: center;
 }
 
 ion-icon {
@@ -25,28 +23,12 @@ ion-icon {
 
 #sentIcon {
     font-size: 80px; 
-    text-align: center;
 }
 
 #viewTitle {
-    text-align: center;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-right: 8%;
+    font-size: 18px;
 }
 
 p {
-    text-align: left;
-    margin-left: 10%;
-    font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#email {
-    margin-left: 35%;
-}
-
-ion-item {
-    display: flex;
-    align-items: center;
+    font-size: 16px;
 }

@@ -1,7 +1,13 @@
-ion-grid {
+ion-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ion-grid {
     top: 10%;
-    position: absolute;
 }
 
 ion-icon {
@@ -13,22 +19,12 @@ ion-icon {
 }
 
 #authIcons {
-    font-size: 30px; 
+    font-size: 25px; 
 }
 
 #viewTitle {
-    text-align: center;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-right: 5%;
-}
-
-p {
-    text-align: left;
-    margin-left: 6%;
     font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
-} 
+}
 
 ion-button {
     padding-top: 5%;
@@ -36,14 +32,8 @@ ion-button {
     height: 150%;
 }
 
-#inputs {
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-}
-
-#texts {
-    margin: auto;
-    justify-content: left;
-    align-items: left;
+#inputLabel {
+    text-align: left;
+    margin-left: 5%;
+    font-size: 16px;
 }

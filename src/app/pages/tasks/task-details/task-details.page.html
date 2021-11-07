@@ -14,36 +14,36 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col><p id="viewTitle">Szczegóły zadania</p></ion-col>
+      <ion-col><p id="viewTitle">{{taskData.title}}</p></ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
-        <strong>Tytuł:</strong> {{taskData.title}}
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <strong>Opis:</strong> {{taskData.description}}
+      <ion-col id="descriptionField">
+        <strong>Opis:</strong> 
+        <p>{{taskData.description}}</p>
       </ion-col> 
     </ion-row>
     <ion-row>
       <ion-col>
-        <strong>Termin wykonania:</strong> {{taskData.dateOfFinish}}
+        <strong>Termin wykonania:</strong> 
+        <p>{{taskData.dateOfFinish}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <strong>Godzina wykonania:</strong> {{taskData.timeOfFinish}}
+        <strong>Godzina wykonania:</strong> 
+        <p>{{taskData.timeOfFinish}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <strong>Priorytet:</strong> {{taskData.priority}}
+        <strong>Priorytet:</strong> 
+        <p>{{taskData.priority}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <strong>Kategoria:</strong> {{taskData.category}}
+        <strong>Kategoria:</strong> 
+        <p>{{taskData.category}}</p>
       </ion-col>
     </ion-row>
   </ion-grid>
