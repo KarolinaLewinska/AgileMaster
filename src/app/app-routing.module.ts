@@ -111,6 +111,10 @@ const routes: Routes = [
     path: 'add-event',
     loadChildren: () => import('./pages/events/add-event/add-event.module').then( m => m.AddEventPageModule)
   },
+  {
+    path: 'edit-task/:id/:category',
+    loadChildren: () => import('./pages/tasks/edit-task/edit-task.module').then( m => m.EditTaskPageModule)
+  },
 ];
 
 @NgModule({

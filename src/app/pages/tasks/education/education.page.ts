@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import firebase from '@firebase/app-compat';
-import { UserData } from '../../../model/user-data';
 import { AppComponent } from '../../../app.component';
 @Component({
   selector: 'app-education',
@@ -9,16 +8,12 @@ import { AppComponent } from '../../../app.component';
   styleUrls: ['./education.page.scss'],
 })
 export class EducationPage implements OnInit {
-
   constructor(
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent
   ) { }
 
   tasksData: any;
-  user = {
-    email: firebase.auth().currentUser.email,
-  } as UserData;
 
   ngOnInit() {
     this.showTasksList()

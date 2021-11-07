@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-row>
+      <ion-col>
+        <ion-icon [routerLink]="['/tasks-categories']" id="backIcon" name="chevron-back-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col><p id="viewTitle">Edytuj zadanie</p></ion-col>
+    </ion-row>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label>Tytuł</ion-label>
+        <ion-input id="title" [(ngModel)]="taskData.title" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Opis</ion-label>
+        <ion-textarea id="description" [(ngModel)]="taskData.description" required></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>Data wykonania</ion-label>
+        <ion-datetime id="date" [(ngModel)]="taskData.dateOfFinish" max="2099-12-31" pickerFormat="YYYY-MM-DD" displayFormat="YYYY-MM-DD"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Godzina wykonania</ion-label>
+        <ion-datetime id="time" [(ngModel)]="taskData.timeOfFinish" pickerFormat="HH:mm" displayFormat="HH:mm"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Priorytet</ion-label>
+        <ion-select id="priority" [(ngModel)]="taskData.priority">
+          <ion-select-option value="Wysoki">Wysoki</ion-select-option>
+          <ion-select-option value="Średni">Średni</ion-select-option>
+          <ion-select-option value="Niski">Niski</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Kategoria</ion-label>
+        <ion-select value="{{taskData.category}}" id="category" [(ngModel)]="taskData.category">
+          <ion-select-option value="Analitycy">Analitycy</ion-select-option>
+          <ion-select-option value="Zespół deweloperski">Zespół deweloperski</ion-select-option>
+          <ion-select-option value="Product Owner">Product Owner</ion-select-option>
+          <ion-select-option value="Organizacja">Organizacja</ion-select-option>
+          <ion-select-option value="Edukacja">Edukacja</ion-select-option>
+          <ion-select-option value="Inne">Inne</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="secondary">
+      <ion-row>
+          <ion-button (click)="editTaskData(taskData)" fill="clear">Edytuj zadanie</ion-button>
+      </ion-row>
+  </ion-toolbar>
+</ion-footer>
+
