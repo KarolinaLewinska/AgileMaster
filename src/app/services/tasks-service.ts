@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import firebase from '@firebase/app-compat';
+import { NavigationExtras } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Injectable({
     providedIn: 'root',
@@ -10,7 +12,8 @@ import firebase from '@firebase/app-compat';
 export class TasksService {
     constructor(
         private appComponent: AppComponent,
-        private angularFirestore: AngularFirestore
+        private angularFirestore: AngularFirestore,
+        private navController: NavController
     ) {}
 
     currentUser = firebase.auth().currentUser;
@@ -28,4 +31,13 @@ export class TasksService {
         }
        this.appComponent.hideLoadingDialog();
     }
+
+    // showTaskDetails(taskDetails) {
+    //     let navigationExtras: NavigationExtras = {
+    //       queryParams: {
+    //         taskData: taskDetails
+    //       }
+    //     };
+    //     this.navController.navigateForward('task-details', navigationExtras);
+    // }
 }
