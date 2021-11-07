@@ -4,6 +4,9 @@
       <ion-col>
         <ion-icon [routerLink]="['/tasks-categories']" id="backIcon" name="chevron-back-outline"></ion-icon>
       </ion-col>
+      <ion-col id="editTaskIcon">
+        <ion-icon [routerLink]="['/edit-task/', taskData.id, taskData.category]" name="create-outline"></ion-icon>
+      </ion-col>
     </ion-row>
   </ion-toolbar>
 </ion-header>
@@ -12,6 +15,36 @@
   <ion-grid>
     <ion-row>
       <ion-col><p id="viewTitle">Szczegóły zadania</p></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Tytuł:</strong> {{taskData.title}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Opis:</strong> {{taskData.description}}
+      </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Termin wykonania:</strong> {{taskData.dateOfFinish}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Godzina wykonania:</strong> {{taskData.timeOfFinish}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Priorytet:</strong> {{taskData.priority}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Kategoria:</strong> {{taskData.category}}
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

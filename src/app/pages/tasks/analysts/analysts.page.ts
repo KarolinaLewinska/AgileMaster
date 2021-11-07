@@ -53,7 +53,7 @@ export class AnalystsPage implements OnInit {
   async deleteTask(id) {
     this.tasksService.deleteTaskData(id, this.nameOfTasksCategory);
   }
-  // async showTaskDetails() {
-  //   this.tasksService.showTaskDetails(this.tasksData);
-  // }
+  async showTaskDetails() {
+    this.tasksService.navigateToDetails(this.tasksData, 'task-details');
+  }
 }
