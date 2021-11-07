@@ -13,7 +13,7 @@ export class AnalystsPage implements OnInit {
   constructor(
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent,
-    private tasksService: TasksService
+    private tasksService: TasksService,
   ) { }
 
   tasksData: any;
@@ -53,7 +53,8 @@ export class AnalystsPage implements OnInit {
   async deleteTask(id) {
     this.tasksService.deleteTaskData(id, this.nameOfTasksCategory);
   }
-  async showTaskDetails() {
-    this.tasksService.navigateToDetails(this.tasksData, 'task-details');
+
+  navigateToTaskDetails(taskDetails) {
+    this.tasksService.navigateToDetails(taskDetails);
   }
 }

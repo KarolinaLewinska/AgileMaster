@@ -29,7 +29,7 @@
                   <ion-icon [routerLink]="['/edit-task/', taskData.id, taskData.category]" id="listIcons" name="create-outline"></ion-icon>
               </ion-col>
               <ion-col size="2">
-                <ion-button (click)="navigateToTaskDetails(this.taskData)" fill="clear">
+                <ion-button (click)="navigateToTaskDetails(taskData)" fill="clear">
                   <ion-icon id="listIcons" name="arrow-forward-outline"></ion-icon>
                 </ion-button>
               </ion-col>

@@ -52,4 +52,8 @@ export class DevelopmentTeamPage implements OnInit {
   async deleteTask(id) {
     this.tasksService.deleteTaskData(id, this.nameOfTasksCategory);
   }
+
+  navigateToTaskDetails(taskDetails) {
+    this.tasksService.navigateToDetails(taskDetails);
+  }
 }

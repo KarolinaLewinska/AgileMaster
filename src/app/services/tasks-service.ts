@@ -4,22 +4,20 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import firebase from '@firebase/app-compat';
 import { NavigationExtras } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { TaskData } from '../model/task-data';
 
 @Injectable({
     providedIn: 'root',
-}
-)
+})
+
 export class TasksService {
     constructor(
         private appComponent: AppComponent,
         private angularFirestore: AngularFirestore,
         private navController: NavController,
-        private activatedRoute: ActivatedRoute,
-        private angularFireAuth: AngularFireAuth
     ) {}
-
+    
+    taskData = {} as TaskData;
     currentUser = firebase.auth().currentUser;
     
     async deleteTaskData(id: string, category: string) {
@@ -36,18 +34,12 @@ export class TasksService {
        this.appComponent.hideLoadingDialog();
     }
 
-    navigateToDetails(details, page) {
+    navigateToDetails(details) {
         let navigationExtras: NavigationExtras = {
           queryParams: {
-            data: details
+            taskData: details
           }
         };
-        this.navController.navigateForward(page, navigationExtras);
-    }
-
-    displayTaskDetails(dataModel, paramName: string) {
-        this.activatedRoute.queryParams.subscribe(params => {
-            dataModel = params[paramName]
-        });
+        this.navController.navigateForward('task-details', navigationExtras);
     }
 }
