@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import firebase from '@firebase/app-compat';
 import { AppComponent } from '../../../app.component';
+import { TasksService } from '../../../services/tasks-service';
 @Component({
   selector: 'app-development-team',
   templateUrl: './development-team.page.html',
@@ -10,24 +11,25 @@ import { AppComponent } from '../../../app.component';
 export class DevelopmentTeamPage implements OnInit {
   constructor(
     private angularFirestore: AngularFirestore,
-    private appComponent: AppComponent
+    private appComponent: AppComponent,
+    private tasksService: TasksService
   ) { }
 
   tasksData: any;
+  nameOfTasksCategory = 'Zespół deweloperski';
  
   ngOnInit() {
     this.showTasksList()
   }
 
   async showTasksList() {
-    const nameOfTasksCategory = 'Zespół deweloperski';
     this.appComponent.createLoadingDialog();
     this.appComponent.showLoadingDialog();
 
     try {
       var currentUser = firebase.auth().currentUser;
       this.angularFirestore.collection('users').doc(currentUser.uid).collection('tasks').doc('category')
-        .collection(nameOfTasksCategory, tasks => tasks.orderBy('dateOfFinish')).snapshotChanges()
+        .collection(this.nameOfTasksCategory, tasks => tasks.orderBy('dateOfFinish')).snapshotChanges()
           .subscribe(tasksMapper => {
             this.tasksData = tasksMapper.map(mapper => {
               return {
@@ -45,5 +47,9 @@ export class DevelopmentTeamPage implements OnInit {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia zadań');
     }
     this.appComponent.hideLoadingDialog();
+  }
+
+  async deleteTask(id) {
+    this.tasksService.deleteTaskData(id, this.nameOfTasksCategory);
   }
 }
