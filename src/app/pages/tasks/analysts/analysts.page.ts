@@ -19,7 +19,7 @@ export class AnalystsPage implements OnInit {
   tasksData: any;
   currentUser = firebase.auth().currentUser;
   nameOfTasksCategory = 'Analitycy';
-
+    ths
   ngOnInit() {
     this.showTasksList()
   }

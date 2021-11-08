@@ -16,6 +16,12 @@
     <ion-row>
       <ion-col><p id="viewTitle">Zespół deweloperski</p></ion-col>
     </ion-row>
+    <div *ngIf="tasksData == 0">
+      <p>Nie dodałeś/aś jeszcze żadnego zadania? </p>
+      <ion-icon id="sadIcon" name="sad-outline"></ion-icon>
+      <p>Naciśnij</p>
+      <ion-icon id="arrowIcon" name="arrow-down-outline"></ion-icon>
+    </div>
     <ion-list lines="none">
       <ion-item-sliding *ngFor="let taskData of tasksData">
         <ion-item>
