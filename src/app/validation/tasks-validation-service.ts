@@ -17,10 +17,6 @@ export class TasksValidationService {
             this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Tytuł jest wymagany');
             return false;
         }
-        if (!description) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Opis jest wymagany');
-            return false;
-        }
         if (!date) {
             this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Data jest wymagana');
             return false;

@@ -1,7 +1,9 @@
-ion-grid {
+ion-content, ion-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    top: 10%;
-    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 ion-icon {
@@ -10,5 +12,18 @@ ion-icon {
 
 #backIcon {
     font-size: 40px;  
-    padding-left: 13%;
+    padding-left: 8%;
+}
+
+#viewTitle {
+    font-size: 18px;
+}
+
+ion-button {
+    height: 50%;
+    width: 60%;
+    margin-left: 32%;
+    font-weight: bold;
+    margin: auto;
+    font-size: 14px;
 }

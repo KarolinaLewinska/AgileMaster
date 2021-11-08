@@ -9,5 +9,53 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col><p id="viewTitle">Dodaj spotkanie</p></ion-col>
+    </ion-row>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label>Nazwa spotkania</ion-label>
+        <ion-input id="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Opis</ion-label>
+        <ion-textarea id="description"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>Data</ion-label>
+        <ion-datetime id="date" max="2099-12-31" pickerFormat="YYYY-MM-DD" displayFormat="YYYY-MM-DD"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Godzina rozpoczęcia</ion-label>
+        <ion-datetime id="time" pickerFormat="HH:mm" displayFormat="HH:mm"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Czas trwania</ion-label>
+        <ion-datetime id="duration" pickerFormat="HH:mm" displayFormat="HH:mm"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Miejsce spotkania</ion-label>
+        <ion-input id="place"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Kategoria</ion-label>
+        <ion-select id="category">
+          <ion-select-option value="Spotkania Scrumowe">Spotkania Scrumowe</ion-select-option>
+          <ion-select-option value="Warsztaty">Warsztaty</ion-select-option>
+          <ion-select-option value="Szkolenia">Szkolenia</ion-select-option>
+          <ion-select-option value="Inne">Inne</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="secondary">
+      <ion-row>
+          <ion-button (click)="addTask(taskData)" fill="clear">DODAJ SPOTKANIE</ion-button>
+      </ion-row>
+  </ion-toolbar>
+</ion-footer>
+
