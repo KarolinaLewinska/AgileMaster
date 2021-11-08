@@ -5,19 +5,23 @@ ion-content, ion-footer {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
+ion-button {
+    height: 40px;
+}
 
 ion-icon {
     color:#707070;
 }
 
 #backIcon {
-    font-size: 40px;  
+    font-size: 45px;  
+    padding-left: 12%;
 }
 
 #editTaskIcon {
     float: right;
     font-size: 40px;
-    margin-left: 60%;
+    margin-left: 70%;
 }
 
 #viewTitle {
@@ -28,7 +32,7 @@ ion-icon {
     border-radius: 25px;
     border-color: #E6E6FA; 
     border-width: .01em; 
-    border-style:solid; margin-bottom : -1px;
+    border-style: solid; margin-bottom: -1px;
     background-color: #E6E6FA;
 }
 

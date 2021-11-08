@@ -8,6 +8,7 @@ import { UserAuthenticationService } from '../../../services/authentication-serv
 })
 export class TasksCategoriesPage implements OnInit {
   constructor(private userAuthenticationService: UserAuthenticationService) { }
+  //czy to potrzebne?
 
   ngOnInit() {}
 }

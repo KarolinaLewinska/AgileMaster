@@ -67,7 +67,7 @@ export class EditTaskPage implements OnInit {
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
             .doc('category').collection(this.taskData.category).add(taskData);
         }
-        this.appComponent.showAlertDialogWithOkButton('Edycja zadania', 'Pomyślnie zaktualizowano zadanie');
+        this.appComponent.showAlertDialogWithOkButton('Edycja zadania', 'Zaktualizowano zadanie');
         this.navController.navigateBack('tasks-categories');
       } 
       catch (error) {

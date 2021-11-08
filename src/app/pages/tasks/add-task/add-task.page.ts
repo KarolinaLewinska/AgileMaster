@@ -34,7 +34,7 @@ export class AddTaskPage implements OnInit {
         await this.angularFirestore.collection('users').doc(currentUser.uid).collection('tasks')
           .doc('category').collection(this.taskData.category).add(taskData);
         
-        this.appComponent.showAlertDialogWithOkButton('Dodano zadanie', 'Pomyślnie dodano zadanie');
+        this.appComponent.showAlertDialogWithOkButton('Dodano zadanie', 'Dodano zadanie');
         this.clearInputFields();
       } 
       catch (error) {

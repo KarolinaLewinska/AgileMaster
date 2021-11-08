@@ -52,7 +52,18 @@ export class AnalystsPage implements OnInit {
   }
 
   async deleteTask(id) {
-    this.tasksService.deleteTaskData(id, this.nameOfTasksCategory);
+    this.appComponent.createLoadingDialog();
+    this.appComponent.showLoadingDialog();
+    
+    try {
+      await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
+        .doc('category').collection(this.nameOfTasksCategory).doc(id).delete();
+      this.appComponent.showAlertDialogWithOkButton('Usunięto zadanie', 'Pomyślnie usunięto zadanie');
+    } 
+    catch (error) {
+      this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia zadania');
+    }
+   this.appComponent.hideLoadingDialog();
   }
 
   navigateToTaskDetails(taskDetails) {

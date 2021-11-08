@@ -16,8 +16,9 @@ export class DevelopmentTeamPage implements OnInit {
   ) { }
 
   tasksData: any;
+  currentUser = firebase.auth().currentUser;
   nameOfTasksCategory = 'Zespół deweloperski';
- 
+  
   ngOnInit() {
     this.showTasksList()
   }
@@ -51,7 +52,18 @@ export class DevelopmentTeamPage implements OnInit {
   }
 
   async deleteTask(id) {
-    this.tasksService.deleteTaskData(id, this.nameOfTasksCategory);
+    this.appComponent.createLoadingDialog();
+    this.appComponent.showLoadingDialog();
+    
+    try {
+      await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
+          .doc('category').collection(this.nameOfTasksCategory).doc(id).delete();
+      this.appComponent.showAlertDialogWithOkButton('Usunięto zadanie', 'Pomyślnie usunięto zadanie');
+    } 
+    catch (error) {
+      this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia zadania');
+    }
+   this.appComponent.hideLoadingDialog();
   }
 
   navigateToTaskDetails(taskDetails) {
