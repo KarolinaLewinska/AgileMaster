@@ -28,11 +28,12 @@ export class AddEventPage implements OnInit {
       
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();
+      
 
       try {
         var currentUser = firebase.auth().currentUser;
         await this.angularFirestore.collection('users').doc(currentUser.uid).collection('events')
-          .doc('category').collection(this.eventData.category).add(eventData);
+          .doc('category').collection(this.setCategoryName()).add(eventData);
         
         this.appComponent.showAlertDialogWithOkButton('Dodano spotkanie', 'Pomyślnie dodano spotkanie');
         this.clearInputFields();
@@ -42,6 +43,26 @@ export class AddEventPage implements OnInit {
       }
       this.appComponent.hideLoadingDialog();
     }
+  }
+
+  setCategoryName() {
+    var nameOfCategory = "";
+
+    switch(this.eventData.category) {
+      case 'Spotkania Scrumowe':
+        nameOfCategory = 'scrumMeetings';
+        break;
+      case 'Szkolenia':
+        nameOfCategory = 'courses';
+        break;
+      case 'Warsztaty':
+        nameOfCategory = 'workshops';
+        break;
+      default:
+        nameOfCategory = 'otherEvents';
+        break;
+    }
+    return nameOfCategory;
   }
   
   clearInputFields() {

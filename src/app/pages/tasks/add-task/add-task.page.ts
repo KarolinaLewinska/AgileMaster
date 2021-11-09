@@ -28,11 +28,11 @@ export class AddTaskPage implements OnInit {
       
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();
-
+      
       try {
         var currentUser = firebase.auth().currentUser;
         await this.angularFirestore.collection('users').doc(currentUser.uid).collection('tasks')
-          .doc('category').collection(this.taskData.category).add(taskData);
+          .doc('category').collection(this.setCategoryName()).add(taskData);
         
         this.appComponent.showAlertDialogWithOkButton('Dodano zadanie', 'Pomyślnie dodano zadanie');
         this.clearInputFields();
@@ -42,6 +42,32 @@ export class AddTaskPage implements OnInit {
       }
       this.appComponent.hideLoadingDialog();
     }
+  }
+
+  setCategoryName() {
+    var nameOfCategory = "";
+
+    switch(this.taskData.category) {
+      case 'Analitycy':
+        nameOfCategory = 'analysts';
+        break;
+      case 'Zespół deweloperski':
+        nameOfCategory = 'developmentTeam';
+        break;
+      case 'Product Owner':
+        nameOfCategory = 'productOwner';
+        break;
+      case 'Organizacja':
+        nameOfCategory = 'company';
+        break;
+      case 'Edukacja':
+        nameOfCategory = 'education';
+        break;
+      default:
+        nameOfCategory = 'otherTasks';
+        break;
+    }
+    return nameOfCategory;
   }
   
   clearInputFields() {

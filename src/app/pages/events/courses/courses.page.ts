@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import firebase from '@firebase/app-compat';
 import { AppComponent } from '../../../app.component';
-import { EventsService } from '../../../services/events-service';
+import { SharedService } from '../../../services/shared-service';
 
 @Component({
   selector: 'app-courses',
@@ -14,12 +14,12 @@ export class CoursesPage implements OnInit {
   constructor(
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent,
-    private eventsService: EventsService
+    private sharedService: SharedService
   ) { }
 
   eventsData: any;
   currentUser = firebase.auth().currentUser;
-  nameOfEventsCategory = 'Szkolenia';
+  nameOfEventsCategory = 'courses';
 
   ngOnInit() {
     this.showEventsList()
@@ -76,8 +76,7 @@ export class CoursesPage implements OnInit {
    this.appComponent.hideLoadingDialog();
   }
 
-  navigateToTaskDetails(taskDetails) {
-    this.eventsService.navigateToDetails(taskDetails);
+  navigateToEventDetails(eventDetails) {
+    this.sharedService.navigateToEventDetails(eventDetails);
   }
-
 }

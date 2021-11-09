@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import firebase from '@firebase/app-compat';
 import { AppComponent } from '../../../app.component';
-import { TasksService } from '../../../services/tasks-service';
+import { SharedService } from '../../../services/shared-service';
 @Component({
   selector: 'app-education',
   templateUrl: './education.page.html',
@@ -12,12 +12,12 @@ export class EducationPage implements OnInit {
   constructor(
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent,
-    private tasksService: TasksService
+    private sharedService: SharedService
   ) { }
 
   tasksData: any;
   currentUser = firebase.auth().currentUser;
-  nameOfTasksCategory = 'Edukacja';
+  nameOfTasksCategory = 'education';
 
   ngOnInit() {
     this.showTasksList()
@@ -75,6 +75,6 @@ export class EducationPage implements OnInit {
   }
 
   navigateToTaskDetails(taskDetails) {
-    this.tasksService.navigateToDetails(taskDetails);
-  }
+    this.sharedService.navigateToTaskDetails(taskDetails);
+}
 }

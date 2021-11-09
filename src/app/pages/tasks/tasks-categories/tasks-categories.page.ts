@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserAuthenticationService } from '../../../services/authentication-service';
 
 @Component({
   selector: 'app-tasks',
@@ -7,8 +6,7 @@ import { UserAuthenticationService } from '../../../services/authentication-serv
   styleUrls: ['./tasks-categories.page.scss'],
 })
 export class TasksCategoriesPage implements OnInit {
-  constructor(private userAuthenticationService: UserAuthenticationService) { }
-  //czy to potrzebne?
+  constructor() { }
 
   ngOnInit() {}
 }
