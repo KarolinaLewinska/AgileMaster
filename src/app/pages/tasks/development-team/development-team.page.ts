@@ -54,6 +54,14 @@ export class DevelopmentTeamPage implements OnInit {
   async deleteTask(id) {
     this.appComponent.createLoadingDialog();
     this.appComponent.showLoadingDialog();
+    var wantsToDelete = true;
+    
+    if (wantsToDelete) {
+      const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButton('Usuń zadanie', 'Czy na pewno chcesz usunąć?');
+      if (!dialog) {
+        return;
+      }
+    }
     
     try {
       await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')

@@ -21,7 +21,7 @@ export class AppComponent {
 
     await alertDialog.onDidDismiss();
   }
-
+  
   async createAndShowAlertDialogWithConfirmAndCancelButton(headerValue: string, messageValue: string) {
     return new Promise (async (result) => {
       const alertDialogWithConfirm = this.alertController.create({

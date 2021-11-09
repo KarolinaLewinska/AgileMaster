@@ -5,7 +5,6 @@ import firebase from 'firebase/compat/app';
 @Injectable({
     providedIn: 'root',
 })
-
 export class AuthValidationService {
   constructor(private appComponent: AppComponent) {}
 

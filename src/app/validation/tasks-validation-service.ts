@@ -1,27 +1,26 @@
 import { AppComponent } from '../app.component';
 import { Injectable } from '@angular/core';
-import firebase from 'firebase/compat/app';
 
 @Injectable({
     providedIn: 'root',
 })
-
 export class TasksValidationService {
     constructor(private appComponent: AppComponent) {}
 
-    checkIfTasksFieldsAreNotEmpty(title: string, description: string, date: string, time: string, 
+    checkIfTasksFieldsAreNotEmpty(title: string, dateOfFinish: string, timeOfFinish: string, 
         priority: string, category: string) {
         
-            const headerTitle = 'Pole wymagane';
+        const headerTitle = 'Pole wymagane';
+
         if (!title) {
             this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Tytuł jest wymagany');
             return false;
         }
-        if (!date) {
+        if (!dateOfFinish) {
             this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Data jest wymagana');
             return false;
         }
-        if (!time) {
+        if (!timeOfFinish) {
             this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Godzina jest wymagana');
             return false;
         }

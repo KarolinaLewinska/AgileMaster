@@ -50,7 +50,7 @@ export class EditTaskPage implements OnInit {
   }
 
   async editTaskData(taskData: TaskData) {
-    if (this.tasksValidationService.checkIfTasksFieldsAreNotEmpty(this.taskData.title, this.taskData.description, 
+    if (this.tasksValidationService.checkIfTasksFieldsAreNotEmpty(this.taskData.title, 
       this.taskData.dateOfFinish, this.taskData.timeOfFinish, this.taskData.priority, this.taskData.category)) {
         
       this.appComponent.createLoadingDialog();

@@ -23,7 +23,7 @@ export class AddTaskPage implements OnInit {
   ngOnInit() {}
 
   async addTask(taskData: TaskData) {
-    if (this.tasksValidationService.checkIfTasksFieldsAreNotEmpty(this.taskData.title, this.taskData.description, 
+    if (this.tasksValidationService.checkIfTasksFieldsAreNotEmpty(this.taskData.title, 
       this.taskData.dateOfFinish, this.taskData.timeOfFinish, this.taskData.priority, this.taskData.category)) {
       
       this.appComponent.createLoadingDialog();
@@ -34,7 +34,7 @@ export class AddTaskPage implements OnInit {
         await this.angularFirestore.collection('users').doc(currentUser.uid).collection('tasks')
           .doc('category').collection(this.taskData.category).add(taskData);
         
-        this.appComponent.showAlertDialogWithOkButton('Dodano zadanie', 'Dodano zadanie');
+        this.appComponent.showAlertDialogWithOkButton('Dodano zadanie', 'Pomyślnie dodano zadanie');
         this.clearInputFields();
       } 
       catch (error) {

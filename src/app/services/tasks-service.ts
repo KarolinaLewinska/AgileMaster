@@ -14,26 +14,26 @@ export class TasksService {
     constructor(
         private appComponent: AppComponent,
         private angularFirestore: AngularFirestore,
-        private navController: NavController,
+        private navController: NavController
     ) {}
     
     taskData = {} as TaskData;
-    currentUser = firebase.auth().currentUser;
+    //currentUser = firebase.auth().currentUser;
     
-    async deleteTaskData(id: string, category: string) {
-        this.appComponent.createLoadingDialog();
-        this.appComponent.showLoadingDialog();
+    // async deleteTaskData(id: string, category: string) {
+    //     this.appComponent.createLoadingDialog();
+    //     this.appComponent.showLoadingDialog();
         
-        try {
-            await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
-                .doc('category').collection(category).doc(id).delete();
-            this.appComponent.showAlertDialogWithOkButton('Usunięto zadanie', 'Pomyślnie usunięto zadanie');
-        } 
-        catch (error) {
-            this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia zadania');
-        }
-       this.appComponent.hideLoadingDialog();
-    }
+    //     try {
+    //         await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
+    //             .doc('category').collection(category).doc(id).delete();
+    //         this.appComponent.showAlertDialogWithOkButton('Usunięto zadanie', 'Pomyślnie usunięto zadanie');
+    //     } 
+    //     catch (error) {
+    //         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia zadania');
+    //     }
+    //    this.appComponent.hideLoadingDialog();
+    // }
 
     navigateToDetails(details) {
         let navigationExtras: NavigationExtras = {
