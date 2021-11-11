@@ -8,15 +8,24 @@ import firebase from 'firebase/compat/app';
 export class AuthValidationService {
   constructor(private appComponent: AppComponent) {}
 
-  checkIfAuthFieldsAreNotEmpty(emailValue: string, passwdValue?: string) {
+  checkIfAuthFieldsAreNotEmpty(emailValue: string, passwdValue: string) {
     const headerTitle = 'Pole wymagane';
         
     if (!emailValue) {
       this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Adres email jest wymagany');
       return false;
     }
-    if (passwdValue != null && !passwdValue) {
+    if (!passwdValue) {
       this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Hasło jest wymagane');
+      return false;
+    }
+    return true;
+  }
+
+  checkIfEmailIsNotEmpty(emailValue: string) {
+    const headerTitle = 'Pole wymagane';
+    if (emailValue == null) {
+      this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Adres email jest wymagany');
       return false;
     }
     return true;

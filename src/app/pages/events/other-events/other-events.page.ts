@@ -54,8 +54,6 @@ export class OtherEventsPage implements OnInit {
   }
 
   async deleteEvent(id) {
-    this.appComponent.createLoadingDialog();
-    this.appComponent.showLoadingDialog();
     var wantsToDelete = true;
     
     if (wantsToDelete) {
@@ -73,7 +71,6 @@ export class OtherEventsPage implements OnInit {
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia spotkania');
     }
-   this.appComponent.hideLoadingDialog();
   }
 
   navigateToEventDetails(eventDetails) {

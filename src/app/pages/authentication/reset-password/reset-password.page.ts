@@ -24,7 +24,7 @@ export class ResetPasswordPage implements OnInit {
   async recoverUserPassword(userData: UserData) {
     var userEmail = userData.email;
     
-    if (this.authValidationService.checkIfAuthFieldsAreNotEmpty(userEmail)) {
+    if (this.authValidationService.checkIfEmailIsNotEmpty(userEmail)) {
       
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();

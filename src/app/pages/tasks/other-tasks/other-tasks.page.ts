@@ -53,8 +53,6 @@ export class OtherTasksPage implements OnInit {
   }
 
   async deleteTask(id) {
-    this.appComponent.createLoadingDialog();
-    this.appComponent.showLoadingDialog();
     var wantsToDelete = true;
     
     if (wantsToDelete) {
@@ -72,7 +70,6 @@ export class OtherTasksPage implements OnInit {
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia zadania');
     }
-   this.appComponent.hideLoadingDialog();
   }
 
   navigateToTaskDetails(taskDetails) {
