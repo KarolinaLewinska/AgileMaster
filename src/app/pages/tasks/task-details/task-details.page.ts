@@ -12,7 +12,8 @@ export class TaskDetailsPage implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private navController: NavController) { }
+    private navController: NavController
+  ) { }
   
   taskData = {} as TaskData;
 

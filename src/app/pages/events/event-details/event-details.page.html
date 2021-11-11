@@ -1,9 +1,59 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>event-details</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-row>
+      <ion-col size="1">
+        <ion-button fill="clear" (click)="navigateBackFromDetailsToList()">
+          <ion-icon id="backIcon" name="chevron-back-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col id="editEventIcon">
+        <ion-icon [routerLink]="['/edit-event/', eventData.id, eventData.category]" name="create-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col><p id="viewTitle">{{eventData.name}}</p></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col id="descriptionField">
+        <strong>Opis:</strong> 
+        <p>{{eventData.description}}</p>
+      </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Data spotkania:</strong> 
+        <p>{{eventData.date}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Godzina rozpoczęcia:</strong> 
+        <p>{{eventData.startTime}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Czas trwania:</strong> 
+        <p>{{eventData.duration}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Miejsce spotkania:</strong> 
+        <p>{{eventData.place}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Kategoria:</strong> 
+        <p>{{eventData.category}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+

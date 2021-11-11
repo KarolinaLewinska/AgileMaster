@@ -1,0 +1,37 @@
+ion-content, ion-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ion-button {
+    height: 40px;
+}
+
+ion-icon {
+    color:#707070;
+}
+
+#backIcon {
+    font-size: 45px;  
+    padding-left: 10%;
+}
+
+#editEventIcon {
+    float: right;
+    font-size: 40px;
+    margin-left: 70%;
+}
+
+#viewTitle {
+    font-size: 18px;
+}
+
+#descriptionField {
+    border-radius: 25px;
+    border-color: #E6E6FA; 
+    border-width: .01em; 
+    border-style: solid; margin-bottom: -1px;
+    background-color: #E6E6FA;
+}
