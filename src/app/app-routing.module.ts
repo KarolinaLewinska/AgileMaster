@@ -124,7 +124,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/events/event-details/event-details.module').then( m => m.EventDetailsPageModule)
   },
   {
-    path: 'edit-event',
+    path: 'edit-event/:id/:category',
     loadChildren: () => import('./pages/events/edit-event/edit-event.module').then( m => m.EditEventPageModule)
   },
 ];

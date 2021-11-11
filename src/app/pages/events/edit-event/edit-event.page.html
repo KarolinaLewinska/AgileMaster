@@ -1,9 +1,64 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>edit-event</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-row>
+      <ion-col>
+        <ion-icon [routerLink]="['/events-categories']" id="backIcon" name="chevron-back-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col><p id="viewTitle">Edytuj spotkanie</p></ion-col>
+    </ion-row>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label>Nazwa</ion-label>
+        <ion-input [(ngModel)]="eventData.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Opis</ion-label>
+        <ion-textarea [(ngModel)]="eventData.description"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>Data</ion-label>
+        <ion-datetime [(ngModel)]="eventData.date" max="2099-12-31" pickerFormat="YYYY-MM-DD" displayFormat="YYYY-MM-DD"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Godzina rozpoczęcia</ion-label>
+        <ion-datetime [(ngModel)]="eventData.startTime" pickerFormat="HH:mm" displayFormat="HH:mm" min="06:00" max="19:00"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Czas trwania</ion-label>
+        <ion-datetime [(ngModel)]="eventData.duration" pickerFormat="HH:mm" displayFormat="HH:mm" min="00:01" max="12:00"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Miejsce spotkania</ion-label>
+        <ion-input [(ngModel)]="eventData.place"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Kategoria</ion-label>
+        <ion-select [(ngModel)]="eventData.category">
+          <ion-select-option value="Spotkania Scrumowe">Spotkania Scrumowe</ion-select-option>
+          <ion-select-option value="Warsztaty">Warsztaty</ion-select-option>
+          <ion-select-option value="Szkolenia">Szkolenia</ion-select-option>
+          <ion-select-option value="Inne">Inne</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="secondary">
+      <ion-row>
+          <ion-button (click)="editEventData(eventData)" fill="clear">EDYTUJ SPOTKANIE</ion-button>
+      </ion-row>
+  </ion-toolbar>
+</ion-footer>
+
+
+
+

@@ -47,7 +47,7 @@ export class AddTaskPage implements OnInit {
   setCategoryName() {
     var nameOfCategory = "";
 
-    switch(this.taskData.category) {
+    switch (this.taskData.category) {
       case 'Analitycy':
         nameOfCategory = 'analysts';
         break;

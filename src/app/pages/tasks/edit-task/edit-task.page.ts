@@ -29,15 +29,15 @@ export class EditTaskPage implements OnInit {
     }
 
   ngOnInit() {
-    this.getTaskToEditData(this.id, this.category);
+    this.getTaskToEditData(this.id);
   }
 
-  async getTaskToEditData(id: string, category: string) {
+  async getTaskToEditData(id: string) {
     this.appComponent.createLoadingDialog();
     this.appComponent.showLoadingDialog();
     
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
-      .collection('tasks').doc('category').collection(category).doc(id).valueChanges()
+      .collection('tasks').doc('category').collection(this.setCategoryName(this.category)).doc(id).valueChanges()
       .subscribe(task => {
         this.taskData.title = task['title'];
         this.taskData.description = task['description'];
@@ -57,15 +57,16 @@ export class EditTaskPage implements OnInit {
       this.appComponent.showLoadingDialog();
       
       try {
-        if (this.taskData.category == this.category) {
+        if (this.category == this.taskData.category) { 
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
-            .doc('category').collection(this.category).doc(this.id).update(taskData);
+            .doc('category').collection(this.setCategoryName(this.category)).doc(this.id).update(taskData);
         } else {
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
-            .doc('category').collection(this.category).doc(this.id).delete();
+            .doc('category').collection(this.setCategoryName(this.taskData.category)).add(taskData);
 
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
-            .doc('category').collection(this.taskData.category).add(taskData);
+            .doc('category').collection(this.setCategoryName(this.category)).doc(this.id).delete();
+          
         }
         this.appComponent.showAlertDialogWithOkButton('Edycja zadania', 'Zaktualizowano zadanie');
         this.navController.navigateBack('tasks-categories');
@@ -75,5 +76,31 @@ export class EditTaskPage implements OnInit {
       }
       this.appComponent.hideLoadingDialog();
     }
+  }
+
+  setCategoryName(data) {
+    var nameOfCategory = "";
+
+    switch (data) {
+      case 'Analitycy':
+        nameOfCategory = 'analysts';
+        break;
+      case 'Zespół deweloperski':
+        nameOfCategory = 'developmentTeam';
+        break;
+      case 'Product Owner':
+        nameOfCategory = 'productOwner';
+        break;
+      case 'Organizacja':
+        nameOfCategory = 'company';
+        break;
+      case 'Edukacja':
+        nameOfCategory = 'education';
+        break;
+      default:
+        nameOfCategory = 'otherTasks';
+        break;
+    }
+    return nameOfCategory;
   }
 }

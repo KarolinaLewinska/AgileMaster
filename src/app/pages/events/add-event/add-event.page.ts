@@ -48,7 +48,7 @@ export class AddEventPage implements OnInit {
   setCategoryName() {
     var nameOfCategory = "";
 
-    switch(this.eventData.category) {
+    switch (this.eventData.category) {
       case 'Spotkania Scrumowe':
         nameOfCategory = 'scrumMeetings';
         break;

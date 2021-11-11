@@ -28,11 +28,11 @@
       </ion-item>
       <ion-item>
         <ion-label>Godzina rozpoczęcia</ion-label>
-        <ion-datetime [(ngModel)]="eventData.startTime" pickerFormat="HH:mm" displayFormat="HH:mm"></ion-datetime>
+        <ion-datetime [(ngModel)]="eventData.startTime" pickerFormat="HH:mm" displayFormat="HH:mm" min="06:00" max="19:00"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label>Czas trwania</ion-label>
-        <ion-datetime [(ngModel)]="eventData.duration" pickerFormat="HH:mm" displayFormat="HH:mm" min="07:00" max="19:00"></ion-datetime>
+        <ion-datetime [(ngModel)]="eventData.duration" pickerFormat="HH:mm" displayFormat="HH:mm" min="00:01" max="12:00"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label>Miejsce spotkania</ion-label>
