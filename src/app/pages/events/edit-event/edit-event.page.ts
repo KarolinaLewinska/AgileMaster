@@ -49,7 +49,7 @@ export class EditEventPage implements OnInit {
     this.appComponent.hideLoadingDialog();
   }
 
-  async editEventData(eventData: EventData) {
+  async editEvent(eventData: EventData) {
     if (this.eventsValidationService.checkIfEventsFieldsAreNotEmpty(this.eventData.name, 
       this.eventData.date, this.eventData.startTime, this.eventData.duration, this.eventData.place, this.eventData.category)) {
         

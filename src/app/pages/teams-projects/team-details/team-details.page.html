@@ -1,9 +1,40 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>team-details</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-row>
+      <ion-col>
+        <ion-icon [routerLink]="['/teams/']"id="backIcon" name="chevron-back-outline"></ion-icon>
+      </ion-col>
+      <ion-col id="editTeamIcon">
+        <ion-icon [routerLink]="['/edit-team/', teamData.id]" name="create-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col><p id="viewTitle">{{teamData.name}}</p></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col id="descriptionField">
+        <strong>Opis:</strong> 
+        <p>{{teamData.description}}</p>
+      </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Nazwa projektu:</strong> 
+        <p>{{teamData.projectName}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Członkowie zespołu:</strong> 
+        <p>Wstawic dane</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+

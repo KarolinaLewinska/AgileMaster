@@ -49,7 +49,7 @@ export class EditTaskPage implements OnInit {
     this.appComponent.hideLoadingDialog();
   }
 
-  async editTaskData(taskData: TaskData) {
+  async editTask(taskData: TaskData) {
     if (this.tasksValidationService.checkIfTasksFieldsAreNotEmpty(this.taskData.title, 
       this.taskData.dateOfFinish, this.taskData.timeOfFinish, this.taskData.priority, this.taskData.category)) {
         

@@ -6,7 +6,6 @@ import { ActivatedRoute } from '@angular/router';
 import { AppComponent } from '../../../app.component';
 import { TeamsProjectsValidationService } from '../../../validation/teams-projects-validation-service';
 import { NavController } from '@ionic/angular';
-import { SharedService } from '../../../services/shared-service';
 
 @Component({
   selector: 'app-edit-project',
@@ -22,7 +21,6 @@ export class EditProjectPage implements OnInit {
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent,
     private  navController: NavController,
-    private sharedService: SharedService,
     private teamsProjectsValidationService: TeamsProjectsValidationService,
     private activatedRoute: ActivatedRoute) { 
       this.id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -48,7 +46,7 @@ export class EditProjectPage implements OnInit {
     this.appComponent.hideLoadingDialog();
   }
 
-  async editProjectData(projectData: ProjectData) {
+  async editProject(projectData: ProjectData) {
     if (this.teamsProjectsValidationService.checkIfProjectFieldsAreNotEmpty(this.projectData.name, 
       this.projectData.dateOfStart, this.projectData.dateOfFinish, this.projectData.teamName)) {
         

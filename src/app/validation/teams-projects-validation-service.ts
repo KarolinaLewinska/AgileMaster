@@ -6,12 +6,17 @@ import { Injectable } from '@angular/core';
 })
 export class TeamsProjectsValidationService {
     constructor(private appComponent: AppComponent) {}
-    checkIfTeamFieldsAreNotEmpty(name: string) {
+    
+    checkIfTeamFieldsAreNotEmpty(name: string, projectName: string) {
         
         const headerTitle = 'Pole wymagane';
 
         if (!name) {
             this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Nazwa jest wymagana');
+            return false;
+        }
+        if (!projectName) {
+            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Nazwa projektu wymagana');
             return false;
         }
         return true;

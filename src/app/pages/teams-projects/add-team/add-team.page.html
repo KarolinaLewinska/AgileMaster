@@ -23,14 +23,8 @@
         <ion-textarea [(ngModel)]="teamData.description"></ion-textarea>
       </ion-item>
       <ion-item>
-        <ion-label>Projekt</ion-label>
-        <ion-select [(ngModel)]="teamData.project">
-          <ion-select-option *ngFor="let project of projects">{{project}}</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>Członkowie zespołu</ion-label>
-        <ion-button [routerLink]="['/add-member']">Dodaj </ion-button>
+        <ion-label>Nazwa projektu</ion-label>
+        <ion-input [(ngModel)]="teamData.projectName"></ion-input>
       </ion-item>
     </ion-list>
   </ion-grid>

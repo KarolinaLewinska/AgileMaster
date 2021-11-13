@@ -3,8 +3,6 @@ import firebase from '@firebase/app-compat';
 import { TeamsProjectsValidationService } from '../../../validation/teams-projects-validation-service';
 import { AppComponent } from '../../../app.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { ProjectData } from '../../../model/project-data';
-import { MemberData } from '../../../model/member-data';
 import { TeamData } from '../../../model/team-data';
 
 @Component({
@@ -20,13 +18,11 @@ export class AddTeamPage implements OnInit {
     private teamsProjectsValidationService: TeamsProjectsValidationService) { }
 
   teamData = {} as TeamData;
-  projectData = {} as ProjectData;
-  memberData = {} as MemberData;
   
   ngOnInit() {}
 
   async addTeam(teamData: TeamData) {
-    if (this.teamsProjectsValidationService.checkIfTeamFieldsAreNotEmpty(this.teamData.name)) {
+    if (this.teamsProjectsValidationService.checkIfTeamFieldsAreNotEmpty(this.teamData.name, this.teamData.projectName)) {
       
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();
@@ -49,6 +45,6 @@ export class AddTeamPage implements OnInit {
     const emptyValue = null;
     this.teamData.name = emptyValue;
     this.teamData.description = emptyValue;
+    this.teamData.projectName = emptyValue;
   }
-
 }

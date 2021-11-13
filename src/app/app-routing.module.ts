@@ -144,7 +144,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/teams-projects/add-member/add-member.module').then( m => m.AddMemberPageModule)
   },
   {
-    path: 'edit-team',
+    path: 'edit-team/:id',
     loadChildren: () => import('./pages/teams-projects/edit-team/edit-team.module').then( m => m.EditTeamPageModule)
   },
   {

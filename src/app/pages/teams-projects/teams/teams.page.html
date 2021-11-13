@@ -16,7 +16,7 @@
     <ion-row>
       <ion-col><p id="viewTitle">Zespoły</p></ion-col>
     </ion-row>
-    <div *ngIf="teamData == 0">
+    <div *ngIf="teamsData == 0">
       <p>Nie dodałeś/aś jeszcze żadnego zespołu? </p>
       <ion-icon id="sadIcon" name="sad-outline"></ion-icon>
       <p>Naciśnij</p>
@@ -29,6 +29,7 @@
             <ion-row>
               <ion-col size="7">
                   <h2 class="too-long-text" >{{teamData.name}}</h2> 
+                  <p class="too-long-text">{{teamData.projectName}}</p> 
               </ion-col>
               <ion-col size="2">
                   <ion-icon [routerLink]="['/edit-team/', teamData.id]" id="listIcons" name="create-outline"></ion-icon>

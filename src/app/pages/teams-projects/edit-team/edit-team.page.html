@@ -1,9 +1,39 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>edit-team</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-row>
+      <ion-col>
+        <ion-icon [routerLink]="['/teams']" id="backIcon" name="chevron-back-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col><p id="viewTitle">Edytuj zespół</p></ion-col>
+    </ion-row>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label>Nazwa</ion-label>
+        <ion-input [(ngModel)]="teamData.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Opis</ion-label>
+        <ion-textarea [(ngModel)]="teamData.description"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>Nazwa projektu</ion-label>
+        <ion-input [(ngModel)]="teamData.projectName"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="secondary">
+      <ion-row>
+          <ion-button id="editButton" (click)="editTeam(teamData)" fill="clear"> EDYTUJ ZESPÓŁ</ion-button>
+      </ion-row>
+  </ion-toolbar>
+</ion-footer>

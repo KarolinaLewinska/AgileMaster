@@ -38,8 +38,7 @@ export class TeamsPage implements OnInit {
                 id: mapper.payload.doc.id,
                 name: mapper.payload.doc.data()['name'],
                 description: mapper.payload.doc.data()['description'],
-                project: mapper.payload.doc.data()['project'],
-                members: mapper.payload.doc.data()['members']
+                projectName: mapper.payload.doc.data()['projectName']
               }
             })
           });
