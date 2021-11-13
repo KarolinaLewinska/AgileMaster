@@ -5,5 +5,4 @@ export class MemberData {
     phone: string;
     room: string;
     teamName: string;
-    projectName: string;
 }

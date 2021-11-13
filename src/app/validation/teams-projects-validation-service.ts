@@ -45,4 +45,23 @@ export class TeamsProjectsValidationService {
         }
         return true;
     }
+
+    checkIfMemberFieldsAreNotEmpty(nameAndSurname: string, organizationRole: string, teamName: string) {
+        
+        const headerTitle = 'Pole wymagane';
+
+        if (!nameAndSurname) {
+            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Imię i nazwisko jest wymagane');
+            return false;
+        }
+        if (!organizationRole) {
+            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Rola w organizacji jest wymagana');
+            return false;
+        }
+        if (!teamName) {
+            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Nazwa zespołu jest wymagana');
+            return false;
+        }
+        return true;
+    }
 }
