@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventData } from '../../../model/event-data';
-import { NavController } from '@ionic/angular';
+import { SharedService } from '../../../services/shared-service';
 
 @Component({
   selector: 'app-event-details',
@@ -12,7 +12,7 @@ export class EventDetailsPage implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private navController: NavController
+    private sharedService: SharedService
   ) { }
   eventData = {} as EventData;
   
@@ -25,25 +25,8 @@ export class EventDetailsPage implements OnInit {
     this.eventData = params['eventData']
     });
   }
-
+  
   navigateBackFromDetailsToList() {
-    switch (this.eventData.category.valueOf()) {
-      case 'Spotkania Scrumowe': { //nie działa
-        this.navController.navigateBack('scrumMeetings');
-        break;
-      }
-      case 'Szkolenia': {
-        this.navController.navigateBack('courses');
-        break;
-      }
-      case 'Warsztaty': {
-        this.navController.navigateBack('workshops');
-        break;
-      }
-      default: {
-        this.navController.navigateBack('other-events');
-        break;
-      }
-    }
+    this.sharedService.navigateBackFromDetailsToEventsList(this.eventData.category.valueOf())
   }
 }

@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AppComponent } from '../../../app.component';
 import { TasksValidationService } from '../../../validation/tasks-validation-service';
 import { NavController } from '@ionic/angular';
+import { SharedService } from '../../../services/shared-service';
 
 @Component({
   selector: 'app-edit-task',
@@ -22,6 +23,7 @@ export class EditTaskPage implements OnInit {
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent,
     private  navController: NavController,
+    private sharedService: SharedService,
     private tasksValidationService: TasksValidationService,
     private activatedRoute: ActivatedRoute) { 
       this.id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -37,7 +39,7 @@ export class EditTaskPage implements OnInit {
     this.appComponent.showLoadingDialog();
     
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
-      .collection('tasks').doc('category').collection(this.setCategoryName(this.category)).doc(id).valueChanges()
+      .collection('tasks').doc('category').collection( this.sharedService.setTaskCategoryName(this.category)).doc(id).valueChanges()
       .subscribe(task => {
         this.taskData.title = task['title'];
         this.taskData.description = task['description'];
@@ -59,13 +61,13 @@ export class EditTaskPage implements OnInit {
       try {
         if (this.category == this.taskData.category) { 
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
-            .doc('category').collection(this.setCategoryName(this.category)).doc(this.id).update(taskData);
+            .doc('category').collection(this.sharedService.setTaskCategoryName(this.category)).doc(this.id).update(taskData);
         } else {
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
-            .doc('category').collection(this.setCategoryName(this.taskData.category)).add(taskData);
+            .doc('category').collection( this.sharedService.setTaskCategoryName(this.taskData.category)).add(taskData);
 
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
-            .doc('category').collection(this.setCategoryName(this.category)).doc(this.id).delete();
+            .doc('category').collection( this.sharedService.setTaskCategoryName(this.category)).doc(this.id).delete();
           
         }
         this.appComponent.showAlertDialogWithOkButton('Edycja zadania', 'Zaktualizowano zadanie');
@@ -77,30 +79,8 @@ export class EditTaskPage implements OnInit {
       this.appComponent.hideLoadingDialog();
     }
   }
-
-  setCategoryName(data) {
-    var nameOfCategory = "";
-
-    switch (data) {
-      case 'Analitycy':
-        nameOfCategory = 'analysts';
-        break;
-      case 'Zespół deweloperski':
-        nameOfCategory = 'developmentTeam';
-        break;
-      case 'Product Owner':
-        nameOfCategory = 'productOwner';
-        break;
-      case 'Organizacja':
-        nameOfCategory = 'company';
-        break;
-      case 'Edukacja':
-        nameOfCategory = 'education';
-        break;
-      default:
-        nameOfCategory = 'otherTasks';
-        break;
-    }
-    return nameOfCategory;
+ 
+  navigateBackFromDetailsToList() {
+    this.sharedService.navigateBackFromDetailsToTasksList(this.category.valueOf())
   }
 }

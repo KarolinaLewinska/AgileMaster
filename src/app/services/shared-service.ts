@@ -1,31 +1,124 @@
 import { Injectable } from "@angular/core";
 import { NavigationExtras } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { EventData } from '../model/event-data';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class SharedService {
-    constructor(private navController: NavController) {
-    }
+  constructor(private navController: NavController) {}
 
-    navigateToEventDetails(details) {
-        let navigationExtras: NavigationExtras = {
-          queryParams: {
-            eventData: details
-          }
-        };
-        this.navController.navigateForward('event-details', navigationExtras);
-    }
+  setTaskCategoryName(category) {
+    var nameOfCategory = "";
 
-    navigateToTaskDetails(details) {
-        let navigationExtras: NavigationExtras = {
-          queryParams: {
-            taskData: details
-          }
-        };
-        this.navController.navigateForward('task-details', navigationExtras);
+    switch (category) {
+      case 'Analitycy':
+        nameOfCategory = 'analysts';
+        break;
+      case 'Zespół deweloperski':
+        nameOfCategory = 'developmentTeam';
+        break;
+      case 'Product Owner':
+        nameOfCategory = 'productOwner';
+        break;
+      case 'Organizacja':
+        nameOfCategory = 'company';
+        break;
+      case 'Edukacja':
+        nameOfCategory = 'education';
+        break;
+      default:
+        nameOfCategory = 'otherTasks';
+        break;
     }
+    return nameOfCategory;
+  }
 
+  setEventCategoryName(category) {
+    var nameOfCategory = "";
+
+    switch (category) {
+      case 'Spotkania Scrumowe':
+        nameOfCategory = 'scrumMeetings';
+        break;
+      case 'Szkolenia':
+        nameOfCategory = 'courses';
+        break;
+      case 'Warsztaty':
+        nameOfCategory = 'workshops';
+        break;
+      default:
+        nameOfCategory = 'otherEvents';
+        break;
+    }
+    return nameOfCategory;
+  }
+
+  navigateToEventDetails(details) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        eventData: details
+      }
+    };
+    this.navController.navigateForward('event-details', navigationExtras);
+  }
+
+  navigateToTaskDetails(details) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        taskData: details
+      }
+    };
+    this.navController.navigateForward('task-details', navigationExtras);
+  }
+
+  navigateBackFromDetailsToTasksList(data) {
+    switch (data) {
+      case 'Analitycy': {
+        this.navController.navigateBack('analysts');
+        break;
+      }
+      case 'Zespół deweloperski': {
+        this.navController.navigateBack('development-team');
+        break;
+      }
+      case 'Product Owner': {
+        this.navController.navigateBack('product-owner');
+        break;
+      }
+      case 'Organizacja': {
+        this.navController.navigateBack('company');
+        break;
+      }
+      case 'Edukacja': {
+        this.navController.navigateBack('education');
+        break;
+      }
+      default: {
+        this.navController.navigateBack('other-tasks');
+        break;
+      }
+    }
+  }
+
+  navigateBackFromDetailsToEventsList(data) {
+    switch (data) {
+      case 'Spotkania Scrumowe': { 
+        this.navController.navigateBack('scrum-meetings');
+        break;
+      }
+      case 'Szkolenia': {
+        this.navController.navigateBack('courses');
+        break;
+      }
+      case 'Warsztaty': {
+        this.navController.navigateBack('workshops');
+        break;
+      }
+      default: {
+        this.navController.navigateBack('other-events');
+        break;
+      }
+    }
+  }
 }

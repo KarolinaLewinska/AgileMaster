@@ -10,16 +10,19 @@ ion-icon {
     color:#707070;
 }
 
+#backButton {
+    height: 40px;
+}
+
 #backIcon {
     font-size: 40px;  
-    padding-left: 10%;
 }
 
 #viewTitle {
     font-size: 18px;
 }
 
-ion-button {
+#editButton {
     height: 50%;
     width: 60%;
     font-weight: bold;

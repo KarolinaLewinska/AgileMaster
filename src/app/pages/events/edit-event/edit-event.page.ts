@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AppComponent } from '../../../app.component';
 import { EventsValidationService } from '../../../validation/events-validation-service';
 import { NavController } from '@ionic/angular';
+import { SharedService } from '../../../services/shared-service';
 @Component({
   selector: 'app-edit-event',
   templateUrl: './edit-event.page.html',
@@ -21,6 +22,7 @@ export class EditEventPage implements OnInit {
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent,
     private  navController: NavController,
+    private sharedService: SharedService,
     private eventsValidationService: EventsValidationService,
     private activatedRoute: ActivatedRoute) { 
       this.id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -36,7 +38,7 @@ export class EditEventPage implements OnInit {
     this.appComponent.showLoadingDialog();
     
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
-      .collection('events').doc('category').collection(this.setCategoryName(this.category)).doc(id).valueChanges()
+      .collection('events').doc('category').collection(this.sharedService.setEventCategoryName(this.category)).doc(id).valueChanges()
       .subscribe(event => {
         this.eventData.name = event['name'];
         this.eventData.description = event['description'];
@@ -59,13 +61,13 @@ export class EditEventPage implements OnInit {
       try {
         if (this.category == this.eventData.category) { 
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('events')
-            .doc('category').collection(this.setCategoryName(this.category)).doc(this.id).update(eventData);
+            .doc('category').collection(this.sharedService.setEventCategoryName(this.category)).doc(this.id).update(eventData);
         } else {
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('events')
-            .doc('category').collection(this.setCategoryName(this.eventData.category)).add(eventData);
+            .doc('category').collection(this.sharedService.setEventCategoryName(this.eventData.category)).add(eventData);
 
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('events')
-            .doc('category').collection(this.setCategoryName(this.category)).doc(this.id).delete();
+            .doc('category').collection(this.sharedService.setEventCategoryName(this.category)).doc(this.id).delete();
         }
         this.appComponent.showAlertDialogWithOkButton('Edycja zadania', 'Zaktualizowano zadanie');
         this.navController.navigateBack('events-categories');
@@ -77,23 +79,7 @@ export class EditEventPage implements OnInit {
     }
   }
 
-  setCategoryName(data) {
-    var nameOfCategory = "";
-
-    switch (data) {
-      case 'Spotkania Scrumowe':
-        nameOfCategory = 'scrumMeetings';
-        break;
-      case 'Szkolenia':
-        nameOfCategory = 'courses';
-        break;
-      case 'Warsztaty':
-        nameOfCategory = 'workshops';
-        break;
-      default:
-        nameOfCategory = 'otherEvents';
-        break;
-    }
-    return nameOfCategory;
+  navigateBackFromDetailsToList() {
+    this.sharedService.navigateBackFromDetailsToEventsList(this.category.valueOf())
   }
 }
