@@ -72,7 +72,25 @@ export class SharedService {
     this.navController.navigateForward('task-details', navigationExtras);
   }
 
-  navigateBackFromDetailsToTasksList(data) {
+  navigateToTeamDetails(details) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        teamData: details
+      }
+    };
+    this.navController.navigateForward('team-details', navigationExtras);
+  }
+
+  navigateToProjectDetails(details) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        projectData: details
+      }
+    };
+    this.navController.navigateForward('project-details', navigationExtras);
+  }
+
+  navigateBackToTasksList(data) {
     switch (data) {
       case 'Analitycy': {
         this.navController.navigateBack('analysts');
@@ -101,7 +119,36 @@ export class SharedService {
     }
   }
 
-  navigateBackFromDetailsToEventsList(data) {
+   navigateBackToTaskCategory(category) {
+    switch (category) {
+      case 'analysts': {
+        this.navController.navigateBack('analysts');
+        break;
+      }
+      case 'developmentTeam': {
+        this.navController.navigateBack('development-team');
+        break;
+      }
+      case 'productOwner': {
+        this.navController.navigateBack('product-owner');
+        break;
+      }
+      case 'company': {
+        this.navController.navigateBack('company');
+        break;
+      }
+      case 'education': {
+        this.navController.navigateBack('education');
+        break;
+      }
+      default: {
+        this.navController.navigateBack('other-tasks');
+        break;
+      }
+    }
+  }
+
+  navigateBackToEventsList(data) {
     switch (data) {
       case 'Spotkania Scrumowe': { 
         this.navController.navigateBack('scrum-meetings');

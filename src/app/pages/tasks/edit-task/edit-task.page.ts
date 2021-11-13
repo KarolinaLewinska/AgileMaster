@@ -5,7 +5,6 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { AppComponent } from '../../../app.component';
 import { TasksValidationService } from '../../../validation/tasks-validation-service';
-import { NavController } from '@ionic/angular';
 import { SharedService } from '../../../services/shared-service';
 
 @Component({
@@ -22,7 +21,6 @@ export class EditTaskPage implements OnInit {
   constructor(
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent,
-    private  navController: NavController,
     private sharedService: SharedService,
     private tasksValidationService: TasksValidationService,
     private activatedRoute: ActivatedRoute) { 
@@ -64,14 +62,14 @@ export class EditTaskPage implements OnInit {
             .doc('category').collection(this.sharedService.setTaskCategoryName(this.category)).doc(this.id).update(taskData);
         } else {
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
-            .doc('category').collection( this.sharedService.setTaskCategoryName(this.taskData.category)).add(taskData);
+            .doc('category').collection(this.sharedService.setTaskCategoryName(this.taskData.category)).add(taskData);
 
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
-            .doc('category').collection( this.sharedService.setTaskCategoryName(this.category)).doc(this.id).delete();
+            .doc('category').collection(this.sharedService.setTaskCategoryName(this.category)).doc(this.id).delete();
           
         }
         this.appComponent.showAlertDialogWithOkButton('Edycja zadania', 'Zaktualizowano zadanie');
-        this.navController.navigateBack('tasks-categories');
+        this.sharedService.navigateBackToTasksList(this.taskData.category);
       } 
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji zadania');
@@ -81,6 +79,6 @@ export class EditTaskPage implements OnInit {
   }
  
   navigateBackFromDetailsToList() {
-    this.sharedService.navigateBackFromDetailsToTasksList(this.category.valueOf())
+    this.sharedService.navigateBackToTasksList(this.category.valueOf())
   }
 }

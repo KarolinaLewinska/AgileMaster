@@ -73,5 +73,5 @@ export class EducationPage implements OnInit {
 
   navigateToTaskDetails(taskDetails) {
     this.sharedService.navigateToTaskDetails(taskDetails);
-}
+  }
 }

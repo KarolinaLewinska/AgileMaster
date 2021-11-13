@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-row>
+      <ion-col>
+        <ion-icon [routerLink]="['/projects/']"id="backIcon" name="chevron-back-outline"></ion-icon>
+      </ion-col>
+      <ion-col id="editProjectIcon">
+        <ion-icon [routerLink]="['/edit-project/', projectData.id]" name="create-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col><p id="viewTitle">{{projectData.name}}</p></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col id="descriptionField">
+        <strong>Opis:</strong> 
+        <p>{{projectData.description}}</p>
+      </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Data rozpoczęcia:</strong> 
+        <p>{{projectData.dateOfStart}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Data zakończenia:</strong> 
+        <p>{{projectData.dateOfFinish}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Nazwa zespołu:</strong> 
+        <p>{{projectData.teamName}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

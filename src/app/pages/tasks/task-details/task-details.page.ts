@@ -28,7 +28,7 @@ export class TaskDetailsPage implements OnInit {
   }
 
   navigateBackFromDetailsToList() {
-    this.sharedService.navigateBackFromDetailsToTasksList(this.taskData.category.valueOf())
+    this.sharedService.navigateBackToTasksList(this.taskData.category.valueOf())
   }
 }
 

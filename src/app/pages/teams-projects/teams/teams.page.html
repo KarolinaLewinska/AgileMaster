@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-row>
+      <ion-col>
+        <ion-icon [routerLink]="['/teams-projects-categories']" id="backIcon" name="chevron-back-outline"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon id="addTeamIcon" [routerLink]="['/add-team']" name="add-circle"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col><p id="viewTitle">Zespoły</p></ion-col>
+    </ion-row>
+    <div *ngIf="teamData == 0">
+      <p>Nie dodałeś/aś jeszcze żadnego zespołu? </p>
+      <ion-icon id="sadIcon" name="sad-outline"></ion-icon>
+      <p>Naciśnij</p>
+      <ion-icon id="arrowIcon" name="arrow-down-outline"></ion-icon>
+    </div>
+    <ion-list lines="none">
+      <ion-item-sliding *ngFor="let teamData of teamsData">
+        <ion-item>
+          <ion-label>
+            <ion-row>
+              <ion-col size="7">
+                  <h2 class="too-long-text" >{{teamData.name}}</h2> 
+              </ion-col>
+              <ion-col size="2">
+                  <ion-icon [routerLink]="['/edit-team/', teamData.id]" id="listIcons" name="create-outline"></ion-icon>
+              </ion-col>
+              <ion-col size="2">
+                <ion-button (click)="navigateToTeamDetails(teamData)" fill="clear">
+                  <ion-icon id="listIcons" name="arrow-forward-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-label>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option (click)="deleteTeam(teamData.id)">
+            <ion-icon color="primary" slot="icon-only" name="trash-sharp"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="secondary">
+      <ion-row>
+          <ion-router-link [routerLink]="['/add-team']">Nowy zespół</ion-router-link>
+      </ion-row>
+  </ion-toolbar>
+</ion-footer>

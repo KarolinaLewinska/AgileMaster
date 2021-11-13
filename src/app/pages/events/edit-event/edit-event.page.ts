@@ -5,7 +5,6 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { AppComponent } from '../../../app.component';
 import { EventsValidationService } from '../../../validation/events-validation-service';
-import { NavController } from '@ionic/angular';
 import { SharedService } from '../../../services/shared-service';
 @Component({
   selector: 'app-edit-event',
@@ -21,7 +20,6 @@ export class EditEventPage implements OnInit {
   constructor(
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent,
-    private  navController: NavController,
     private sharedService: SharedService,
     private eventsValidationService: EventsValidationService,
     private activatedRoute: ActivatedRoute) { 
@@ -70,7 +68,7 @@ export class EditEventPage implements OnInit {
             .doc('category').collection(this.sharedService.setEventCategoryName(this.category)).doc(this.id).delete();
         }
         this.appComponent.showAlertDialogWithOkButton('Edycja zadania', 'Zaktualizowano zadanie');
-        this.navController.navigateBack('events-categories');
+        this.sharedService.navigateBackToEventsList(this.eventData.category);
       } 
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji zadania');
@@ -80,6 +78,6 @@ export class EditEventPage implements OnInit {
   }
 
   navigateBackFromDetailsToList() {
-    this.sharedService.navigateBackFromDetailsToEventsList(this.category.valueOf())
+    this.sharedService.navigateBackToEventsList(this.category.valueOf())
   }
 }

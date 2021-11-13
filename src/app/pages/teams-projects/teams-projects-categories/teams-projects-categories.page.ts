@@ -3,10 +3,10 @@ import { UserAuthenticationService } from '../../../services/authentication-serv
 
 @Component({
   selector: 'app-teams',
-  templateUrl: './teams-projects-list.page.html',
-  styleUrls: ['./teams-projects-list.page.scss'],
+  templateUrl: './teams-projects-categories.page.html',
+  styleUrls: ['./teams-projects-categories.page.scss'],
 })
-export class TeamsProjectsListPage implements OnInit {
+export class TeamsProjectsCategoriesPage implements OnInit {
 
   constructor(private userAuthenticationService: UserAuthenticationService) { }
   

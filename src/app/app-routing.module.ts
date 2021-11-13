@@ -40,8 +40,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/events/events-categories/events-categories.module').then( m => m.EventsCategoriesPageModule)
   },
   {
-    path: 'teams-projects-list',
-    loadChildren: () => import('./pages/teams-projects/teams-projects-list/teams-projects-list.module').then( m => m.TeamsProjectsListPageModule)
+    path: 'teams-projects-categories',
+    loadChildren: () => import('./pages/teams-projects/teams-projects-categories/teams-projects-categories.module').then( m => m.TeamsProjectsCategoriesPageModule)
   },
   {
     path: 'statistics-categories',
@@ -126,6 +126,42 @@ const routes: Routes = [
   {
     path: 'edit-event/:id/:category',
     loadChildren: () => import('./pages/events/edit-event/edit-event.module').then( m => m.EditEventPageModule)
+  },
+  {
+    path: 'projects',
+    loadChildren: () => import('./pages/teams-projects/projects/projects.module').then( m => m.ProjectsPageModule)
+  },
+  {
+    path: 'teams',
+    loadChildren: () => import('./pages/teams-projects/teams/teams.module').then( m => m.TeamsPageModule)
+  },
+  {
+    path: 'add-team',
+    loadChildren: () => import('./pages/teams-projects/add-team/add-team.module').then( m => m.AddTeamPageModule)
+  },
+  {
+    path: 'add-member',
+    loadChildren: () => import('./pages/teams-projects/add-member/add-member.module').then( m => m.AddMemberPageModule)
+  },
+  {
+    path: 'edit-team',
+    loadChildren: () => import('./pages/teams-projects/edit-team/edit-team.module').then( m => m.EditTeamPageModule)
+  },
+  {
+    path: 'team-details',
+    loadChildren: () => import('./pages/teams-projects/team-details/team-details.module').then( m => m.TeamDetailsPageModule)
+  },
+  {
+    path: 'edit-project/:id',
+    loadChildren: () => import('./pages/teams-projects/edit-project/edit-project.module').then( m => m.EditProjectPageModule)
+  },
+  {
+    path: 'add-project',
+    loadChildren: () => import('./pages/teams-projects/add-project/add-project.module').then( m => m.AddProjectPageModule)
+  },
+  {
+    path: 'project-details',
+    loadChildren: () => import('./pages/teams-projects/project-details/project-details.module').then( m => m.ProjectDetailsPageModule)
   },
 ];
 

@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-row>
+      <ion-col>
+        <ion-icon [routerLink]="['/teams']" id="backIcon" name="chevron-back-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col><p id="viewTitle">Dodaj zespół</p></ion-col>
+    </ion-row>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label>Nazwa</ion-label>
+        <ion-input [(ngModel)]="teamData.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Opis</ion-label>
+        <ion-textarea [(ngModel)]="teamData.description"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>Projekt</ion-label>
+        <ion-select [(ngModel)]="teamData.project">
+          <ion-select-option *ngFor="let project of projects">{{project}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Członkowie zespołu</ion-label>
+        <ion-button [routerLink]="['/add-member']">Dodaj </ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="secondary">
+      <ion-row>
+          <ion-button id="addTeam" (click)="addTeam(teamData)" fill="clear">DODAJ ZESPÓŁ</ion-button>
+      </ion-row>
+  </ion-toolbar>
+</ion-footer>
+

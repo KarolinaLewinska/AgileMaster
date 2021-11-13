@@ -27,6 +27,6 @@ export class EventDetailsPage implements OnInit {
   }
   
   navigateBackFromDetailsToList() {
-    this.sharedService.navigateBackFromDetailsToEventsList(this.eventData.category.valueOf())
+    this.sharedService.navigateBackToEventsList(this.eventData.category.valueOf())
   }
 }
