@@ -29,11 +29,26 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
-        <strong>Członkowie zespołu:</strong> 
-        <p>Wstawic dane</p>
-      </ion-col>
+      <strong>Członkowie zespołu:</strong> 
     </ion-row>
+    <ng-container *ngFor="let memberData of membersData">
+        <ion-row>
+          <p *ngIf="memberData.teamName == teamData.name"> {{memberData.nameAndSurname}}</p>
+        </ion-row>
+        <ion-row>
+          <p *ngIf="memberData.teamName == teamData.name"> {{memberData.organizationRole}}</p>
+        </ion-row>
+        <ion-row>
+          <p *ngIf="memberData.teamName == teamData.name"> {{memberData.email}}</p>
+        </ion-row>
+        <ion-row>
+          <p *ngIf="memberData.teamName == teamData.name"> {{memberData.phone}}</p>
+        </ion-row>
+        <ion-row>
+          <p *ngIf="memberData.teamName == teamData.name"> {{memberData.room}}</p>
+        </ion-row>
+          <hr *ngIf="memberData.teamName == teamData.name">
+    </ng-container>
   </ion-grid>
 </ion-content>
 

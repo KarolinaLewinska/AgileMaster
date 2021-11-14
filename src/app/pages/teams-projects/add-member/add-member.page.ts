@@ -22,9 +22,10 @@ export class AddMemberPage implements OnInit {
 
   ngOnInit() {}
 
-  async addProject(memberData: MemberData) {
+  async addMember(memberData: MemberData) {
     if (this.teamsProjectsValidationService.checkIfMemberFieldsAreNotEmpty(this.memberData.nameAndSurname, 
-      this.memberData.organizationRole, this.memberData.teamName)) {
+      this.memberData.organizationRole, this.memberData.email, this.memberData.phone, this.memberData.room, this.memberData.teamName) 
+        && this.teamsProjectsValidationService.checkIfEmailAndPhoneIsValid(this.memberData.email, this.memberData.phone)) {
       
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();

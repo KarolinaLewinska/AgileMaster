@@ -11,7 +11,7 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col><p id="viewTitle">Dodaj członka zespołu</p></ion-col>
+      <ion-col><p id="viewTitle">Dodaj osobę do zespołu</p></ion-col>
     </ion-row>
     <ion-list lines="none">
       <ion-item>
@@ -20,19 +20,19 @@
       </ion-item>
       <ion-item>
         <ion-label>Rola w organizacji</ion-label>
-        <ion-textarea [(ngModel)]="memberData.organizationRole"></ion-textarea>
+        <ion-input [(ngModel)]="memberData.organizationRole"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Adres email</ion-label>
-        <ion-textarea [(ngModel)]="memberData.email"></ion-textarea>
+        <ion-input [(ngModel)]="memberData.email"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Telefon</ion-label>
-        <ion-textarea [(ngModel)]="memberData.phone"></ion-textarea>
+        <ion-input [(ngModel)]="memberData.phone"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Miejsce pracy</ion-label>
-        <ion-textarea [(ngModel)]="memberData.room"></ion-textarea>
+        <ion-input [(ngModel)]="memberData.room"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Nazwa zespołu</ion-label>
@@ -45,7 +45,7 @@
 <ion-footer>
   <ion-toolbar color="secondary">
       <ion-row>
-          <ion-button id="addMember" (click)="addMember(memberData)" fill="clear">DODAJ CZŁONKA</ion-button>
+          <ion-button id="addMember" (click)="addMember(memberData)" fill="clear">DODAJ OSOBĘ</ion-button>
       </ion-row>
   </ion-toolbar>
 </ion-footer>

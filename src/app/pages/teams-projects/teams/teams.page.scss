@@ -56,8 +56,18 @@ ion-item-option {
     background-color: #ccccff;
 }
 
-#addRouterLink {
-    font-size: small;
+ion-router-link {
+    font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
+}
+
+#addTeamLink {
+    float: left;
+    padding-right: 50%;
+}
+
+#addMemberLink {
+    float: right;
+    padding-right: 30%;
 }

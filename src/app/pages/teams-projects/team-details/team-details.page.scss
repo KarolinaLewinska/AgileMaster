@@ -10,6 +10,13 @@ ion-icon {
     color:#707070;
 }
 
+ion-row {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #backIcon {
     font-size: 40px;  
     margin-left:5%
@@ -33,4 +40,10 @@ ion-icon {
     border-width: .01em; 
     border-style: solid; margin-bottom: -1px;
     background-color: #E6E6FA;
+}
+hr {
+    height:2px;
+    border-width:0;
+    color:gray;
+    background-color:gray;
 }
