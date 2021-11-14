@@ -175,6 +175,10 @@ const routes: Routes = [
     path: 'member-details',
     loadChildren: () => import('./pages/teams-projects/member-details/member-details.module').then( m => m.MemberDetailsPageModule)
   },
+  {
+    path: 'tasks-statistics',
+    loadChildren: () => import('./pages/statistics/tasks-statistics/tasks-statistics.module').then( m => m.TasksStatisticsPageModule)
+  },
 ];
 
 @NgModule({
