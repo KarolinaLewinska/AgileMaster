@@ -16,8 +16,8 @@ export class ProjectsPage implements OnInit {
     private appComponent: AppComponent,
     private sharedService: SharedService) { }
 
-    projectsData: any;
-    currentUser = firebase.auth().currentUser;
+  projectsData: any;
+  currentUser = firebase.auth().currentUser;
 
   ngOnInit() {
     this.showProjectsList();
@@ -30,7 +30,7 @@ export class ProjectsPage implements OnInit {
     try {
       var currentUser = firebase.auth().currentUser;
       this.angularFirestore.collection('users').doc(currentUser.uid)
-        .collection('projects', projects => projects.orderBy('name')).snapshotChanges()
+        .collection('projects', projects => projects.orderBy('dateOfFinish')).snapshotChanges()
           .subscribe(projectsMapper => {
             this.projectsData = projectsMapper.map(mapper => {
               return {

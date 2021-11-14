@@ -90,6 +90,15 @@ export class SharedService {
     this.navController.navigateForward('project-details', navigationExtras);
   }
 
+  navigateToMemberDetails(details) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        memberData: details
+      }
+    };
+    this.navController.navigateForward('member-details', navigationExtras);
+  }
+
   navigateBackToTasksList(data) {
     switch (data) {
       case 'Analitycy': {

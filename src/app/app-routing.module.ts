@@ -163,6 +163,18 @@ const routes: Routes = [
     path: 'project-details',
     loadChildren: () => import('./pages/teams-projects/project-details/project-details.module').then( m => m.ProjectDetailsPageModule)
   },
+  {
+    path: 'edit-member/:id',
+    loadChildren: () => import('./pages/teams-projects/edit-member/edit-member.module').then( m => m.EditMemberPageModule)
+  },
+  {
+    path: 'members',
+    loadChildren: () => import('./pages/teams-projects/members/members.module').then( m => m.MembersPageModule)
+  },
+  {
+    path: 'member-details',
+    loadChildren: () => import('./pages/teams-projects/member-details/member-details.module').then( m => m.MemberDetailsPageModule)
+  },
 ];
 
 @NgModule({

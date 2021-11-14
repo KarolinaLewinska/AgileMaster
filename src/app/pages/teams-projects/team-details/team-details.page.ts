@@ -3,10 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { TeamData } from '../../../model/team-data';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import firebase from '@firebase/app-compat';
-import { AppComponent } from '../../../app.component';
-import { SharedService } from '../../../services/shared-service';
-import { MemberData } from '../../../model/member-data';
-import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-team-details',
   templateUrl: './team-details.page.html',
@@ -16,9 +12,8 @@ export class TeamDetailsPage implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private angularFirestore: AngularFirestore,
-    private appComponent: AppComponent,
-    private sharedService: SharedService) { }
+    private angularFirestore: AngularFirestore
+  ) { }
 
   teamData = {} as TeamData;
   membersData: any;
@@ -49,7 +44,7 @@ export class TeamDetailsPage implements OnInit {
             email: mapper.payload.doc.data()['email'],
             phone: mapper.payload.doc.data()['phone'],
             room: mapper.payload.doc.data()['room'],
-            teamName: mapper.payload.doc.data()['teamName'],
+            teamName: mapper.payload.doc.data()['teamName']
           }
         })
       })
