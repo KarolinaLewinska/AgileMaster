@@ -44,7 +44,6 @@ export class AddTeamPage implements OnInit {
   clearInputFields() {
     const emptyValue = null;
     this.teamData.name = emptyValue;
-    this.teamData.description = emptyValue;
     this.teamData.projectName = emptyValue;
   }
 }

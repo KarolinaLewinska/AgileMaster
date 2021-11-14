@@ -38,7 +38,6 @@ export class EditTeamPage implements OnInit {
       .collection('teams').doc(id).valueChanges()
       .subscribe(team => {
         this.teamData.name = team['name'];
-        this.teamData.description = team['description'];
         this.teamData.projectName = team['projectName'];
       });
     this.appComponent.hideLoadingDialog();

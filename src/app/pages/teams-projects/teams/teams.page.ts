@@ -37,7 +37,6 @@ export class TeamsPage implements OnInit {
               return {
                 id: mapper.payload.doc.id,
                 name: mapper.payload.doc.data()['name'],
-                description: mapper.payload.doc.data()['description'],
                 projectName: mapper.payload.doc.data()['projectName']
               }
             })

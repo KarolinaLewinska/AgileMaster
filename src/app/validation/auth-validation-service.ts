@@ -22,10 +22,14 @@ export class AuthValidationService {
     return true;
   }
 
-  checkIfEmailIsNotEmpty(emailValue: string) {
+  checkIfEmailIsValidAndNotEmpty(emailValue: string) {
     const headerTitle = 'Pole wymagane';
     if (emailValue == null) {
       this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Adres email jest wymagany');
+      return false;
+    }
+    if (!emailValue.match('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')) {
+      this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Nieprawidłowy format adresu email');
       return false;
     }
     return true;
