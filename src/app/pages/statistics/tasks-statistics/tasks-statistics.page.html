@@ -11,15 +11,17 @@
 <ion-content>
   <ion-grid>
     <ion-row>
+      <p>Łączna liczba zadań: {{allTasksNumber}}</p>
+    </ion-row>
+    <ion-row>
       <ion-col>
         <strong>Liczba zadań według:</strong>
       </ion-col>
     </ion-row>
-      <p>Liczba wszystkich zadań: {{allTasksNumber}}</p>
       <p>Kategorii:</p> 
       <p>Analitycy: {{analystsTasksNumber}}</p>
       <p>Zespół deweloperski: {{developmentTeamTasksNumber}}</p> 
-      <p>Product Owner {{productOwnerTasksNumber}}</p>
+      <p>Product Owner: {{productOwnerTasksNumber}}</p>
       <p>Organizacja: {{companyTasksNumber}}</p>
       <p>Edukacja: {{educationTasksNumber}}</p>
       <p>Pozostałe: {{otherTasksNumber}}</p>
@@ -27,8 +29,6 @@
       <p>Wysoki: {{lowPriorityTasksNumber}}</p>
       <p>Średni: {{mediumPriorityTasksNumber}}</p>
       <p>Niski: {{lowPriorityTasksNumber}}</p>
-      <p>Miesiąca:</p>
-      <p>Styczeń: {{januaryTasksNumber}}</p>
   </ion-grid>
 
 </ion-content>

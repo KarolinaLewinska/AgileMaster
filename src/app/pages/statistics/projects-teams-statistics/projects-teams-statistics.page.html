@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-row>
+      <ion-col>
+        <ion-icon [routerLink]="['/statistics-categories']" id="backIcon" name="chevron-back-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <p>Łączna liczba projektów: {{allProjectsNumber}}</p>
+    </ion-row>
+    <ion-row>
+      <p>Łączna liczba zespołów: {{allTeamsNumber}}</p>
+    </ion-row>
+    <ion-row>
+      <p>Łączna liczba członków zespołów: {{allMembersNumber}}</p>
+    </ion-row>
+  </ion-grid>
+</ion-content>

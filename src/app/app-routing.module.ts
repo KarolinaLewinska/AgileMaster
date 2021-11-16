@@ -179,6 +179,14 @@ const routes: Routes = [
     path: 'tasks-statistics',
     loadChildren: () => import('./pages/statistics/tasks-statistics/tasks-statistics.module').then( m => m.TasksStatisticsPageModule)
   },
+  {
+    path: 'events-statistics',
+    loadChildren: () => import('./pages/statistics/events-statistics/events-statistics.module').then( m => m.EventsStatisticsPageModule)
+  },
+  {
+    path: 'projects-teams-statistics',
+    loadChildren: () => import('./pages/statistics/projects-teams-statistics/projects-teams-statistics.module').then( m => m.ProjectsTeamsStatisticsPageModule)
+  },
 ];
 
 @NgModule({

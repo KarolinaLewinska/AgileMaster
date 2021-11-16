@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-row>
+      <ion-col>
+        <ion-icon [routerLink]="['/statistics-categories']" id="backIcon" name="chevron-back-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <p>Łączna liczba spotkań: {{allEventsNumber}}</p>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <strong>Liczba spotkań według:</strong>
+      </ion-col>
+    </ion-row>
+      <p>Kategorii:</p>
+      <p>Spotkania Scrumowe: {{scrumMeetingsEventsNumber}}</p>
+      <p>Warsztaty: {{workshopsEventsNumber}}</p>
+      <p>Szkolenia: {{coursesEventsNumber}}</p>
+      <p>Inne: {{otherEventsNumber}}</p>
+  </ion-grid>
+
+</ion-content>

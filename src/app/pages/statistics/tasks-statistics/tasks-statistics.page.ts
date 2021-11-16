@@ -7,11 +7,13 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   templateUrl: './tasks-statistics.page.html',
   styleUrls: ['./tasks-statistics.page.scss'],
 })
+
 export class TasksStatisticsPage implements OnInit {
   constructor(private angularFirestore: AngularFirestore) { }
 
   currentUser = firebase.auth().currentUser;
-  
+  listOfCategories: string[] = ['analysts','developmentTeam', 'productOwner', 'company','education', 'otherTasks'];
+
   allTasksNumber: any;
 
   analystsTasksNumber: any;
@@ -25,61 +27,112 @@ export class TasksStatisticsPage implements OnInit {
   mediumPriorityTasksNumber: any;
   highPriorityTasksNumber: any;
 
-  januaryTasksNumber: any;
 
   ngOnInit() {
-    this.retrieveTasksNumberByPriority('Niski');
-    this.retrieveTasksNumberByCategory('analysts')
     this.retrieveAllTasksNumber();
-    this.retrieveTasksNumberByMonth('-01-');
+    this.retrieveTasksNumberByAnalystsCategory();
+    this.retrieveTasksNumberByDevelopmentTeamCategory();
+    this.retrieveTasksNumberByProductOwnerCategory();
+    this.retrieveTasksNumberByCompanyCategory();
+    this.retrieveTasksNumberByEducationCategory();
+    this.retrieveOtherTasksNumberByCategory();
+    this.retrieveTasksNumberByHighPriority();
+    this.retrieveTasksNumberByMediumPriority();
+    this.retrieveTasksNumberByLowPriority();
   }
 
-  async retrieveTasksNumberByCategory(category: string) { //działa ale trzbea jakoś zmneijszyc ilosc kodu
-    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection(category).get()
-      .then((data) => {
-      var amountOfTasks = data.size;
-      this.analystsTasksNumber = amountOfTasks;
-      });
-  }
-
-  async retrieveTasksNumberByPriority(priority: string) {  //działa, ale też jakby zmniejszyć duplikacje 
+  async retrieveAllTasksNumber() {
     let totalNumber = 0;
-    let listOfCategories: string[] = ['analysts','developmentTeam', 'productOwner', 'company','education', 'otherTasks'];
-    
-    for (var i = 0; listOfCategories.length; i++) {
-      firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection(listOfCategories[i]).where('priority', '==', priority).get()
-      .then((data) => {
+    for (var i = 0; this.listOfCategories.length; i++) {
+      firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection(this.listOfCategories[i]).get()
+      .then(data => {
       var numberOfTasks = data.size;
       totalNumber += numberOfTasks;
-      this.lowPriorityTasksNumber = totalNumber; 
+      this.allTasksNumber = totalNumber;
       });
     }
   }
 
-  async retrieveAllTasksNumber() { //działa
-    let totalNumber = 0;
-    let listOfCategories: string[] = ['analysts','developmentTeam', 'productOwner', 'company','education', 'otherTasks'];
-
-    for (var i = 0; listOfCategories.length; i++) {
-      firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection(listOfCategories[i]).get()
-      .then((data) => {
+  async retrieveTasksNumberByAnalystsCategory() {
+    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection('analysts').get()
+      .then(data => {
       var numberOfTasks = data.size;
-      totalNumber += numberOfTasks;
-      this.allTasksNumber = totalNumber; 
+      this.analystsTasksNumber = numberOfTasks;
+    });
+  }
+
+  async retrieveTasksNumberByDevelopmentTeamCategory() {
+    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection('developmentTeam').get()
+      .then(data => {
+      var numberOfTasks = data.size;
+      this.developmentTeamTasksNumber = numberOfTasks;
+    });
+  }
+
+  async retrieveTasksNumberByProductOwnerCategory() {
+    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection('productOwner').get()
+      .then(data => {
+      var numberOfTasks = data.size;
+      this.productOwnerTasksNumber = numberOfTasks;
+    });
+  }
+
+  async retrieveTasksNumberByCompanyCategory() {
+    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection('company').get()
+      .then(data => {
+      var numberOfTasks = data.size;
+      this.companyTasksNumber = numberOfTasks;
+    });
+  }
+
+  async retrieveTasksNumberByEducationCategory() {
+    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection('education').get()
+      .then(data => {
+      var numberOfTasks = data.size;
+      this.educationTasksNumber = numberOfTasks;
+    });
+  }
+
+  async retrieveOtherTasksNumberByCategory() {
+    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection('otherTasks').get()
+      .then(data => {
+      var numberOfTasks = data.size;
+      this.otherTasksNumber = numberOfTasks;
+    });
+  }
+
+  async retrieveTasksNumberByHighPriority() {
+    let totalNumber = 0;
+    for (var i = 0; this.listOfCategories.length; i++) {
+      firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'Wysoki').get()
+        .then(data => {
+        var numberOfTasks = data.size;
+        totalNumber += numberOfTasks;
+        this.highPriorityTasksNumber = totalNumber;
       });
     }
   }
 
-  async retrieveTasksNumberByMonth(month: string) {  //nie działa
+  async retrieveTasksNumberByMediumPriority() {
     let totalNumber = 0;
-    let listOfCategories: string[] = ['analysts','developmentTeam', 'productOwner', 'company','education', 'otherTasks'];
-    
-    for (var i = 0; listOfCategories.length; i++) {
-      firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection(listOfCategories[i]).where('dateOfFinish', 'array-contains-any', month).get()
-      .then((data) => {
-      var numberOfTasks = data.size;
-      totalNumber += numberOfTasks;
-      this.januaryTasksNumber = totalNumber; 
+    for (var i = 0; this.listOfCategories.length; i++) {
+      firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'Średni').get()
+        .then(data => {
+        var numberOfTasks = data.size;
+        totalNumber += numberOfTasks;
+        this.mediumPriorityTasksNumber = totalNumber;
+      });
+    }
+  }
+
+  async retrieveTasksNumberByLowPriority() {
+    let totalNumber = 0;
+    for (var i = 0; this.listOfCategories.length; i++) {
+      firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'Niski').get()
+        .then(data => {
+        var numberOfTasks = data.size;
+        totalNumber += numberOfTasks;
+        this.lowPriorityTasksNumber = totalNumber;
       });
     }
   }
