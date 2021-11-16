@@ -1,4 +1,4 @@
-export class MemberData {
+export interface MemberData {
     nameAndSurname: string;
     organizationRole: string;
     email: string;

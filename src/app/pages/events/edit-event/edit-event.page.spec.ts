@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { EditEventPage } from './edit-event.page';
 
 describe('EditEventPage', () => {

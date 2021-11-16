@@ -15,10 +15,10 @@ export class MembersPage implements OnInit {
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent,
     private sharedService: SharedService) { }
-    
+
   membersData: any;
   currentUser = firebase.auth().currentUser;
-  
+
   ngOnInit() {
     this.showMembersList();
   }
@@ -44,7 +44,7 @@ export class MembersPage implements OnInit {
               }
             })
           });
-    } 
+    }
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia członków zespołów');
     }
@@ -53,18 +53,18 @@ export class MembersPage implements OnInit {
 
   async deleteMember(id) {
     var wantsToDelete = true;
-    
+
     if (wantsToDelete) {
       const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButton('Usuń członka zespołu', 'Czy na pewno chcesz usunąć?');
       if (!dialog) {
         return;
       }
     }
-    
+
     try {
       await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('members').doc(id).delete();
       this.appComponent.showAlertDialogWithOkButton('Usunięto członka zespołu', 'Pomyślnie usunięto');
-    } 
+    }
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia członka zespołu');
     }

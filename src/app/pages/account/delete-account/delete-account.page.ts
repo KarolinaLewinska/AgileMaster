@@ -21,22 +21,22 @@ export class DeleteAccountPage implements OnInit {
     var currentUserPasswd = (<HTMLInputElement>document.getElementById('passwd')).value;
     var confirmCurrentUserPasswd = (<HTMLInputElement>document.getElementById('passwdConfirm')).value;
     var wantsToDelete = true;
-    
+
     if (this.authValidationService.checkIfPasswdFieldsAreNotEmpty(currentUserPasswd, confirmCurrentUserPasswd)
       && this.authValidationService.checkIfPasswordAndConfirmAreEqual(currentUserPasswd, confirmCurrentUserPasswd)) {
-      
+
       if (wantsToDelete) {
         const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButton('Usuń konto', 'Czy na pewno chcesz usunąć konto?');
         if (!dialog) {
           return;
         }
       }
-      
+
       try {
         this.appComponent.createLoadingDialog();
         this.appComponent.showLoadingDialog();
         this.userAuthenticationService.reauthenticateAndDeleteUserAccount(currentUserPasswd);
-      } 
+      }
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia konta');
       }

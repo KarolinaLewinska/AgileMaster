@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
 import { TasksStatisticsPage } from './tasks-statistics.page';
 
 describe('TasksStatisticsPage', () => {

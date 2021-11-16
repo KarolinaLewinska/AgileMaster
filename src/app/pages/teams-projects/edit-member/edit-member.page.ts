@@ -15,12 +15,13 @@ export class EditMemberPage implements OnInit {
   memberData = {} as MemberData;
   id: any;
   currentUser = firebase.auth().currentUser;
+
   constructor(
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent,
     private  navController: NavController,
     private teamsProjectsValidationService: TeamsProjectsValidationService,
-    private activatedRoute: ActivatedRoute) { 
+    private activatedRoute: ActivatedRoute) {
       this.id = this.activatedRoute.snapshot.paramMap.get('id');
     }
 
@@ -31,7 +32,7 @@ export class EditMemberPage implements OnInit {
   async getMemberToEditData(id: string) {
     this.appComponent.createLoadingDialog();
     this.appComponent.showLoadingDialog();
-    
+
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
       .collection('members').doc(id).valueChanges()
       .subscribe(member => {
@@ -40,25 +41,25 @@ export class EditMemberPage implements OnInit {
         this.memberData.email = member['email'];
         this.memberData.phone = member['phone'];
         this.memberData.room = member['room'];
-        this.memberData.teamName = member['teamName']; 
+        this.memberData.teamName = member['teamName'];
       });
     this.appComponent.hideLoadingDialog();
   }
 
   async editMember(memberData: MemberData) {
-    if (this.teamsProjectsValidationService.checkIfMemberFieldsAreNotEmpty(this.memberData.nameAndSurname, 
-      this.memberData.organizationRole, this.memberData.email, this.memberData.phone, this.memberData.room, this.memberData.teamName) 
+    if (this.teamsProjectsValidationService.checkIfMemberFieldsAreNotEmpty(this.memberData.nameAndSurname,
+      this.memberData.organizationRole, this.memberData.email, this.memberData.phone, this.memberData.room, this.memberData.teamName)
         && this.teamsProjectsValidationService.checkIfEmailAndPhoneIsValid(this.memberData.email, this.memberData.phone)) {
-        
+
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();
-      
+
       try {
         await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('members')
             .doc(this.id).update(memberData);
         this.appComponent.showAlertDialogWithOkButton('Edycja danych członka zespołu', 'Zaktualizowano dane członka zespołu');
         this.navController.navigateBack('members');
-      } 
+      }
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji danych członka zespołu');
       }

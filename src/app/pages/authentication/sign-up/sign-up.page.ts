@@ -18,32 +18,32 @@ export class SignUpPage implements OnInit {
   ) { }
 
   userData = {} as UserData;
-  
+
   ngOnInit() {}
 
   async signUpUser(userData: UserData) {
     var userEmail = userData.email;
     var userPassword = userData.password;
-    
+
     var passwdValue = (<HTMLInputElement>document.getElementById('passwd')).value;
     var passwdConfirmValue = (<HTMLInputElement>document.getElementById('passwdConfirm')).value;
 
-    if (this.authValidationService.checkIfAuthFieldsAreNotEmpty(userEmail, userPassword) 
-      && this.authValidationService.checkIfPasswordIsValid(passwdValue, passwdConfirmValue)
+    if (this.authValidationService.checkIfAuthFieldsAreNotEmpty(userEmail, userPassword)
+      && this.authValidationService.checkIfPasswordIsValid(passwdValue)
       && this.authValidationService.checkIfPasswordAndConfirmAreEqual(passwdValue, passwdConfirmValue)) {
-      
+
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();
 
       try {
         await this.userAuthenticationService.signUpWithEmailAndPassword(userEmail, userPassword);
-        await this.userAuthenticationService.sendEmailToConfirmSignUp()
-      } 
+        await this.userAuthenticationService.sendEmailToConfirmSignUp();
+      }
       catch (error) {
         const headerErrorMessage = 'Błąd uwierzytelniania';
         var errorCode = error.code;
         var errorMessage = error.message;
-        
+
         switch (errorCode) {
           case 'auth/email-already-in-use': {
             errorMessage = 'Użytkownik o podanym adresie email już istnieje';
@@ -62,7 +62,7 @@ export class SignUpPage implements OnInit {
             this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
             this.navController.navigateBack('sign-up');
             break;
-          } 
+          }
           default: {
             errorMessage = error.message;
             this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
@@ -71,7 +71,7 @@ export class SignUpPage implements OnInit {
           }
         }
       }
-      this.appComponent.hideLoadingDialog();        
+      this.appComponent.hideLoadingDialog();
     }
   }
 }

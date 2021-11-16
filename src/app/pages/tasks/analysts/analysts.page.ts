@@ -13,15 +13,14 @@ export class AnalystsPage implements OnInit {
   constructor(
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent,
-    private sharedService: SharedService
-  ) { }
+    private sharedService: SharedService) { }
 
   tasksData: any;
   currentUser = firebase.auth().currentUser;
   nameOfTasksCategory = 'analysts';
-    
+
   ngOnInit() {
-    this.showTasksList()
+    this.showTasksList();
   }
 
   async showTasksList() {
@@ -44,7 +43,7 @@ export class AnalystsPage implements OnInit {
               }
             })
           });
-    } 
+    }
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia zadań');
     }
@@ -53,19 +52,19 @@ export class AnalystsPage implements OnInit {
 
   async deleteTask(id) {
     var wantsToDelete = true;
-    
+
     if (wantsToDelete) {
       const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButton('Usuń zadanie', 'Czy na pewno chcesz usunąć?');
       if (!dialog) {
         return;
       }
     }
-    
+
     try {
       await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
         .doc('category').collection(this.nameOfTasksCategory).doc(id).delete();
       this.appComponent.showAlertDialogWithOkButton('Usunięto zadanie', 'Pomyślnie usunięto zadanie');
-    } 
+    }
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia zadania');
     }

@@ -14,17 +14,17 @@ export class SignInPage implements OnInit {
   constructor(
     private userAuthenticationService: UserAuthenticationService,
     private appComponent: AppComponent,
-    private navController: NavController, 
+    private navController: NavController,
     private authValidationService: AuthValidationService) { }
 
   userData = {} as UserData;
-  
+
   ngOnInit() {}
 
   async SignInUser(userData: UserData) {
     var userEmail = userData.email;
     var userPassword = userData.password;
-    
+
     if (this.authValidationService.checkIfAuthFieldsAreNotEmpty(userEmail, userPassword)) {
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();
@@ -36,7 +36,7 @@ export class SignInPage implements OnInit {
         const headerErrorMessage = 'Błąd uwierzytelniania';
         var errorCode = error.code;
         var errorMessage = error.message;
-        
+
         switch (errorCode) {
           case 'auth/user-not-found': {
             errorMessage = 'Użytkownik o podanym adresie email nie istnieje';
@@ -55,7 +55,7 @@ export class SignInPage implements OnInit {
             this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
             this.navController.navigateBack('sign-in');
             break;
-          } 
+          }
           default: {
             errorMessage ='Nieprawidłowy adres email lub hasło';
             this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
@@ -64,7 +64,7 @@ export class SignInPage implements OnInit {
           }
         }
       }
-      this.appComponent.hideLoadingDialog(); 
+      this.appComponent.hideLoadingDialog();
     }
   }
 }

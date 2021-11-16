@@ -21,7 +21,7 @@ export class WorkshopsPage implements OnInit {
   nameOfEventsCategory = 'workshops';
 
   ngOnInit() {
-    this.showEventsList()
+    this.showEventsList();
   }
 
   async showEventsList() {
@@ -30,7 +30,7 @@ export class WorkshopsPage implements OnInit {
 
     try {
       this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('events').doc('category')
-        .collection(this.nameOfEventsCategory, tasks => tasks.orderBy('date')).snapshotChanges()
+        .collection(this.nameOfEventsCategory, events => events.orderBy('date')).snapshotChanges()
           .subscribe(eventsMapper => {
             this.eventsData = eventsMapper.map(mapper => {
               return {
@@ -45,7 +45,7 @@ export class WorkshopsPage implements OnInit {
               }
             })
           });
-    } 
+    }
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia spotkań');
     }
@@ -54,19 +54,19 @@ export class WorkshopsPage implements OnInit {
 
   async deleteEvent(id) {
     var wantsToDelete = true;
-    
+
     if (wantsToDelete) {
       const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButton('Usuń spotkanie', 'Czy na pewno chcesz usunąć?');
       if (!dialog) {
         return;
       }
     }
-    
+
     try {
       await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('events')
         .doc('category').collection(this.nameOfEventsCategory).doc(id).delete();
       this.appComponent.showAlertDialogWithOkButton('Usunięto spotkanie', 'Pomyślnie usunięto spotkanie');
-    } 
+    }
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia spotkania');
     }

@@ -7,10 +7,8 @@ import { UserAuthenticationService } from '../../../services/authentication-serv
   styleUrls: ['./teams-projects-categories.page.scss'],
 })
 export class TeamsProjectsCategoriesPage implements OnInit {
-
   constructor(private userAuthenticationService: UserAuthenticationService) { }
-  
-  ngOnInit() {
-  }
+
+  ngOnInit() {}
 
 }

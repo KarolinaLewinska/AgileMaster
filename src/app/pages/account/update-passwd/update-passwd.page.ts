@@ -20,8 +20,8 @@ export class UpdatePasswdPage implements OnInit {
     var newPasswd = (<HTMLInputElement>document.getElementById('newPasswd')).value;
     var newPasswdConfirm = (<HTMLInputElement>document.getElementById('newPasswdConfirm')).value;
 
-    if (this.authValidationService.checkIfPasswdFieldsAreNotEmpty(oldPasswd, newPasswd, newPasswdConfirm) 
-      && this.authValidationService.checkIfPasswordIsValid(newPasswd, newPasswdConfirm) 
+    if (this.authValidationService.checkIfPasswdFieldsAreNotEmpty(oldPasswd, newPasswd, newPasswdConfirm)
+      && this.authValidationService.checkIfPasswordIsValid(newPasswd)
       && this.authValidationService.checkIfPasswordAndConfirmAreEqual(newPasswd, newPasswdConfirm)) {
 
       this.appComponent.createLoadingDialog();
@@ -33,7 +33,7 @@ export class UpdatePasswdPage implements OnInit {
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby zmiany hasła');
       }
-      this.appComponent.hideLoadingDialog(); 
+      this.appComponent.hideLoadingDialog();
     }
   }
 }

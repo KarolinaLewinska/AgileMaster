@@ -23,20 +23,20 @@ export class AddMemberPage implements OnInit {
   ngOnInit() {}
 
   async addMember(memberData: MemberData) {
-    if (this.teamsProjectsValidationService.checkIfMemberFieldsAreNotEmpty(this.memberData.nameAndSurname, 
-      this.memberData.organizationRole, this.memberData.email, this.memberData.phone, this.memberData.room, this.memberData.teamName) 
+    if (this.teamsProjectsValidationService.checkIfMemberFieldsAreNotEmpty(this.memberData.nameAndSurname,
+      this.memberData.organizationRole, this.memberData.email, this.memberData.phone, this.memberData.room, this.memberData.teamName)
         && this.teamsProjectsValidationService.checkIfEmailAndPhoneIsValid(this.memberData.email, this.memberData.phone)) {
-      
+
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();
-      
+
       try {
         var currentUser = firebase.auth().currentUser;
         await this.angularFirestore.collection('users').doc(currentUser.uid).collection('members').add(memberData);
-        
+
         this.appComponent.showAlertDialogWithOkButton('Dodano członka zespołu', 'Pomyślnie dodano członka zespołu');
         this.clearInputFields();
-      } 
+      }
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby dodania członka zespołu');
       }

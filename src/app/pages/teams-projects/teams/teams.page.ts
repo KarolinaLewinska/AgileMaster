@@ -19,9 +19,8 @@ export class TeamsPage implements OnInit {
   teamsData: any;
   currentUser = firebase.auth().currentUser;
 
-
   ngOnInit() {
-    this.showTeamsList()
+    this.showTeamsList();
   }
 
   async showTeamsList() {
@@ -41,7 +40,7 @@ export class TeamsPage implements OnInit {
               }
             })
           });
-    } 
+    }
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia zespołów');
     }
@@ -50,18 +49,18 @@ export class TeamsPage implements OnInit {
 
   async deleteTeam(id) {
     var wantsToDelete = true;
-    
+
     if (wantsToDelete) {
       const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButton('Usuń zespół', 'Czy na pewno chcesz usunąć?');
       if (!dialog) {
         return;
       }
     }
-    
+
     try {
       await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('teams').doc(id).delete();
       this.appComponent.showAlertDialogWithOkButton('Usunięto zespół', 'Pomyślnie usunięto zespół');
-    } 
+    }
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia zespołu');
     }

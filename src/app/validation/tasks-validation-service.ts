@@ -7,9 +7,9 @@ import { Injectable } from '@angular/core';
 export class TasksValidationService {
     constructor(private appComponent: AppComponent) {}
 
-    checkIfTasksFieldsAreNotEmpty(title: string, dateOfFinish: string, timeOfFinish: string, 
+    checkIfTasksFieldsAreNotEmpty(title: string, dateOfFinish: string, timeOfFinish: string,
         priority: string, category: string) {
-        
+
         const headerTitle = 'Pole wymagane';
 
         if (!title) {

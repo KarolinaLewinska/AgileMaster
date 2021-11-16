@@ -8,7 +8,6 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   styleUrls: ['./projects-teams-statistics.page.scss'],
 })
 export class ProjectsTeamsStatisticsPage implements OnInit {
-
   constructor(private angularFirestore: AngularFirestore) { }
 
   currentUser = firebase.auth().currentUser;

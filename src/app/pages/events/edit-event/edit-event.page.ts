@@ -22,7 +22,7 @@ export class EditEventPage implements OnInit {
     private appComponent: AppComponent,
     private sharedService: SharedService,
     private eventsValidationService: EventsValidationService,
-    private activatedRoute: ActivatedRoute) { 
+    private activatedRoute: ActivatedRoute) {
       this.id = this.activatedRoute.snapshot.paramMap.get('id');
       this.category = this.activatedRoute.snapshot.paramMap.get('category');
     }
@@ -34,7 +34,7 @@ export class EditEventPage implements OnInit {
   async getEventToEditData(id: string) {
     this.appComponent.createLoadingDialog();
     this.appComponent.showLoadingDialog();
-    
+
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
       .collection('events').doc('category').collection(this.sharedService.setEventCategoryName(this.category)).doc(id).valueChanges()
       .subscribe(event => {
@@ -42,7 +42,7 @@ export class EditEventPage implements OnInit {
         this.eventData.description = event['description'];
         this.eventData.date = event['date'];
         this.eventData.startTime = event['startTime'];
-        this.eventData.duration = event['duration']; 
+        this.eventData.duration = event['duration'];
         this.eventData.place = event['place'];
         this.eventData.category = event['category'];
       });
@@ -50,14 +50,14 @@ export class EditEventPage implements OnInit {
   }
 
   async editEvent(eventData: EventData) {
-    if (this.eventsValidationService.checkIfEventsFieldsAreNotEmpty(this.eventData.name, 
-      this.eventData.date, this.eventData.startTime, this.eventData.duration, this.eventData.place, this.eventData.category)) {
-        
+    if (this.eventsValidationService.checkIfEventsFieldsAreNotEmpty(this.eventData.name, this.eventData.date,
+      this.eventData.startTime, this.eventData.duration, this.eventData.place, this.eventData.category)) {
+
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();
-      
+
       try {
-        if (this.category == this.eventData.category) { 
+        if (this.category == this.eventData.category) {
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('events')
             .doc('category').collection(this.sharedService.setEventCategoryName(this.category)).doc(this.id).update(eventData);
         } else {
@@ -69,7 +69,7 @@ export class EditEventPage implements OnInit {
         }
         this.appComponent.showAlertDialogWithOkButton('Edycja zadania', 'Zaktualizowano zadanie');
         this.sharedService.navigateBackToEventsList(this.eventData.category);
-      } 
+      }
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji zadania');
       }

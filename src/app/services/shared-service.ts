@@ -54,15 +54,6 @@ export class SharedService {
     return nameOfCategory;
   }
 
-  navigateToEventDetails(details) {
-    let navigationExtras: NavigationExtras = {
-      queryParams: {
-        eventData: details
-      }
-    };
-    this.navController.navigateForward('event-details', navigationExtras);
-  }
-
   navigateToTaskDetails(details) {
     let navigationExtras: NavigationExtras = {
       queryParams: {
@@ -70,6 +61,15 @@ export class SharedService {
       }
     };
     this.navController.navigateForward('task-details', navigationExtras);
+  }
+
+  navigateToEventDetails(details) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        eventData: details
+      }
+    };
+    this.navController.navigateForward('event-details', navigationExtras);
   }
 
   navigateToTeamDetails(details) {
@@ -159,7 +159,7 @@ export class SharedService {
 
   navigateBackToEventsList(data) {
     switch (data) {
-      case 'Spotkania Scrumowe': { 
+      case 'Spotkania Scrumowe': {
         this.navController.navigateBack('scrum-meetings');
         break;
       }

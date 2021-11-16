@@ -6,10 +6,7 @@ import { UserAuthenticationService } from '../../../services/authentication-serv
   styleUrls: ['./statistics-categories.page.scss'],
 })
 export class StatisticsCategoriesPage implements OnInit {
-
   constructor(private userAuthenticationService: UserAuthenticationService) { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

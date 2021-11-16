@@ -19,24 +19,24 @@ export class AddTaskPage implements OnInit {
   ) { }
 
   taskData = {} as TaskData;
-  
+
   ngOnInit() {}
 
   async addTask(taskData: TaskData) {
-    if (this.tasksValidationService.checkIfTasksFieldsAreNotEmpty(this.taskData.title, 
-      this.taskData.dateOfFinish, this.taskData.timeOfFinish, this.taskData.priority, this.taskData.category)) {
-      
+    if (this.tasksValidationService.checkIfTasksFieldsAreNotEmpty(this.taskData.title,this.taskData.dateOfFinish, 
+      this.taskData.timeOfFinish, this.taskData.priority, this.taskData.category)) {
+
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();
-      
+
       try {
         var currentUser = firebase.auth().currentUser;
         await this.angularFirestore.collection('users').doc(currentUser.uid).collection('tasks')
           .doc('category').collection(this.setCategoryName()).add(taskData);
-        
+
         this.appComponent.showAlertDialogWithOkButton('Dodano zadanie', 'Pomyślnie dodano zadanie');
         this.clearInputFields();
-      } 
+      }
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby dodania zadania');
       }
@@ -69,7 +69,7 @@ export class AddTaskPage implements OnInit {
     }
     return nameOfCategory;
   }
-  
+
   clearInputFields() {
     const emptyValue = null;
     this.taskData.title = emptyValue;

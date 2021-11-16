@@ -4,7 +4,6 @@ export interface ProjectData {
     dateOfStart: string;
     dateOfFinish: string;
     teamName: string;
-    
 }
 
 

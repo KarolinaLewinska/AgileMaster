@@ -6,9 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class TeamsProjectsValidationService {
     constructor(private appComponent: AppComponent) {}
-    
+
     checkIfTeamFieldsAreNotEmpty(name: string, projectName: string) {
-        
         const headerTitle = 'Pole wymagane';
 
         if (!name) {
@@ -22,9 +21,7 @@ export class TeamsProjectsValidationService {
         return true;
     }
 
-    checkIfProjectFieldsAreNotEmpty(name: string, dateOfStart: string, dateOfFisnish: string,
-        teamName: string) {
-        
+    checkIfProjectFieldsAreNotEmpty(name: string, dateOfStart: string, dateOfFisnish: string, teamName: string) {
         const headerTitle = 'Pole wymagane';
 
         if (!name) {
@@ -46,8 +43,9 @@ export class TeamsProjectsValidationService {
         return true;
     }
 
-    checkIfMemberFieldsAreNotEmpty(nameAndSurname: string, organizationRole: string, email: string, phone: string, room: string, teamName: string) {
-        
+    checkIfMemberFieldsAreNotEmpty(nameAndSurname: string, organizationRole: string, email: string,
+        phone: string, room: string, teamName: string) {
+
         const headerTitle = 'Pole wymagane';
 
         if (!nameAndSurname) {
@@ -84,7 +82,7 @@ export class TeamsProjectsValidationService {
         }
         if (phone != null && !phone.match('^[0-9-+() ]+$')) {
             this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Nieprawidłowy format numeru telefonu');
-            return false; 
+            return false;
         }
         return true;
     }

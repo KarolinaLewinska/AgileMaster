@@ -18,20 +18,19 @@ export class AppComponent {
       buttons: ['OK']
     });
     await alertDialog.present();
-
     await alertDialog.onDidDismiss();
   }
-  
+
   async createAndShowAlertDialogWithConfirmAndCancelButton(headerValue: string, messageValue: string) {
     return new Promise (async (result) => {
       const alertDialogWithConfirm = this.alertController.create({
         cssClass: 'alert',
-        header: headerValue, 
+        header: headerValue,
         message: messageValue,
         buttons: [
         {
           text: 'Nie',
-          role: 'cancel', 
+          role: 'cancel',
           handler: () => {
             return result(false);
           }
@@ -59,6 +58,6 @@ export class AppComponent {
   }
 
   async hideLoadingDialog() {
-    (await this.createLoadingDialog()).dismiss();    
+    (await this.createLoadingDialog()).dismiss();
   }
 }

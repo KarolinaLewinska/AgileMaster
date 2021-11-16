@@ -14,7 +14,6 @@ export class EventsStatisticsPage implements OnInit {
   listOfCategories: string[] = ['scrumMeetings', 'workshops', 'courses', 'otherEvents'];
 
   allEventsNumber: any;
-
   scrumMeetingsEventsNumber: any;
   workshopsEventsNumber: any;
   coursesEventsNumber: any;
@@ -31,17 +30,19 @@ export class EventsStatisticsPage implements OnInit {
   async retrieveAllEventsNumber() {
     let totalNumber = 0;
     for (var i = 0; this.listOfCategories.length; i++) {
-      firebase.firestore().collection('users').doc(this.currentUser.uid).collection('events').doc('category').collection(this.listOfCategories[i]).get()
-      .then(data => {
-      var numberOfEvents = data.size;
-      totalNumber += numberOfEvents;
-      this.allEventsNumber = totalNumber;
-      });
+      firebase.firestore().collection('users').doc(this.currentUser.uid).collection('events')
+        .doc('category').collection(this.listOfCategories[i]).get()
+        .then(data => {
+        var numberOfEvents = data.size;
+        totalNumber += numberOfEvents;
+        this.allEventsNumber = totalNumber;
+        });
     }
   }
 
   async retrieveEventsNumberByScrumMeetingsCategory() {
-    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('events').doc('category').collection('scrumMeetings').get()
+    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('events')
+      .doc('category').collection('scrumMeetings').get()
       .then(data => {
       var numberOfEvents = data.size;
       this.scrumMeetingsEventsNumber = numberOfEvents;
@@ -49,7 +50,8 @@ export class EventsStatisticsPage implements OnInit {
   }
 
   async retrieveEventsNumberByWorkshopCategory() {
-    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('events').doc('category').collection('workshops').get()
+    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('events')
+      .doc('category').collection('workshops').get()
       .then(data => {
       var numberOfEvents = data.size;
       this.workshopsEventsNumber = numberOfEvents;
@@ -57,7 +59,8 @@ export class EventsStatisticsPage implements OnInit {
   }
 
   async retrieveEventsNumberByCoursesCategory() {
-    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('events').doc('category').collection('courses').get()
+    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('events')
+      .doc('category').collection('courses').get()
       .then(data => {
       var numberOfEvents = data.size;
       this.coursesEventsNumber = numberOfEvents;
@@ -65,7 +68,8 @@ export class EventsStatisticsPage implements OnInit {
   }
 
   async retrieveOtherEventsNumber() {
-    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('events').doc('category').collection('otherEvents').get()
+    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('events')
+      .doc('category').collection('otherEvents').get()
       .then(data => {
       var numberOfEvents = data.size;
       this.otherEventsNumber = numberOfEvents;

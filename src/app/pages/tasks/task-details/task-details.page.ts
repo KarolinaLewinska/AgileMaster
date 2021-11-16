@@ -14,7 +14,7 @@ export class TaskDetailsPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private sharedService: SharedService
   ) { }
-  
+
   taskData = {} as TaskData;
 
   ngOnInit() {
@@ -28,7 +28,7 @@ export class TaskDetailsPage implements OnInit {
   }
 
   navigateBackFromDetailsToList() {
-    this.sharedService.navigateBackToTasksList(this.taskData.category.valueOf())
+    this.sharedService.navigateBackToTasksList(this.taskData.category.valueOf());
   }
 }
 

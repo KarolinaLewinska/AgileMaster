@@ -15,7 +15,7 @@ export class EventDetailsPage implements OnInit {
     private sharedService: SharedService
   ) { }
   eventData = {} as EventData;
-  
+
   ngOnInit() {
     this.displayEventDetails();
   }
@@ -25,7 +25,7 @@ export class EventDetailsPage implements OnInit {
     this.eventData = params['eventData']
     });
   }
-  
+
   navigateBackFromDetailsToList() {
     this.sharedService.navigateBackToEventsList(this.eventData.category.valueOf())
   }

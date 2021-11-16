@@ -16,13 +16,12 @@ export class EditTeamPage implements OnInit {
   id: any;
   currentUser = firebase.auth().currentUser;
 
-
   constructor(
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent,
     private  navController: NavController,
     private teamsProjectsValidationService: TeamsProjectsValidationService,
-    private activatedRoute: ActivatedRoute) { 
+    private activatedRoute: ActivatedRoute) {
       this.id = this.activatedRoute.snapshot.paramMap.get('id');
     }
 
@@ -33,7 +32,7 @@ export class EditTeamPage implements OnInit {
   async getTeamToEditData(id: string) {
     this.appComponent.createLoadingDialog();
     this.appComponent.showLoadingDialog();
-    
+
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
       .collection('teams').doc(id).valueChanges()
       .subscribe(team => {
@@ -45,17 +44,17 @@ export class EditTeamPage implements OnInit {
 
   async editTeam(teamData: TeamData) {
     if (this.teamsProjectsValidationService.checkIfTeamFieldsAreNotEmpty(this.teamData.name, this.teamData.projectName)) {
-        
+
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();
-      
+
       try {
         await this.angularFirestore.collection('users').doc(this.currentUser.uid)
         .collection('teams').doc(this.id).update(teamData);
 
         this.appComponent.showAlertDialogWithOkButton('Edycja zespołu', 'Zaktualizowano zespół');
         this.navController.navigateBack('teams');
-      } 
+      }
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji zespołu');
       }

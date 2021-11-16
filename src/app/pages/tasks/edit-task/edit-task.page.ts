@@ -23,7 +23,7 @@ export class EditTaskPage implements OnInit {
     private appComponent: AppComponent,
     private sharedService: SharedService,
     private tasksValidationService: TasksValidationService,
-    private activatedRoute: ActivatedRoute) { 
+    private activatedRoute: ActivatedRoute) {
       this.id = this.activatedRoute.snapshot.paramMap.get('id');
       this.category = this.activatedRoute.snapshot.paramMap.get('category');
     }
@@ -35,29 +35,30 @@ export class EditTaskPage implements OnInit {
   async getTaskToEditData(id: string) {
     this.appComponent.createLoadingDialog();
     this.appComponent.showLoadingDialog();
-    
+
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
-      .collection('tasks').doc('category').collection( this.sharedService.setTaskCategoryName(this.category)).doc(id).valueChanges()
+      .collection('tasks').doc('category').collection( this.sharedService.setTaskCategoryName(this.category))
+      .doc(id).valueChanges()
       .subscribe(task => {
         this.taskData.title = task['title'];
         this.taskData.description = task['description'];
         this.taskData.dateOfFinish = task['dateOfFinish'];
         this.taskData.timeOfFinish = task['timeOfFinish'];
-        this.taskData.priority = task['priority']; 
+        this.taskData.priority = task['priority'];
         this.taskData.category = task['category'];
       });
     this.appComponent.hideLoadingDialog();
   }
 
   async editTask(taskData: TaskData) {
-    if (this.tasksValidationService.checkIfTasksFieldsAreNotEmpty(this.taskData.title, 
-      this.taskData.dateOfFinish, this.taskData.timeOfFinish, this.taskData.priority, this.taskData.category)) {
-        
+    if (this.tasksValidationService.checkIfTasksFieldsAreNotEmpty(this.taskData.title, this.taskData.dateOfFinish, 
+      this.taskData.timeOfFinish, this.taskData.priority, this.taskData.category)) {
+
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();
-      
+
       try {
-        if (this.category == this.taskData.category) { 
+        if (this.category == this.taskData.category) {
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
             .doc('category').collection(this.sharedService.setTaskCategoryName(this.category)).doc(this.id).update(taskData);
         } else {
@@ -66,18 +67,18 @@ export class EditTaskPage implements OnInit {
 
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
             .doc('category').collection(this.sharedService.setTaskCategoryName(this.category)).doc(this.id).delete();
-          
+
         }
         this.appComponent.showAlertDialogWithOkButton('Edycja zadania', 'Zaktualizowano zadanie');
         this.sharedService.navigateBackToTasksList(this.taskData.category);
-      } 
+      }
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji zadania');
       }
       this.appComponent.hideLoadingDialog();
     }
   }
- 
+
   navigateBackFromDetailsToList() {
     this.sharedService.navigateBackToTasksList(this.category.valueOf())
   }

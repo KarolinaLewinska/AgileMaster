@@ -15,18 +15,15 @@ export class TasksStatisticsPage implements OnInit {
   listOfCategories: string[] = ['analysts','developmentTeam', 'productOwner', 'company','education', 'otherTasks'];
 
   allTasksNumber: any;
-
   analystsTasksNumber: any;
   developmentTeamTasksNumber: any;
   productOwnerTasksNumber: any;
   companyTasksNumber: any;
   educationTasksNumber: any;
   otherTasksNumber: any;
-
   lowPriorityTasksNumber: any;
   mediumPriorityTasksNumber: any;
   highPriorityTasksNumber: any;
-
 
   ngOnInit() {
     this.retrieveAllTasksNumber();
@@ -44,17 +41,19 @@ export class TasksStatisticsPage implements OnInit {
   async retrieveAllTasksNumber() {
     let totalNumber = 0;
     for (var i = 0; this.listOfCategories.length; i++) {
-      firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection(this.listOfCategories[i]).get()
-      .then(data => {
-      var numberOfTasks = data.size;
-      totalNumber += numberOfTasks;
-      this.allTasksNumber = totalNumber;
+      firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
+        .doc('category').collection(this.listOfCategories[i]).get()
+        .then(data => {
+        var numberOfTasks = data.size;
+        totalNumber += numberOfTasks;
+        this.allTasksNumber = totalNumber;
       });
     }
   }
 
   async retrieveTasksNumberByAnalystsCategory() {
-    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection('analysts').get()
+    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
+      .doc('category').collection('analysts').get()
       .then(data => {
       var numberOfTasks = data.size;
       this.analystsTasksNumber = numberOfTasks;
@@ -62,7 +61,8 @@ export class TasksStatisticsPage implements OnInit {
   }
 
   async retrieveTasksNumberByDevelopmentTeamCategory() {
-    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection('developmentTeam').get()
+    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
+      .doc('category').collection('developmentTeam').get()
       .then(data => {
       var numberOfTasks = data.size;
       this.developmentTeamTasksNumber = numberOfTasks;
@@ -70,7 +70,8 @@ export class TasksStatisticsPage implements OnInit {
   }
 
   async retrieveTasksNumberByProductOwnerCategory() {
-    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection('productOwner').get()
+    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
+      .doc('category').collection('productOwner').get()
       .then(data => {
       var numberOfTasks = data.size;
       this.productOwnerTasksNumber = numberOfTasks;
@@ -78,7 +79,8 @@ export class TasksStatisticsPage implements OnInit {
   }
 
   async retrieveTasksNumberByCompanyCategory() {
-    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection('company').get()
+    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
+      .doc('category').collection('company').get()
       .then(data => {
       var numberOfTasks = data.size;
       this.companyTasksNumber = numberOfTasks;
@@ -86,7 +88,8 @@ export class TasksStatisticsPage implements OnInit {
   }
 
   async retrieveTasksNumberByEducationCategory() {
-    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection('education').get()
+    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
+      .doc('category').collection('education').get()
       .then(data => {
       var numberOfTasks = data.size;
       this.educationTasksNumber = numberOfTasks;
@@ -94,7 +97,8 @@ export class TasksStatisticsPage implements OnInit {
   }
 
   async retrieveOtherTasksNumberByCategory() {
-    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection('otherTasks').get()
+    firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
+      .doc('category').collection('otherTasks').get()
       .then(data => {
       var numberOfTasks = data.size;
       this.otherTasksNumber = numberOfTasks;
@@ -104,7 +108,8 @@ export class TasksStatisticsPage implements OnInit {
   async retrieveTasksNumberByHighPriority() {
     let totalNumber = 0;
     for (var i = 0; this.listOfCategories.length; i++) {
-      firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'Wysoki').get()
+      firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
+        .doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'Wysoki').get()
         .then(data => {
         var numberOfTasks = data.size;
         totalNumber += numberOfTasks;
@@ -116,7 +121,8 @@ export class TasksStatisticsPage implements OnInit {
   async retrieveTasksNumberByMediumPriority() {
     let totalNumber = 0;
     for (var i = 0; this.listOfCategories.length; i++) {
-      firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'Średni').get()
+      firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
+        .doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'Średni').get()
         .then(data => {
         var numberOfTasks = data.size;
         totalNumber += numberOfTasks;
@@ -128,7 +134,8 @@ export class TasksStatisticsPage implements OnInit {
   async retrieveTasksNumberByLowPriority() {
     let totalNumber = 0;
     for (var i = 0; this.listOfCategories.length; i++) {
-      firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks').doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'Niski').get()
+      firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
+        .doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'Niski').get()
         .then(data => {
         var numberOfTasks = data.size;
         totalNumber += numberOfTasks;

@@ -22,7 +22,7 @@ export class EditProjectPage implements OnInit {
     private appComponent: AppComponent,
     private  navController: NavController,
     private teamsProjectsValidationService: TeamsProjectsValidationService,
-    private activatedRoute: ActivatedRoute) { 
+    private activatedRoute: ActivatedRoute) {
       this.id = this.activatedRoute.snapshot.paramMap.get('id');
     }
 
@@ -33,7 +33,7 @@ export class EditProjectPage implements OnInit {
   async getProjectToEditData(id: string) {
     this.appComponent.createLoadingDialog();
     this.appComponent.showLoadingDialog();
-    
+
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
       .collection('projects').doc(id).valueChanges()
       .subscribe(project => {
@@ -41,24 +41,24 @@ export class EditProjectPage implements OnInit {
         this.projectData.description = project['description'];
         this.projectData.dateOfStart = project['dateOfStart'];
         this.projectData.dateOfFinish = project['dateOfFinish'];
-        this.projectData.teamName = project['teamName']; 
+        this.projectData.teamName = project['teamName'];
       });
     this.appComponent.hideLoadingDialog();
   }
 
   async editProject(projectData: ProjectData) {
-    if (this.teamsProjectsValidationService.checkIfProjectFieldsAreNotEmpty(this.projectData.name, 
+    if (this.teamsProjectsValidationService.checkIfProjectFieldsAreNotEmpty(this.projectData.name,
       this.projectData.dateOfStart, this.projectData.dateOfFinish, this.projectData.teamName)) {
-        
+
       this.appComponent.createLoadingDialog();
       this.appComponent.showLoadingDialog();
-      
+
       try {
         await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('projects')
             .doc(this.id).update(projectData);
         this.appComponent.showAlertDialogWithOkButton('Edycja projektu', 'Zaktualizowano projekt');
         this.navController.navigateBack('projects');
-      } 
+      }
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji projektu');
       }

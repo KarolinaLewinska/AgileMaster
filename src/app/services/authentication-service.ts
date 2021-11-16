@@ -8,7 +8,6 @@ import { deleteUser } from "firebase/auth";
 @Injectable({
   providedIn: 'root',
 })
-
 export class UserAuthenticationService {
   private dataOfUser: any;
 
@@ -16,7 +15,7 @@ export class UserAuthenticationService {
     private angularFireAuth: AngularFireAuth,
     private navController: NavController,
     private appComponent: AppComponent) {
-      this.angularFireAuth.authState.subscribe((user) => {
+      this.angularFireAuth.authState.subscribe(user => {
       if (user) {
         this.dataOfUser = user;
         localStorage.setItem('user', JSON.stringify(this.dataOfUser));
@@ -27,10 +26,10 @@ export class UserAuthenticationService {
       }
     });
   }
-  
+
   signInWithEmailAndPassword(email: string, password: string) {
     return this.angularFireAuth.signInWithEmailAndPassword(email, password)
-    .then((auth) => {
+    .then(auth => {
       if (auth.user.emailVerified) {
         this.navController.navigateForward('tasks-categories');
       } else {
@@ -78,7 +77,7 @@ export class UserAuthenticationService {
       })
       .catch(() => {
         this.appComponent.showAlertDialogWithOkButton('Błąd','Nieprawidłowa wartość obecnego hasła');
-      });   
+      });
   }
 
   async reauthenticateCurrentUser(oldPassword: string) {
@@ -88,9 +87,10 @@ export class UserAuthenticationService {
   }
 
   logOut() {
-    this.angularFireAuth.signOut().then(() => {
-      localStorage.removeItem('user'); 
-      this.navController.navigateBack('sign-in'); 
+    this.angularFireAuth.signOut()
+    .then(() => {
+      localStorage.removeItem('user');
+      this.navController.navigateBack('sign-in');
     });
   }
 

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { EditTeamPage } from './edit-team.page';
 
 const routes: Routes = [

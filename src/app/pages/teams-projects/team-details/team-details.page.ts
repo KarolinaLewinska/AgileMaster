@@ -12,13 +12,12 @@ export class TeamDetailsPage implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private angularFirestore: AngularFirestore
-  ) { }
+    private angularFirestore: AngularFirestore) { }
 
   teamData = {} as TeamData;
   membersData: any;
   currentUser = firebase.auth().currentUser;
-  
+
   ngOnInit() {
     this.getMembersData();
     this.displayTeamDetails();
@@ -33,9 +32,8 @@ export class TeamDetailsPage implements OnInit {
 
   async getMembersData() {
     var currentUser = firebase.auth().currentUser;
-    this.angularFirestore.collection('users').doc(currentUser.uid)
-      .collection('members')
-          .snapshotChanges().subscribe(memberMapper => {
+    this.angularFirestore.collection('users').doc(currentUser.uid).collection('members')
+      .snapshotChanges().subscribe(memberMapper => {
         this.membersData = memberMapper.map(mapper => {
           return {
             id: mapper.payload.doc.id,
@@ -47,8 +45,6 @@ export class TeamDetailsPage implements OnInit {
             teamName: mapper.payload.doc.data()['teamName']
           }
         })
-      })
+      });
     }
   }
-
-  
