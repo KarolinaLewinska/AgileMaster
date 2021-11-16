@@ -11,12 +11,10 @@ import { MemberData } from '../../../model/member-data';
   styleUrls: ['./add-member.page.scss'],
 })
 export class AddMemberPage implements OnInit {
-
   constructor(
     private appComponent: AppComponent,
     private angularFirestore: AngularFirestore,
-    private teamsProjectsValidationService: TeamsProjectsValidationService
-  ) { }
+    private teamsProjectsValidationService: TeamsProjectsValidationService) { }
 
   memberData = {} as MemberData;
 
@@ -27,20 +25,16 @@ export class AddMemberPage implements OnInit {
       this.memberData.organizationRole, this.memberData.email, this.memberData.phone, this.memberData.room, this.memberData.teamName)
         && this.teamsProjectsValidationService.checkIfEmailAndPhoneIsValid(this.memberData.email, this.memberData.phone)) {
 
-      this.appComponent.createLoadingDialog();
-      this.appComponent.showLoadingDialog();
+    try {
+      var currentUser = firebase.auth().currentUser;
+      await this.angularFirestore.collection('users').doc(currentUser.uid).collection('members').add(memberData);
 
-      try {
-        var currentUser = firebase.auth().currentUser;
-        await this.angularFirestore.collection('users').doc(currentUser.uid).collection('members').add(memberData);
-
-        this.appComponent.showAlertDialogWithOkButton('Dodano członka zespołu', 'Pomyślnie dodano członka zespołu');
-        this.clearInputFields();
+      this.appComponent.showAlertDialogWithOkButton('Dodano członka zespołu', 'Pomyślnie dodano członka zespołu');
+      this.clearInputFields();
       }
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby dodania członka zespołu');
       }
-      this.appComponent.hideLoadingDialog();
     }
   }
 

@@ -24,8 +24,8 @@ export class ProjectsPage implements OnInit {
   }
 
   async showProjectsList() {
-    this.appComponent.createLoadingDialog();
-    this.appComponent.showLoadingDialog();
+    
+    
 
     try {
       var currentUser = firebase.auth().currentUser;
@@ -47,7 +47,7 @@ export class ProjectsPage implements OnInit {
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia projektów');
     }
-    this.appComponent.hideLoadingDialog();
+    
   }
 
   async deleteProject(id) {

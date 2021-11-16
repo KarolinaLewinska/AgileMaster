@@ -24,9 +24,6 @@ export class AddTeamPage implements OnInit {
   async addTeam(teamData: TeamData) {
     if (this.teamsProjectsValidationService.checkIfTeamFieldsAreNotEmpty(this.teamData.name, this.teamData.projectName)) {
 
-      this.appComponent.createLoadingDialog();
-      this.appComponent.showLoadingDialog();
-
       try {
         var currentUser = firebase.auth().currentUser;
         await this.angularFirestore.collection('users').doc(currentUser.uid).collection('teams').add(teamData);
@@ -37,7 +34,6 @@ export class AddTeamPage implements OnInit {
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby dodania zespołu');
       }
-      this.appComponent.hideLoadingDialog();
     }
   }
 

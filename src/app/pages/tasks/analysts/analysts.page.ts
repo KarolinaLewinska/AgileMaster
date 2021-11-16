@@ -24,8 +24,8 @@ export class AnalystsPage implements OnInit {
   }
 
   async showTasksList() {
-    this.appComponent.createLoadingDialog();
-    this.appComponent.showLoadingDialog();
+    
+    
 
     try {
       this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks').doc('category')
@@ -47,7 +47,7 @@ export class AnalystsPage implements OnInit {
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia zadań');
     }
-    this.appComponent.hideLoadingDialog();
+    
   }
 
   async deleteTask(id) {

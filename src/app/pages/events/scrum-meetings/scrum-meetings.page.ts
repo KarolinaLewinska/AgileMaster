@@ -26,8 +26,8 @@ export class ScrumMeetingsPage implements OnInit {
   }
 
   async showEventsList() {
-    this.appComponent.createLoadingDialog();
-    this.appComponent.showLoadingDialog();
+    
+    
 
     try {
       this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('events').doc('category')
@@ -50,7 +50,7 @@ export class ScrumMeetingsPage implements OnInit {
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia spotkań');
     }
-    this.appComponent.hideLoadingDialog();
+    
   }
 
   async deleteEvent(id) {

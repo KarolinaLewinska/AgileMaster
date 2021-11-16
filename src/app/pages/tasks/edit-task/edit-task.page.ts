@@ -33,8 +33,8 @@ export class EditTaskPage implements OnInit {
   }
 
   async getTaskToEditData(id: string) {
-    this.appComponent.createLoadingDialog();
-    this.appComponent.showLoadingDialog();
+    
+    
 
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
       .collection('tasks').doc('category').collection( this.sharedService.setTaskCategoryName(this.category))
@@ -47,15 +47,15 @@ export class EditTaskPage implements OnInit {
         this.taskData.priority = task['priority'];
         this.taskData.category = task['category'];
       });
-    this.appComponent.hideLoadingDialog();
+    
   }
 
   async editTask(taskData: TaskData) {
     if (this.tasksValidationService.checkIfTasksFieldsAreNotEmpty(this.taskData.title, this.taskData.dateOfFinish, 
       this.taskData.timeOfFinish, this.taskData.priority, this.taskData.category)) {
 
-      this.appComponent.createLoadingDialog();
-      this.appComponent.showLoadingDialog();
+      
+      
 
       try {
         if (this.category == this.taskData.category) {
@@ -75,7 +75,7 @@ export class EditTaskPage implements OnInit {
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji zadania');
       }
-      this.appComponent.hideLoadingDialog();
+      
     }
   }
 

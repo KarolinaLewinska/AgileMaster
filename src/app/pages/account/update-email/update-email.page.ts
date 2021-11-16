@@ -21,8 +21,6 @@ export class UpdateEmailPage implements OnInit {
     var currentUserPassword = (<HTMLInputElement>document.getElementById('currentPasswd')).value;
 
     if (this.authValidationService.checkIfEmailIsValid(newEmail)) {
-      await this.appComponent.createLoadingDialog();
-      await this.appComponent.showLoadingDialog();
 
       try {
         await this.userAuthenticationService.reauthenticateAndUpdateUserEmail(currentUserPassword, newEmail);
@@ -30,7 +28,6 @@ export class UpdateEmailPage implements OnInit {
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby zmiany adresu email');
       }
-      await this.appComponent.hideLoadingDialog();
     }
   }
 }

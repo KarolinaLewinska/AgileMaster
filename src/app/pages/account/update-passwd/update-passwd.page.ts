@@ -24,16 +24,12 @@ export class UpdatePasswdPage implements OnInit {
       && this.authValidationService.checkIfPasswordIsValid(newPasswd)
       && this.authValidationService.checkIfPasswordAndConfirmAreEqual(newPasswd, newPasswdConfirm)) {
 
-      this.appComponent.createLoadingDialog();
-      this.appComponent.showLoadingDialog();
-
       try {
         this.userAuthenticationService.reauthenticateAndUpdateUserPassword(oldPasswd, newPasswd);
       }
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby zmiany hasła');
       }
-      this.appComponent.hideLoadingDialog();
     }
   }
 }

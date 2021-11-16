@@ -109,7 +109,7 @@ export class TasksStatisticsPage implements OnInit {
     let totalNumber = 0;
     for (var i = 0; this.listOfCategories.length; i++) {
       firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
-        .doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'Wysoki').get()
+        .doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'wysoki').get()
         .then(data => {
         var numberOfTasks = data.size;
         totalNumber += numberOfTasks;
@@ -122,7 +122,7 @@ export class TasksStatisticsPage implements OnInit {
     let totalNumber = 0;
     for (var i = 0; this.listOfCategories.length; i++) {
       firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
-        .doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'Średni').get()
+        .doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'średni').get()
         .then(data => {
         var numberOfTasks = data.size;
         totalNumber += numberOfTasks;
@@ -135,7 +135,7 @@ export class TasksStatisticsPage implements OnInit {
     let totalNumber = 0;
     for (var i = 0; this.listOfCategories.length; i++) {
       firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
-        .doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'Niski').get()
+        .doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'niski').get()
         .then(data => {
         var numberOfTasks = data.size;
         totalNumber += numberOfTasks;

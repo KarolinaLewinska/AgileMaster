@@ -32,8 +32,6 @@ export class EditEventPage implements OnInit {
   }
 
   async getEventToEditData(id: string) {
-    this.appComponent.createLoadingDialog();
-    this.appComponent.showLoadingDialog();
 
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
       .collection('events').doc('category').collection(this.sharedService.setEventCategoryName(this.category)).doc(id).valueChanges()
@@ -46,15 +44,14 @@ export class EditEventPage implements OnInit {
         this.eventData.place = event['place'];
         this.eventData.category = event['category'];
       });
-    this.appComponent.hideLoadingDialog();
   }
 
   async editEvent(eventData: EventData) {
     if (this.eventsValidationService.checkIfEventsFieldsAreNotEmpty(this.eventData.name, this.eventData.date,
       this.eventData.startTime, this.eventData.duration, this.eventData.place, this.eventData.category)) {
 
-      this.appComponent.createLoadingDialog();
-      this.appComponent.showLoadingDialog();
+      
+      
 
       try {
         if (this.category == this.eventData.category) {
@@ -73,7 +70,6 @@ export class EditEventPage implements OnInit {
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji zadania');
       }
-      this.appComponent.hideLoadingDialog();
     }
   }
 

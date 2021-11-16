@@ -24,8 +24,8 @@ export class MembersPage implements OnInit {
   }
 
   async showMembersList() {
-    this.appComponent.createLoadingDialog();
-    this.appComponent.showLoadingDialog();
+    
+    
 
     try {
       var currentUser = firebase.auth().currentUser;
@@ -48,7 +48,7 @@ export class MembersPage implements OnInit {
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia członków zespołów');
     }
-    this.appComponent.hideLoadingDialog();
+    
   }
 
   async deleteMember(id) {

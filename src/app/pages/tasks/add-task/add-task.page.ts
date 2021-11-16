@@ -23,11 +23,8 @@ export class AddTaskPage implements OnInit {
   ngOnInit() {}
 
   async addTask(taskData: TaskData) {
-    if (this.tasksValidationService.checkIfTasksFieldsAreNotEmpty(this.taskData.title,this.taskData.dateOfFinish, 
+    if (this.tasksValidationService.checkIfTasksFieldsAreNotEmpty(this.taskData.title,this.taskData.dateOfFinish,
       this.taskData.timeOfFinish, this.taskData.priority, this.taskData.category)) {
-
-      this.appComponent.createLoadingDialog();
-      this.appComponent.showLoadingDialog();
 
       try {
         var currentUser = firebase.auth().currentUser;
@@ -40,7 +37,6 @@ export class AddTaskPage implements OnInit {
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby dodania zadania');
       }
-      this.appComponent.hideLoadingDialog();
     }
   }
 

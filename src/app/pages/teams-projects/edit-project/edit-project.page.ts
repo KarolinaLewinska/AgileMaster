@@ -31,8 +31,8 @@ export class EditProjectPage implements OnInit {
   }
 
   async getProjectToEditData(id: string) {
-    this.appComponent.createLoadingDialog();
-    this.appComponent.showLoadingDialog();
+    
+    
 
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
       .collection('projects').doc(id).valueChanges()
@@ -43,15 +43,15 @@ export class EditProjectPage implements OnInit {
         this.projectData.dateOfFinish = project['dateOfFinish'];
         this.projectData.teamName = project['teamName'];
       });
-    this.appComponent.hideLoadingDialog();
+    
   }
 
   async editProject(projectData: ProjectData) {
     if (this.teamsProjectsValidationService.checkIfProjectFieldsAreNotEmpty(this.projectData.name,
       this.projectData.dateOfStart, this.projectData.dateOfFinish, this.projectData.teamName)) {
 
-      this.appComponent.createLoadingDialog();
-      this.appComponent.showLoadingDialog();
+      
+      
 
       try {
         await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('projects')
@@ -62,7 +62,7 @@ export class EditProjectPage implements OnInit {
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji projektu');
       }
-      this.appComponent.hideLoadingDialog();
+      
     }
   }
 }

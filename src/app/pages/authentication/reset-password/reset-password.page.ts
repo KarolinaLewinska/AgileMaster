@@ -26,9 +26,6 @@ export class ResetPasswordPage implements OnInit {
 
     if (this.authValidationService.checkIfEmailIsValidAndNotEmpty(userEmail)) {
 
-      this.appComponent.createLoadingDialog();
-      this.appComponent.showLoadingDialog();
-
       this.userAuthenticationService.sendEmailToResetPassword(userEmail)
       .then(() => {
         this.navController.navigateForward('reset-passwd-confirm');
@@ -47,7 +44,6 @@ export class ResetPasswordPage implements OnInit {
         }
         this.navController.navigateBack('reset-password');
       });
-      this.appComponent.hideLoadingDialog();
     }
   }
 }

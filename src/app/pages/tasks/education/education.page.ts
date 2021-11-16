@@ -24,8 +24,8 @@ export class EducationPage implements OnInit {
   }
 
   async showTasksList() {
-    this.appComponent.createLoadingDialog();
-    this.appComponent.showLoadingDialog();
+    
+    
 
     try {
       var currentUser = firebase.auth().currentUser;
@@ -48,7 +48,7 @@ export class EducationPage implements OnInit {
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia zadań');
     }
-    this.appComponent.hideLoadingDialog();
+    
   }
 
   async deleteTask(id) {

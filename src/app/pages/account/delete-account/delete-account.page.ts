@@ -33,14 +33,11 @@ export class DeleteAccountPage implements OnInit {
       }
 
       try {
-        this.appComponent.createLoadingDialog();
-        this.appComponent.showLoadingDialog();
         this.userAuthenticationService.reauthenticateAndDeleteUserAccount(currentUserPasswd);
       }
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia konta');
       }
-      this.appComponent.hideLoadingDialog();
     }
   }
 }

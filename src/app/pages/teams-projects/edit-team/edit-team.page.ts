@@ -30,8 +30,8 @@ export class EditTeamPage implements OnInit {
   }
 
   async getTeamToEditData(id: string) {
-    this.appComponent.createLoadingDialog();
-    this.appComponent.showLoadingDialog();
+    
+    
 
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
       .collection('teams').doc(id).valueChanges()
@@ -39,14 +39,14 @@ export class EditTeamPage implements OnInit {
         this.teamData.name = team['name'];
         this.teamData.projectName = team['projectName'];
       });
-    this.appComponent.hideLoadingDialog();
+    
   }
 
   async editTeam(teamData: TeamData) {
     if (this.teamsProjectsValidationService.checkIfTeamFieldsAreNotEmpty(this.teamData.name, this.teamData.projectName)) {
 
-      this.appComponent.createLoadingDialog();
-      this.appComponent.showLoadingDialog();
+      
+      
 
       try {
         await this.angularFirestore.collection('users').doc(this.currentUser.uid)
@@ -58,7 +58,7 @@ export class EditTeamPage implements OnInit {
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji zespołu');
       }
-      this.appComponent.hideLoadingDialog();
+      
     }
   }
 }

@@ -33,7 +33,7 @@ export class TeamsProjectsValidationService {
             return false;
         }
         if (!dateOfFisnish) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Data zakończenia jest wymagana');
+            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Data ukończenia jest wymagana');
             return false;
         }
         if (!teamName) {

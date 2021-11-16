@@ -27,9 +27,6 @@ export class AddProjectPage implements OnInit {
     if (this.teamsProjectsValidationService.checkIfProjectFieldsAreNotEmpty(this.projectData.name,
       this.projectData.dateOfStart, this.projectData.dateOfFinish, this.projectData.teamName)) {
 
-      this.appComponent.createLoadingDialog();
-      this.appComponent.showLoadingDialog();
-
       try {
         var currentUser = firebase.auth().currentUser;
         await this.angularFirestore.collection('users').doc(currentUser.uid).collection('projects').add(projectData);
@@ -40,7 +37,6 @@ export class AddProjectPage implements OnInit {
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby dodania projektu');
       }
-      this.appComponent.hideLoadingDialog();
     }
   }
 

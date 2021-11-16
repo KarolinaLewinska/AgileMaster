@@ -32,9 +32,6 @@ export class SignUpPage implements OnInit {
       && this.authValidationService.checkIfPasswordIsValid(passwdValue)
       && this.authValidationService.checkIfPasswordAndConfirmAreEqual(passwdValue, passwdConfirmValue)) {
 
-      this.appComponent.createLoadingDialog();
-      this.appComponent.showLoadingDialog();
-
       try {
         await this.userAuthenticationService.signUpWithEmailAndPassword(userEmail, userPassword);
         await this.userAuthenticationService.sendEmailToConfirmSignUp();
@@ -71,7 +68,6 @@ export class SignUpPage implements OnInit {
           }
         }
       }
-      this.appComponent.hideLoadingDialog();
     }
   }
 }

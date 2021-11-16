@@ -45,19 +45,19 @@ export class AppComponent {
     });
   }
 
-  async createLoadingDialog() {
-    var loadingDialog = this.loadingController.create({
-      message: 'Trwa przetwarzanie...',
-      duration: 100
-    });
-    return loadingDialog;
-  }
+  // async createLoadingDialog() {
+  //   var loadingDialog = this.loadingController.create({
+  //     message: 'Trwa przetwarzanie...',
+  //     duration: 100
+  //   });
+  //   return loadingDialog;
+  // }
 
-  async showLoadingDialog() {
-    (await this.createLoadingDialog()).present();
-  }
+  // async showLoadingDialog() {
+  //   (await this.createLoadingDialog()).present();
+  // }
 
-  async hideLoadingDialog() {
-    (await this.createLoadingDialog()).dismiss();
-  }
+  // async hideLoadingDialog() {
+  //   (await this.createLoadingDialog()).dismiss();
+  // }
 }

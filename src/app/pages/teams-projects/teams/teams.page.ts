@@ -24,8 +24,8 @@ export class TeamsPage implements OnInit {
   }
 
   async showTeamsList() {
-    this.appComponent.createLoadingDialog();
-    this.appComponent.showLoadingDialog();
+    
+    
 
     try {
       var currentUser = firebase.auth().currentUser;
@@ -44,7 +44,7 @@ export class TeamsPage implements OnInit {
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia zespołów');
     }
-    this.appComponent.hideLoadingDialog();
+    
   }
 
   async deleteTeam(id) {

@@ -30,8 +30,8 @@ export class EditMemberPage implements OnInit {
   }
 
   async getMemberToEditData(id: string) {
-    this.appComponent.createLoadingDialog();
-    this.appComponent.showLoadingDialog();
+    
+    
 
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
       .collection('members').doc(id).valueChanges()
@@ -43,7 +43,7 @@ export class EditMemberPage implements OnInit {
         this.memberData.room = member['room'];
         this.memberData.teamName = member['teamName'];
       });
-    this.appComponent.hideLoadingDialog();
+    
   }
 
   async editMember(memberData: MemberData) {
@@ -51,8 +51,8 @@ export class EditMemberPage implements OnInit {
       this.memberData.organizationRole, this.memberData.email, this.memberData.phone, this.memberData.room, this.memberData.teamName)
         && this.teamsProjectsValidationService.checkIfEmailAndPhoneIsValid(this.memberData.email, this.memberData.phone)) {
 
-      this.appComponent.createLoadingDialog();
-      this.appComponent.showLoadingDialog();
+      
+      
 
       try {
         await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('members')
@@ -63,7 +63,7 @@ export class EditMemberPage implements OnInit {
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji danych członka zespołu');
       }
-      this.appComponent.hideLoadingDialog();
+      
     }
   }
 }

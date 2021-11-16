@@ -26,8 +26,6 @@ export class SignInPage implements OnInit {
     var userPassword = userData.password;
 
     if (this.authValidationService.checkIfAuthFieldsAreNotEmpty(userEmail, userPassword)) {
-      this.appComponent.createLoadingDialog();
-      this.appComponent.showLoadingDialog();
 
       try {
         await this.userAuthenticationService.signInWithEmailAndPassword(userEmail, userPassword);
@@ -64,7 +62,6 @@ export class SignInPage implements OnInit {
           }
         }
       }
-      this.appComponent.hideLoadingDialog();
     }
   }
 }
