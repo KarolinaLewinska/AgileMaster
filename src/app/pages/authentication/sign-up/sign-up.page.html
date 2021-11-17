@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-toolbar color="secondary">
+<ion-header mode="md" class="ion-no-border">
+  <ion-toolbar>
       <ion-row>
         <ion-col>
           <ion-icon [routerLink]="['/home']" id="backIcon" name="chevron-back-outline"></ion-icon>
@@ -12,10 +12,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col><p id="viewTitle">Panel rejestracji</p></ion-col>
-    </ion-row>
+  <ion-grid>
+      <p id="viewTitle">Panel rejestracji</p>
     <ion-row>
       <ion-col id="inputLabel"><p>Adres email:</p></ion-col>
     </ion-row>
@@ -56,3 +54,7 @@
     </ion-row>
   </ion-grid>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <img id="footer" src="./../../../assets/images/footer.png" alt="footer">
+</ion-footer>

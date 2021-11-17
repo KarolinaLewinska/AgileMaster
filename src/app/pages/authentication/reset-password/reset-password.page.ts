@@ -30,7 +30,7 @@ export class ResetPasswordPage implements OnInit {
       .then(() => {
         this.navController.navigateForward('reset-passwd-confirm');
       })
-      .catch((error) => {
+      .catch(error => {
         const headerErrorMessage = 'Błąd uwierzytelniania';
         var errorCode = error.code;
         var errorMessage = error.message;
@@ -39,7 +39,7 @@ export class ResetPasswordPage implements OnInit {
           errorMessage = 'Nieoczekiwany błąd serwera';
           this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
         } else {
-          errorMessage ='Nieprawidłowy adres email';
+          errorMessage ='Nieprawidłowy format adresu email';
           this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
         }
         this.navController.navigateBack('reset-password');

@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-toolbar color="secondary">
+<ion-header mode="md" class="ion-no-border">
+  <ion-toolbar>
     <ion-row>
       <ion-col>
         <ion-icon [routerLink]="['/members']" id="backIcon" name="chevron-back-outline"></ion-icon>
@@ -43,7 +43,7 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar color="secondary">
+  <ion-toolbar>
       <ion-row>
           <ion-button id="addMember" (click)="addMember(memberData)" fill="clear">DODAJ OSOBĘ</ion-button>
       </ion-row>

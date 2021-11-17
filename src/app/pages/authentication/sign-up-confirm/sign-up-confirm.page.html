@@ -1,19 +1,25 @@
-<ion-header>
-  <ion-toolbar color="secondary">
-    <ion-icon [routerLink]="['/home']" id="backIcon" name="chevron-back-outline"></ion-icon>
+<ion-header mode="md" class="ion-no-border">
+  <ion-toolbar>
+    <ion-row>
+      <ion-icon [routerLink]="['/home']" id="backIcon" name="chevron-back-outline"></ion-icon>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid fixed>
+  <ion-grid>
     <ion-row>
       <ion-col><p id="viewTitle">Panel rejestracji</p></ion-col>
     </ion-row>
     <ion-row>
-      <ion-col><p>Rejestracja przebiegła pomyślnie!</p></ion-col>
+      <ion-col>
+        <p>Rejestracja przebiegła pomyślnie!</p>
+      </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col><p>Na podany adres email wysłano link potwierdzający rejestrację</p></ion-col>
+      <ion-col>
+        <p>Na podany adres email wysłano link potwierdzający rejestrację</p>
+      </ion-col>
     </ion-row>
     <i-row>
       <ion-col>
@@ -21,7 +27,9 @@
       </ion-col>
     </i-row>
     <ion-row>
-      <ion-col><p>Po zatwierdzeniu możesz się zalogować</p></ion-col>
+      <ion-col>
+        <p>Po zatwierdzeniu rejestracji możesz się zalogować</p>
+      </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
@@ -30,3 +38,7 @@
     </ion-row>
   </ion-grid>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <img id="footer" src="./../../../assets/images/footer.png" alt="footer">
+</ion-footer>

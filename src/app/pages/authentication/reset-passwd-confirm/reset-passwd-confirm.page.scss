@@ -6,6 +6,10 @@ ion-content {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+ion-grid {
+    margin-top: 20%;
+}
+
 ion-button {
     width: 70%;
     height: 150%;
@@ -13,7 +17,7 @@ ion-button {
 }
 
 ion-icon {
-    color:#707070;
+    color:#3c0464d3;
 }
 
 #backIcon {
@@ -27,8 +31,14 @@ ion-icon {
 
 #viewTitle {
     font-size: 18px;
+    font-weight: bold;
 }
 
 p {
     font-size: 16px;
+}
+
+#footer {
+    height:100%;
+    width: 100%;
 }

@@ -11,8 +11,12 @@ ion-button {
     height: 150%;
 }
 
+ion-grid {
+    margin-top: 10%;
+}
+
 ion-icon {
-    color:#707070;
+    color:#3c0464d3;
 }
 
 #backIcon {
@@ -22,16 +26,15 @@ ion-icon {
 
 #successIcon {
     font-size: 80px;
-    text-align: center;
 }
 
 #viewTitle {
     font-size: 18px;
+    font-weight: bold;
 }
 
-#inputLabel {
-    text-align: left;
-    margin-left: 5%;
-    font-size: 16px;
+#footer {
+    height:100%;
+    width: 100%;
 }
 

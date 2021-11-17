@@ -6,27 +6,32 @@ ion-content {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+ion-grid {
+    margin-top: 10%;
+}
+
 ion-icon {
-    color:#707070;
+    color:	#3c0464d3;
 }
 
 #backIcon {
     font-size: 40px;
-    padding-left: 13%;
+    padding-left: 12%;
 }
 
 #authIcons {
-    font-size: 25px;
+    font-size: 30px;
 }
 
 #signUpIcon {
     font-size: 35px;
     float: right;
-    padding-right: 10%;
+    padding-right: 15%;
 }
 
 #viewTitle {
     font-size: 18px;
+    font-weight: bold;
 }
 
 #inputLabel {
@@ -39,4 +44,9 @@ ion-button {
     padding-top: 5%;
     width: 70%;
     height: 150%;
+}
+
+#footer {
+    height:100%;
+    width: 100%;
 }
