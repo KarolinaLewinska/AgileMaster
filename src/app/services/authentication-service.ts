@@ -33,7 +33,7 @@ export class UserAuthenticationService {
       if (auth.user.emailVerified) {
         this.navController.navigateForward('tasks-categories');
       } else {
-        this.appComponent.showAlertDialogWithOkButton('Potwierdzenie rejestracji','Aby móc się zalogować potwierdź swój adres email');
+        this.appComponent.showAlertDialogWithOkButton('Potwierdź rejestrację','Aby móc się zalogować potwierdź rejestrację');
       }
     });
   }
@@ -48,7 +48,7 @@ export class UserAuthenticationService {
       this.navController.navigateBack('sign-up-confirm');
     })
     .catch(() => {
-      this.appComponent.showAlertDialogWithOkButton('Błąd','Wystąpił błąd podczas próby wysłania wiadomości');
+      this.appComponent.showAlertDialogWithOkButton('Błąd','Wystąpił błąd podczas próby wysłania wiadomości potwierdzającej rejestrację');
     });
   }
 
@@ -103,7 +103,6 @@ export class UserAuthenticationService {
       })
       .catch(() => {
         this.appComponent.showAlertDialogWithOkButton('Błąd','Nieprawidłowa wartość bieżącego hasła');
-
       });
   }
 }

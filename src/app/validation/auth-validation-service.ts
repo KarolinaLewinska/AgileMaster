@@ -9,14 +9,14 @@ export class AuthValidationService {
   constructor(private appComponent: AppComponent) {}
 
   checkIfAuthFieldsAreNotEmpty(emailValue: string, passwdValue: string) {
-    const headerTitle = 'Pole wymagane';
-
+    const headerTitle = 'Pola wymagane';
+    const messageString = 'Wypełnij wszystkie pola';
     if (!emailValue) {
-      this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Adres email jest wymagany');
+      this.appComponent.showAlertDialogWithOkButton(headerTitle, messageString);
       return false;
     }
     if (!passwdValue) {
-      this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Hasło jest wymagane');
+      this.appComponent.showAlertDialogWithOkButton(headerTitle, messageString);
       return false;
     }
     return true;
@@ -45,7 +45,6 @@ export class AuthValidationService {
 
   checkIfPasswordIsValid(passwdValue: string) {
     const headerErrorMessage = 'Nieprawidłowe hasło';
-
     if (passwdValue.length < 6 ) {
       this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, 'Hasło musi zawierać co najmniej 6 znaków');
       return false;
@@ -59,7 +58,7 @@ export class AuthValidationService {
 
   checkIfPasswordAndConfirmAreEqual(passwdValue: string, confirmPasswdValue) {
     if (passwdValue != confirmPasswdValue) {
-      this.appComponent.showAlertDialogWithOkButton('Różne hasła', 'Podane wartości haseł nie są takie same');
+      this.appComponent.showAlertDialogWithOkButton('Różne hasła', 'Podane wartości haseł nie są jednakowe');
       return false;
     }
     return true;
@@ -67,7 +66,6 @@ export class AuthValidationService {
 
   checkIfEmailIsValid(emailValue: string) {
     var currentUserEmail = firebase.auth().currentUser.email;
-
     if (!emailValue) {
       this.appComponent.showAlertDialogWithOkButton('Pole wymagane', 'Podaj adres email');
       return false;
