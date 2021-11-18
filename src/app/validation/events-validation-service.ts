@@ -12,27 +12,27 @@ export class EventsValidationService {
 
         const headerTitle = 'Pole wymagane';
         if (!name) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Nazwa jest wymagana');
+            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Nazwa spotkania jest wymagana');
             return false;
         }
         if (!date) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Data jest wymagana');
+            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Termin spotkania jest wymagany');
             return false;
         }
         if (!startTime) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Godzina rozpoczęcia jest wymagana');
+            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Godzina rozpoczęcia spotkania jest wymagana');
             return false;
         }
         if (!duration) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle,'Czas trwania jest wymagany')
+            this.appComponent.showAlertDialogWithOkButton(headerTitle,'Czas trwania spotkania jest wymagany');
             return false;
         }
         if (!place) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle,'Miejsce spotkania jest wymagane')
+            this.appComponent.showAlertDialogWithOkButton(headerTitle,'Miejsce spotkania jest wymagane');
             return false;
         }
         if (!category) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle,'Kategoria jest wymagana');
+            this.appComponent.showAlertDialogWithOkButton(headerTitle,'Kategoria spotkania jest wymagana');
             return false;
         }
         return true;

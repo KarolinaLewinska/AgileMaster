@@ -7,7 +7,8 @@ import { LoadingController } from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private alertController: AlertController,
+  constructor(
+    private alertController: AlertController,
     private loadingController: LoadingController) {}
 
   async showAlertDialogWithOkButton(headerValue: string, messageValue: string) {
@@ -21,8 +22,8 @@ export class AppComponent {
     await alertDialog.onDidDismiss();
   }
 
-  async createAndShowAlertDialogWithConfirmAndCancelButton(headerValue: string, messageValue: string) {
-    return new Promise (async (result) => {
+  async createAndShowAlertDialogWithConfirmAndCancelButtons(headerValue: string, messageValue: string) {
+    return new Promise (async result => {
       const alertDialogWithConfirm = this.alertController.create({
         cssClass: 'alert',
         header: headerValue,
@@ -45,19 +46,19 @@ export class AppComponent {
     });
   }
 
-  // async createLoadingDialog() {
-  //   var loadingDialog = this.loadingController.create({
-  //     message: 'Trwa przetwarzanie...',
-  //     duration: 100
-  //   });
-  //   return loadingDialog;
-  // }
+  async createLoadingDialog() {
+    var loadingDialog = this.loadingController.create({
+      message: 'Trwa przetwarzanie...',
+      duration: 100
+    });
+    return loadingDialog;
+  }
 
-  // async showLoadingDialog() {
-  //   (await this.createLoadingDialog()).present();
-  // }
+  async showLoadingDialog() {
+    (await this.createLoadingDialog()).present();
+  }
 
-  // async hideLoadingDialog() {
-  //   (await this.createLoadingDialog()).dismiss();
-  // }
+  async hideLoadingDialog() {
+    (await this.createLoadingDialog()).dismiss();
+  }
 }

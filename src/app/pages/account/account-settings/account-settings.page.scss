@@ -6,29 +6,36 @@ ion-content {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+ion-grid {
+    padding-top: 10%;
+}
+
+ion-router-link {
+    color: black;
+    font-size: 16px;
+}
+
 ion-menu-button {
     float: left;
-    width: 60px;
+    width: 80px;
+    padding-left: 12%;
 }
 
 #logOutIcon {
-    font-size: 40px;
-    padding-right: 4%;
+    font-size: 45px;
+    padding-right: 15%;
     float: right;
-    color:#707070;
+    color:#3c0464d3;
 }
 
 #menuIcon {
-    font-size: 40px;
-    color:#707070;
+    font-size: 45px;
+    color:#3c0464d3;
 }
 
 #viewTitle {
     font-size: 18px;
-}
-
-#optionTitle {
-    font-size: 16px;
+    font-weight: bold;
 }
 
 ion-button {
@@ -37,5 +44,10 @@ ion-button {
 
 #optionIcon {
     font-size: 80px;
-    color: #cec8ef;
+    color: #dbac65;
+}
+
+#footer {
+    height:100%;
+    width: 100%;
 }

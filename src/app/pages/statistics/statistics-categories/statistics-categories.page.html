@@ -12,20 +12,24 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid fixed>
+  <ion-grid>
     <ion-row>
       <ion-col><p id="viewTitle">Statystyki</p></ion-col>
     </ion-row>
-    <ion-list id="categoriesList" lines="none">
+    <ion-list lines="none">
       <ion-item>
-        <ion-button [routerLink]="['/tasks-statistics/']" color="tertiary" shape="round">Zadania</ion-button>
+        <ion-button [routerLink]="['/tasks-statistics/']" shape="round">Zadania</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button [routerLink]="['/events-statistics/']" color="tertiary" shape="round">Spotkania</ion-button>
+        <ion-button [routerLink]="['/events-statistics/']" shape="round">Spotkania</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button [routerLink]="['/projects-teams-statistics/']" color="tertiary" shape="round">Projekty i zespoły</ion-button>
+        <ion-button [routerLink]="['/projects-teams-statistics/']" shape="round">Projekty i zespoły</ion-button>
       </ion-item>
     </ion-list>
   </ion-grid>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <img id="footer" src="./../../../assets/images/footer.png" alt="footer">
+</ion-footer>

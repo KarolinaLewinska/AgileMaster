@@ -12,33 +12,24 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid fixed>
+  <ion-grid>
     <ion-row>
       <ion-col><p id="viewTitle">Projekty i zespoły</p></ion-col>
     </ion-row>
-    <ion-list id="categoriesList" lines="none">
+    <ion-list lines="none">
       <ion-item>
-        <ion-button id="optionButton" [routerLink]="['/projects']" color="tertiary" shape="round">Projekty</ion-button>
+        <ion-button [routerLink]="['/projects']" shape="round">Projekty</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button id="optionButton" [routerLink]="['/teams']" color="tertiary" shape="round">Zespoły</ion-button>
+        <ion-button [routerLink]="['/teams']" shape="round">Zespoły</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button id="optionButton" [routerLink]="['/members']" color="tertiary" shape="round">Członkowie zespołów</ion-button>
+        <ion-button [routerLink]="['/members']" shape="round">Członkowie zespołów</ion-button>
       </ion-item>
     </ion-list>
   </ion-grid>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-      <ion-row>
-        <ion-col>
-          <ion-router-link [routerLink]="['/add-project']">Nowy projekt</ion-router-link>
-        </ion-col>
-        <ion-col>
-          <ion-router-link [routerLink]="['/add-team']">Nowy zespół</ion-router-link>
-        </ion-col>
-      </ion-row>
-  </ion-toolbar>
+<ion-footer class="ion-no-border">
+  <img id="footer" src="./../../../assets/images/footer.png" alt="footer">
 </ion-footer>

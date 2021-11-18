@@ -12,37 +12,33 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid fixed>
+  <ion-grid>
     <ion-row>
       <ion-col><p id="viewTitle">Moje zadania</p></ion-col>
     </ion-row>
     <ion-list lines="none">
       <ion-item>
-        <ion-button [routerLink]="['/analysts']" color="tertiary" shape="round">Analitycy</ion-button>
+        <ion-button [routerLink]="['/analysts']" shape="round">Analitycy</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button [routerLink]="['/development-team']" color="tertiary" shape="round">Zespół deweloperski</ion-button>
+        <ion-button [routerLink]="['/development-team']" shape="round">Zespół deweloperski</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button [routerLink]="['/product-owner']" color="tertiary" shape="round">Product Owner</ion-button>
+        <ion-button [routerLink]="['/product-owner']" shape="round">Product Owner</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button [routerLink]="['/company']" color="tertiary" shape="round">Organizacja</ion-button>
+        <ion-button [routerLink]="['/company']" shape="round">Organizacja</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button [routerLink]="['/education']" color="tertiary" shape="round">Edukacja</ion-button>
+        <ion-button [routerLink]="['/education']" shape="round">Edukacja</ion-button>
       </ion-item>
       <ion-item>
-        <ion-button [routerLink]="['/other-tasks']" color="tertiary" shape="round">Pozostałe zadania</ion-button>
+        <ion-button [routerLink]="['/other-tasks']" shape="round">Pozostałe zadania</ion-button>
       </ion-item>
     </ion-list>
   </ion-grid>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-      <ion-row>
-          <ion-router-link [routerLink]="['/add-task']">Nowe zadanie</ion-router-link>
-      </ion-row>
-  </ion-toolbar>
+<ion-footer class="ion-no-border">
+  <img id="footer" src="./../../../assets/images/footer.png" alt="footer">
 </ion-footer>

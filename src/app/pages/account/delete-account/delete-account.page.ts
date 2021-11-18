@@ -26,7 +26,7 @@ export class DeleteAccountPage implements OnInit {
       && this.authValidationService.checkIfPasswordAndConfirmAreEqual(currentUserPasswd, confirmCurrentUserPasswd)) {
 
       if (wantsToDelete) {
-        const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButton('Usuń konto', 'Czy na pewno chcesz usunąć konto?');
+        const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButtons('Usuń konto', 'Czy na pewno chcesz usunąć konto?');
         if (!dialog) {
           return;
         }

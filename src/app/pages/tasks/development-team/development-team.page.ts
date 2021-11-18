@@ -55,7 +55,7 @@ export class DevelopmentTeamPage implements OnInit {
     var wantsToDelete = true;
 
     if (wantsToDelete) {
-      const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButton('Usuń zadanie', 'Czy na pewno chcesz usunąć?');
+      const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButtons('Usuń zadanie', 'Czy na pewno chcesz usunąć?');
       if (!dialog) {
         return;
       }

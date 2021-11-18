@@ -11,25 +11,24 @@ export class TasksValidationService {
         priority: string, category: string) {
 
         const headerTitle = 'Pole wymagane';
-
         if (!title) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Tytuł jest wymagany');
+            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Tytuł zadania jest wymagany');
             return false;
         }
         if (!dateOfFinish) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Data jest wymagana');
+            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Data wykonania zadania jest wymagana');
             return false;
         }
         if (!timeOfFinish) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Godzina jest wymagana');
+            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Godzina wykonania zadania jest wymagana');
             return false;
         }
         if (!priority) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle,'Priorytet jest wymagany')
+            this.appComponent.showAlertDialogWithOkButton(headerTitle,'Priorytet zadania jest wymagany');
             return false;
         }
         if (!category) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle,'Kategoria jest wymagana');
+            this.appComponent.showAlertDialogWithOkButton(headerTitle,'Kategoria zadania jest wymagana');
             return false;
         }
         return true;

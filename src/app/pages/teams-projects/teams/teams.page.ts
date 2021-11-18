@@ -51,7 +51,7 @@ export class TeamsPage implements OnInit {
     var wantsToDelete = true;
 
     if (wantsToDelete) {
-      const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButton('Usuń zespół', 'Czy na pewno chcesz usunąć?');
+      const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButtons('Usuń zespół', 'Czy na pewno chcesz usunąć?');
       if (!dialog) {
         return;
       }

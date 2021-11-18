@@ -57,7 +57,7 @@ export class ScrumMeetingsPage implements OnInit {
     var wantsToDelete = true;
 
     if (wantsToDelete) {
-      const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButton('Usuń spotkanie', 'Czy na pewno chcesz usunąć?');
+      const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButtons('Usuń spotkanie', 'Czy na pewno chcesz usunąć?');
       if (!dialog) {
         return;
       }

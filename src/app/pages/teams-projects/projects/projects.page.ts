@@ -54,7 +54,7 @@ export class ProjectsPage implements OnInit {
     var wantsToDelete = true;
 
     if (wantsToDelete) {
-      const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButton('Usuń projekt', 'Czy na pewno chcesz usunąć?');
+      const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButtons('Usuń projekt', 'Czy na pewno chcesz usunąć?');
       if (!dialog) {
         return;
       }

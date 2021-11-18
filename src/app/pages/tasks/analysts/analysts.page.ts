@@ -24,8 +24,8 @@ export class AnalystsPage implements OnInit {
   }
 
   async showTasksList() {
-    
-    
+    this.appComponent.createLoadingDialog();
+    this.appComponent.showLoadingDialog();
 
     try {
       this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks').doc('category')
@@ -47,14 +47,14 @@ export class AnalystsPage implements OnInit {
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia zadań');
     }
-    
+    this.appComponent.hideLoadingDialog();
   }
 
   async deleteTask(id) {
     var wantsToDelete = true;
 
     if (wantsToDelete) {
-      const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButton('Usuń zadanie', 'Czy na pewno chcesz usunąć?');
+      const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButtons('Usuń zadanie', 'Czy na pewno chcesz usunąć?');
       if (!dialog) {
         return;
       }

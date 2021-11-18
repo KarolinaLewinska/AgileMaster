@@ -1,31 +1,30 @@
 <ion-app>
   <ion-menu side="start" menuId="navMenu" contentId="main" class="my-custom-menu">
     <ion-header mode="md" class="ion-no-border">
-      <ion-toolbar>
-        <ion-title>AgileMaster</ion-title>
-      </ion-toolbar>
+      <ion-toolbar></ion-toolbar>
     </ion-header>
+
     <ion-content>
       <ion-list>
         <ion-item>
           <ion-icon [routerLink]="['/tasks-categories']" name="pencil-outline"></ion-icon>
-          <ion-router-link [routerLink]="['/tasks-categories']" color="dark" >Zadania</ion-router-link>
+          <ion-router-link [routerLink]="['/tasks-categories']">Zadania</ion-router-link>
         </ion-item>
         <ion-item>
           <ion-icon [routerLink]="['/events-categories']" name="calendar-outline"></ion-icon>
-          <ion-router-link [routerLink]="['/events-categories']" color="dark" >Terminarz spotkań</ion-router-link>
+          <ion-router-link [routerLink]="['/events-categories']">Terminarz spotkań</ion-router-link>
         </ion-item>
         <ion-item>
           <ion-icon [routerLink]="['/teams-projects-categories']" name="people-circle-outline"></ion-icon>
-          <ion-router-link [routerLink]="['/teams-projects-categories']" color="dark" >Projekty i zespoły</ion-router-link>
+          <ion-router-link [routerLink]="['/teams-projects-categories']">Projekty i zespoły</ion-router-link>
         </ion-item>
         <ion-item>
           <ion-icon [routerLink]="['/statistics-categories']" name="stats-chart-sharp"></ion-icon>
-          <ion-router-link [routerLink]="['/statistics-categories']" color="dark" >Statystyki</ion-router-link>
+          <ion-router-link [routerLink]="['/statistics-categories']">Statystyki</ion-router-link>
         </ion-item>
         <ion-item>
           <ion-icon [routerLink]="['/account-settings']" name="settings-sharp"></ion-icon>
-          <ion-router-link [routerLink]="['/account-settings']" color="dark" >Ustawienia</ion-router-link>
+          <ion-router-link [routerLink]="['/account-settings']">Ustawienia</ion-router-link>
         </ion-item>
       </ion-list>
     </ion-content>

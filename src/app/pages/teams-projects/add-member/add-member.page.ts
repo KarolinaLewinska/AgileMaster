@@ -23,7 +23,7 @@ export class AddMemberPage implements OnInit {
   async addMember(memberData: MemberData) {
     if (this.teamsProjectsValidationService.checkIfMemberFieldsAreNotEmpty(this.memberData.nameAndSurname,
       this.memberData.organizationRole, this.memberData.email, this.memberData.phone, this.memberData.room, this.memberData.teamName)
-        && this.teamsProjectsValidationService.checkIfEmailAndPhoneIsValid(this.memberData.email, this.memberData.phone)) {
+        && this.teamsProjectsValidationService.checkIfEmailAndPhoneAreValid(this.memberData.email, this.memberData.phone)) {
 
     try {
       var currentUser = firebase.auth().currentUser;

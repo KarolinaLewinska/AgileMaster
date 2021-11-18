@@ -9,9 +9,8 @@ export class TeamsProjectsValidationService {
 
     checkIfTeamFieldsAreNotEmpty(name: string, projectName: string) {
         const headerTitle = 'Pole wymagane';
-
         if (!name) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Nazwa jest wymagana');
+            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Nazwa zespołu jest wymagana');
             return false;
         }
         if (!projectName) {
@@ -23,21 +22,20 @@ export class TeamsProjectsValidationService {
 
     checkIfProjectFieldsAreNotEmpty(name: string, dateOfStart: string, dateOfFisnish: string, teamName: string) {
         const headerTitle = 'Pole wymagane';
-
         if (!name) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Nazwa jest wymagana');
+            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Nazwa projektu jest wymagana');
             return false;
         }
         if (!dateOfStart) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Data rozpoczęcia jest wymagana');
+            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Data rozpoczęcia projektu jest wymagana');
             return false;
         }
         if (!dateOfFisnish) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Data ukończenia jest wymagana');
+            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Data ukończenia projektu jest wymagana');
             return false;
         }
         if (!teamName) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Nazwa zespołu jest wymagana');
+            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Nazwa zespołu uczestniczącego w projekcie jest wymagana');
             return false;
         }
         return true;
@@ -47,7 +45,6 @@ export class TeamsProjectsValidationService {
         phone: string, room: string, teamName: string) {
 
         const headerTitle = 'Pole wymagane';
-
         if (!nameAndSurname) {
             this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Imię i nazwisko jest wymagane');
             return false;
@@ -65,7 +62,7 @@ export class TeamsProjectsValidationService {
             return false;
         }
         if (!room) {
-            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Numer pokoju jest wymagany');
+            this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Miejsce pracy jest wymagane');
             return false;
         }
         if (!teamName) {
@@ -75,7 +72,7 @@ export class TeamsProjectsValidationService {
         return true;
     }
 
-    checkIfEmailAndPhoneIsValid(email: string, phone: string) {
+    checkIfEmailAndPhoneAreValid(email: string, phone: string) {
         if (email != null && !email.match('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')) {
             this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Nieprawidłowy format adresu email');
             return false;
