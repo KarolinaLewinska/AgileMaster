@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid fixed>
+  <ion-grid>
     <ion-row>
       <ion-col><p id="viewTitle">Zmiana adresu email</p></ion-col>
     </ion-row>
@@ -20,7 +20,7 @@
       <ion-col>
         <ion-item>
           <ion-label><ion-icon id="authIcons" name="mail-outline"></ion-icon></ion-label>
-          <ion-input id="emailInput" required type="email" maxlength=320 minlength=3></ion-input>
+          <ion-input id="emailInput" maxlength=320 minlength=3></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -31,14 +31,18 @@
       <ion-col>
         <ion-item>
           <ion-label><ion-icon id="authIcons" name="lock-closed"></ion-icon></ion-label>
-          <ion-input id="currentPasswd" required type="password" maxlength=320 minlength=6></ion-input>
+          <ion-input id="currentPasswd" type="password" maxlength=320 minlength=6></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-          <ion-button (click)="updateEmail()">Zmień</ion-button>
+          <ion-button (click)="updateEmail()">Gotowe</ion-button>
       </ion-col>
   </ion-row>
   </ion-grid>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <img id="footer" src="./../../../assets/images/footer.png" alt="footer">
+</ion-footer>

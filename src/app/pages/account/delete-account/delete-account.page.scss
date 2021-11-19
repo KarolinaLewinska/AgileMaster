@@ -7,24 +7,25 @@ ion-content {
 }
 
 ion-grid {
-    top: 10%;
+    margin-top: 10%;
 }
 
 ion-icon {
-    color:#707070;
+    color:#4C5D6B;
 }
 
 #backIcon {
-    font-size: 40px;
-    padding-left: 2%;
+    font-size: 45px;
+    padding-left: 6%;
 }
 
 #authIcons {
-    font-size: 25px;
+    font-size: 30px;
 }
 
 #viewTitle {
     font-size: 18px;
+    font-weight: bold;
 }
 
 ion-button {
@@ -35,6 +36,11 @@ ion-button {
 
 #inputLabel {
     text-align: left;
-    margin-left: 5%;
+    margin-left: 6%;
     font-size: 16px;
+}
+
+#footer {
+    height:100%;
+    width: 100%;
 }

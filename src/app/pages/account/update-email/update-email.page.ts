@@ -24,6 +24,7 @@ export class UpdateEmailPage implements OnInit {
 
       try {
         await this.userAuthenticationService.reauthenticateAndUpdateUserEmail(currentUserPassword, newEmail);
+        //co jak zmienie email a juz jest inne konto do teego? 
       }
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby zmiany adresu email');

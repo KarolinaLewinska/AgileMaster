@@ -64,7 +64,7 @@ export class UserAuthenticationService {
       this.appComponent.showAlertDialogWithOkButton('Zmiana adresu email', 'Pomyślnie zmieniono adres email');
     })
     .catch(() => {
-      this.appComponent.showAlertDialogWithOkButton('Błąd','Nieprawidłowa wartość obecnego hasła');
+      this.appComponent.showAlertDialogWithOkButton('Błąd','Nieprawidłowa wartość bieżącego hasła');
     });
   }
 
@@ -76,7 +76,7 @@ export class UserAuthenticationService {
         this.navController.navigateBack('account-settings');
       })
       .catch(() => {
-        this.appComponent.showAlertDialogWithOkButton('Błąd','Nieprawidłowa wartość obecnego hasła');
+        this.appComponent.showAlertDialogWithOkButton('Błąd','Nieprawidłowa wartość bieżącego hasła');
       });
   }
 
