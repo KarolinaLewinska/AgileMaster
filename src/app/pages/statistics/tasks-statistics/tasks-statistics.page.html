@@ -9,26 +9,36 @@
 </ion-header>
 
 <ion-content>
+  <h3>Zadania</h3>
   <ion-grid>
-    <ion-row>
-      <p>Łączna liczba zadań: {{allTasksNumber}}</p>
+    <ion-row id="total">
+      <ion-col>
+        <strong>Łączna liczba zadań: {{allTasksNumber}}</strong>
+      </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <strong>Liczba zadań według:</strong>
       </ion-col>
     </ion-row>
-      <p>Kategorii:</p>
-      <p>Analitycy: {{analystsTasksNumber}}</p>
-      <p>Zespół deweloperski: {{developmentTeamTasksNumber}}</p>
-      <p>Product Owner: {{productOwnerTasksNumber}}</p>
-      <p>Organizacja: {{companyTasksNumber}}</p>
-      <p>Edukacja: {{educationTasksNumber}}</p>
-      <p>Pozostałe: {{otherTasksNumber}}</p>
-      <p>Priorytetów:</p>
-      <p>wysoki: {{lowPriorityTasksNumber}}</p>
-      <p>średni: {{mediumPriorityTasksNumber}}</p>
-      <p>niski: {{lowPriorityTasksNumber}}</p>
+      <p id="category">Kategorii:</p>
+      <ul>
+        <li>Analitycy: {{analystsTasksNumber}}</li>
+        <li>Zespół deweloperski: {{developmentTeamTasksNumber}}</li>
+        <li>Product Owner: {{productOwnerTasksNumber}}</li>
+        <li>Organizacja: {{companyTasksNumber}}</li>
+        <li>Edukacja: {{educationTasksNumber}}</li>
+        <li>Pozostałe: {{otherTasksNumber}}</li>
+      </ul>
+      <p id="category">Priorytetów:</p>
+      <ul>
+        <li>wysoki: {{lowPriorityTasksNumber}}</li>
+        <li>średni: {{mediumPriorityTasksNumber}}</li>
+        <li>niski: {{lowPriorityTasksNumber}}</li>
+      </ul>
   </ion-grid>
-
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <img id="footer" src="./../../../assets/images/footer.png" alt="footer">
+</ion-footer>

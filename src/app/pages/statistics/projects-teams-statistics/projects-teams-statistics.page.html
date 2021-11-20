@@ -9,15 +9,26 @@
 </ion-header>
 
 <ion-content>
+  <h3>Projekty i zespoły</h3>
   <ion-grid>
     <ion-row>
-      <p>Łączna liczba projektów: {{allProjectsNumber}}</p>
+      <ion-col id="total">
+        <strong>Łączna liczba projektów: {{allProjectsNumber}}</strong>
+      </ion-col>
     </ion-row>
     <ion-row>
-      <p>Łączna liczba zespołów: {{allTeamsNumber}}</p>
+      <ion-col id="total">
+        <strong>Łączna liczba zespołów: {{allTeamsNumber}}</strong>
+      </ion-col>
     </ion-row>
     <ion-row>
-      <p>Łączna liczba członków zespołów: {{allMembersNumber}}</p>
+      <ion-col id="total">
+        <strong>Łączna liczba członków zespołów: {{allMembersNumber}}</strong>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <img id="footer" src="./../../../assets/images/footer.png" alt="footer">
+</ion-footer>

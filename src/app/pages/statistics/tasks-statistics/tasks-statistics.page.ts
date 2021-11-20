@@ -44,9 +44,9 @@ export class TasksStatisticsPage implements OnInit {
       firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
         .doc('category').collection(this.listOfCategories[i]).get()
         .then(data => {
-        var numberOfTasks = data.size;
-        totalNumber += numberOfTasks;
-        this.allTasksNumber = totalNumber;
+          var numberOfTasks = data.size;
+          totalNumber += numberOfTasks;
+          this.allTasksNumber = totalNumber;
       });
     }
   }
@@ -55,8 +55,8 @@ export class TasksStatisticsPage implements OnInit {
     firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
       .doc('category').collection('analysts').get()
       .then(data => {
-      var numberOfTasks = data.size;
-      this.analystsTasksNumber = numberOfTasks;
+        var numberOfTasks = data.size;
+        this.analystsTasksNumber = numberOfTasks;
     });
   }
 
@@ -64,8 +64,8 @@ export class TasksStatisticsPage implements OnInit {
     firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
       .doc('category').collection('developmentTeam').get()
       .then(data => {
-      var numberOfTasks = data.size;
-      this.developmentTeamTasksNumber = numberOfTasks;
+        var numberOfTasks = data.size;
+        this.developmentTeamTasksNumber = numberOfTasks;
     });
   }
 
@@ -73,8 +73,8 @@ export class TasksStatisticsPage implements OnInit {
     firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
       .doc('category').collection('productOwner').get()
       .then(data => {
-      var numberOfTasks = data.size;
-      this.productOwnerTasksNumber = numberOfTasks;
+        var numberOfTasks = data.size;
+        this.productOwnerTasksNumber = numberOfTasks;
     });
   }
 
@@ -82,8 +82,8 @@ export class TasksStatisticsPage implements OnInit {
     firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
       .doc('category').collection('company').get()
       .then(data => {
-      var numberOfTasks = data.size;
-      this.companyTasksNumber = numberOfTasks;
+        var numberOfTasks = data.size;
+        this.companyTasksNumber = numberOfTasks;
     });
   }
 
@@ -91,8 +91,8 @@ export class TasksStatisticsPage implements OnInit {
     firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
       .doc('category').collection('education').get()
       .then(data => {
-      var numberOfTasks = data.size;
-      this.educationTasksNumber = numberOfTasks;
+        var numberOfTasks = data.size;
+        this.educationTasksNumber = numberOfTasks;
     });
   }
 
@@ -100,8 +100,8 @@ export class TasksStatisticsPage implements OnInit {
     firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
       .doc('category').collection('otherTasks').get()
       .then(data => {
-      var numberOfTasks = data.size;
-      this.otherTasksNumber = numberOfTasks;
+        var numberOfTasks = data.size;
+        this.otherTasksNumber = numberOfTasks;
     });
   }
 
@@ -111,9 +111,9 @@ export class TasksStatisticsPage implements OnInit {
       firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
         .doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'wysoki').get()
         .then(data => {
-        var numberOfTasks = data.size;
-        totalNumber += numberOfTasks;
-        this.highPriorityTasksNumber = totalNumber;
+          var numberOfTasks = data.size;
+          totalNumber += numberOfTasks;
+          this.highPriorityTasksNumber = totalNumber;
       });
     }
   }
@@ -124,9 +124,9 @@ export class TasksStatisticsPage implements OnInit {
       firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
         .doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'średni').get()
         .then(data => {
-        var numberOfTasks = data.size;
-        totalNumber += numberOfTasks;
-        this.mediumPriorityTasksNumber = totalNumber;
+          var numberOfTasks = data.size;
+          totalNumber += numberOfTasks;
+          this.mediumPriorityTasksNumber = totalNumber;
       });
     }
   }
@@ -137,9 +137,9 @@ export class TasksStatisticsPage implements OnInit {
       firebase.firestore().collection('users').doc(this.currentUser.uid).collection('tasks')
         .doc('category').collection(this.listOfCategories[i]).where('priority', '==', 'niski').get()
         .then(data => {
-        var numberOfTasks = data.size;
-        totalNumber += numberOfTasks;
-        this.lowPriorityTasksNumber = totalNumber;
+          var numberOfTasks = data.size;
+          totalNumber += numberOfTasks;
+          this.lowPriorityTasksNumber = totalNumber;
       });
     }
   }

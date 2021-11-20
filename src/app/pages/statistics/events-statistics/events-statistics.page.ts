@@ -33,9 +33,9 @@ export class EventsStatisticsPage implements OnInit {
       firebase.firestore().collection('users').doc(this.currentUser.uid).collection('events')
         .doc('category').collection(this.listOfCategories[i]).get()
         .then(data => {
-        var numberOfEvents = data.size;
-        totalNumber += numberOfEvents;
-        this.allEventsNumber = totalNumber;
+          var numberOfEvents = data.size;
+          totalNumber += numberOfEvents;
+          this.allEventsNumber = totalNumber;
         });
     }
   }
@@ -44,8 +44,8 @@ export class EventsStatisticsPage implements OnInit {
     firebase.firestore().collection('users').doc(this.currentUser.uid).collection('events')
       .doc('category').collection('scrumMeetings').get()
       .then(data => {
-      var numberOfEvents = data.size;
-      this.scrumMeetingsEventsNumber = numberOfEvents;
+        var numberOfEvents = data.size;
+        this.scrumMeetingsEventsNumber = numberOfEvents;
     });
   }
 
@@ -53,8 +53,8 @@ export class EventsStatisticsPage implements OnInit {
     firebase.firestore().collection('users').doc(this.currentUser.uid).collection('events')
       .doc('category').collection('workshops').get()
       .then(data => {
-      var numberOfEvents = data.size;
-      this.workshopsEventsNumber = numberOfEvents;
+        var numberOfEvents = data.size;
+        this.workshopsEventsNumber = numberOfEvents;
     });
   }
 
@@ -62,8 +62,8 @@ export class EventsStatisticsPage implements OnInit {
     firebase.firestore().collection('users').doc(this.currentUser.uid).collection('events')
       .doc('category').collection('courses').get()
       .then(data => {
-      var numberOfEvents = data.size;
-      this.coursesEventsNumber = numberOfEvents;
+        var numberOfEvents = data.size;
+        this.coursesEventsNumber = numberOfEvents;
     });
   }
 
@@ -71,8 +71,8 @@ export class EventsStatisticsPage implements OnInit {
     firebase.firestore().collection('users').doc(this.currentUser.uid).collection('events')
       .doc('category').collection('otherEvents').get()
       .then(data => {
-      var numberOfEvents = data.size;
-      this.otherEventsNumber = numberOfEvents;
+        var numberOfEvents = data.size;
+        this.otherEventsNumber = numberOfEvents;
     });
   }
 }
