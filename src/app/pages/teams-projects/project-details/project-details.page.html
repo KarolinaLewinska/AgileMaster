@@ -1,13 +1,7 @@
 <ion-header mode="md" class="ion-no-border">
   <ion-toolbar>
-    <ion-row>
-      <ion-col>
-        <ion-icon [routerLink]="['/projects']"id="backIcon" name="chevron-back-outline"></ion-icon>
-      </ion-col>
-      <ion-col id="editProjectIcon">
-        <ion-icon [routerLink]="['/edit-project/', projectData.id]" name="create-outline"></ion-icon>
-      </ion-col>
-    </ion-row>
+    <ion-icon [routerLink]="['/projects']"id="backIcon" name="chevron-back-outline"></ion-icon>
+    <ion-icon id="editProjectIcon" [routerLink]="['/edit-project/', projectData.id]" name="create"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -42,4 +36,8 @@
     </ion-row>
   </ion-grid>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <img id="footer" src="./../../../assets/images/footer.png" alt="footer">
+</ion-footer>
 

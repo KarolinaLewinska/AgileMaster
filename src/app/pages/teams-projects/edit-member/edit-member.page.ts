@@ -30,20 +30,17 @@ export class EditMemberPage implements OnInit {
   }
 
   async getMemberToEditData(id: string) {
-    
-    
 
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
       .collection('members').doc(id).valueChanges()
-      .subscribe(member => {
-        this.memberData.nameAndSurname = member['nameAndSurname'];
-        this.memberData.organizationRole = member['organizationRole'];
-        this.memberData.email = member['email'];
-        this.memberData.phone = member['phone'];
-        this.memberData.room = member['room'];
-        this.memberData.teamName = member['teamName'];
-      });
-    
+        .subscribe(member => {
+          this.memberData.nameAndSurname = member['nameAndSurname'];
+          this.memberData.organizationRole = member['organizationRole'];
+          this.memberData.email = member['email'];
+          this.memberData.phone = member['phone'];
+          this.memberData.room = member['room'];
+          this.memberData.teamName = member['teamName'];
+        });
   }
 
   async editMember(memberData: MemberData) {
@@ -51,19 +48,14 @@ export class EditMemberPage implements OnInit {
       this.memberData.organizationRole, this.memberData.email, this.memberData.phone, this.memberData.room, this.memberData.teamName)
         && this.teamsProjectsValidationService.checkIfEmailAndPhoneAreValid(this.memberData.email, this.memberData.phone)) {
 
-      
-      
-
       try {
-        await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('members')
-            .doc(this.id).update(memberData);
-        this.appComponent.showAlertDialogWithOkButton('Edycja danych członka zespołu', 'Zaktualizowano dane członka zespołu');
+        await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('members').doc(this.id).update(memberData);
+        this.appComponent.showAlertDialogWithOkButton('Edycja członka zespołu', 'Pomyślnie zaktualizowano dane członka zespołu');
         this.navController.navigateBack('members');
       }
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji danych członka zespołu');
       }
-      
     }
   }
 }

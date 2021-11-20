@@ -21,8 +21,8 @@ export class AddMemberPage implements OnInit {
   ngOnInit() {}
 
   async addMember(memberData: MemberData) {
-    if (this.teamsProjectsValidationService.checkIfMemberFieldsAreNotEmpty(this.memberData.nameAndSurname,
-      this.memberData.organizationRole, this.memberData.email, this.memberData.phone, this.memberData.room, this.memberData.teamName)
+    if (this.teamsProjectsValidationService.checkIfMemberFieldsAreNotEmpty(this.memberData.nameAndSurname, this.memberData.organizationRole, 
+      this.memberData.email, this.memberData.phone, this.memberData.room, this.memberData.teamName)
         && this.teamsProjectsValidationService.checkIfEmailAndPhoneAreValid(this.memberData.email, this.memberData.phone)) {
 
     try {

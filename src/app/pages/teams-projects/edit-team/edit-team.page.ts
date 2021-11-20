@@ -30,35 +30,27 @@ export class EditTeamPage implements OnInit {
   }
 
   async getTeamToEditData(id: string) {
-    
-    
 
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
       .collection('teams').doc(id).valueChanges()
-      .subscribe(team => {
-        this.teamData.name = team['name'];
-        this.teamData.projectName = team['projectName'];
-      });
-    
+        .subscribe(team => {
+          this.teamData.name = team['name'];
+          this.teamData.projectName = team['projectName'];
+        });
   }
 
   async editTeam(teamData: TeamData) {
     if (this.teamsProjectsValidationService.checkIfTeamFieldsAreNotEmpty(this.teamData.name, this.teamData.projectName)) {
-
-      
-      
-
       try {
         await this.angularFirestore.collection('users').doc(this.currentUser.uid)
-        .collection('teams').doc(this.id).update(teamData);
+          .collection('teams').doc(this.id).update(teamData);
 
-        this.appComponent.showAlertDialogWithOkButton('Edycja zespołu', 'Zaktualizowano zespół');
+        this.appComponent.showAlertDialogWithOkButton('Edycja zespołu', 'Pomyślnie zaktualizowano zespół');
         this.navController.navigateBack('teams');
       }
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji zespołu');
       }
-      
     }
   }
 }

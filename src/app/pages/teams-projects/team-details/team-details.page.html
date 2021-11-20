@@ -1,13 +1,7 @@
 <ion-header mode="md" class="ion-no-border">
   <ion-toolbar>
-    <ion-row>
-      <ion-col>
-        <ion-icon [routerLink]="['/teams/']" id="backIcon" name="chevron-back-outline"></ion-icon>
-      </ion-col>
-      <ion-col id="editTeamIcon">
-        <ion-icon [routerLink]="['/edit-team/', teamData.id]" name="create-outline"></ion-icon>
-      </ion-col>
-    </ion-row>
+    <ion-icon [routerLink]="['/teams/']" id="backIcon" name="chevron-back-outline"></ion-icon>
+    <ion-icon id="editTeamIcon" [routerLink]="['/edit-team/', teamData.id]" name="create"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -23,7 +17,9 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <strong>Członkowie zespołu:</strong>
+      <ion-col>
+        <strong>Członkowie zespołu:</strong>
+      </ion-col>
     </ion-row>
     <ng-container *ngFor="let memberData of membersData">
         <ion-row>
@@ -45,5 +41,9 @@
     </ng-container>
   </ion-grid>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <img id="footer" src="./../../../assets/images/footer.png" alt="footer">
+</ion-footer>
 
 

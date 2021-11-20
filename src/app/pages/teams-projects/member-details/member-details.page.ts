@@ -21,5 +21,4 @@ export class MemberDetailsPage implements OnInit {
     this.memberData = params['memberData']
     });
   }
-
 }

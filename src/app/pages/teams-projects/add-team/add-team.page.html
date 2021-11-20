@@ -5,7 +5,7 @@
         <ion-icon [routerLink]="['/teams']" id="backIcon" name="chevron-back-outline"></ion-icon>
       </ion-col>
       <ion-col>
-        <ion-icon id="addMemberIcon" [routerLink]="['/add-member']" name="people-outline"></ion-icon>
+        <ion-icon id="addTeamIcon" [routerLink]="['/add-member']" name="people"></ion-icon>
       </ion-col>
     </ion-row>
   </ion-toolbar>
@@ -31,9 +31,7 @@
 
 <ion-footer>
   <ion-toolbar>
-      <ion-row>
-          <ion-button id="addTeam" (click)="addTeam(teamData)" fill="clear">DODAJ ZESPÓŁ</ion-button>
-      </ion-row>
+      <ion-button (click)="addTeam(teamData)" fill="clear">DODAJ ZESPÓŁ</ion-button>
   </ion-toolbar>
 </ion-footer>
 

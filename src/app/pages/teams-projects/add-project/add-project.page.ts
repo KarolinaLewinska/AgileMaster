@@ -15,11 +15,9 @@ export class AddProjectPage implements OnInit {
   constructor(
     private appComponent: AppComponent,
     private angularFirestore: AngularFirestore,
-    private teamsProjectsValidationService: TeamsProjectsValidationService
-  ) { }
+    private teamsProjectsValidationService: TeamsProjectsValidationService) { }
 
   projectData = {} as ProjectData;
-
 
   ngOnInit() {}
 

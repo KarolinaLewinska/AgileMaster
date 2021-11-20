@@ -10,20 +10,30 @@ ion-icon {
     color:#4C5D6B;
 }
 
+ion-grid {
+    margin-top: 5%;
+}
+
+ion-item {
+    margin-bottom: 5%;
+}
+
+ion-input, ion-textarea, ion-datetime, ion-select {
+    font-weight: bold;
+    color: #4C5D6B;
+}
+
 #backIcon {
-    font-size: 40px;
+    font-size: 45px;
     padding-left: 8%;
 }
 
 #viewTitle {
     font-size: 18px;
+    font-weight: bold;
 }
 
-#addMember {
-    height: 50%;
-    width: 60%;
-    margin-left: 32%;
+ion-button {
     font-weight: bold;
-    margin: auto;
-    font-size: 14px;
+    font-size: 16px;
 }

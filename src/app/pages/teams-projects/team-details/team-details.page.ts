@@ -23,13 +23,6 @@ export class TeamDetailsPage implements OnInit {
     this.displayTeamDetails();
   }
 
-  displayTeamDetails() {
-    this.activatedRoute.queryParams.subscribe(params => {
-    this.teamData = params['teamData']
-    this.membersData = params['membersData']
-    });
-  }
-
   async getMembersData() {
     var currentUser = firebase.auth().currentUser;
     this.angularFirestore.collection('users').doc(currentUser.uid).collection('members')
@@ -46,5 +39,13 @@ export class TeamDetailsPage implements OnInit {
           }
         })
       });
-    }
   }
+
+  displayTeamDetails() {
+    this.activatedRoute.queryParams.subscribe(params => {
+    this.teamData = params['teamData']
+    this.membersData = params['membersData']
+    });
+  }
+}
+

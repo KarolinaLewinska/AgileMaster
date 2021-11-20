@@ -12,13 +12,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid fixed>
+  <ion-grid>
     <ion-row>
       <ion-col><p id="viewTitle">Zespoły</p></ion-col>
     </ion-row>
     <div *ngIf="teamsData == 0">
       <p>Nie dodałeś/aś jeszcze żadnego zespołu? </p>
-      <ion-icon id="sadIcon" name="sad-outline"></ion-icon>
       <p>Naciśnij</p>
       <ion-icon id="arrowIcon" name="arrow-down-outline"></ion-icon>
     </div>
@@ -32,11 +31,11 @@
                   <p class="too-long-text">{{teamData.projectName}}</p>
               </ion-col>
               <ion-col size="2">
-                  <ion-icon [routerLink]="['/edit-team/', teamData.id]" id="listIcons" name="create-outline"></ion-icon>
+                  <ion-icon [routerLink]="['/edit-team/', teamData.id]" id="editIcon" name="create-outline"></ion-icon>
               </ion-col>
               <ion-col size="2">
                 <ion-button (click)="navigateToTeamDetails(teamData)" fill="clear">
-                  <ion-icon id="listIcons" name="arrow-forward-outline"></ion-icon>
+                  <ion-icon id="detailsIcon" name="arrow-forward-outline"></ion-icon>
                 </ion-button>
               </ion-col>
             </ion-row>
@@ -54,13 +53,6 @@
 
 <ion-footer>
   <ion-toolbar>
-      <ion-row>
-        <ion-col>
-          <ion-router-link id="addTeamLink" [routerLink]="['/add-team']">Nowy zespół</ion-router-link>
-        </ion-col>
-        <ion-col>
-          <ion-router-link id="addMemberLink" [routerLink]="['/add-member']">Nowa osoba</ion-router-link>
-        </ion-col>
-      </ion-row>
+    <ion-router-link [routerLink]="['/add-team']">NOWY ZESPÓŁ</ion-router-link>
   </ion-toolbar>
 </ion-footer>
