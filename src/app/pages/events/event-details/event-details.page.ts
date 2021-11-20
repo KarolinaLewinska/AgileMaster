@@ -12,8 +12,7 @@ export class EventDetailsPage implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private sharedService: SharedService
-  ) { }
+    private sharedService: SharedService) { }
   eventData = {} as EventData;
 
   ngOnInit() {

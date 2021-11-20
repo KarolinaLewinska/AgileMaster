@@ -14,8 +14,7 @@ export class CoursesPage implements OnInit {
   constructor(
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent,
-    private sharedService: SharedService
-  ) { }
+    private sharedService: SharedService) { }
 
   eventsData: any;
   currentUser = firebase.auth().currentUser;
@@ -26,7 +25,8 @@ export class CoursesPage implements OnInit {
   }
 
   async showEventsList() {
-
+    this.appComponent.createLoadingDialog();
+    this.appComponent.showLoadingDialog();
     try {
       this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('events').doc('category')
         .collection(this.nameOfEventsCategory, events => events.orderBy('date')).snapshotChanges()

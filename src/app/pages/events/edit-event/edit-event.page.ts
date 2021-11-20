@@ -32,26 +32,22 @@ export class EditEventPage implements OnInit {
   }
 
   async getEventToEditData(id: string) {
-
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
       .collection('events').doc('category').collection(this.sharedService.setEventCategoryName(this.category)).doc(id).valueChanges()
-      .subscribe(event => {
-        this.eventData.name = event['name'];
-        this.eventData.description = event['description'];
-        this.eventData.date = event['date'];
-        this.eventData.startTime = event['startTime'];
-        this.eventData.duration = event['duration'];
-        this.eventData.place = event['place'];
-        this.eventData.category = event['category'];
-      });
+        .subscribe(event => {
+          this.eventData.name = event['name'];
+          this.eventData.description = event['description'];
+          this.eventData.date = event['date'];
+          this.eventData.startTime = event['startTime'];
+          this.eventData.duration = event['duration'];
+          this.eventData.place = event['place'];
+          this.eventData.category = event['category'];
+        });
   }
 
   async editEvent(eventData: EventData) {
     if (this.eventsValidationService.checkIfEventsFieldsAreNotEmpty(this.eventData.name, this.eventData.date,
       this.eventData.startTime, this.eventData.duration, this.eventData.place, this.eventData.category)) {
-
-      
-      
 
       try {
         if (this.category == this.eventData.category) {
@@ -64,7 +60,7 @@ export class EditEventPage implements OnInit {
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('events')
             .doc('category').collection(this.sharedService.setEventCategoryName(this.category)).doc(this.id).delete();
         }
-        this.appComponent.showAlertDialogWithOkButton('Edycja zadania', 'Zaktualizowano zadanie');
+        this.appComponent.showAlertDialogWithOkButton('Edycja zadania', 'Pomyślnie zaktualizowano zadanie');
         this.sharedService.navigateBackToEventsList(this.eventData.category);
       }
       catch (error) {

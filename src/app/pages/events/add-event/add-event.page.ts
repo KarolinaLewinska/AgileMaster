@@ -15,8 +15,7 @@ export class AddEventPage implements OnInit {
   constructor(
     private eventsValidationService: EventsValidationService,
     private appComponent: AppComponent,
-    private angularFirestore: AngularFirestore
-  ) { }
+    private angularFirestore: AngularFirestore) { }
 
   eventData = {} as EventData;
 
