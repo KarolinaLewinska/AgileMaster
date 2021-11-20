@@ -15,12 +15,8 @@ ion-icon {
 }
 
 #backIcon {
-    font-size: 40px;
+    font-size: 45px;
     padding-left: 13%;
-}
-
-#sadIcon {
-    font-size: 100px;
 }
 
 #arrowIcon {
@@ -28,32 +24,37 @@ ion-icon {
 }
 
 #addTaskIcon {
-    font-size: 35px;
+    font-size: 40px;
     float: right;
-    padding-right: 10%;
+    padding-right: 14%;
     margin-top: 1%;
 }
 
-#listIcons {
-    font-size: 30px;
-    margin-top: 15%;
+#editIcon, #detailsIcon {
+    font-size: 35px;
+}
+
+#detailsIcon {
+    margin-top: 2%;
 }
 
 ion-router-link {
-    margin-left: 32%;
     font-weight: bold;
 }
 
+
 #viewTitle {
     font-size: 18px;
+    font-weight: bold;
 }
 
 .too-long-text {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-weight: bold;
 }
 
 ion-item-option {
-    background-color: #ccccff;
+    background-color: #b6bfc7;
 }

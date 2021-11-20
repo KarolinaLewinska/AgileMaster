@@ -26,15 +26,15 @@
       </ion-item>
       <ion-item>
         <ion-label>Data wykonania</ion-label>
-        <ion-datetime id="date" [(ngModel)]="taskData.dateOfFinish" max="2099-12-31" pickerFormat="YYYY-MM-DD" displayFormat="YYYY-MM-DD"></ion-datetime>
+        <ion-datetime [(ngModel)]="taskData.dateOfFinish" max="2099-12-31" pickerFormat="YYYY-MM-DD" displayFormat="YYYY-MM-DD"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label>Godzina wykonania</ion-label>
-        <ion-datetime id="time" [(ngModel)]="taskData.timeOfFinish" pickerFormat="HH:mm" displayFormat="HH:mm"></ion-datetime>
+        <ion-datetime [(ngModel)]="taskData.timeOfFinish" pickerFormat="HH:mm" displayFormat="HH:mm"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label>Priorytet</ion-label>
-        <ion-select id="priority" [(ngModel)]="taskData.priority">
+        <ion-select [(ngModel)]="taskData.priority">
           <ion-select-option value="wysoki">wysoki</ion-select-option>
           <ion-select-option value="średni">średni</ion-select-option>
           <ion-select-option value="niski">niski</ion-select-option>
@@ -42,7 +42,7 @@
       </ion-item>
       <ion-item>
         <ion-label>Kategoria</ion-label>
-        <ion-select value="{{taskData.category}}" id="category" [(ngModel)]="taskData.category">
+        <ion-select value="{{taskData.category}}" [(ngModel)]="taskData.category">
           <ion-select-option value="Analitycy">Analitycy</ion-select-option>
           <ion-select-option value="Zespół deweloperski">Zespół deweloperski</ion-select-option>
           <ion-select-option value="Product Owner">Product Owner</ion-select-option>
@@ -57,9 +57,7 @@
 
 <ion-footer>
   <ion-toolbar>
-      <ion-row>
-          <ion-button id="editButton" (click)="editTask(taskData)" fill="clear">EDYTUJ ZADANIE</ion-button>
-      </ion-row>
+    <ion-button id="editButton" (click)="editTask(taskData)" fill="clear">EDYTUJ ZADANIE</ion-button>
   </ion-toolbar>
 </ion-footer>
 

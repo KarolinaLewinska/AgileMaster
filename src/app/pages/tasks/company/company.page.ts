@@ -12,8 +12,7 @@ export class CompanyPage implements OnInit {
   constructor(
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent,
-    private sharedService: SharedService
-  ) { }
+    private sharedService: SharedService) { }
 
   tasksData: any;
   currentUser = firebase.auth().currentUser;
@@ -24,8 +23,8 @@ export class CompanyPage implements OnInit {
   }
 
   async showTasksList() {
-    
-    
+    this.appComponent.createLoadingDialog();
+    this.appComponent.showLoadingDialog();
 
     try {
       var currentUser = firebase.auth().currentUser;
@@ -48,7 +47,7 @@ export class CompanyPage implements OnInit {
     catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia zadań');
     }
-    
+    this.appComponent.hideLoadingDialog();
   }
 
   async deleteTask(id) {

@@ -33,29 +33,22 @@ export class EditTaskPage implements OnInit {
   }
 
   async getTaskToEditData(id: string) {
-    
-    
 
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
-      .collection('tasks').doc('category').collection( this.sharedService.setTaskCategoryName(this.category))
-      .doc(id).valueChanges()
-      .subscribe(task => {
-        this.taskData.title = task['title'];
-        this.taskData.description = task['description'];
-        this.taskData.dateOfFinish = task['dateOfFinish'];
-        this.taskData.timeOfFinish = task['timeOfFinish'];
-        this.taskData.priority = task['priority'];
-        this.taskData.category = task['category'];
-      });
-    
+      .collection('tasks').doc('category').collection( this.sharedService.setTaskCategoryName(this.category)).doc(id).valueChanges()
+        .subscribe(task => {
+          this.taskData.title = task['title'];
+          this.taskData.description = task['description'];
+          this.taskData.dateOfFinish = task['dateOfFinish'];
+          this.taskData.timeOfFinish = task['timeOfFinish'];
+          this.taskData.priority = task['priority'];
+          this.taskData.category = task['category'];
+        });
   }
 
   async editTask(taskData: TaskData) {
-    if (this.tasksValidationService.checkIfTasksFieldsAreNotEmpty(this.taskData.title, this.taskData.dateOfFinish, 
+    if (this.tasksValidationService.checkIfTasksFieldsAreNotEmpty(this.taskData.title, this.taskData.dateOfFinish,
       this.taskData.timeOfFinish, this.taskData.priority, this.taskData.category)) {
-
-      
-      
 
       try {
         if (this.category == this.taskData.category) {
@@ -69,13 +62,12 @@ export class EditTaskPage implements OnInit {
             .doc('category').collection(this.sharedService.setTaskCategoryName(this.category)).doc(this.id).delete();
 
         }
-        this.appComponent.showAlertDialogWithOkButton('Edycja zadania', 'Zaktualizowano zadanie');
+        this.appComponent.showAlertDialogWithOkButton('Edycja zadania', 'Pomyślnie zaktualizowano zadanie');
         this.sharedService.navigateBackToTasksList(this.taskData.category);
       }
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji zadania');
       }
-      
     }
   }
 

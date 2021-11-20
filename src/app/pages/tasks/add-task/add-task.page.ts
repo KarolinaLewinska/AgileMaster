@@ -15,15 +15,14 @@ export class AddTaskPage implements OnInit {
   constructor(
     private tasksValidationService: TasksValidationService,
     private appComponent: AppComponent,
-    private angularFirestore: AngularFirestore
-  ) { }
+    private angularFirestore: AngularFirestore) { }
 
   taskData = {} as TaskData;
 
   ngOnInit() {}
 
   async addTask(taskData: TaskData) {
-    if (this.tasksValidationService.checkIfTasksFieldsAreNotEmpty(this.taskData.title,this.taskData.dateOfFinish,
+    if (this.tasksValidationService.checkIfTasksFieldsAreNotEmpty(this.taskData.title, this.taskData.dateOfFinish,
       this.taskData.timeOfFinish, this.taskData.priority, this.taskData.category)) {
 
       try {
