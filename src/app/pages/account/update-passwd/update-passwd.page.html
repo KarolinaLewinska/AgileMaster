@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid fixed>
+  <ion-grid>
     <ion-row>
       <ion-col><p id="viewTitle">Zmiana hasła</p></ion-col>
     </ion-row>
@@ -20,7 +20,7 @@
       <ion-col>
         <ion-item>
           <ion-label><ion-icon id="authIcons" name="lock-closed"></ion-icon></ion-label>
-          <ion-input id="oldPasswd" required type="password" maxlength=320 minlength=6></ion-input>
+          <ion-input id="oldPasswd" type="password" maxlength=320 minlength=6></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -31,7 +31,7 @@
       <ion-col>
         <ion-item>
           <ion-label><ion-icon id="authIcons" name="key"></ion-icon></ion-label>
-          <ion-input id="newPasswd" required type="password" maxlength=320 minlength=6></ion-input>
+          <ion-input id="newPasswd" type="password" maxlength=320 minlength=6></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -42,14 +42,18 @@
       <ion-col>
         <ion-item>
           <ion-label><ion-icon id="authIcons" name="checkmark-sharp"></ion-icon></ion-label>
-          <ion-input id="newPasswdConfirm" required type="password" maxlength=320 minlength=6></ion-input>
+          <ion-input id="newPasswdConfirm" type="password" maxlength=320 minlength=6></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-          <ion-button (click)="updateUserPassword()">Zmień</ion-button>
+          <ion-button (click)="updateUserPassword()">Gotowe</ion-button>
       </ion-col>
   </ion-row>
   </ion-grid>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <img id="footer" src="./../../../assets/images/footer.png" alt="footer">
+</ion-footer>

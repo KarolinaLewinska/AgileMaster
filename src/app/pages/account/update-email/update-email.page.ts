@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserAuthenticationService } from '../../../services/authentication-service';
 import { AppComponent } from '../../../app.component';
 import { AuthValidationService } from '../../../validation/auth-validation-service';
+import firebase from 'firebase/compat/app';
 
 @Component({
   selector: 'app-update-email',
@@ -21,14 +22,19 @@ export class UpdateEmailPage implements OnInit {
     var currentUserPassword = (<HTMLInputElement>document.getElementById('currentPasswd')).value;
 
     if (this.authValidationService.checkIfEmailIsValid(newEmail)) {
-
-      try {
-        await this.userAuthenticationService.reauthenticateAndUpdateUserEmail(currentUserPassword, newEmail);
-        //co jak zmienie email a juz jest inne konto do teego? 
-      }
-      catch (error) {
-        this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby zmiany adresu email');
-      }
+      firebase.auth().fetchSignInMethodsForEmail(newEmail)
+        .then(providers => {
+          if (providers.length != 0) {
+            this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Podany adres email jest przypisany do innego konta');
+          } else {
+            try {
+              this.userAuthenticationService.reauthenticateAndUpdateUserEmail(currentUserPassword, newEmail);
+            }
+            catch (error) {
+              this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby zmiany adresu email');
+            }
+          }
+      });
     }
   }
 }

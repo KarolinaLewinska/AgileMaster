@@ -4,6 +4,7 @@ ion-content {
     justify-content: center;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    bottom: 2%;
 }
 
 ion-icon {
@@ -11,16 +12,17 @@ ion-icon {
 }
 
 #backIcon {
-    font-size: 40px;
-    padding-left: 2%;
+    font-size: 45px;
+    padding-left: 6%;
 }
 
 #authIcons {
-    font-size: 25px;
+    font-size: 30px;
 }
 
 #viewTitle {
     font-size: 18px;
+    font-weight: bold;
 }
 
 ion-button {
@@ -31,6 +33,11 @@ ion-button {
 
 #inputLabel {
     text-align: left;
-    margin-left: 5%;
+    margin-left: 6%;
     font-size: 16px;
+}
+
+#footer {
+    height:102%;
+    width: 102%;
 }
