@@ -13,11 +13,10 @@
 
 <ion-content>
   <ion-grid>
-    <ion-row>
-      <ion-col><p id="viewTitle">Projekty</p></ion-col>
-    </ion-row>
+      <p id="viewTitle">Projekty</p>
     <div *ngIf="projectsData == 0">
       <p>Nie dodałeś/aś jeszcze żadnego projektu? </p>
+      <img src="../../../../assets/images/project.png">
       <p>Naciśnij</p>
       <ion-icon id="arrowIcon" name="arrow-down-outline"></ion-icon>
     </div>

@@ -13,11 +13,10 @@
 
 <ion-content>
   <ion-grid>
-    <ion-row>
-      <ion-col><p id="viewTitle">Członkowie zespołów</p></ion-col>
-    </ion-row>
+    <p id="viewTitle">Członkowie zespołów</p>
     <div *ngIf="membersData == 0">
       <p>Nie dodałeś/aś jeszcze żadnej osoby do zespołu? </p>
+      <img src="../../../../assets/images/member.png">
       <p>Naciśnij</p>
       <ion-icon id="arrowIcon" name="arrow-down-outline"></ion-icon>
     </div>
