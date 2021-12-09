@@ -35,12 +35,22 @@ export class ResetPasswordPage implements OnInit {
         var errorCode = error.code;
         var errorMessage = error.message;
 
-        if (errorCode == 'auth/internal-error') {
-          errorMessage = 'Nieoczekiwany błąd serwera';
-          this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
-        } else {
-          errorMessage ='Nieprawidłowy format adresu email';
-          this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
+        switch(errorCode) {
+          case('auth/internal-error'): {
+            errorMessage = 'Nieoczekiwany błąd serwera';
+            this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
+            break;
+          }
+          case('auth/invalid-email'): {
+            errorMessage ='Nieprawidłowy format adresu email';
+            this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
+            break;
+          }
+          default: {
+            errorMessage = 'Konto z podanym adresem email nie istnieje';
+            this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
+            break;
+          }
         }
         this.navController.navigateBack('reset-password');
       });

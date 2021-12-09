@@ -3,11 +3,15 @@ ion-content, ion-footer {
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', -apple-system, system-ui;
 }
 
 ion-icon {
-    color:#4C5D6B;
+    color:#1f252b;
+}
+
+img {
+    width: 80%;
 }
 
 #backIcon {
@@ -37,7 +41,6 @@ ion-icon {
 ion-router-link {
     font-weight: bold;
 }
-
 
 #viewTitle {
     font-size: 18px;
