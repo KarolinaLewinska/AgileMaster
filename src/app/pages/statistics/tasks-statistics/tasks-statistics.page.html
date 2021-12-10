@@ -9,19 +9,21 @@
 </ion-header>
 
 <ion-content>
+  <ion-grid>
     <strong id="total">Łączna liczba zadań: {{allTasksNumber}}</strong>
     <img src="../../../../assets/images/statistics.png">
-    <strong>Liczba zadań według:</strong>
-    <p>Priorytetów:</p>
+    <strong id="label">Liczba zadań według</strong>
+    <p id="category">Priorytetów</p>
     <p>wysoki: {{lowPriorityTasksNumber}}</p>
     <p>średni: {{mediumPriorityTasksNumber}}</p>
     <p>niski: {{lowPriorityTasksNumber}}</p>
-    <p>Kategorii:</p>
+    <p id="category">Kategorii</p>
     <p>Zespół deweloperski: {{developmentTeamTasksNumber}}</p>
     <p>Product Owner: {{productOwnerTasksNumber}}</p>
     <p>Organizacja: {{companyTasksNumber}}</p>
     <p>Edukacja: {{educationTasksNumber}}</p>
     <p>Pozostałe: {{otherTasksNumber}}</p>
+  </ion-grid>
 </ion-content>
 
 <ion-footer class="ion-no-border">

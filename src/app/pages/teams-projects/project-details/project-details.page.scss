@@ -10,10 +10,6 @@ ion-icon {
     color:#1f252b;
 }
 
-ion-grid {
-    margin-top: 10%;
-}
-
 #backIcon {
     font-size: 45px;
     padding-left: 8%;
@@ -25,15 +21,17 @@ ion-grid {
     margin-right: 8%;
 }
 
-#descriptionField {
-    border-radius: 25px;
+ion-grid {
+    border-radius: 10px;
     margin: 5%;
-    background-color: #d1e0eb;
+    margin-top: 5%;
+    background-color: #d3dee6;
 }
 
 #viewTitle {
     font-size: 18px;
     font-weight: bold;
+    color: #033860;
 }
 
 #footer {

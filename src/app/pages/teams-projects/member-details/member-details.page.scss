@@ -11,7 +11,10 @@ ion-icon {
 }
 
 ion-grid {
-    margin-top: 10%;
+    border-radius: 10px;
+    margin: 5%;
+    margin-top: 5%;
+    background-color: #d3dee6;
 }
 
 #backIcon {
@@ -28,6 +31,7 @@ ion-grid {
 #viewTitle {
     font-size: 18px;
     font-weight: bold;
+    color: #033860;
 }
 
 #footer {

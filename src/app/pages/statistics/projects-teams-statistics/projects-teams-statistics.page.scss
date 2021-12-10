@@ -4,6 +4,7 @@ ion-content, ion-footer {
     justify-content: center;
     text-align: center;
     font-family: 'Montserrat', -apple-system, system-ui;
+    font-weight: bold;
 }
 
 ion-icon {
@@ -14,39 +15,24 @@ ion-grid {
     margin-top: 10%;
 }
 
+img {
+    width: 52%;
+}
+
 #backIcon {
     font-size: 45px;
     padding-left: 8%;
 }
 
 strong {
-    font-size: 16px;
-}
-
-p {
-    text-align: left;
-    margin-left: 8%;
+    text-align: center;
+    font-size: 17px;
+    color: #087CA7;
     margin-top: 5%;
-}
-
-li {
-    text-align: left;
-    margin-bottom: 3%;
-}
-
-#category {
-    font-weight: bold;
-}
-
-#total {
-    margin-bottom: 10%;
+    margin-left: 8%;
 }
 
 #footer {
     width: 100%;
     height: 100%;
-}
-
-h3 {
-    margin-top: 30%;
 }

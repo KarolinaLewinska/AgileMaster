@@ -4,6 +4,7 @@ ion-content {
     justify-content: center;
     text-align: center;
     font-family: 'Montserrat', -apple-system, system-ui;
+    font-weight: bold;
 }
 
 ion-grid {
@@ -11,7 +12,7 @@ ion-grid {
 }
 
 ion-router-link {
-    color: black;
+    color: #696969;
     font-size: 16px;
 }
 
@@ -35,7 +36,6 @@ ion-menu-button {
 
 #viewTitle {
     font-size: 18px;
-    font-weight: bold;
 }
 
 ion-button {
@@ -44,7 +44,7 @@ ion-button {
 
 #optionIcon {
     font-size: 80px;
-    color: #1f252b;
+    color: #087CA7;
 }
 
 #footer {

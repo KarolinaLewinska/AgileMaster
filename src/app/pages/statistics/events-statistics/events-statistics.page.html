@@ -9,25 +9,15 @@
 </ion-header>
 
 <ion-content>
-  <h3>Spotkania</h3>
   <ion-grid>
-    <ion-row id="total">
-      <ion-col>
-        <strong>Łączna liczba spotkań: {{allEventsNumber}}</strong>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <strong>Liczba spotkań według:</strong>
-      </ion-col>
-    </ion-row>
-      <p id="category">Kategorii:</p>
-      <ul>
-        <p>Spotkania Scrumowe: {{scrumMeetingsEventsNumber}}</p>
-        <p>Warsztaty: {{workshopsEventsNumber}}</p>
-        <p>Szkolenia: {{coursesEventsNumber}}</p>
-        <p>Inne: {{otherEventsNumber}}</p>
-      </ul>
+    <strong id="total">Łączna liczba spotkań: {{allEventsNumber}}</strong>
+    <img src="../../../../assets/images/statistics2.png">
+    <strong id="label">Liczba spotkań według</strong>
+    <p id="category">Kategorii</p>
+    <p>Spotkania Scrumowe: {{scrumMeetingsEventsNumber}}</p>
+    <p>Warsztaty: {{workshopsEventsNumber}}</p>
+    <p>Szkolenia: {{coursesEventsNumber}}</p>
+    <p>Inne: {{otherEventsNumber}}</p>
   </ion-grid>
 </ion-content>
 

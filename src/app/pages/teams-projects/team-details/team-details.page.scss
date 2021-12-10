@@ -10,6 +10,13 @@ ion-icon {
     color:#1f252b;
 }
 
+ion-grid {
+    border-radius: 10px;
+    margin: 5%;
+    margin-top: 5%;
+    background-color: #d3dee6;
+}
+
 #backIcon {
     font-size: 45px;
     padding-left: 8%;
@@ -24,6 +31,7 @@ ion-icon {
 #viewTitle {
     font-size: 18px;
     font-weight: bold;
+    color: #033860;
 }
 
 #footer {
@@ -33,7 +41,7 @@ ion-icon {
 
 hr {
     height: 4px;
-    width: 90%;
+    width: 60%;
     border-width: 0;
-    background-color:#033860;
+    background-color: white;
 }

@@ -4,6 +4,7 @@ ion-content, ion-footer {
     justify-content: center;
     text-align: center;
     font-family: 'Montserrat', -apple-system, system-ui;
+    font-weight: bold;
 }
 
 ion-icon {
@@ -24,23 +25,31 @@ img {
 }
 
 #total {
-    margin-bottom: 10%;
     font-size: 18px;
-    text-align: center;
 }
 
 p, strong {
-    text-align: center;
-    margin-left: 8%;
     margin-top: 5%;
 }
 
+p {
+    color: #696969;
+}
+
+strong {
+    color: #087CA7;
+}
+
 #category {
-    font-weight: bold;
+    color: #033860;
+}
+
+#label {
+    margin-left: 6%;
 }
 
 #footer {
-    width: 100%;
+    width: 120%;
     height: 100%;
 }
 
