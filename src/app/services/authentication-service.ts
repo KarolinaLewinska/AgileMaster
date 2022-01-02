@@ -29,13 +29,13 @@ export class UserAuthenticationService {
 
   signInWithEmailAndPassword(email: string, password: string) {
     return this.angularFireAuth.signInWithEmailAndPassword(email, password)
-    .then(auth => {
-      if (auth.user.emailVerified) {
-        this.navController.navigateForward('tasks-categories');
-      } else {
-        this.appComponent.showAlertDialogWithOkButton('Potwierdź rejestrację','Aby móc się zalogować potwierdź rejestrację');
-      }
-    });
+      .then(auth => {
+        if (auth.user.emailVerified) {
+          this.navController.navigateForward('tasks-categories');
+        } else {
+          this.appComponent.showAlertDialogWithOkButton('Potwierdź rejestrację','Aby móc się zalogować potwierdź rejestrację');
+        }
+      });
   }
 
   signUpWithEmailAndPassword(email: string, password: string) {
@@ -44,12 +44,12 @@ export class UserAuthenticationService {
 
   sendEmailToConfirmSignUp() {
     firebase.auth().currentUser.sendEmailVerification()
-    .then(() => {
-      this.navController.navigateBack('sign-up-confirm');
-    })
-    .catch(() => {
-      this.appComponent.showAlertDialogWithOkButton('Błąd','Wystąpił błąd podczas próby wysłania wiadomości potwierdzającej rejestrację');
-    });
+      .then(() => {
+        this.navController.navigateBack('sign-up-confirm');
+      })
+      .catch(() => {
+        this.appComponent.showAlertDialogWithOkButton('Błąd','Wystąpił błąd podczas próby wysłania wiadomości potwierdzającej rejestrację');
+      });
   }
 
   sendEmailToResetPassword(email: string) {
@@ -58,14 +58,14 @@ export class UserAuthenticationService {
 
   reauthenticateAndUpdateUserEmail(password: string, newEmail: string) {
     this.reauthenticateCurrentUser(password)
-    .then(() => {
-      firebase.auth().currentUser.updateEmail(newEmail);
-      this.navController.navigateBack('account-settings');
-      this.appComponent.showAlertDialogWithOkButton('Zmiana adresu email', 'Pomyślnie zmieniono adres email');
-    })
-    .catch(() => {
-      this.appComponent.showAlertDialogWithOkButton('Błąd','Nieprawidłowa wartość bieżącego hasła');
-    });
+      .then(() => {
+        firebase.auth().currentUser.updateEmail(newEmail);
+        this.navController.navigateBack('account-settings');
+        this.appComponent.showAlertDialogWithOkButton('Zmiana adresu email', 'Pomyślnie zmieniono adres email');
+      })
+      .catch(() => {
+        this.appComponent.showAlertDialogWithOkButton('Błąd','Nieprawidłowa wartość bieżącego hasła');
+      });
   }
 
   reauthenticateAndUpdateUserPassword(oldPassword: string, newPassword: string) {
@@ -88,10 +88,10 @@ export class UserAuthenticationService {
 
   logOut() {
     this.angularFireAuth.signOut()
-    .then(() => {
-      localStorage.removeItem('user');
-      this.navController.navigateBack('sign-in');
-    });
+      .then(() => {
+        localStorage.removeItem('user');
+        this.navController.navigateBack('sign-in');
+      });
   }
 
   reauthenticateAndDeleteUserAccount(oldPassword: string) {

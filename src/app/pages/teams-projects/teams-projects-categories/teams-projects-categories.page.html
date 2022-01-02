@@ -2,7 +2,9 @@
   <ion-toolbar>
     <ion-row>
       <ion-col>
-        <ion-menu-button menu="navMenu"><ion-icon id="menuIcon" name="menu"></ion-icon></ion-menu-button>
+        <ion-menu-button menu="navMenu">
+          <ion-icon id="menuIcon" name="menu"></ion-icon>
+        </ion-menu-button>
       </ion-col>
       <ion-col>
         <ion-icon (click)="userAuthenticationService.logOut()" id="logOutIcon" name="close-sharp"></ion-icon>
@@ -14,7 +16,9 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col><p id="viewTitle">Projekty i zespoły</p></ion-col>
+      <ion-col>
+        <p id="viewTitle">Projekty i zespoły</p>
+      </ion-col>
     </ion-row>
     <ion-list lines="none">
       <ion-item>

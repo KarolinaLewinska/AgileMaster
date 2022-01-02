@@ -12,8 +12,7 @@ export class DeleteAccountPage implements OnInit {
   constructor(
     private userAuthenticationService: UserAuthenticationService,
     private appComponent: AppComponent,
-    private authValidationService: AuthValidationService
-  ) { }
+    private authValidationService: AuthValidationService) { }
 
   ngOnInit() {}
 

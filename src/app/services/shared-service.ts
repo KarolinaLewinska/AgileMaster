@@ -10,7 +10,6 @@ export class SharedService {
 
   setTaskCategoryName(category) {
     var nameOfCategory = "";
-
     switch (category) {
       case 'Analitycy':
         nameOfCategory = 'analysts';
@@ -36,7 +35,6 @@ export class SharedService {
 
   setEventCategoryName(category) {
     var nameOfCategory = "";
-
     switch (category) {
       case 'Spotkania Scrumowe':
         nameOfCategory = 'scrumMeetings';

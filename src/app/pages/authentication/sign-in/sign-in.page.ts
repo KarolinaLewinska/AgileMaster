@@ -26,7 +26,6 @@ export class SignInPage implements OnInit {
     var userPassword = userData.password;
 
     if (this.authValidationService.checkIfAuthFieldsAreNotEmpty(userEmail, userPassword)) {
-
       try {
         await this.userAuthenticationService.signInWithEmailAndPassword(userEmail, userPassword);
       }

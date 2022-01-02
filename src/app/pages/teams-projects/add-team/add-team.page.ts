@@ -27,7 +27,6 @@ export class AddTeamPage implements OnInit {
       try {
         var currentUser = firebase.auth().currentUser;
         await this.angularFirestore.collection('users').doc(currentUser.uid).collection('teams').add(teamData);
-
         this.appComponent.showAlertDialogWithOkButton('Dodano zespół', 'Pomyślnie dodano zespół');
         this.clearInputFields();
       }

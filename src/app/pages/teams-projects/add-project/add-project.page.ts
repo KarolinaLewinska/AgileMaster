@@ -28,7 +28,6 @@ export class AddProjectPage implements OnInit {
       try {
         var currentUser = firebase.auth().currentUser;
         await this.angularFirestore.collection('users').doc(currentUser.uid).collection('projects').add(projectData);
-
         this.appComponent.showAlertDialogWithOkButton('Dodano projekt', 'Pomyślnie dodano projekt');
         this.clearInputFields();
       }

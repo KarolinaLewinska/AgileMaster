@@ -53,7 +53,6 @@ export class MembersPage implements OnInit {
 
   async deleteMember(id) {
     var wantsToDelete = true;
-
     if (wantsToDelete) {
       const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButtons('Usuń członka zespołu', 'Czy na pewno chcesz usunąć?');
       if (!dialog) {

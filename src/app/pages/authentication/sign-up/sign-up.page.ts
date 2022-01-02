@@ -14,8 +14,7 @@ export class SignUpPage implements OnInit {
     private navController: NavController,
     private userAuthenticationService: UserAuthenticationService,
     private appComponent: AppComponent,
-    private authValidationService: AuthValidationService
-  ) { }
+    private authValidationService: AuthValidationService) { }
 
   userData = {} as UserData;
 

@@ -66,7 +66,6 @@ export class AuthValidationService {
 
   checkIfEmailIsValid(emailValue: string) {
     var currentUserEmail = firebase.auth().currentUser.email;
-
     if (!emailValue) {
       this.appComponent.showAlertDialogWithOkButton('Pole wymagane', 'Podaj adres email');
       return false;

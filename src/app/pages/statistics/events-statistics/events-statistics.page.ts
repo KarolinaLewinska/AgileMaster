@@ -11,7 +11,7 @@ export class EventsStatisticsPage implements OnInit {
   constructor(private angularFirestore: AngularFirestore) { }
 
   currentUser = firebase.auth().currentUser;
-  listOfCategories: string[] = ['scrumMeetings', 'workshops', 'courses', 'otherEvents'];
+  categoriesList: string[] = ['scrumMeetings', 'workshops', 'courses', 'otherEvents'];
 
   allEventsNumber: any;
   scrumMeetingsEventsNumber: any;
@@ -29,9 +29,9 @@ export class EventsStatisticsPage implements OnInit {
 
   async retrieveAllEventsNumber() {
     let totalNumber = 0;
-    for (var i = 0; this.listOfCategories.length; i++) {
+    for (var i = 0; this.categoriesList.length; i++) {
       firebase.firestore().collection('users').doc(this.currentUser.uid).collection('events')
-        .doc('category').collection(this.listOfCategories[i]).get()
+        .doc('category').collection(this.categoriesList[i]).get()
         .then(data => {
           var numberOfEvents = data.size;
           totalNumber += numberOfEvents;

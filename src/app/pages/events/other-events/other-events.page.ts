@@ -53,7 +53,6 @@ export class OtherEventsPage implements OnInit {
 
   async deleteEvent(id) {
     var wantsToDelete = true;
-
     if (wantsToDelete) {
       const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButtons('Usuń spotkanie', 'Czy na pewno chcesz usunąć?');
       if (!dialog) {

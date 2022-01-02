@@ -15,42 +15,54 @@
   <ion-grid>
       <p id="viewTitle">Panel rejestracji</p>
     <ion-row>
-      <ion-col id="inputLabel"><p>Adres email:</p></ion-col>
+      <ion-col id="inputLabel">
+        <p>Adres email:</p>
+      </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label><ion-icon id="authIcons" name="mail-outline"></ion-icon></ion-label>
+          <ion-label>
+            <ion-icon id="authIcons" name="mail-outline"></ion-icon>
+          </ion-label>
           <ion-input [(ngModel)]="userData.email" type="email" maxlength=320 minlength=3></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col id="inputLabel"><p>Hasło:</p></ion-col>
+      <ion-col id="inputLabel">
+        <p>Hasło:</p>
+      </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label><ion-icon id="authIcons" name="key-outline"></ion-icon></ion-label>
+          <ion-label>
+            <ion-icon id="authIcons" name="key-outline"></ion-icon>
+          </ion-label>
           <ion-input id="passwd" [(ngModel)]="userData.password" type="password"  maxlength=128 minlength=6></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col id="inputLabel"><p>Powtórz Hasło:</p></ion-col>
+      <ion-col id="inputLabel">
+        <p>Powtórz Hasło:</p>
+      </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label><ion-icon id="authIcons" name="checkmark-outline"></ion-icon></ion-label>
+          <ion-label>
+            <ion-icon id="authIcons" name="checkmark-outline"></ion-icon>
+          </ion-label>
           <ion-input id="passwdConfirm" type="password"  maxlength=128 minlength=6></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
-        <ion-col>
-            <ion-button (click)="signUpUser(userData)">Zarejestruj się</ion-button>
-        </ion-col>
+      <ion-col>
+        <ion-button (click)="signUpUser(userData)">Zarejestruj się</ion-button>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

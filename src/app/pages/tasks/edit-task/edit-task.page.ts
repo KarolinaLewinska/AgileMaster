@@ -33,7 +33,6 @@ export class EditTaskPage implements OnInit {
   }
 
   async getTaskToEditData(id: string) {
-
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
       .collection('tasks').doc('category').collection( this.sharedService.setTaskCategoryName(this.category)).doc(id).valueChanges()
         .subscribe(task => {

@@ -31,7 +31,6 @@ export class EditProjectPage implements OnInit {
   }
 
   async getProjectToEditData(id: string) {
-
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
       .collection('projects').doc(id).valueChanges()
         .subscribe(project => {

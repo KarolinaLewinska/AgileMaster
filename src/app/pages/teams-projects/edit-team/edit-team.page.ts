@@ -30,7 +30,6 @@ export class EditTeamPage implements OnInit {
   }
 
   async getTeamToEditData(id: string) {
-
     this.angularFirestore.collection('users').doc(this.currentUser.uid)
       .collection('teams').doc(id).valueChanges()
         .subscribe(team => {

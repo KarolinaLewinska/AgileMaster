@@ -49,7 +49,6 @@ export class TeamsPage implements OnInit {
 
   async deleteTeam(id) {
     var wantsToDelete = true;
-
     if (wantsToDelete) {
       const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButtons('Usuń zespół', 'Czy na pewno chcesz usunąć?');
       if (!dialog) {

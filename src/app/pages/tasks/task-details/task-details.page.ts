@@ -12,8 +12,7 @@ export class TaskDetailsPage implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private sharedService: SharedService
-  ) { }
+    private sharedService: SharedService) { }
 
   taskData = {} as TaskData;
 

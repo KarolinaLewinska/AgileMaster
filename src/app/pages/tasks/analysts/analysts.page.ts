@@ -52,7 +52,6 @@ export class AnalystsPage implements OnInit {
 
   async deleteTask(id) {
     var wantsToDelete = true;
-
     if (wantsToDelete) {
       const dialog = await this.appComponent.createAndShowAlertDialogWithConfirmAndCancelButtons('Usuń zadanie', 'Czy na pewno chcesz usunąć?');
       if (!dialog) {

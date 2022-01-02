@@ -11,37 +11,51 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col><p id="viewTitle">Zmiana hasła</p></ion-col>
+      <ion-col>
+        <p id="viewTitle">Zmiana hasła</p>
+      </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col id="inputLabel"><p>Bieżące hasło:</p></ion-col>
+      <ion-col id="inputLabel">
+        <p>Bieżące hasło:</p>
+      </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label><ion-icon id="authIcons" name="lock-closed"></ion-icon></ion-label>
+          <ion-label>
+            <ion-icon id="authIcons" name="lock-closed"></ion-icon>
+          </ion-label>
           <ion-input id="oldPasswd" type="password" maxlength=320 minlength=6></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col id="inputLabel"><p>Nowe hasło:</p></ion-col>
+      <ion-col id="inputLabel">
+        <p>Nowe hasło:</p>
+      </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label><ion-icon id="authIcons" name="key"></ion-icon></ion-label>
+          <ion-label>
+            <ion-icon id="authIcons" name="key"></ion-icon>
+          </ion-label>
           <ion-input id="newPasswd" type="password" maxlength=320 minlength=6></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col id="inputLabel"><p>Powtórz nowe hasło:</p></ion-col>
+      <ion-col id="inputLabel">
+        <p>Powtórz nowe hasło:</p>
+      </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label><ion-icon id="authIcons" name="checkmark-sharp"></ion-icon></ion-label>
+          <ion-label>
+            <ion-icon id="authIcons" name="checkmark-sharp"></ion-icon>
+          </ion-label>
           <ion-input id="newPasswdConfirm" type="password" maxlength=320 minlength=6></ion-input>
         </ion-item>
       </ion-col>
@@ -50,7 +64,7 @@
       <ion-col>
           <ion-button (click)="updateUserPassword()">Gotowe</ion-button>
       </ion-col>
-  </ion-row>
+    </ion-row>
   </ion-grid>
 </ion-content>
 

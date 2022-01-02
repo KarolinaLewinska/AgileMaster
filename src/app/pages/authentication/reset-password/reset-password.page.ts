@@ -25,35 +25,34 @@ export class ResetPasswordPage implements OnInit {
     var userEmail = userData.email;
 
     if (this.authValidationService.checkIfEmailIsValidAndNotEmpty(userEmail)) {
-
       this.userAuthenticationService.sendEmailToResetPassword(userEmail)
-      .then(() => {
-        this.navController.navigateForward('reset-passwd-confirm');
-      })
-      .catch(error => {
-        const headerErrorMessage = 'Błąd uwierzytelniania';
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        .then(() => {
+          this.navController.navigateForward('reset-passwd-confirm');
+        })
+        .catch(error => {
+          const headerErrorMessage = 'Błąd uwierzytelniania';
+          var errorCode = error.code;
+          var errorMessage = error.message;
 
-        switch(errorCode) {
-          case('auth/internal-error'): {
-            errorMessage = 'Nieoczekiwany błąd serwera';
-            this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
-            break;
+          switch(errorCode) {
+            case('auth/internal-error'): {
+              errorMessage = 'Nieoczekiwany błąd serwera';
+              this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
+              break;
+            }
+            case('auth/invalid-email'): {
+              errorMessage ='Nieprawidłowy format adresu email';
+              this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
+              break;
+            }
+            default: {
+              errorMessage = 'Konto z podanym adresem email nie istnieje';
+              this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
+              break;
+            }
           }
-          case('auth/invalid-email'): {
-            errorMessage ='Nieprawidłowy format adresu email';
-            this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
-            break;
-          }
-          default: {
-            errorMessage = 'Konto z podanym adresem email nie istnieje';
-            this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
-            break;
-          }
-        }
-        this.navController.navigateBack('reset-password');
-      });
+          this.navController.navigateBack('reset-password');
+        });
     }
   }
 }
