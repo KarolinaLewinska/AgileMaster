@@ -47,7 +47,7 @@ ion-router-link {
     font-weight: bold;
 }
 
-.too-long-text {
+.longText {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -59,4 +59,19 @@ ion-item-option {
 
 h2 {
     font-weight: bold;
+}
+
+ion-item-option {
+    background-color: #b6bfc7;
+    border: 5px solid white;
+}
+
+#projectName {
+    color: #033860;
+    font-weight: bold;
+}
+
+ion-item {
+    --ion-background-color: #d3dee6 !important;
+    border: 5px solid white;
 }

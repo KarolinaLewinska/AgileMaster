@@ -7,7 +7,7 @@ import { AppComponent } from '../app.component';
 export class EventsValidationService {
     constructor(private appComponent: AppComponent) {}
 
-    checkIfEventsFieldsAreNotEmpty(name: string, date: string, startTime: string,duration: string,
+    checkIfEventsFieldsAreNotEmpty(name: string, date: string, startTime: string, duration: string,
         place: string, category: string) {
 
         const headerTitle = 'Pole wymagane';

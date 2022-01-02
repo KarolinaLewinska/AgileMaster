@@ -26,8 +26,8 @@
           <ion-label>
             <ion-row>
               <ion-col size="7">
-                  <h2 class="too-long-text" >{{projectData.name}}</h2>
-                  <p class="too-long-text">{{projectData.dateOfFinish}}</p>
+                  <h2 class="longText" >{{projectData.name}}</h2>
+                  <p id="date">{{projectData.dateOfFinish}}</p>
               </ion-col>
               <ion-col size="2">
                   <ion-icon [routerLink]="['/edit-project/', projectData.id]" id="editIcon" name="create-outline"></ion-icon>

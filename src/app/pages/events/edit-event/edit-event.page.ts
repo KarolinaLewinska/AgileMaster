@@ -60,11 +60,11 @@ export class EditEventPage implements OnInit {
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('events')
             .doc('category').collection(this.sharedService.setEventCategoryName(this.category)).doc(this.id).delete();
         }
-        this.appComponent.showAlertDialogWithOkButton('Edycja zadania', 'Pomyślnie zaktualizowano zadanie');
+        this.appComponent.showAlertDialogWithOkButton('Edycja spotkania', 'Pomyślnie zaktualizowano spotkanie');
         this.sharedService.navigateBackToEventsList(this.eventData.category);
       }
       catch (error) {
-        this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji zadania');
+        this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji spotkania');
       }
     }
   }
