@@ -56,9 +56,15 @@ ion-router-link {
 
 ion-item-option {
     background-color: #b6bfc7;
+    border: 5px solid white;
 }
 
 #date {
     color: #033860;
     font-weight: bold;
+}
+
+ion-item {
+    --ion-background-color: #d3dee6 !important;
+    border: 5px solid white;
 }
