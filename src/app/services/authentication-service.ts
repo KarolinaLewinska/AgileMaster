@@ -20,7 +20,8 @@ export class UserAuthenticationService {
         this.dataOfUser = user;
         localStorage.setItem('user', JSON.stringify(this.dataOfUser));
         JSON.parse(localStorage.getItem('user'));
-      } else {
+      }
+      else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
       }
@@ -35,6 +36,9 @@ export class UserAuthenticationService {
         } else {
           this.appComponent.showAlertDialogWithOkButton('Potwierdź rejestrację','Aby móc się zalogować potwierdź rejestrację');
         }
+      })
+      .catch(() => {
+        this.appComponent.showAlertDialogWithOkButton('Błąd','Wystąpił błąd podczas próby zalogowania się');
       });
   }
 

@@ -37,8 +37,8 @@ export class OtherEventsPage implements OnInit {
                 name: mapper.payload.doc.data()['name'],
                 description: mapper.payload.doc.data()['description'],
                 date: mapper.payload.doc.data()['date'].split('T')[0],
-                startTime: mapper.payload.doc.data()['startTime'].split('T')[1].substring(0, 5),
-                duration: mapper.payload.doc.data()['duration'].split('T')[1].substring(0, 5),
+                startTime: mapper.payload.doc.data()['startTime'].split('T')[1].substring(0,5),
+                duration: mapper.payload.doc.data()['duration'].split('T')[1].substring(0,5),
                 place: mapper.payload.doc.data()['place'],
                 category: mapper.payload.doc.data()['category']
               }

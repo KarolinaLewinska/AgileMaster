@@ -18,7 +18,7 @@ export class MemberDetailsPage implements OnInit {
 
   displayMemberDetails() {
     this.activatedRoute.queryParams.subscribe(params => {
-    this.memberData = params['memberData']
+      this.memberData = params['memberData']
     });
   }
 }

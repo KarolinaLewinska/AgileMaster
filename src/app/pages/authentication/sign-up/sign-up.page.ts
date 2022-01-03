@@ -23,7 +23,6 @@ export class SignUpPage implements OnInit {
   async signUpUser(userData: UserData) {
     var userEmail = userData.email;
     var userPassword = userData.password;
-
     var passwdValue = (<HTMLInputElement>document.getElementById('passwd')).value;
     var passwdConfirmValue = (<HTMLInputElement>document.getElementById('passwdConfirm')).value;
 

@@ -6,6 +6,13 @@ ion-content, ion-footer {
     font-family: 'Montserrat', -apple-system, system-ui;
 }
 
+ion-grid {
+    border-radius: 10px;
+    margin: 5%;
+    margin-top: 5%;
+    background-color: #d3dee6;
+}
+
 ion-icon {
     color:#1f252b;
 }
@@ -19,13 +26,6 @@ ion-icon {
     float: right;
     font-size: 40px;
     margin-right: 8%;
-}
-
-ion-grid {
-    border-radius: 10px;
-    margin: 5%;
-    margin-top: 5%;
-    background-color: #d3dee6;
 }
 
 #viewTitle {

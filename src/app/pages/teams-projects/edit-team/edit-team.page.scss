@@ -10,10 +10,6 @@ ion-icon {
     color:#1f252b;
 }
 
-img {
-    width: 70%;
-}
-
 ion-item {
     margin-bottom: 3%;
 }
@@ -21,6 +17,15 @@ ion-item {
 ion-input, ion-textarea, ion-datetime, ion-select {
     font-weight: bold;
     color: #1f252b;
+}
+
+ion-button {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+img {
+    width: 70%;
 }
 
 #backIcon {
@@ -31,9 +36,4 @@ ion-input, ion-textarea, ion-datetime, ion-select {
 #viewTitle {
     font-size: 18px;
     font-weight: bold;
-}
-
-ion-button {
-    font-weight: bold;
-    font-size: 16px;
 }

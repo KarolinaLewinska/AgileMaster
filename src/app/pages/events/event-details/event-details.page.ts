@@ -22,7 +22,7 @@ export class EventDetailsPage implements OnInit {
 
   displayEventDetails() {
     this.activatedRoute.queryParams.subscribe(params => {
-    this.eventData = params['eventData']
+      this.eventData = params['eventData']
     });
   }
 

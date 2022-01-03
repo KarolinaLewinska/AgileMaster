@@ -19,7 +19,7 @@ export class ProjectDetailsPage implements OnInit {
 
   displayProjectDetails() {
     this.activatedRoute.queryParams.subscribe(params => {
-    this.projectData = params['projectData']
+      this.projectData = params['projectData']
     });
   }
 }

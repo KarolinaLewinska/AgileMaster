@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import firebase from '@firebase/app-compat';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AppComponent } from '../../../app.component';
 
 @Component({
   selector: 'app-projects-teams-statistics',
@@ -8,13 +9,17 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   styleUrls: ['./projects-teams-statistics.page.scss'],
 })
 export class ProjectsTeamsStatisticsPage implements OnInit {
-  constructor(private angularFirestore: AngularFirestore) { }
-
-  currentUser = firebase.auth().currentUser;
+  constructor(
+    private angularFirestore: AngularFirestore,
+    private appComponent: AppComponent) { }
 
   allProjectsNumber: any;
   allTeamsNumber: any;
   allMembersNumber: any;
+  currentUser = firebase.auth().currentUser;
+
+  headerErrorMessage = 'Błąd danych'
+  errorMessage = 'Wystąpił błąd podczas próby pobrania danych';
 
   ngOnInit() {
     this.retrieveAllProjectsNumber();
@@ -27,7 +32,9 @@ export class ProjectsTeamsStatisticsPage implements OnInit {
       .then(data => {
       var numberOfProjects = data.size;
       this.allProjectsNumber = numberOfProjects;
-    });
+      }).catch(() => {
+        this.appComponent.showAlertDialogWithOkButton(this.headerErrorMessage, this.errorMessage);
+      });
   }
 
   async retrieveAllTeamsNumber() {
@@ -35,7 +42,10 @@ export class ProjectsTeamsStatisticsPage implements OnInit {
       .then(data => {
       var numberOfTeams = data.size;
       this.allTeamsNumber = numberOfTeams;
-    });
+      })
+      .catch(() => {
+        this.appComponent.showAlertDialogWithOkButton(this.headerErrorMessage, this.errorMessage);
+      });
   }
 
   async retrieveAllMembersNumber() {
@@ -43,6 +53,9 @@ export class ProjectsTeamsStatisticsPage implements OnInit {
       .then(data => {
       var numberOfMembers = data.size;
       this.allMembersNumber = numberOfMembers;
-    });
+      })
+      .catch(() => {
+        this.appComponent.showAlertDialogWithOkButton(this.headerErrorMessage, this.errorMessage);
+      });
   }
 }

@@ -43,8 +43,8 @@ export class TeamDetailsPage implements OnInit {
 
   displayTeamDetails() {
     this.activatedRoute.queryParams.subscribe(params => {
-    this.teamData = params['teamData']
-    this.membersData = params['membersData']
+      this.teamData = params['teamData']
+      this.membersData = params['membersData']
     });
   }
 }

@@ -29,7 +29,6 @@ export class AddTaskPage implements OnInit {
         var currentUser = firebase.auth().currentUser;
         await this.angularFirestore.collection('users').doc(currentUser.uid).collection('tasks')
           .doc('category').collection(this.setCategoryName()).add(taskData);
-
         this.appComponent.showAlertDialogWithOkButton('Dodano zadanie', 'Pomyślnie dodano zadanie');
         this.clearInputFields();
       }

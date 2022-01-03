@@ -37,7 +37,7 @@ export class EducationPage implements OnInit {
                 title: mapper.payload.doc.data()['title'],
                 description: mapper.payload.doc.data()['description'],
                 dateOfFinish: mapper.payload.doc.data()['dateOfFinish'].split('T')[0],
-                timeOfFinish: mapper.payload.doc.data()['timeOfFinish'].split('T')[1].substring(0, 5),
+                timeOfFinish: mapper.payload.doc.data()['timeOfFinish'].split('T')[1].substring(0,5),
                 priority: mapper.payload.doc.data()['priority'],
                 category: mapper.payload.doc.data()['category']
               }

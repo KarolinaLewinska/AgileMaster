@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import firebase from '@firebase/app-compat';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AppComponent } from '../../../app.component';
 
 @Component({
   selector: 'app-tasks-statistics',
@@ -9,7 +10,9 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 
 export class TasksStatisticsPage implements OnInit {
-  constructor(private angularFirestore: AngularFirestore) { }
+  constructor(
+    private angularFirestore: AngularFirestore,
+    private appComponent: AppComponent) { }
 
   currentUser = firebase.auth().currentUser;
   categoriesList: string[] = ['analysts','developmentTeam', 'productOwner', 'company','education', 'otherTasks'];
@@ -24,6 +27,9 @@ export class TasksStatisticsPage implements OnInit {
   lowPriorityTasksNumber: any;
   mediumPriorityTasksNumber: any;
   highPriorityTasksNumber: any;
+
+  headerErrorMessage = 'Błąd danych'
+  errorMessage = 'Wystąpił błąd podczas próby pobrania danych';
 
   ngOnInit() {
     this.retrieveAllTasksNumber();
@@ -47,7 +53,10 @@ export class TasksStatisticsPage implements OnInit {
           var numberOfTasks = data.size;
           totalNumber += numberOfTasks;
           this.allTasksNumber = totalNumber;
-      });
+        })
+        .catch(() => {
+          this.appComponent.showAlertDialogWithOkButton(this.headerErrorMessage, this.errorMessage);
+        });
     }
   }
 
@@ -57,7 +66,10 @@ export class TasksStatisticsPage implements OnInit {
       .then(data => {
         var numberOfTasks = data.size;
         this.analystsTasksNumber = numberOfTasks;
-    });
+      })
+      .catch(() => {
+        this.appComponent.showAlertDialogWithOkButton(this.headerErrorMessage, this.errorMessage);
+      });
   }
 
   async retrieveTasksNumberByDevelopmentTeamCategory() {
@@ -66,7 +78,10 @@ export class TasksStatisticsPage implements OnInit {
       .then(data => {
         var numberOfTasks = data.size;
         this.developmentTeamTasksNumber = numberOfTasks;
-    });
+      })
+      .catch(() => {
+        this.appComponent.showAlertDialogWithOkButton(this.headerErrorMessage, this.errorMessage);
+      });
   }
 
   async retrieveTasksNumberByProductOwnerCategory() {
@@ -75,7 +90,10 @@ export class TasksStatisticsPage implements OnInit {
       .then(data => {
         var numberOfTasks = data.size;
         this.productOwnerTasksNumber = numberOfTasks;
-    });
+      })
+      .catch(() => {
+        this.appComponent.showAlertDialogWithOkButton(this.headerErrorMessage, this.errorMessage);
+      });
   }
 
   async retrieveTasksNumberByCompanyCategory() {
@@ -84,7 +102,10 @@ export class TasksStatisticsPage implements OnInit {
       .then(data => {
         var numberOfTasks = data.size;
         this.companyTasksNumber = numberOfTasks;
-    });
+      })
+      .catch(() => {
+        this.appComponent.showAlertDialogWithOkButton(this.headerErrorMessage, this.errorMessage);
+      });
   }
 
   async retrieveTasksNumberByEducationCategory() {
@@ -93,7 +114,10 @@ export class TasksStatisticsPage implements OnInit {
       .then(data => {
         var numberOfTasks = data.size;
         this.educationTasksNumber = numberOfTasks;
-    });
+      })
+      .catch(() => {
+        this.appComponent.showAlertDialogWithOkButton(this.headerErrorMessage, this.errorMessage);
+      });
   }
 
   async retrieveOtherTasksNumberByCategory() {
@@ -102,7 +126,10 @@ export class TasksStatisticsPage implements OnInit {
       .then(data => {
         var numberOfTasks = data.size;
         this.otherTasksNumber = numberOfTasks;
-    });
+      })
+      .catch(() => {
+        this.appComponent.showAlertDialogWithOkButton(this.headerErrorMessage, this.errorMessage);
+      });
   }
 
   async retrieveTasksNumberByHighPriority() {
@@ -114,7 +141,10 @@ export class TasksStatisticsPage implements OnInit {
           var numberOfTasks = data.size;
           totalNumber += numberOfTasks;
           this.highPriorityTasksNumber = totalNumber;
-      });
+        })
+        .catch(() => {
+          this.appComponent.showAlertDialogWithOkButton(this.headerErrorMessage, this.errorMessage);
+        });
     }
   }
 
@@ -127,7 +157,10 @@ export class TasksStatisticsPage implements OnInit {
           var numberOfTasks = data.size;
           totalNumber += numberOfTasks;
           this.mediumPriorityTasksNumber = totalNumber;
-      });
+        })
+        .catch(() => {
+          this.appComponent.showAlertDialogWithOkButton(this.headerErrorMessage, this.errorMessage);
+        });
     }
   }
 
@@ -140,7 +173,10 @@ export class TasksStatisticsPage implements OnInit {
           var numberOfTasks = data.size;
           totalNumber += numberOfTasks;
           this.lowPriorityTasksNumber = totalNumber;
-      });
+        })
+        .catch(() => {
+          this.appComponent.showAlertDialogWithOkButton(this.headerErrorMessage, this.errorMessage);
+        });
     }
   }
 }

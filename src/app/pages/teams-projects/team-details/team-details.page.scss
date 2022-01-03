@@ -17,6 +17,13 @@ ion-grid {
     background-color: #d3dee6;
 }
 
+hr {
+    height: 4px;
+    width: 60%;
+    border-width: 0;
+    background-color: white;
+}
+
 #backIcon {
     font-size: 45px;
     padding-left: 8%;
@@ -37,11 +44,4 @@ ion-grid {
 #footer {
     width: 100%;
     height: 100%;
-}
-
-hr {
-    height: 4px;
-    width: 60%;
-    border-width: 0;
-    background-color: white;
 }

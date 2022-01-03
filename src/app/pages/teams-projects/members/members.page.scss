@@ -10,6 +10,28 @@ ion-icon {
     color:#1f252b;
 }
 
+ion-router-link {
+    font-weight: bold;
+}
+
+ion-item-option {
+    background-color: #b6bfc7;
+}
+
+ion-item-option {
+    background-color: #b6bfc7;
+    border: 5px solid white;
+}
+
+ion-item {
+    --ion-background-color: #d3dee6 !important;
+    border: 5px solid white;
+}
+
+h2 {
+    font-weight: bold;
+}
+
 img {
     width: 80%;
 }
@@ -38,32 +60,9 @@ img {
     margin-top: 2%;
 }
 
-ion-router-link {
-    font-weight: bold;
-}
-
 #viewTitle {
     font-size: 18px;
     font-weight: bold;
-}
-
-.longText {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-ion-item-option {
-    background-color: #b6bfc7;
-}
-
-h2 {
-    font-weight: bold;
-}
-
-ion-item-option {
-    background-color: #b6bfc7;
-    border: 5px solid white;
 }
 
 #teamName {
@@ -71,7 +70,8 @@ ion-item-option {
     font-weight: bold;
 }
 
-ion-item {
-    --ion-background-color: #d3dee6 !important;
-    border: 5px solid white;
+.longText {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

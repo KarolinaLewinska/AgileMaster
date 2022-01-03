@@ -22,7 +22,7 @@ export class TaskDetailsPage implements OnInit {
 
   displayTaskDetails() {
     this.activatedRoute.queryParams.subscribe(params => {
-    this.taskData = params['taskData']
+      this.taskData = params['taskData']
     });
   }
 

@@ -6,21 +6,8 @@ ion-content, ion-footer {
   font-family: 'Montserrat', -apple-system, system-ui;
 }
 
-#logo {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 32%;
-}
-
 ion-grid {
   margin-top: 8%;
-}
-
-img {
-  margin-top: 20%;
-  width: 60%;
 }
 
 ion-col {
@@ -32,12 +19,25 @@ ion-button {
   height: 150%;
 }
 
-.underline {
-  text-decoration: underline;
-  color: 	#505050;
+#logo {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 32%;
+}
+
+img {
+  margin-top: 20%;
+  width: 60%;
 }
 
 #footer {
   height: 62%;
   width: 100%;
+}
+
+.underline {
+  text-decoration: underline;
+  color: 	#505050;
 }

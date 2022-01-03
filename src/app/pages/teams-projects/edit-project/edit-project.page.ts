@@ -31,15 +31,14 @@ export class EditProjectPage implements OnInit {
   }
 
   async getProjectToEditData(id: string) {
-    this.angularFirestore.collection('users').doc(this.currentUser.uid)
-      .collection('projects').doc(id).valueChanges()
-        .subscribe(project => {
-          this.projectData.name = project['name'];
-          this.projectData.description = project['description'];
-          this.projectData.dateOfStart = project['dateOfStart'];
-          this.projectData.dateOfFinish = project['dateOfFinish'];
-          this.projectData.teamName = project['teamName'];
-        });
+    this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('projects').doc(id).valueChanges()
+      .subscribe(project => {
+        this.projectData.name = project['name'];
+        this.projectData.description = project['description'];
+        this.projectData.dateOfStart = project['dateOfStart'];
+        this.projectData.dateOfFinish = project['dateOfFinish'];
+        this.projectData.teamName = project['teamName'];
+      });
   }
 
   async editProject(projectData: ProjectData) {

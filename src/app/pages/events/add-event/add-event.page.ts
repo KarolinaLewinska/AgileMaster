@@ -24,13 +24,14 @@ export class AddEventPage implements OnInit {
   async addEvent(eventData: EventData) {
     if (this.eventsValidationService.checkIfEventsFieldsAreNotEmpty(this.eventData.name, this.eventData.date,
       this.eventData.startTime, this.eventData.duration, this.eventData.place, this.eventData.category)) {
-      try {
-        var currentUser = firebase.auth().currentUser;
-        await this.angularFirestore.collection('users').doc(currentUser.uid).collection('events')
-          .doc('category').collection(this.setCategoryName()).add(eventData);
 
-        this.appComponent.showAlertDialogWithOkButton('Dodano spotkanie', 'Pomyślnie dodano spotkanie');
-        this.clearInputFields();
+      try {
+      var currentUser = firebase.auth().currentUser;
+      await this.angularFirestore.collection('users').doc(currentUser.uid).collection('events')
+        .doc('category').collection(this.setCategoryName()).add(eventData);
+
+      this.appComponent.showAlertDialogWithOkButton('Dodano spotkanie', 'Pomyślnie dodano spotkanie');
+      this.clearInputFields();
       }
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby dodania spotkania');
@@ -40,7 +41,7 @@ export class AddEventPage implements OnInit {
 
   setCategoryName() {
     var nameOfCategory = "";
-    switch (this.eventData.category) {
+    switch(this.eventData.category) {
       case 'Spotkania Scrumowe':
         nameOfCategory = 'scrumMeetings';
         break;

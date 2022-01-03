@@ -20,22 +20,6 @@ ion-icon, ion-router-link {
     color:#1f252b;
 }
 
-#logOutIcon {
-    font-size: 45px;
-    padding-right: 15%;
-    float: right;
-}
-
-#menuIcon {
-    font-size: 45px;
-}
-
-#viewTitle {
-    font-size: 18px;
-    margin-bottom: 10%;
-    font-weight: bold;
-}
-
 ion-item {
     margin-bottom: 4%;
 }
@@ -49,6 +33,22 @@ ion-button {
 
 ion-router-link {
     margin-left: 32%;
+    font-weight: bold;
+}
+
+#logOutIcon {
+    font-size: 45px;
+    padding-right: 15%;
+    float: right;
+}
+
+#menuIcon {
+    font-size: 45px;
+}
+
+#viewTitle {
+    font-size: 18px;
+    margin-bottom: 10%;
     font-weight: bold;
 }
 

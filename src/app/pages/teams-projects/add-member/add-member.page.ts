@@ -25,11 +25,11 @@ export class AddMemberPage implements OnInit {
       this.memberData.email, this.memberData.phone, this.memberData.room, this.memberData.teamName)
         && this.teamsProjectsValidationService.checkIfEmailAndPhoneAreValid(this.memberData.email, this.memberData.phone)) {
 
-    try {
-      var currentUser = firebase.auth().currentUser;
-      await this.angularFirestore.collection('users').doc(currentUser.uid).collection('members').add(memberData);
-      this.appComponent.showAlertDialogWithOkButton('Dodano członka zespołu', 'Pomyślnie dodano członka zespołu');
-      this.clearInputFields();
+      try {
+        var currentUser = firebase.auth().currentUser;
+        await this.angularFirestore.collection('users').doc(currentUser.uid).collection('members').add(memberData);
+        this.appComponent.showAlertDialogWithOkButton('Dodano członka zespołu', 'Pomyślnie dodano członka zespołu');
+        this.clearInputFields();
       }
       catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby dodania członka zespołu');

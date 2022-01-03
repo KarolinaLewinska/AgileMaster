@@ -15,6 +15,11 @@ ion-input, ion-textarea, ion-datetime, ion-select {
     color: #1f252b;
 }
 
+ion-button {
+    font-weight: bold;
+    font-size: 16px;
+}
+
 img {
     width: 50%;
 }
@@ -27,9 +32,4 @@ img {
 #viewTitle {
     font-size: 18px;
     font-weight: bold;
-}
-
-ion-button {
-    font-weight: bold;
-    font-size: 16px;
 }

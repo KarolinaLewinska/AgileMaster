@@ -53,13 +53,13 @@ export class EditTaskPage implements OnInit {
         if (this.category == this.taskData.category) {
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
             .doc('category').collection(this.sharedService.setTaskCategoryName(this.category)).doc(this.id).update(taskData);
-        } else {
+        }
+        else {
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
             .doc('category').collection(this.sharedService.setTaskCategoryName(this.taskData.category)).add(taskData);
 
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
             .doc('category').collection(this.sharedService.setTaskCategoryName(this.category)).doc(this.id).delete();
-
         }
         this.appComponent.showAlertDialogWithOkButton('Edycja zadania', 'Pomyślnie zaktualizowano zadanie');
         this.sharedService.navigateBackToTasksList(this.taskData.category);

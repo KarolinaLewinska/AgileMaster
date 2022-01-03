@@ -35,12 +35,12 @@ export class ResetPasswordPage implements OnInit {
           var errorMessage = error.message;
 
           switch(errorCode) {
-            case('auth/internal-error'): {
+            case 'auth/internal-error': {
               errorMessage = 'Nieoczekiwany błąd serwera';
               this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
               break;
             }
-            case('auth/invalid-email'): {
+            case 'auth/invalid-email': {
               errorMessage ='Nieprawidłowy format adresu email';
               this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, errorMessage);
               break;

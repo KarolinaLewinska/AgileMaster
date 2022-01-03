@@ -10,6 +10,20 @@ ion-icon {
     color:#1f252b;
 }
 
+ion-router-link {
+    font-weight: bold;
+}
+
+ion-item-option {
+    background-color: #b6bfc7;
+    border: 5px solid white;
+}
+
+ion-item {
+    --ion-background-color: #d3dee6 !important;
+    border: 5px solid white;
+}
+
 img {
     width: 80%;
 }
@@ -38,12 +52,13 @@ img {
     margin-top: 2%;
 }
 
-ion-router-link {
+#viewTitle {
+    font-size: 18px;
     font-weight: bold;
 }
 
-#viewTitle {
-    font-size: 18px;
+#date {
+    color: #033860;
     font-weight: bold;
 }
 
@@ -52,19 +67,4 @@ ion-router-link {
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: bold;
-}
-
-ion-item-option {
-    background-color: #b6bfc7;
-    border: 5px solid white;
-}
-
-#date {
-    color: #033860;
-    font-weight: bold;
-}
-
-ion-item {
-    --ion-background-color: #d3dee6 !important;
-    border: 5px solid white;
 }

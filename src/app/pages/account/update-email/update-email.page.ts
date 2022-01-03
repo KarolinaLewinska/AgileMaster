@@ -26,7 +26,8 @@ export class UpdateEmailPage implements OnInit {
         .then(providers => {
           if (providers.length != 0) {
             this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Podany adres email jest przypisany do innego konta');
-          } else {
+          }
+          else {
             try {
               this.userAuthenticationService.reauthenticateAndUpdateUserEmail(currentUserPassword, newEmail);
             }

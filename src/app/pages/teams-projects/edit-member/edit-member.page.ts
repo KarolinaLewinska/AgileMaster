@@ -30,17 +30,15 @@ export class EditMemberPage implements OnInit {
   }
 
   async getMemberToEditData(id: string) {
-
-    this.angularFirestore.collection('users').doc(this.currentUser.uid)
-      .collection('members').doc(id).valueChanges()
-        .subscribe(member => {
-          this.memberData.nameAndSurname = member['nameAndSurname'];
-          this.memberData.organizationRole = member['organizationRole'];
-          this.memberData.email = member['email'];
-          this.memberData.phone = member['phone'];
-          this.memberData.room = member['room'];
-          this.memberData.teamName = member['teamName'];
-        });
+    this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('members').doc(id).valueChanges()
+      .subscribe(member => {
+        this.memberData.nameAndSurname = member['nameAndSurname'];
+        this.memberData.organizationRole = member['organizationRole'];
+        this.memberData.email = member['email'];
+        this.memberData.phone = member['phone'];
+        this.memberData.room = member['room'];
+        this.memberData.teamName = member['teamName'];
+      });
   }
 
   async editMember(memberData: MemberData) {

@@ -11,6 +11,17 @@ ion-icon {
     color:#1f252b;
 }
 
+ion-button {
+    padding-top: 2%;
+    width: 70%;
+    height: 150%;
+}
+
+ion-input {
+    font-weight: bold;
+    color: #1f252b;
+}
+
 #backIcon {
     font-size: 45px;
     padding-left: 6%;
@@ -25,12 +36,6 @@ ion-icon {
     font-weight: bold;
 }
 
-ion-button {
-    padding-top: 2%;
-    width: 70%;
-    height: 150%;
-}
-
 #inputLabel {
     text-align: left;
     margin-left: 6%;
@@ -40,9 +45,4 @@ ion-button {
 #footer {
     height:102%;
     width: 102%;
-}
-
-ion-input {
-    font-weight: bold;
-    color: #1f252b;
 }

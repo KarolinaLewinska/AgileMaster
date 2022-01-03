@@ -10,7 +10,7 @@ export class SharedService {
 
   setTaskCategoryName(category) {
     var nameOfCategory = "";
-    switch (category) {
+    switch(category) {
       case 'Analitycy':
         nameOfCategory = 'analysts';
         break;
@@ -35,7 +35,7 @@ export class SharedService {
 
   setEventCategoryName(category) {
     var nameOfCategory = "";
-    switch (category) {
+    switch(category) {
       case 'Spotkania Scrumowe':
         nameOfCategory = 'scrumMeetings';
         break;
@@ -98,7 +98,7 @@ export class SharedService {
   }
 
   navigateBackToTasksList(data) {
-    switch (data) {
+    switch(data) {
       case 'Analitycy': {
         this.navController.navigateBack('analysts');
         break;
@@ -127,7 +127,7 @@ export class SharedService {
   }
 
    navigateBackToTaskCategory(category) {
-    switch (category) {
+    switch(category) {
       case 'analysts': {
         this.navController.navigateBack('analysts');
         break;
@@ -156,7 +156,7 @@ export class SharedService {
   }
 
   navigateBackToEventsList(data) {
-    switch (data) {
+    switch(data) {
       case 'Spotkania Scrumowe': {
         this.navController.navigateBack('scrum-meetings');
         break;
