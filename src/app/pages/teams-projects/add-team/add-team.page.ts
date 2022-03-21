@@ -11,7 +11,6 @@ import { TeamData } from '../../../model/team-data';
   styleUrls: ['./add-team.page.scss'],
 })
 export class AddTeamPage implements OnInit {
-
   constructor(
     private appComponent: AppComponent,
     private angularFirestore: AngularFirestore,
@@ -29,8 +28,7 @@ export class AddTeamPage implements OnInit {
         await this.angularFirestore.collection('users').doc(currentUser.uid).collection('teams').add(teamData);
         this.appComponent.showAlertDialogWithOkButton('Dodano zespół', 'Pomyślnie dodano zespół');
         this.clearInputFields();
-      }
-      catch (error) {
+      } catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby dodania zespołu');
       }
     }

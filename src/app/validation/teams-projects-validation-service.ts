@@ -9,6 +9,7 @@ export class TeamsProjectsValidationService {
 
     checkIfTeamFieldsAreNotEmpty(name: string, projectName: string) {
         const headerTitle = 'Pole wymagane';
+
         if (!name) {
             this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Nazwa zespołu jest wymagana');
             return false;
@@ -22,6 +23,7 @@ export class TeamsProjectsValidationService {
 
     checkIfProjectFieldsAreNotEmpty(name: string, dateOfStart: string, dateOfFisnish: string, teamName: string) {
         const headerTitle = 'Pole wymagane';
+
         if (!name) {
             this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Nazwa projektu jest wymagana');
             return false;
@@ -43,8 +45,8 @@ export class TeamsProjectsValidationService {
 
     checkIfMemberFieldsAreNotEmpty(nameAndSurname: string, organizationRole: string, email: string,
         phone: string, room: string, teamName: string) {
-
         const headerTitle = 'Pole wymagane';
+
         if (!nameAndSurname) {
             this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Imię i nazwisko jest wymagane');
             return false;

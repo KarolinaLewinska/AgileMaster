@@ -29,8 +29,8 @@ export class AnalystsPage implements OnInit {
 
     try {
       this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks').doc('category')
-        .collection(this.nameOfTasksCategory, tasks => tasks.orderBy('dateOfFinish')).snapshotChanges()
-          .subscribe(tasksMapper => {
+        .collection(this.nameOfTasksCategory, tasks => tasks.orderBy('dateOfFinish'))
+          .snapshotChanges().subscribe(tasksMapper => {
             this.tasksData = tasksMapper.map(mapper => {
               return {
                 id: mapper.payload.doc.id,
@@ -43,8 +43,7 @@ export class AnalystsPage implements OnInit {
               }
             })
           });
-    }
-    catch (error) {
+    } catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia zadań');
     }
     this.appComponent.hideLoadingDialog();
@@ -63,8 +62,7 @@ export class AnalystsPage implements OnInit {
       await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
         .doc('category').collection(this.nameOfTasksCategory).doc(id).delete();
       this.appComponent.showAlertDialogWithOkButton('Usunięto zadanie', 'Pomyślnie usunięto zadanie');
-    }
-    catch (error) {
+    } catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia zadania');
     }
   }

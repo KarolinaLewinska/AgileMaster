@@ -11,7 +11,6 @@ import { ProjectData } from '../../../model/project-data';
   styleUrls: ['./add-project.page.scss'],
 })
 export class AddProjectPage implements OnInit {
-
   constructor(
     private appComponent: AppComponent,
     private angularFirestore: AngularFirestore,
@@ -30,8 +29,7 @@ export class AddProjectPage implements OnInit {
         await this.angularFirestore.collection('users').doc(currentUser.uid).collection('projects').add(projectData);
         this.appComponent.showAlertDialogWithOkButton('Dodano projekt', 'Pomyślnie dodano projekt');
         this.clearInputFields();
-      }
-      catch (error) {
+      } catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby dodania projektu');
       }
     }

@@ -9,8 +9,8 @@ export class TasksValidationService {
 
     checkIfTasksFieldsAreNotEmpty(title: string, dateOfFinish: string, timeOfFinish: string,
         priority: string, category: string) {
-
         const headerTitle = 'Pole wymagane';
+
         if (!title) {
             this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Tytuł zadania jest wymagany');
             return false;

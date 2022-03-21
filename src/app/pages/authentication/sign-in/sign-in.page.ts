@@ -28,8 +28,7 @@ export class SignInPage implements OnInit {
     if (this.authValidationService.checkIfAuthFieldsAreNotEmpty(userEmail, userPassword)) {
       try {
         await this.userAuthenticationService.signInWithEmailAndPassword(userEmail, userPassword);
-      }
-      catch (error) {
+      } catch (error) {
         const headerErrorMessage = 'Błąd uwierzytelniania';
         var errorCode = error.code;
         var errorMessage = error.message;

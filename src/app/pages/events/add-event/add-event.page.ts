@@ -11,7 +11,6 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   styleUrls: ['./add-event.page.scss'],
 })
 export class AddEventPage implements OnInit {
-
   constructor(
     private eventsValidationService: EventsValidationService,
     private appComponent: AppComponent,
@@ -26,14 +25,13 @@ export class AddEventPage implements OnInit {
       this.eventData.startTime, this.eventData.duration, this.eventData.place, this.eventData.category)) {
 
       try {
-      var currentUser = firebase.auth().currentUser;
-      await this.angularFirestore.collection('users').doc(currentUser.uid).collection('events')
-        .doc('category').collection(this.setCategoryName()).add(eventData);
+        var currentUser = firebase.auth().currentUser;
+        await this.angularFirestore.collection('users').doc(currentUser.uid).collection('events')
+          .doc('category').collection(this.setCategoryName()).add(eventData);
 
-      this.appComponent.showAlertDialogWithOkButton('Dodano spotkanie', 'Pomyślnie dodano spotkanie');
-      this.clearInputFields();
-      }
-      catch (error) {
+        this.appComponent.showAlertDialogWithOkButton('Dodano spotkanie', 'Pomyślnie dodano spotkanie');
+        this.clearInputFields();
+      } catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby dodania spotkania');
       }
     }

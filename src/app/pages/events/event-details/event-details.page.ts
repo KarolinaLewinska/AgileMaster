@@ -9,7 +9,6 @@ import { SharedService } from '../../../services/shared-service';
   styleUrls: ['./event-details.page.scss'],
 })
 export class EventDetailsPage implements OnInit {
-
   constructor(
     private activatedRoute: ActivatedRoute,
     private sharedService: SharedService) { }
@@ -27,6 +26,6 @@ export class EventDetailsPage implements OnInit {
   }
 
   navigateBackFromDetailsToList() {
-    this.sharedService.navigateBackToEventsList(this.eventData.category.valueOf())
+    this.sharedService.navigateBackToEventsList(this.eventData.category.valueOf());
   }
 }

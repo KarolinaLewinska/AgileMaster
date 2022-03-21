@@ -11,6 +11,7 @@ export class AuthValidationService {
   checkIfAuthFieldsAreNotEmpty(emailValue: string, passwdValue: string) {
     const headerTitle = 'Pola wymagane';
     const messageString = 'Wypełnij wszystkie pola';
+
     if (!emailValue) {
       this.appComponent.showAlertDialogWithOkButton(headerTitle, messageString);
       return false;
@@ -24,6 +25,7 @@ export class AuthValidationService {
 
   checkIfEmailIsValidAndNotEmpty(emailValue: string) {
     const headerTitle = 'Pole wymagane';
+
     if (emailValue == null) {
       this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Adres email jest wymagany');
       return false;
@@ -45,6 +47,7 @@ export class AuthValidationService {
 
   checkIfPasswordIsValid(passwdValue: string) {
     const headerErrorMessage = 'Nieprawidłowe hasło';
+
     if (passwdValue.length < 6 ) {
       this.appComponent.showAlertDialogWithOkButton(headerErrorMessage, 'Hasło musi zawierać co najmniej 6 znaków');
       return false;
@@ -66,6 +69,7 @@ export class AuthValidationService {
 
   checkIfEmailIsValid(emailValue: string) {
     var currentUserEmail = firebase.auth().currentUser.email;
+
     if (!emailValue) {
       this.appComponent.showAlertDialogWithOkButton('Pole wymagane', 'Podaj adres email');
       return false;

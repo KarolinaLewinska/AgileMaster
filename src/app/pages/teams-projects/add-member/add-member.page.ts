@@ -30,8 +30,7 @@ export class AddMemberPage implements OnInit {
         await this.angularFirestore.collection('users').doc(currentUser.uid).collection('members').add(memberData);
         this.appComponent.showAlertDialogWithOkButton('Dodano członka zespołu', 'Pomyślnie dodano członka zespołu');
         this.clearInputFields();
-      }
-      catch (error) {
+      } catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby dodania członka zespołu');
       }
     }

@@ -31,8 +31,8 @@ export class EditProjectPage implements OnInit {
   }
 
   async getProjectToEditData(id: string) {
-    this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('projects').doc(id).valueChanges()
-      .subscribe(project => {
+    this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('projects').doc(id)
+      .valueChanges().subscribe(project => {
         this.projectData.name = project['name'];
         this.projectData.description = project['description'];
         this.projectData.dateOfStart = project['dateOfStart'];
@@ -46,12 +46,11 @@ export class EditProjectPage implements OnInit {
       this.projectData.dateOfStart, this.projectData.dateOfFinish, this.projectData.teamName)) {
 
       try {
-        await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('projects')
-            .doc(this.id).update(projectData);
+        await this.angularFirestore.collection('users').doc(this.currentUser.uid)
+          .collection('projects').doc(this.id).update(projectData);
         this.appComponent.showAlertDialogWithOkButton('Edycja projektu', 'Pomyślnie zaktualizowano projekt');
         this.navController.navigateBack('projects');
-      }
-      catch (error) {
+      } catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji projektu');
       }
     }

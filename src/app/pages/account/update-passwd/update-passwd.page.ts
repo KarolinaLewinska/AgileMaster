@@ -26,8 +26,7 @@ export class UpdatePasswdPage implements OnInit {
 
       try {
         this.userAuthenticationService.reauthenticateAndUpdateUserPassword(oldPasswd, newPasswd);
-      }
-      catch (error) {
+      } catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby zmiany hasła');
       }
     }

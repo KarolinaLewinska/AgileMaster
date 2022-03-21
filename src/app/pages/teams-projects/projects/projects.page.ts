@@ -29,8 +29,8 @@ export class ProjectsPage implements OnInit {
     try {
       var currentUser = firebase.auth().currentUser;
       this.angularFirestore.collection('users').doc(currentUser.uid)
-        .collection('projects', projects => projects.orderBy('dateOfFinish')).snapshotChanges()
-          .subscribe(projectsMapper => {
+        .collection('projects', projects => projects.orderBy('dateOfFinish'))
+          .snapshotChanges().subscribe(projectsMapper => {
             this.projectsData = projectsMapper.map(mapper => {
               return {
                 id: mapper.payload.doc.id,
@@ -42,8 +42,7 @@ export class ProjectsPage implements OnInit {
               }
             })
           });
-    }
-    catch (error) {
+    } catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia projektów');
     }
     this.appComponent.hideLoadingDialog();
@@ -61,8 +60,7 @@ export class ProjectsPage implements OnInit {
     try {
       await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('projects').doc(id).delete();
       this.appComponent.showAlertDialogWithOkButton('Usunięto projekt', 'Pomyślnie usunięto projekt');
-    }
-    catch (error) {
+    } catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia projektu');
     }
   }

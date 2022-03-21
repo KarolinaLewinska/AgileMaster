@@ -33,8 +33,7 @@ export class SignUpPage implements OnInit {
       try {
         await this.userAuthenticationService.signUpWithEmailAndPassword(userEmail, userPassword);
         await this.userAuthenticationService.sendEmailToConfirmSignUp();
-      }
-      catch (error) {
+      } catch (error) {
         const headerErrorMessage = 'Błąd uwierzytelniania';
         var errorCode = error.code;
         var errorMessage = error.message;

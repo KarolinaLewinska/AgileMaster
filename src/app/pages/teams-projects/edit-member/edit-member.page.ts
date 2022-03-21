@@ -30,8 +30,8 @@ export class EditMemberPage implements OnInit {
   }
 
   async getMemberToEditData(id: string) {
-    this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('members').doc(id).valueChanges()
-      .subscribe(member => {
+    this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('members').doc(id)
+      .valueChanges().subscribe(member => {
         this.memberData.nameAndSurname = member['nameAndSurname'];
         this.memberData.organizationRole = member['organizationRole'];
         this.memberData.email = member['email'];
@@ -50,8 +50,7 @@ export class EditMemberPage implements OnInit {
         await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('members').doc(this.id).update(memberData);
         this.appComponent.showAlertDialogWithOkButton('Edycja członka zespołu', 'Pomyślnie zaktualizowano dane członka zespołu');
         this.navController.navigateBack('members');
-      }
-      catch (error) {
+      } catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji danych członka zespołu');
       }
     }

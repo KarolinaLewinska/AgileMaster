@@ -9,7 +9,6 @@ import firebase from '@firebase/app-compat';
   styleUrls: ['./team-details.page.scss'],
 })
 export class TeamDetailsPage implements OnInit {
-
   constructor(
     private activatedRoute: ActivatedRoute,
     private angularFirestore: AngularFirestore) { }

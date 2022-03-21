@@ -9,7 +9,6 @@ import { SharedService } from '../../../services/shared-service';
   styleUrls: ['./task-details.page.scss'],
 })
 export class TaskDetailsPage implements OnInit {
-
   constructor(
     private activatedRoute: ActivatedRoute,
     private sharedService: SharedService) { }

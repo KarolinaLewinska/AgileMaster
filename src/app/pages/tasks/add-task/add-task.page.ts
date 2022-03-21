@@ -31,8 +31,7 @@ export class AddTaskPage implements OnInit {
           .doc('category').collection(this.setCategoryName()).add(taskData);
         this.appComponent.showAlertDialogWithOkButton('Dodano zadanie', 'Pomyślnie dodano zadanie');
         this.clearInputFields();
-      }
-      catch (error) {
+      } catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby dodania zadania');
       }
     }

@@ -16,8 +16,8 @@ export class ProjectsTeamsStatisticsPage implements OnInit {
   allProjectsNumber: any;
   allTeamsNumber: any;
   allMembersNumber: any;
-  currentUser = firebase.auth().currentUser;
 
+  currentUser = firebase.auth().currentUser;
   headerErrorMessage = 'Błąd danych'
   errorMessage = 'Wystąpił błąd podczas próby pobrania danych';
 
@@ -30,8 +30,8 @@ export class ProjectsTeamsStatisticsPage implements OnInit {
   async retrieveAllProjectsNumber() {
     firebase.firestore().collection('users').doc(this.currentUser.uid).collection('projects').get()
       .then(data => {
-      var numberOfProjects = data.size;
-      this.allProjectsNumber = numberOfProjects;
+        var numberOfProjects = data.size;
+        this.allProjectsNumber = numberOfProjects;
       }).catch(() => {
         this.appComponent.showAlertDialogWithOkButton(this.headerErrorMessage, this.errorMessage);
       });
@@ -40,8 +40,8 @@ export class ProjectsTeamsStatisticsPage implements OnInit {
   async retrieveAllTeamsNumber() {
     firebase.firestore().collection('users').doc(this.currentUser.uid).collection('teams').get()
       .then(data => {
-      var numberOfTeams = data.size;
-      this.allTeamsNumber = numberOfTeams;
+        var numberOfTeams = data.size;
+        this.allTeamsNumber = numberOfTeams;
       })
       .catch(() => {
         this.appComponent.showAlertDialogWithOkButton(this.headerErrorMessage, this.errorMessage);
@@ -51,8 +51,8 @@ export class ProjectsTeamsStatisticsPage implements OnInit {
   async retrieveAllMembersNumber() {
     firebase.firestore().collection('users').doc(this.currentUser.uid).collection('members').get()
       .then(data => {
-      var numberOfMembers = data.size;
-      this.allMembersNumber = numberOfMembers;
+        var numberOfMembers = data.size;
+        this.allMembersNumber = numberOfMembers;
       })
       .catch(() => {
         this.appComponent.showAlertDialogWithOkButton(this.headerErrorMessage, this.errorMessage);

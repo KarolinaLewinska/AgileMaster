@@ -9,8 +9,8 @@ export class EventsValidationService {
 
     checkIfEventsFieldsAreNotEmpty(name: string, date: string, startTime: string,
         duration: string, place: string, category: string) {
-
         const headerTitle = 'Pole wymagane';
+
         if (!name) {
             this.appComponent.showAlertDialogWithOkButton(headerTitle, 'Nazwa spotkania jest wymagana');
             return false;

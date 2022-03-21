@@ -10,7 +10,6 @@ import { SharedService } from '../../../services/shared-service';
   styleUrls: ['./members.page.scss'],
 })
 export class MembersPage implements OnInit {
-
   constructor(
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent,
@@ -30,8 +29,8 @@ export class MembersPage implements OnInit {
     try {
       var currentUser = firebase.auth().currentUser;
       this.angularFirestore.collection('users').doc(currentUser.uid)
-        .collection('members', members => members.orderBy('nameAndSurname')).snapshotChanges()
-          .subscribe(membersMapper => {
+        .collection('members', members => members.orderBy('nameAndSurname'))
+          .snapshotChanges().subscribe(membersMapper => {
             this.membersData = membersMapper.map(mapper => {
               return {
                 id: mapper.payload.doc.id,
@@ -44,8 +43,7 @@ export class MembersPage implements OnInit {
               }
             })
           });
-    }
-    catch (error) {
+    } catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia członków zespołów');
     }
     this.appComponent.hideLoadingDialog();
@@ -63,8 +61,7 @@ export class MembersPage implements OnInit {
     try {
       await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('members').doc(id).delete();
       this.appComponent.showAlertDialogWithOkButton('Usunięto członka zespołu', 'Pomyślnie usunięto członka zespołu');
-    }
-    catch (error) {
+    } catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia członka zespołu');
     }
   }

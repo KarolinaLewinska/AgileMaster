@@ -14,9 +14,6 @@ export class TasksStatisticsPage implements OnInit {
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent) { }
 
-  currentUser = firebase.auth().currentUser;
-  categoriesList: string[] = ['analysts','developmentTeam', 'productOwner', 'company','education', 'otherTasks'];
-
   allTasksNumber: any;
   analystsTasksNumber: any;
   developmentTeamTasksNumber: any;
@@ -28,6 +25,8 @@ export class TasksStatisticsPage implements OnInit {
   mediumPriorityTasksNumber: any;
   highPriorityTasksNumber: any;
 
+  currentUser = firebase.auth().currentUser;
+  categoriesList: string[] = ['analysts','developmentTeam', 'productOwner', 'company','education', 'otherTasks'];
   headerErrorMessage = 'Błąd danych'
   errorMessage = 'Wystąpił błąd podczas próby pobrania danych';
 

@@ -33,9 +33,9 @@ export class EditTaskPage implements OnInit {
   }
 
   async getTaskToEditData(id: string) {
-    this.angularFirestore.collection('users').doc(this.currentUser.uid)
-      .collection('tasks').doc('category').collection( this.sharedService.setTaskCategoryName(this.category)).doc(id).valueChanges()
-        .subscribe(task => {
+    this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks').doc('category')
+      .collection( this.sharedService.setTaskCategoryName(this.category)).doc(id)
+        .valueChanges().subscribe(task => {
           this.taskData.title = task['title'];
           this.taskData.description = task['description'];
           this.taskData.dateOfFinish = task['dateOfFinish'];
@@ -53,24 +53,21 @@ export class EditTaskPage implements OnInit {
         if (this.category == this.taskData.category) {
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
             .doc('category').collection(this.sharedService.setTaskCategoryName(this.category)).doc(this.id).update(taskData);
-        }
-        else {
+        } else {
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
             .doc('category').collection(this.sharedService.setTaskCategoryName(this.taskData.category)).add(taskData);
-
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('tasks')
             .doc('category').collection(this.sharedService.setTaskCategoryName(this.category)).doc(this.id).delete();
         }
         this.appComponent.showAlertDialogWithOkButton('Edycja zadania', 'Pomyślnie zaktualizowano zadanie');
         this.sharedService.navigateBackToTasksList(this.taskData.category);
-      }
-      catch (error) {
+      } catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji zadania');
       }
     }
   }
 
   navigateBackFromDetailsToList() {
-    this.sharedService.navigateBackToTasksList(this.category.valueOf())
+    this.sharedService.navigateBackToTasksList(this.category.valueOf());
   }
 }

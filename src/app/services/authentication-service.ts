@@ -20,8 +20,7 @@ export class UserAuthenticationService {
         this.dataOfUser = user;
         localStorage.setItem('user', JSON.stringify(this.dataOfUser));
         JSON.parse(localStorage.getItem('user'));
-      }
-      else {
+      } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
       }

@@ -30,8 +30,8 @@ export class EditTeamPage implements OnInit {
   }
 
   async getTeamToEditData(id: string) {
-    this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('teams').doc(id).valueChanges()
-      .subscribe(team => {
+    this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('teams').doc(id)
+      .valueChanges().subscribe(team => {
         this.teamData.name = team['name'];
         this.teamData.projectName = team['projectName'];
       });
@@ -43,8 +43,7 @@ export class EditTeamPage implements OnInit {
         await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('teams').doc(this.id).update(teamData);
         this.appComponent.showAlertDialogWithOkButton('Edycja zespołu', 'Pomyślnie zaktualizowano zespół');
         this.navController.navigateBack('teams');
-      }
-      catch (error) {
+      } catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji zespołu');
       }
     }

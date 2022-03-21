@@ -9,7 +9,6 @@ import { SharedService } from '../../../services/shared-service';
   styleUrls: ['./workshops.page.scss'],
 })
 export class WorkshopsPage implements OnInit {
-
   constructor(
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent,
@@ -29,8 +28,8 @@ export class WorkshopsPage implements OnInit {
 
     try {
       this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('events').doc('category')
-        .collection(this.nameOfEventsCategory, events => events.orderBy('date')).snapshotChanges()
-          .subscribe(eventsMapper => {
+        .collection(this.nameOfEventsCategory, events => events.orderBy('date'))
+        .snapshotChanges().subscribe(eventsMapper => {
             this.eventsData = eventsMapper.map(mapper => {
               return {
                 id: mapper.payload.doc.id,
@@ -44,8 +43,7 @@ export class WorkshopsPage implements OnInit {
               }
             })
           });
-    }
-    catch (error) {
+    } catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia spotkań');
     }
     this.appComponent.hideLoadingDialog();
@@ -64,8 +62,7 @@ export class WorkshopsPage implements OnInit {
       await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('events')
         .doc('category').collection(this.nameOfEventsCategory).doc(id).delete();
       this.appComponent.showAlertDialogWithOkButton('Usunięto spotkanie', 'Pomyślnie usunięto spotkanie');
-    }
-    catch (error) {
+    } catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia spotkania');
     }
   }

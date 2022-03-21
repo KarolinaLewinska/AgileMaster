@@ -32,9 +32,9 @@ export class EditEventPage implements OnInit {
   }
 
   async getEventToEditData(id: string) {
-    this.angularFirestore.collection('users').doc(this.currentUser.uid)
-      .collection('events').doc('category').collection(this.sharedService.setEventCategoryName(this.category)).doc(id).valueChanges()
-        .subscribe(event => {
+    this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('events').doc('category')
+      .collection(this.sharedService.setEventCategoryName(this.category)).doc(id)
+        .valueChanges().subscribe(event => {
           this.eventData.name = event['name'];
           this.eventData.description = event['description'];
           this.eventData.date = event['date'];
@@ -42,7 +42,8 @@ export class EditEventPage implements OnInit {
           this.eventData.duration = event['duration'];
           this.eventData.place = event['place'];
           this.eventData.category = event['category'];
-        });
+        }
+      );
   }
 
   async editEvent(eventData: EventData) {
@@ -56,20 +57,18 @@ export class EditEventPage implements OnInit {
         } else {
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('events')
             .doc('category').collection(this.sharedService.setEventCategoryName(this.eventData.category)).add(eventData);
-
           await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('events')
             .doc('category').collection(this.sharedService.setEventCategoryName(this.category)).doc(this.id).delete();
         }
         this.appComponent.showAlertDialogWithOkButton('Edycja spotkania', 'Pomyślnie zaktualizowano spotkanie');
         this.sharedService.navigateBackToEventsList(this.eventData.category);
-      }
-      catch (error) {
+      } catch (error) {
         this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby edycji spotkania');
       }
     }
   }
 
   navigateBackFromDetailsToList() {
-    this.sharedService.navigateBackToEventsList(this.category.valueOf())
+    this.sharedService.navigateBackToEventsList(this.category.valueOf());
   }
 }

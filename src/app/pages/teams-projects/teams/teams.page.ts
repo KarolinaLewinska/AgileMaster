@@ -10,7 +10,6 @@ import { SharedService } from '../../../services/shared-service';
   styleUrls: ['./teams.page.scss'],
 })
 export class TeamsPage implements OnInit {
-
   constructor(
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent,
@@ -30,8 +29,8 @@ export class TeamsPage implements OnInit {
     try {
       var currentUser = firebase.auth().currentUser;
       this.angularFirestore.collection('users').doc(currentUser.uid)
-        .collection('teams', teams => teams.orderBy('name')).snapshotChanges()
-          .subscribe(teamsMapper => {
+        .collection('teams', teams => teams.orderBy('name'))
+          .snapshotChanges().subscribe(teamsMapper => {
             this.teamsData = teamsMapper.map(mapper => {
               return {
                 id: mapper.payload.doc.id,
@@ -40,8 +39,7 @@ export class TeamsPage implements OnInit {
               }
             })
           });
-    }
-    catch (error) {
+    } catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby wyświetlenia zespołów');
     }
     this.appComponent.hideLoadingDialog();
@@ -59,8 +57,7 @@ export class TeamsPage implements OnInit {
     try {
       await this.angularFirestore.collection('users').doc(this.currentUser.uid).collection('teams').doc(id).delete();
       this.appComponent.showAlertDialogWithOkButton('Usunięto zespół', 'Pomyślnie usunięto zespół');
-    }
-    catch (error) {
+    } catch (error) {
       this.appComponent.showAlertDialogWithOkButton('Błąd uwierzytelniania', 'Wystąpił błąd podczas próby usunięcia zespołu');
     }
   }

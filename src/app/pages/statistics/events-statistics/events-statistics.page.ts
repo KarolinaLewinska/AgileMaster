@@ -13,15 +13,14 @@ export class EventsStatisticsPage implements OnInit {
     private angularFirestore: AngularFirestore,
     private appComponent: AppComponent) { }
 
-  currentUser = firebase.auth().currentUser;
-  categoriesList: string[] = ['scrumMeetings', 'workshops', 'courses', 'otherEvents'];
-
   allEventsNumber: any;
   scrumMeetingsEventsNumber: any;
   workshopsEventsNumber: any;
   coursesEventsNumber: any;
   otherEventsNumber: any;
 
+  currentUser = firebase.auth().currentUser;
+  categoriesList: string[] = ['scrumMeetings', 'workshops', 'courses', 'otherEvents'];
   headerErrorMessage = 'Błąd danych'
   errorMessage = 'Wystąpił błąd podczas próby pobrania danych';
 
@@ -29,7 +28,7 @@ export class EventsStatisticsPage implements OnInit {
     this.retrieveAllEventsNumber();
     this.retrieveEventsNumberByScrumMeetingsCategory();
     this.retrieveEventsNumberByWorkshopCategory();
-    this.retrieveEventsNumberByCoursesCategory()
+    this.retrieveEventsNumberByCoursesCategory();
     this.retrieveOtherEventsNumber();
   }
 
