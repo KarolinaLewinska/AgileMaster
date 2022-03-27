@@ -20,7 +20,7 @@
 ![resetPassword](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/resetPassword.png)
 
 ### Menu
-![menu](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/menu.png)
+![menu](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/navMenu.png)
 
 ### Tasks
 ![tasksList](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/tasksList.png)
@@ -41,5 +41,5 @@
 ![tasksStatistics](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/tasksStatistics.png)
 
 ### Settings
-![settings](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/settings.png)
+![settingsCategories](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/settingsCategories.png)
 ![changePasswd](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/changePasswd.png)
