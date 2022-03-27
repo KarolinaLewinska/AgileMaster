@@ -11,19 +11,18 @@
 
 ## Interfaces
 ### Main Page
-![mainPage](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/mainPage.PNG)
+![mainPage](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/mainPage.png)
 
 ### Authentication
-![login](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/login.PNG)
-![register](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/register.PNG)
-![confirmRegister](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/confirmRegister.PNG)
-![resetPassword](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/resetPassword.PNG)
-![confirmResetPasswd](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/confirmResetPasswd.PNG)
+![register](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/register.png)
+![confirmRegister](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/confirmRegister.png)
+![resetPassword](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/resetPassword.png)
 
 ### Menu
 ![menu](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/menu.png)
-![tasksButtons](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/tasksButtons.png)
 ### Tasks
+![tasksButtons](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/tasksButtons.png)
+
 ### Events
 ### Projects and Teams
 ### Statistics
