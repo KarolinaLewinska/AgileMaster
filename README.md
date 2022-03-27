@@ -22,7 +22,7 @@
 
 ### Menu
 ![menu](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/menu.png)
-
+![tasksButtons](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/tasksButtons.png)
 ### Tasks
 ### Events
 ### Projects and Teams
