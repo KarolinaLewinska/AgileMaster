@@ -22,9 +22,9 @@
 ### Menu
 ![menu](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/menu.png)
 ### Tasks
+![tasksCategories](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/tasksCategories.png)
 ![tasksList](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/tasksList.png)
 ![taskAdded](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/taskAdded.png)
-
 ### Events
 ### Projects and Teams
 ### Statistics
