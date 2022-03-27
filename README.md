@@ -21,17 +21,23 @@
 
 ### Menu
 ![menu](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/menu.png)
+
 ### Tasks
 ![tasksList](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/tasksList.png)
 ![taskAdded](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/taskAdded.png)
 
 ### Events
-![eventsStatistics](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/eventsStatistics.png)
+![editEvent](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/editEvent.png)
+![eventsCategories](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/eventsCategories.png)
 
 ### Projects and Teams
 ![noProjects](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/noProjects.png)
 ![noTeams](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/noTeams.png)
 ![projectDetails](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/projectDetails.png)
+
+### Statistics
+![eventsStatistics](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/eventsStatistics.png)
+
 
 ### Settings
 ![settings](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/settings.png)
