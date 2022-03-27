@@ -10,8 +10,9 @@
 - Usage of the graphics from the [unDraw](https://undraw.co/illustrations).
 
 ## Interfaces
-### Main Page
+### Main Page and Menu
 ![mainPage](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/mainPage.png)
+![menu](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/menu.png)
 
 ### Authentication
 ![login](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/login.png)
@@ -20,7 +21,6 @@
 ![resetPassword](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/resetPassword.png)
 
 ### Menu
-![menu](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/menu.png)
 
 ### Tasks
 ![tasksList](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/tasksList.png)
@@ -38,7 +38,8 @@
 
 ### Statistics
 ![eventsStatistics](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/eventsStatistics.png)
-
+![tasksStatistics](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/tasksStatistics.png)
 
 ### Settings
 ![settings](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/settings.png)
+![changePasswd](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/changePasswd.png)
