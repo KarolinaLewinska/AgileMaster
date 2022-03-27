@@ -10,3 +10,11 @@
 - Usage of the graphics from the [unDraw](https://undraw.co/illustrations).
 
 ## Interfaces
+### Main Page
+### Authentication
+### Tasks
+### Events
+### Projects and Teams
+### Statistics
+### Settings
+
