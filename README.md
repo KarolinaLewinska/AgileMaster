@@ -34,6 +34,7 @@
 ![noProjects](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/noProjects.png)
 ![noTeams](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/noTeams.png)
 ![projectDetails](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/projectDetails.png)
+![addMember](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/addMember.png)
 
 ### Statistics
 ![eventsStatistics](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/eventsStatistics.png)
