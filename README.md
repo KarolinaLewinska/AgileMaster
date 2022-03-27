@@ -11,10 +11,10 @@
 
 ## Interfaces
 ### Main Page
+![mainPage](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/mainPage.png)
+
 ### Authentication
 ### Tasks
-![tasksButtons](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/tasksButtons.png)
-![addTask](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/addTask.PNG)
 ### Events
 ### Projects and Teams
 ### Statistics
