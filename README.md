@@ -13,7 +13,7 @@
 ### Main Page
 ### Authentication
 ### Tasks
-![tasksButtons](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/Tasks/tasksButtons.png)
+![tasksButtons](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/tasksButtons.png)
 ### Events
 ### Projects and Teams
 ### Statistics
