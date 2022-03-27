@@ -14,6 +14,15 @@
 ![mainPage](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/mainPage.PNG)
 
 ### Authentication
+![login](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/login.PNG)
+![register](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/register.PNG)
+![confirmRegister](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/confirmRegister.PNG)
+![resetPassword](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/resetPassword.PNG)
+![confirmResetPasswd](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/confirmResetPasswd.PNG)
+
+### Menu
+![menu](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/menu.PNG)
+
 ### Tasks
 ### Events
 ### Projects and Teams
