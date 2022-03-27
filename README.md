@@ -8,3 +8,5 @@
 - Authentication services and settings,
 - Validation services,
 - Usage of the graphics from the [unDraw](https://undraw.co/illustrations).
+
+## Interfaces
