@@ -14,6 +14,12 @@
 ### Authentication
 ### Tasks
 ![addTask](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/Tasks/addTask.png)
+![editTask](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/Tasks/editTask.png)
+![removeTask](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/Tasks/removeTask.png)
+![taskAdded](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/Tasks/taskAdded.png)
+![taskDetails](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/Tasks/taskDetails.png)
+![tasksButtons](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/Tasks/tasksButtons.png)
+![tasksList](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/Tasks/tasksList.png)
 ### Events
 ### Projects and Teams
 ### Statistics
