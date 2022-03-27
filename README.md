@@ -11,7 +11,7 @@
 
 ## Interfaces
 ### Main Page
-![mainPage](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/mainPage.png)
+![mainPage](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/mainPage.PNG)
 
 ### Authentication
 ### Tasks
