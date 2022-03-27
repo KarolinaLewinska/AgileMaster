@@ -10,17 +10,15 @@
 - Usage of the graphics from the [unDraw](https://undraw.co/illustrations).
 
 ## Interfaces
-### Main Page
+### Main Page and Menu
 ![mainPage](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/mainPage.png)
+![menu](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/navMenu.png)
 
 ### Authentication
 ![login](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/login.png)
 ![register](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/register.png)
 ![confirmRegister](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/confirmRegister.png)
 ![resetPassword](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/resetPassword.png)
-
-### Menu
-![menu](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/navMenu.png)
 
 ### Tasks
 ![tasksList](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/tasksList.png)
