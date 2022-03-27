@@ -22,7 +22,6 @@
 ### Menu
 ![menu](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/menu.png)
 ### Tasks
-![tasksButtons](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/tasksButtons.png)
 ![tasksList](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/tasksList.png)
 ![taskAdded](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/taskAdded.png)
 
