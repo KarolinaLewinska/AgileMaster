@@ -13,6 +13,7 @@
 ### Main Page
 ### Authentication
 ### Tasks
+![addTask](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/Tasks/addTask.png)
 ### Events
 ### Projects and Teams
 ### Statistics
