@@ -21,7 +21,7 @@
 ![confirmResetPasswd](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/confirmResetPasswd.PNG)
 
 ### Menu
-![menu](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/menu.PNG)
+![menu](https://github.com/KarolinaLewinska/AgileMaster/blob/master/Interfaces/menu.png)
 
 ### Tasks
 ### Events
